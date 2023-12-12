@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "A21DAEB8-2B08-4286-B2FE-82552A5C63BD"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5A4074B5-DBBE-4A53-B5F1-441B4B773A44"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Model/Anchor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "init(timestamp:latitude:longitude:radius:log:vessel:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B97D6B55-F837-42CE-A8A1-E62CE6E7E442"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnchorWatch2/View/MeasurementEditor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "init(_:measurement:range:step:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B97D6B55-F837-42CE-A8A1-E62CE6E7E442 - c3107e7c5c7012f6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AnchorWatch2.MeasurementEditor.init(_: Swift.String, measurement: SwiftUI.Binding&lt;Foundation.Measurement&lt;__C.NSUnitLength&gt;&gt;, range: Swift.ClosedRange&lt;Swift.Double&gt;, step: Swift.Double) -&gt; AnchorWatch2.MeasurementEditor"
+                  moduleName = "AnchorWatch2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pietro/Documents/AnchorWatch2/AnchorWatch2/View/MeasurementEditor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "916">
+               </Location>
+               <Location
+                  uuid = "B97D6B55-F837-42CE-A8A1-E62CE6E7E442 - c3107e7c5c701317"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AnchorWatch2.MeasurementEditor.init(_: Swift.String, measurement: SwiftUI.Binding&lt;Foundation.Measurement&lt;__C.NSUnitLength&gt;&gt;, range: Swift.ClosedRange&lt;Swift.Double&gt;, step: Swift.Double) -&gt; AnchorWatch2.MeasurementEditor"
+                  moduleName = "AnchorWatch2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pietro/Documents/AnchorWatch2/AnchorWatch2/View/MeasurementEditor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "732">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
