@@ -14,12 +14,12 @@ class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions
                      launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-        let tracker = VesselTracker.shared
-    
-        // If location updates were previously active, restart them after the background launch.
-        if tracker.isTracking {
-            tracker.restart() // not sure if the tracker will still have the trackedVessel
-        }
+
+//        let isTracking: Bool = UserDefaults.standard.bool(forKey: "isTracking")
+//        if( isTracking ) {
+//            
+//        }
+
 
         return true
     }

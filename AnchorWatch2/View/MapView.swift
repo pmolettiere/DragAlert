@@ -27,7 +27,7 @@ struct MapView: View {
                     // vessel.toggleAnchor()
                 }
                 .sheet(isPresented: $showAnchorUI, content: {
-                    AnchoringView(vessel: vessel, anchor: $vessel.lastAnchor, willShow: $showAnchorUI)
+                    AnchoringView(vessel: vessel, willShow: $showAnchorUI)
                 })
             }
             Map() {
@@ -53,15 +53,6 @@ struct MapView: View {
                 }
             }
         }
-    }
-}
-
-extension CLLocationCoordinate2D {
-    /// Calculates a value that's proportional to the distance between two points.
-    func distance(to coordinate: CLLocationCoordinate2D) -> Double {
-        simd.distance(
-            SIMD2<Double>(x: latitude, y: longitude),
-            SIMD2<Double>(x: coordinate.latitude, y: coordinate.longitude))
     }
 }
 

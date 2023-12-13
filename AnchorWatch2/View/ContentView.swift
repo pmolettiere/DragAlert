@@ -15,7 +15,7 @@ struct ContentView: View {
         if let myVessel = m.myVessel {
             MapView(vessel: myVessel)
         } else {
-            Text("No vessel to track.")
+            SetupVesselView()
         }
     }
 }

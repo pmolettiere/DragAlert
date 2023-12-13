@@ -4,7 +4,7 @@
 //
 //  Created by Peter Molettiere on 12/6/23.
 //
-
+/*
 import Foundation
 import MapKit
 
@@ -116,3 +116,4 @@ class Compass {
     var latitude = 0.0
     var longitude = 0.0
 }
+*/

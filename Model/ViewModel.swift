@@ -11,12 +11,14 @@ import SwiftUI
 @MainActor
 @Observable class ViewModel {
     var container: ModelContainer
+    var locationDelegate: LocationDelegate
     
     var myVessel: Vessel?
     var lastAnchor: Anchor = Anchor.new()
     
     init(_ container: ModelContainer) {
         self.container = container
+        self.locationDelegate = LocationDelegate()
         initMyVessel()
     }
     
@@ -27,14 +29,11 @@ import SwiftUI
         fd.includePendingChanges = true
         
         do {
-            var myVessel = try context.fetch(fd).first
-            if( myVessel == nil ) {
-                myVessel = Vessel.new()
-                context.insert(myVessel!)
+            if let myVessel = try context.fetch(fd).first {
+                self.myVessel = myVessel
+                self.myVessel?.startTrackingLocation()
+                lastAnchor = initLastAnchor()
             }
-            self.myVessel = myVessel!
-            lastAnchor = initLastAnchor()
-            VesselTracker.shared.track(vessel: myVessel!)
         } catch {
             fatalError("Could not retrieve or create own vessel: \(error)")
         }

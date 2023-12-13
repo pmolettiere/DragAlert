@@ -7,63 +7,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5A4074B5-DBBE-4A53-B5F1-441B4B773A44"
+            uuid = "9C9610DA-5765-4E13-B080-0DD5FC05D580"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Model/Anchor.swift"
+            filePath = "Model/ViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "init(timestamp:latitude:longitude:radius:log:vessel:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B97D6B55-F837-42CE-A8A1-E62CE6E7E442"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AnchorWatch2/View/MeasurementEditor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "init(_:measurement:range:step:)"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "initMyVessel()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "B97D6B55-F837-42CE-A8A1-E62CE6E7E442 - c3107e7c5c7012f6"
+                  uuid = "9C9610DA-5765-4E13-B080-0DD5FC05D580 - fcf9366c8e840b19"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "AnchorWatch2.MeasurementEditor.init(_: Swift.String, measurement: SwiftUI.Binding&lt;Foundation.Measurement&lt;__C.NSUnitLength&gt;&gt;, range: Swift.ClosedRange&lt;Swift.Double&gt;, step: Swift.Double) -&gt; AnchorWatch2.MeasurementEditor"
+                  symbolName = "AnchorWatch2.ViewModel.initMyVessel() -&gt; ()"
                   moduleName = "AnchorWatch2"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pietro/Documents/AnchorWatch2/AnchorWatch2/View/MeasurementEditor.swift"
+                  urlString = "file:///Users/pietro/Documents/AnchorWatch2/Model/ViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "23"
-                  endingLineNumber = "23"
-                  offsetFromSymbolStart = "916">
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "1128">
                </Location>
                <Location
-                  uuid = "B97D6B55-F837-42CE-A8A1-E62CE6E7E442 - c3107e7c5c701317"
+                  uuid = "9C9610DA-5765-4E13-B080-0DD5FC05D580 - fcf9366c8e840b78"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "AnchorWatch2.MeasurementEditor.init(_: Swift.String, measurement: SwiftUI.Binding&lt;Foundation.Measurement&lt;__C.NSUnitLength&gt;&gt;, range: Swift.ClosedRange&lt;Swift.Double&gt;, step: Swift.Double) -&gt; AnchorWatch2.MeasurementEditor"
+                  symbolName = "AnchorWatch2.ViewModel.initMyVessel() -&gt; ()"
                   moduleName = "AnchorWatch2"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pietro/Documents/AnchorWatch2/AnchorWatch2/View/MeasurementEditor.swift"
+                  urlString = "file:///Users/pietro/Documents/AnchorWatch2/Model/ViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "732">
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "1240">
                </Location>
             </Locations>
          </BreakpointContent>

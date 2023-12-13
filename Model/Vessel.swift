@@ -100,22 +100,6 @@ extension Vessel {
         get { CLLocationCoordinate2D(latitude: latitude, longitude: longitude) }
         set { latitude = newValue.latitude; longitude = newValue.longitude }
     }
-    
-    func update(_ location: CLLocation) {
-        latitude = location.coordinate.latitude
-        longitude = location.coordinate.longitude
-        if( isAnchored ) {
-            if let currentAnchor = anchors?.last {
-                currentAnchor.update(log: AnchorLog(location))
-            } else {
-                print("Failed to update anchor, because it's missing!")
-            }
-        }
-    }
-    
-    func toggleAnchor() {
-        isAnchored.toggle()
-    }
 }
 
 extension Vessel {

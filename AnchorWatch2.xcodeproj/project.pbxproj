@@ -22,13 +22,14 @@
 		9A0D79C32B20C26200E83F11 /* VesselTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D79C22B20C26200E83F11 /* VesselTracker.swift */; };
 		9A0D79C62B20CAF300E83F11 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D79C52B20CAF300E83F11 /* MapView.swift */; };
 		9A0D79C82B20D7D200E83F11 /* VesselMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D79C72B20D7D100E83F11 /* VesselMarker.swift */; };
+		9A740C992B2902C400A5C03D /* LocationNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A740C982B2902C400A5C03D /* LocationNotifications.swift */; };
 		9ACA94512B2121E600BA73D3 /* AnchoringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA94502B2121E600BA73D3 /* AnchoringView.swift */; };
 		9ACA94552B23C85E00BA73D3 /* AnchorMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA94542B23C85E00BA73D3 /* AnchorMarker.swift */; };
 		9ACA94582B24A38C00BA73D3 /* AQUI in Frameworks */ = {isa = PBXBuildFile; productRef = 9ACA94572B24A38C00BA73D3 /* AQUI */; };
 		9ACA945A2B24B8DE00BA73D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA94592B24B8DE00BA73D3 /* ContentView.swift */; };
 		9ACA945C2B24BC8800BA73D3 /* SetupVesselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA945B2B24BC8800BA73D3 /* SetupVesselView.swift */; };
 		9ACA945E2B25EE6300BA73D3 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA945D2B25EE6300BA73D3 /* Format.swift */; };
-		9ACA94602B27B08800BA73D3 /* MeasurementEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA945F2B27B08800BA73D3 /* MeasurementEditor.swift */; };
+		9ACA94602B27B08800BA73D3 /* DistanceEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA945F2B27B08800BA73D3 /* DistanceEditor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,12 +70,13 @@
 		9A0D79C22B20C26200E83F11 /* VesselTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VesselTracker.swift; sourceTree = "<group>"; };
 		9A0D79C52B20CAF300E83F11 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		9A0D79C72B20D7D100E83F11 /* VesselMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VesselMarker.swift; sourceTree = "<group>"; };
+		9A740C982B2902C400A5C03D /* LocationNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotifications.swift; sourceTree = "<group>"; };
 		9ACA94502B2121E600BA73D3 /* AnchoringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchoringView.swift; sourceTree = "<group>"; };
 		9ACA94542B23C85E00BA73D3 /* AnchorMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorMarker.swift; sourceTree = "<group>"; };
 		9ACA94592B24B8DE00BA73D3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9ACA945B2B24BC8800BA73D3 /* SetupVesselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupVesselView.swift; sourceTree = "<group>"; };
 		9ACA945D2B25EE6300BA73D3 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
-		9ACA945F2B27B08800BA73D3 /* MeasurementEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementEditor.swift; sourceTree = "<group>"; };
+		9ACA945F2B27B08800BA73D3 /* DistanceEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceEditor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 			children = (
 				9A0D79BE2B20BD8E00E83F11 /* LocationDelegate.swift */,
 				9A0D79C22B20C26200E83F11 /* VesselTracker.swift */,
+				9A740C982B2902C400A5C03D /* LocationNotifications.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -195,7 +198,7 @@
 				9ACA94592B24B8DE00BA73D3 /* ContentView.swift */,
 				9ACA945B2B24BC8800BA73D3 /* SetupVesselView.swift */,
 				9ACA945D2B25EE6300BA73D3 /* Format.swift */,
-				9ACA945F2B27B08800BA73D3 /* MeasurementEditor.swift */,
+				9ACA945F2B27B08800BA73D3 /* DistanceEditor.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				9A0D79862B20BC3500E83F11 /* AnchorWatch2App.swift in Sources */,
 				9A0D79C82B20D7D200E83F11 /* VesselMarker.swift in Sources */,
 				9ACA94552B23C85E00BA73D3 /* AnchorMarker.swift in Sources */,
+				9A740C992B2902C400A5C03D /* LocationNotifications.swift in Sources */,
 				9A0D79BA2B20BD0700E83F11 /* ViewModel.swift in Sources */,
 				9A0D79C32B20C26200E83F11 /* VesselTracker.swift in Sources */,
 				9A0D79C12B20C07300E83F11 /* AppDelegate.swift in Sources */,
@@ -351,7 +355,7 @@
 				9ACA945A2B24B8DE00BA73D3 /* ContentView.swift in Sources */,
 				9A0D79C62B20CAF300E83F11 /* MapView.swift in Sources */,
 				9A0D79BB2B20BD0700E83F11 /* Vessel.swift in Sources */,
-				9ACA94602B27B08800BA73D3 /* MeasurementEditor.swift in Sources */,
+				9ACA94602B27B08800BA73D3 /* DistanceEditor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

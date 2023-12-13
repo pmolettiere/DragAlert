@@ -13,36 +13,31 @@ struct SetupVesselView : View {
     @Environment(ViewModel.self) private var viewModel
     @Environment(\.modelContext) private var modelContext
 
-    @State var newVessel: Vessel
+    @State var vesselName: String = ""
+    @State var loa: Measurement<UnitLength> = Measurement(value: 40, unit: UnitLength.feet)
+    @State var latitude: Double = 0
+    @State var longitude: Double = 0
         
-    init() {
-        self.newVessel = Vessel(uuid: UUID(), name: "", loaMeters: 14, latitude: 0.0, longitude: 0.0, isAnchored: false, anchor: [])
-    }
-
     var body: some View {
         Form {
-            Section(header: Text("Configure Your Vessel")) {
-                HStack {
-                    Text("Vessel Name")
-                    Spacer()
-                    TextField("Vessel Name", text: $newVessel.name )
-                        .padding(10)
-                }
-                
-                MeasurementEditor("LOA", measurement: $newVessel.loa, range: 0...125, step: 1)
+            HStack {
+                Text("Vessel Name")
+                Spacer()
+                TextField("Vessel Name", text: $vesselName )
+                    .padding(10)
+            }
+            DistanceEditor("LOA", measurement: $loa)
+            Text("Latitude: \(latitude)")
+            Text("Latitude: \(latitude)")
+            Button {
+                let v = Vessel(uuid: UUID(), name: vesselName, loaMeters: loa.converted(to: UnitLength.meters).value, latitude: latitude, longitude: longitude, isAnchored: false, anchor: [])
+                modelContext.insert(v)
+                viewModel.initMyVessel()
+                v.startTrackingLocation()
+            } label: {
+                Text("Add Vessel")
             }
         }
-                        
-        Button {
-//                newVessel.coordinate = locationsHandler.lastLocation.coordinate
-//                modelContext.insert(newVessel)
-//                viewModel.update(modelContext: modelContext)
-//                LocationsHandler.shared.bind(to: newVessel)
-//                viewModel.myVessel = newVessel
-        } label: {
-            Text("Add Vessel")
-        }
-        
     }
 }
 
