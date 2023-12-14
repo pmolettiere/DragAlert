@@ -14,7 +14,7 @@ struct AnchoringView: View {
 
     var vessel: Vessel
     var willShow: Binding<Bool>
-    var gps: LocationObservationDelegate = LocationObservationDelegate()
+    var gps: LocationObserver = LocationObserver()
     
     @State var tabSelection: Int?
     @State var rodeLength: Measurement<UnitLength> = Measurement(value: 0, unit: UnitLength.feet)
@@ -48,17 +48,13 @@ struct AnchoringView: View {
         let anchorRadius = Measurement(value: rodeLength.value + vessel.loaMeters, unit: UnitLength.meters)
         let newAnchor = Anchor(timestamp: Date.now, latitude: latitude, longitude: longitude, radius: anchorRadius, log: [], vessel: self.vessel)
         vessel.anchor = newAnchor
-//        do { try modelContext.save() }
-//        catch {
-//            print("Failed to save modelContext.");
-//        }
         vessel.isAnchored = true
         willShow.wrappedValue = false
     }
     
     struct RelativeView: View {
         @State var distance: Measurement<UnitLength> = Measurement<UnitLength>(value: 0, unit: UnitLength.feet)
-        var gps: LocationObservationDelegate
+        var gps: LocationObserver
         var action: (CLLocationCoordinate2D) -> ()
         var measuredRadiusState: Binding<Measurement<UnitLength>>
         
@@ -109,7 +105,7 @@ struct AnchoringView: View {
     }
     
     struct CurrentView: View {
-        var gps: LocationObservationDelegate
+        var gps: LocationObserver
         var action: (CLLocationCoordinate2D) -> ()
         var measuredRadiusState: Binding<Measurement<UnitLength>>
         

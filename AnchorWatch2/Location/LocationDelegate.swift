@@ -20,6 +20,9 @@ class LocationDelegate : NSObject, CLLocationManagerDelegate {
         self.manager = CLLocationManager()
         super.init()
         manager.delegate = self
+        manager.allowsBackgroundLocationUpdates = true
+        manager.showsBackgroundLocationIndicator = true
+        print("LocationDelegate.init() called.")
     }
     
     @Published

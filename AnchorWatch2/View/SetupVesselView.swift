@@ -16,7 +16,7 @@ struct SetupVesselView : View {
 
     @State var vesselName: String = ""
     @State var loa: Measurement<UnitLength> = Measurement(value: 40, unit: UnitLength.feet)
-    @State var gps: LocationObservationDelegate = LocationObservationDelegate()
+    @State var gps: LocationObserver = LocationObserver()
     
     var body: some View {
         Form {
