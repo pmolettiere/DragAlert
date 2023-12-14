@@ -9,7 +9,7 @@ import Foundation
 import MapKit
 
 @Observable
-class LocationObservationDelegate {
+class LocationObserver {
     var latitude: Double = 0
     var longitude: Double = 0
     var heading: Double = 0

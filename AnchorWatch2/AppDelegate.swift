@@ -15,11 +15,15 @@ class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions
                      launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
 
-//        let isTracking: Bool = UserDefaults.standard.bool(forKey: "isTracking")
-//        if( isTracking ) {
-//            
-//        }
+        let isTrackingLocation: Bool = UserDefaults.standard.bool(forKey: "isTrackingLocation")
+        if( isTrackingLocation ) {
+            LocationDelegate.instance.isTrackingLocation = true
+        }
 
+        let isTrackingHeading: Bool = UserDefaults.standard.bool(forKey: "isTrackingHeading")
+        if( isTrackingHeading ) {
+            LocationDelegate.instance.isTrackingHeading = true
+        }
 
         return true
     }

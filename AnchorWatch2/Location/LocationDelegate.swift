@@ -11,6 +11,8 @@ import simd
 
 class LocationDelegate : NSObject, CLLocationManagerDelegate {
     
+    static let instance = LocationDelegate()
+    
     private let manager: CLLocationManager
     private var background: CLBackgroundActivitySession?
 

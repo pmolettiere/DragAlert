@@ -16,7 +16,7 @@ import SwiftUI
     
     init(_ container: ModelContainer) {
         self.container = container
-        self.locationDelegate = LocationDelegate()
+        self.locationDelegate = LocationDelegate.instance
     }
     
     func initMyVessel() {
