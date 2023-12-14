@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import SwiftData
+import MapKit
 
 struct SetupVesselView : View {
     @Environment(ViewModel.self) private var viewModel
@@ -15,11 +16,12 @@ struct SetupVesselView : View {
 
     @State var vesselName: String = ""
     @State var loa: Measurement<UnitLength> = Measurement(value: 40, unit: UnitLength.feet)
-    @State var latitude: Double = 0
-    @State var longitude: Double = 0
-        
+    @State var gps: LocationObservationDelegate = LocationObservationDelegate()
+    
     var body: some View {
         Form {
+            Text("Setup Your Vessel").font(.headline).padding()
+            
             HStack {
                 Text("Vessel Name")
                 Spacer()
@@ -27,10 +29,10 @@ struct SetupVesselView : View {
                     .padding(10)
             }
             DistanceEditor("LOA", measurement: $loa)
-            Text("Latitude: \(latitude)")
-            Text("Latitude: \(latitude)")
+            Text("Latitude: \(gps.latitude)")
+            Text("Longitude: \(gps.longitude)")
             Button {
-                let v = Vessel(uuid: UUID(), name: vesselName, loaMeters: loa.converted(to: UnitLength.meters).value, latitude: latitude, longitude: longitude, isAnchored: false, anchor: [])
+                let v = Vessel(uuid: UUID(), name: vesselName, loaMeters: loa.converted(to: UnitLength.meters).value, latitude: gps.latitude, longitude: gps.longitude, isAnchored: false, anchor: nil)
                 modelContext.insert(v)
                 viewModel.initMyVessel()
                 v.startTrackingLocation()
@@ -38,6 +40,12 @@ struct SetupVesselView : View {
                 Text("Add Vessel")
             }
         }
+        .onAppear(perform: {
+            gps.isTrackingLocation = true
+        })
+        .onDisappear(perform: {
+            gps.isTrackingLocation = false
+        })
     }
 }
 

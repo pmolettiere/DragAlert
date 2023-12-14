@@ -7,47 +7,222 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9C9610DA-5765-4E13-B080-0DD5FC05D580"
+            uuid = "BEA6B6E8-D0F8-4C47-B917-4755801DE3F0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnchorWatch2/Location/LocationDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "isTrackingLocation"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "BEA6B6E8-D0F8-4C47-B917-4755801DE3F0 - 82e77ebdd2a9e547"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AnchorWatch2.LocationDelegate.isTracking.didset : Swift.Bool"
+                  moduleName = "AnchorWatch2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pietro/Documents/AnchorWatch2/AnchorWatch2/Location/LocationDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "292">
+               </Location>
+               <Location
+                  uuid = "BEA6B6E8-D0F8-4C47-B917-4755801DE3F0 - aa1c1660d8d20d40"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AnchorWatch2.LocationDelegate.isTrackingLocation.didset : Swift.Bool"
+                  moduleName = "AnchorWatch2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pietro/Documents/AnchorWatch2/AnchorWatch2/Location/LocationDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "292">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BB3AA071-F6BE-4BF1-979E-BAFFA48D5CC6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnchorWatch2/Location/LocationDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "locationManagerDidChangeAuthorization(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9EAC3DA0-C53B-444D-835B-55A2B7BE0957"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnchorWatch2/View/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "72EEF844-82AF-4F13-BEC1-CED404082003"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Model/ViewModel.swift"
+            filePath = "AnchorWatch2/View/SetupView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "initMyVessel()"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0A701402-5571-4AF4-A965-D813256BB46F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnchorWatch2/Location/LocationObservationDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "locationDidUpdate(notification:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F17C64BA-93D2-4AC0-A4FC-6AFE4759174A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnchorWatch2/AlarmPlayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "startPlaying()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "9C9610DA-5765-4E13-B080-0DD5FC05D580 - fcf9366c8e840b19"
+                  uuid = "F17C64BA-93D2-4AC0-A4FC-6AFE4759174A - 5cbfa345aa288cc7"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "AnchorWatch2.ViewModel.initMyVessel() -&gt; ()"
+                  symbolName = "AnchorWatch2.AlarmPlayer.startPlaying() -&gt; ()"
                   moduleName = "AnchorWatch2"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pietro/Documents/AnchorWatch2/Model/ViewModel.swift"
+                  urlString = "file:///Users/pietro/Documents/AnchorWatch2/AnchorWatch2/AlarmPlayer.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "1128">
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "336">
                </Location>
                <Location
-                  uuid = "9C9610DA-5765-4E13-B080-0DD5FC05D580 - fcf9366c8e840b78"
+                  uuid = "F17C64BA-93D2-4AC0-A4FC-6AFE4759174A - 5cbfa345aa288cc7"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "AnchorWatch2.ViewModel.initMyVessel() -&gt; ()"
+                  symbolName = "AnchorWatch2.AlarmPlayer.startPlaying() -&gt; ()"
                   moduleName = "AnchorWatch2"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pietro/Documents/AnchorWatch2/Model/ViewModel.swift"
+                  urlString = "file:///Users/pietro/Documents/AnchorWatch2/AnchorWatch2/AlarmPlayer.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "1240">
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "408">
+               </Location>
+               <Location
+                  uuid = "F17C64BA-93D2-4AC0-A4FC-6AFE4759174A - 5cbfa345aa2892a8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AnchorWatch2.AlarmPlayer.startPlaying() -&gt; ()"
+                  moduleName = "AnchorWatch2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pietro/Documents/AnchorWatch2/AnchorWatch2/AlarmPlayer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B7F0C04E-1961-4144-A4FC-2D1510133DEC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Model/Anchor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "contains(location:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B7F0C04E-1961-4144-A4FC-2D1510133DEC - 295b9b30a0e771c3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AnchorWatch2.Anchor.contains(location: __C.CLLocation) -&gt; Swift.Bool"
+                  moduleName = "AnchorWatch2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pietro/Documents/AnchorWatch2/Model/Anchor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  uuid = "B7F0C04E-1961-4144-A4FC-2D1510133DEC - 295b9b30a0e771c3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AnchorWatch2.Anchor.contains(location: __C.CLLocation) -&gt; Swift.Bool"
+                  moduleName = "AnchorWatch2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pietro/Documents/AnchorWatch2/Model/Anchor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "64">
                </Location>
             </Locations>
          </BreakpointContent>

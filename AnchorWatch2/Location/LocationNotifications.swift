@@ -22,7 +22,7 @@ enum LocationNotifications: String {
 }
 
 struct LocationAuthStatusNotification {
-    let isAuthorized: Bool
+    let authStatus: CLAuthorizationStatus
 }
 
 struct LocationFailure {

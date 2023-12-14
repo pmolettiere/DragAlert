@@ -14,11 +14,10 @@ struct DistanceEditor : View {
     var label: String
     @State var model: DistanceEditorModel
     
-    init(_ label: String, measurement: Binding<Measurement<UnitLength>>) {
+    init(_ label: String, measurement: Binding<Measurement<UnitLength>>, max: Measurement<UnitLength>? = nil) {
         self.label = label
-        self.model = DistanceEditorModel(measurement)
+        self.model = DistanceEditorModel(measurement, max: max)
     }
-    
     
     var body: some View {
         VStack {
@@ -69,19 +68,16 @@ class DistanceEditorModel {
     }
     var range: ClosedRange<Double>
     var step: Double
+    var max: Measurement<UnitLength>?
     
-    init(_ measurement:Binding<Measurement<UnitLength>>) {
+    init(_ measurement:Binding<Measurement<UnitLength>>, max: Measurement<UnitLength>?) {
         binding = measurement
         value = measurement.wrappedValue.value
         unit = measurement.wrappedValue.unit
-        switch measurement.wrappedValue.unit {
-        case UnitLength.feet :
-            range = constants[0].range
-            step = constants[0].step
-        default :
-            range = constants[1].range
-            step = constants[1].step
-        }
+        self.max = max
+        range = constants[0].range
+        step = constants[1].step
+        setRangeStep(unit: unit)
     }
     
     func setRangeStep(unit: UnitLength) {
@@ -92,6 +88,9 @@ class DistanceEditorModel {
         default :
             range = constants[1].range
             step = constants[1].step
+        }
+        if let m = max {
+            range = 0...m.converted(to: unit).value
         }
     }
     

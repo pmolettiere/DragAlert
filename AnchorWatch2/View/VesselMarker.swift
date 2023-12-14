@@ -15,19 +15,18 @@ struct VesselMarker: MapContent {
     var body: some MapContent {
         Annotation(coordinate: vessel.coordinate ) {
             ZStack {
-                Image(systemName: "sailboat.circle")
-//                Circle()
-//                    .stroke( Color.red )
-//                    .foregroundColor( Color.black.opacity(0) )
+                Image(systemName: "sailboat")
+                    .resizable()
+                    .frame(width: CGFloat(20), height: CGFloat(20), alignment: .center)
             }
         } label: {
             Text(vessel.name)
         }
         .tag(vessel)
-        .annotationTitles(.hidden)
+//        .annotationTitles(.hidden)
         if( vessel.isAnchored ) {
-            if let anchor = vessel.anchors?.last {
-                AnchorMarker(anchor: anchor)
+            if let anchor = vessel.anchor {
+                AnchorMarker(anchor: anchor, loa: vessel.loa)
             }
         }
     }

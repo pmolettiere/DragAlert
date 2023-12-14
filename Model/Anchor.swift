@@ -81,12 +81,12 @@ extension Anchor {
         }
         return coords
     }
-}
-
-extension Anchor {
-    static func new() -> Anchor {
-        Anchor(timestamp: Date.now, latitude: 0.0, longitude: 0.0, radius: Measurement(value: 20, unit: UnitLength.meters), log: [])
+    
+    func contains(location: CLLocation) -> Bool {
+        CLLocation(latitude: latitude, longitude: longitude).distance(from: location) < radiusMeters
+    }
+    
+    func contains(location: CLLocationCoordinate2D) -> Bool {
+        contains(location: CLLocation(latitude: location.latitude, longitude: location.longitude))
     }
 }
-
-

@@ -26,34 +26,20 @@ final class Vessel : Codable {
         set { loaMeters = newValue.converted(to: UnitLength.meters).value }
     }
     
-    @Relationship(deleteRule: .cascade)
-    var anchors: [Anchor]? = []
+    var anchor: Anchor?
     
-    @Transient
-    var lastAnchor : Anchor {
-        get {
-            if let anchor = anchors?.last {
-                return anchor
-            }
-            return Anchor.new()
-        }
-        set {
-            anchors?.append(newValue)
-        }
-    }
-
-    init(uuid: UUID = UUID(), name: String = "", loaMeters: Double, latitude: Double = 0, longitude: Double = 0, isAnchored: Bool = false, anchor: [Anchor]? = []) {
+    init(uuid: UUID = UUID(), name: String = "", loaMeters: Double, latitude: Double = 0, longitude: Double = 0, isAnchored: Bool = false, anchor: Anchor? = nil) {
         self.uuid = uuid
         self.name = name
         self.loaMeters = loaMeters
         self.latitude = latitude
         self.longitude = longitude
         self.isAnchored = isAnchored
-        self.anchors = anchor
+        self.anchor = anchor
     }
     
     enum CodingKeys : CodingKey {
-        case uuid, name, loaMeters, latitude, longitude, isAnchored, anchors
+        case uuid, name, loaMeters, latitude, longitude, isAnchored, anchor
     }
 
     init(from decoder: Decoder) throws {
@@ -64,7 +50,7 @@ final class Vessel : Codable {
         self.latitude = try container.decode(Double.self, forKey: .latitude)
         self.longitude = try container.decode(Double.self, forKey: .longitude)
         self.isAnchored = try container.decode(Bool.self, forKey: .isAnchored)
-        self.anchors = try container.decodeIfPresent([Anchor].self, forKey: .anchors)
+        self.anchor = try container.decodeIfPresent(Anchor.self, forKey: .anchor)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -75,7 +61,7 @@ final class Vessel : Codable {
         try container.encode(latitude, forKey: .latitude)
         try container.encode(longitude, forKey: .longitude)
         try container.encode(isAnchored, forKey: .isAnchored)
-        try container.encodeIfPresent(anchors, forKey: .anchors)
+        try container.encodeIfPresent(anchor, forKey: .anchor)
     }
     
     func distance(to: Vessel) -> Double {
@@ -123,11 +109,5 @@ extension Vessel {
     /// Reports the total number of quakes.
     static func totalVessels(modelContext: ModelContext) -> Int {
         (try? modelContext.fetchCount(FetchDescriptor<Vessel>())) ?? 0
-    }
-}
-
-extension Vessel {
-    static func new() -> Vessel {
-        Vessel(uuid: UUID(), name: "My Vessel", loaMeters: 14, latitude: 0.0, longitude: 0.0, isAnchored: false, anchor: [Anchor.new()])
     }
 }

@@ -22,9 +22,12 @@ struct MapView: View {
         VStack {
             HStack {
                 Spacer()
-                Button(vessel.isAnchored ? "Anchor" : "Cancel") {
-                    showAnchorUI.toggle()
-                    // vessel.toggleAnchor()
+                Button(vessel.isAnchored ? "Cancel" : "Anchor") {
+                    if( vessel.isAnchored ) {
+                        vessel.isAnchored = false
+                    } else {
+                        showAnchorUI.toggle()
+                    }
                 }
                 .sheet(isPresented: $showAnchorUI, content: {
                     AnchoringView(vessel: vessel, willShow: $showAnchorUI)
@@ -32,7 +35,11 @@ struct MapView: View {
             }
             Map() {
                 VesselMarker(vessel: vessel)
-                AnchorMarker(anchor: vessel.lastAnchor)
+                if( vessel.isAnchored ) {
+                    if let anchor = vessel.anchor {
+                        AnchorMarker(anchor: anchor, loa: vessel.loa)
+                    } 
+                }
             }
             .mapStyle(.imagery)
             .mapCameraKeyframeAnimator(trigger: vessel.isAnchored) { initialCamera in
