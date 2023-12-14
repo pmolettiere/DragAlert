@@ -48,10 +48,10 @@ struct AnchoringView: View {
         let anchorRadius = Measurement(value: rodeLength.value + vessel.loaMeters, unit: UnitLength.meters)
         let newAnchor = Anchor(timestamp: Date.now, latitude: latitude, longitude: longitude, radius: anchorRadius, log: [], vessel: self.vessel)
         vessel.anchor = newAnchor
-        do { try modelContext.save() }
-        catch {
-            print("Failed to save modelContext.");
-        }
+//        do { try modelContext.save() }
+//        catch {
+//            print("Failed to save modelContext.");
+//        }
         vessel.isAnchored = true
         willShow.wrappedValue = false
     }

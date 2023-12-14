@@ -34,9 +34,9 @@ import SwiftUI
                 if let anchor = myVessel.anchor {
                     if( myVessel.isAnchored ) {
                         if( !anchor.contains(location: myVessel.coordinate) ) {
-                            AlarmPlayer.instance.stopPlaying()
+                            Alarm.instance.stopPlaying()
                         } else {
-                            AlarmPlayer.instance.stopPlaying()
+                            Alarm.instance.stopPlaying()
                         }
                     }
                 }

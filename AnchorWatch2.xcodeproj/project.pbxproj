@@ -31,7 +31,7 @@
 		9ACA945C2B24BC8800BA73D3 /* SetupVesselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA945B2B24BC8800BA73D3 /* SetupVesselView.swift */; };
 		9ACA945E2B25EE6300BA73D3 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA945D2B25EE6300BA73D3 /* Format.swift */; };
 		9ACA94602B27B08800BA73D3 /* DistanceEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA945F2B27B08800BA73D3 /* DistanceEditor.swift */; };
-		9ADA00F02B2AAA2D00A9FDB8 /* AlarmPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADA00EF2B2AAA2D00A9FDB8 /* AlarmPlayer.swift */; };
+		9ADA00F02B2AAA2D00A9FDB8 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADA00EF2B2AAA2D00A9FDB8 /* Alarm.swift */; };
 		9ADA00F32B2B2B1200A9FDB8 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9ADA00F22B2B2B1200A9FDB8 /* alarm.mp3 */; };
 /* End PBXBuildFile section */
 
@@ -81,7 +81,7 @@
 		9ACA945B2B24BC8800BA73D3 /* SetupVesselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupVesselView.swift; sourceTree = "<group>"; };
 		9ACA945D2B25EE6300BA73D3 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
 		9ACA945F2B27B08800BA73D3 /* DistanceEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceEditor.swift; sourceTree = "<group>"; };
-		9ADA00EF2B2AAA2D00A9FDB8 /* AlarmPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmPlayer.swift; sourceTree = "<group>"; };
+		9ADA00EF2B2AAA2D00A9FDB8 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		9ADA00F22B2B2B1200A9FDB8 /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,7 +137,7 @@
 				9ADA00F12B2B2AE300A9FDB8 /* Sounds */,
 				9A0D79852B20BC3500E83F11 /* AnchorWatch2App.swift */,
 				9A0D79C02B20C07300E83F11 /* AppDelegate.swift */,
-				9ADA00EF2B2AAA2D00A9FDB8 /* AlarmPlayer.swift */,
+				9ADA00EF2B2AAA2D00A9FDB8 /* Alarm.swift */,
 				9A0D79C42B20CADB00E83F11 /* View */,
 				9A0D79BC2B20BD1E00E83F11 /* Model */,
 				9A0D79BD2B20BD7D00E83F11 /* Location */,
@@ -359,7 +359,7 @@
 			files = (
 				9ACA945C2B24BC8800BA73D3 /* SetupVesselView.swift in Sources */,
 				9A0D79B82B20BD0700E83F11 /* Anchor.swift in Sources */,
-				9ADA00F02B2AAA2D00A9FDB8 /* AlarmPlayer.swift in Sources */,
+				9ADA00F02B2AAA2D00A9FDB8 /* Alarm.swift in Sources */,
 				9ACA945E2B25EE6300BA73D3 /* Format.swift in Sources */,
 				9A0D79BF2B20BD8E00E83F11 /* LocationDelegate.swift in Sources */,
 				9A39E2D42B2A4FFC0002C9AF /* SetupView.swift in Sources */,

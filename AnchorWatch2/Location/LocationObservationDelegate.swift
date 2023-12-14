@@ -79,15 +79,15 @@ extension Vessel {
                         currentAnchor.update(log: AnchorLog($0))
                     }
                     if( !currentAnchor.contains(location: lastLocation) ) {
-                        AlarmPlayer.instance.startPlaying()
+                        Alarm.instance.startPlaying()
                     } else {
-                        AlarmPlayer.instance.stopPlaying()
+                        Alarm.instance.stopPlaying()
                     }
                 } else {
                     print("Anchored vessel missing Anchor record. Failing to update anchor log.")
                 }
             } else {
-                AlarmPlayer.instance.stopPlaying()
+                Alarm.instance.stopPlaying()
             }
         }
     }
