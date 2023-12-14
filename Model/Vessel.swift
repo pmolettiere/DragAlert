@@ -88,26 +88,3 @@ extension Vessel {
     }
 }
 
-extension Vessel {
-    
-    // one minute is 1nm, or 1852m, making 1m = 0.0005399568035 minutes
-    /// A filter that checks for a date and text in the quake's location name.
-    static func predicate(
-        searchText: String
-    ) -> Predicate<Vessel> {
-        return #Predicate<Vessel> { vessel in
-            vessel.name == searchText
-        }
-    }
-    
-    static func predicate() -> Predicate<Vessel> {
-        return #Predicate<Vessel> { vessel in
-            !vessel.name.isEmpty
-        }
-    }
-
-    /// Reports the total number of quakes.
-    static func totalVessels(modelContext: ModelContext) -> Int {
-        (try? modelContext.fetchCount(FetchDescriptor<Vessel>())) ?? 0
-    }
-}
