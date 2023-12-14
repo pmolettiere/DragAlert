@@ -18,6 +18,7 @@ class LocationDelegate : NSObject, CLLocationManagerDelegate {
 
     override init() {
         self.manager = CLLocationManager()
+        self.background = CLBackgroundActivitySession()
         super.init()
         manager.delegate = self
         manager.allowsBackgroundLocationUpdates = true
@@ -31,7 +32,6 @@ class LocationDelegate : NSObject, CLLocationManagerDelegate {
             UserDefaults.standard.set(isTrackingLocation, forKey: "isTrackingLocation")
             if isTrackingLocation {
                 manager.startUpdatingLocation()
-                self.background = CLBackgroundActivitySession()
             } else {
                 manager.stopUpdatingLocation()
                 if( !isTrackingHeading ) { self.background?.invalidate() }
@@ -45,7 +45,6 @@ class LocationDelegate : NSObject, CLLocationManagerDelegate {
             UserDefaults.standard.set(isTrackingHeading, forKey: "isTrackingHeading")
             if isTrackingHeading {
                 manager.startUpdatingHeading()
-                self.background = CLBackgroundActivitySession()
             } else {
                 manager.stopUpdatingHeading()
                 if( !isTrackingLocation ) { self.background?.invalidate() }

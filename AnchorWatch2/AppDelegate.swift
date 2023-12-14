@@ -17,12 +17,14 @@ class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
 
         let isTrackingLocation: Bool = UserDefaults.standard.bool(forKey: "isTrackingLocation")
         if( isTrackingLocation ) {
-            LocationDelegate.instance.isTrackingLocation = true
+            let ld = LocationDelegate.instance
+            ld.isTrackingLocation = true
         }
 
         let isTrackingHeading: Bool = UserDefaults.standard.bool(forKey: "isTrackingHeading")
         if( isTrackingHeading ) {
-            LocationDelegate.instance.isTrackingHeading = true
+            let ld = LocationDelegate.instance
+            ld.isTrackingHeading = true
         }
 
         return true
