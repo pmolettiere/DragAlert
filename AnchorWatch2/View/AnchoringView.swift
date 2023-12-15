@@ -9,9 +9,6 @@ import SwiftUI
 import MapKit
 
 struct AnchoringView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Environment(ViewModel.self) private var viewModel
-
     var vessel: Vessel
     var willShow: Binding<Bool>
     var gps: LocationObserver = LocationObserver()
@@ -36,8 +33,11 @@ struct AnchoringView: View {
                 }
         }
         .onAppear() {
-            viewModel.isTrackingHeading(isTracking: true)
-            viewModel.isTrackingLocation(isTracking: true)
+            LocationDelegate.instance.isTrackingHeading = true
+//            LocationDelegate.instance.isTrackingLocation = true
+        }
+        .onDisappear() {
+            LocationDelegate.instance.isTrackingHeading = false
         }
     }
     

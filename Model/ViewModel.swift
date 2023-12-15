@@ -46,6 +46,12 @@ import SwiftUI
         }
     }
     
+    func create(myVessel: Vessel) {
+        container.mainContext.insert(myVessel)
+        initMyVessel()
+        myVessel.startTrackingLocation()
+    }
+    
     func requestWhenInUseAuthorization() {
         locationDelegate.requestWhenInUseAuthorization()
     }
@@ -58,12 +64,5 @@ import SwiftUI
         locationDelegate.requestAuthStatus()
     }
     
-    func isTrackingLocation(isTracking: Bool) {
-        locationDelegate.isTrackingLocation = isTracking
-    }
-    
-    func isTrackingHeading(isTracking: Bool) {
-        locationDelegate.isTrackingHeading = isTracking
-    }
 
 }

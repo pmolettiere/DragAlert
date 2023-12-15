@@ -64,7 +64,6 @@ struct SetupView: View {
                 Button("view.setup.done.button") {
                     doneSetup.wrappedValue = true
                     UserDefaults.standard.set(doneSetup.wrappedValue, forKey: "doneSetup")
-                    viewModel.isTrackingLocation(isTracking: true)
                 }
                 .disabled(!authStatusListener.allowsWhileUsing())
                 .padding()

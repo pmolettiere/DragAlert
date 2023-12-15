@@ -115,6 +115,9 @@ struct MapView: View {
                 }
             }
         }
+        .onAppear() {
+            LocationDelegate.instance.isTrackingLocation = true
+        }
     }
 }
 
