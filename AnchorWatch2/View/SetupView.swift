@@ -20,10 +20,12 @@ struct SetupView: View {
                 .font(.headline)
                 .padding()
             
-            Text("view.setup.purpose")
+            Text("view.setup.explain.while")
+                .font(.callout)
+                .padding()
             
             HStack {
-                Button("view.setup.explain.while") {
+                Button("view.setup.whileUsing") {
                     viewModel.requestWhenInUseAuthorization()
                 }
                 .disabled(authStatusListener.allowsWhileUsing())
@@ -36,6 +38,9 @@ struct SetupView: View {
             }
             
             Text("view.setup.explain.always")
+                .font(.callout)
+                .padding()
+            
             HStack {
                 Button("view.setup.alwaysAllow") {
                     viewModel.requestAlwaysAuthorization()
@@ -51,6 +56,8 @@ struct SetupView: View {
             }
 
             Text("view.setup.warn.wifi")
+                .font(.callout)
+                .padding()
             
             HStack() {
                 Spacer()
