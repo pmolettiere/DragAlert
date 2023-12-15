@@ -67,14 +67,20 @@ struct MapView: View {
                     ToolbarItem(placement: .bottomBar) {
                         Menu("view.map.alarm") {
                             Toggle(isOn: $alarmEnable) {
-                                Text("view.map.enable")
+                                Text("view.map.alarm.enable")
                             }
                             Button() {
                                 Alarm.instance.snooze()
                             } label: {
-                                Text("view.map.snooze")
+                                Text("view.map.alarm.snooze")
                             }
                             .disabled(!Alarm.instance.isPlaying)
+                            Button() {
+                                Alarm.instance.test()
+                            } label: {
+                                Text("view.map.alarm.test")
+                            }
+                            .disabled(Alarm.instance.isPlaying)
                         }
                     }
                     ToolbarItem(placement: .bottomBar) {

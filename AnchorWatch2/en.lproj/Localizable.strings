@@ -7,8 +7,9 @@
 */
 
 view.map.alarm = "Alarm";
-view.map.enable = "Enable";
-view.map.snooze = "Snooze";
+view.map.alarm.enable = "Enable";
+view.map.alarm.snooze = "Snooze";
+view.map.alarm.test = "Test";
 view.map.anchor = "Anchor";
 view.map.new = "New";
 view.map.reset = "Reset";

@@ -21,6 +21,7 @@ final class Alarm : @unchecked Sendable {
     }
     var isSnoozed: Bool = false
     var isPlaying: Bool = false
+    var isTesting: Bool = false
     
     init() {
         guard let url = Bundle.main.url(forResource: "alarm", withExtension: "mp3") else { return }
@@ -53,6 +54,7 @@ final class Alarm : @unchecked Sendable {
     }
     
     func stopPlaying() {
+        if( isTesting ) { return }
         stop()
         isPlaying = false
     }
@@ -65,5 +67,15 @@ final class Alarm : @unchecked Sendable {
                 self.isSnoozed = true
             })
         }
+    }
+    
+    func test() {
+        isTesting = true
+        play()
+        Timer.scheduledTimer(withTimeInterval: 5.0, repeats: false, block: {_ in
+            self.stop()
+            self.isTesting = false
+        })
+
     }
 }
