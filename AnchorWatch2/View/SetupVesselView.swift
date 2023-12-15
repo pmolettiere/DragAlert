@@ -23,21 +23,27 @@ struct SetupVesselView : View {
             Text("Setup Your Vessel").font(.headline).padding()
             
             HStack {
-                Text("Vessel Name")
+                Text("view.setup.vessel.name")
                 Spacer()
-                TextField("Vessel Name", text: $vesselName )
+                TextField("view.setup.vessel.name", text: $vesselName )
                     .padding(10)
             }
-            DistanceEditor("LOA", measurement: $loa)
-            Text("Latitude: \(gps.latitude)")
-            Text("Longitude: \(gps.longitude)")
+            DistanceEditor("view.setup.vessel.loa", measurement: $loa)
+            HStack {
+                Text("view.multiple.latitude")
+                Text("\(gps.latitude.formatted(.number.rounded(increment:0.001)))")
+            }
+            HStack {
+                Text("view.multiple.longitude")
+                Text("\(gps.longitude.formatted(.number.rounded(increment:0.001)))")
+            }
             Button {
                 let v = Vessel(uuid: UUID(), name: vesselName, loaMeters: loa.converted(to: UnitLength.meters).value, latitude: gps.latitude, longitude: gps.longitude, isAnchored: false, anchor: nil)
                 modelContext.insert(v)
                 viewModel.initMyVessel()
                 v.startTrackingLocation()
             } label: {
-                Text("Add Vessel")
+                Text("view.setup.vessel.add")
             }
         }
         .onAppear(perform: {

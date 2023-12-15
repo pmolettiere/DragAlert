@@ -33,6 +33,7 @@
 		9ACA94602B27B08800BA73D3 /* DistanceEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA945F2B27B08800BA73D3 /* DistanceEditor.swift */; };
 		9ADA00F02B2AAA2D00A9FDB8 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADA00EF2B2AAA2D00A9FDB8 /* Alarm.swift */; };
 		9ADA00F32B2B2B1200A9FDB8 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9ADA00F22B2B2B1200A9FDB8 /* alarm.mp3 */; };
+		9ADA00F62B2C8A1400A9FDB8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9ADA00F82B2C8A1400A9FDB8 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		9ACA945F2B27B08800BA73D3 /* DistanceEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceEditor.swift; sourceTree = "<group>"; };
 		9ADA00EF2B2AAA2D00A9FDB8 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		9ADA00F22B2B2B1200A9FDB8 /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm.mp3; sourceTree = "<group>"; };
+		9ADA00F72B2C8A1400A9FDB8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				9A0D79902B20BC3800E83F11 /* AnchorWatch2.entitlements */,
 				9A0D79912B20BC3800E83F11 /* Info.plist */,
 				9A0D798D2B20BC3800E83F11 /* Preview Content */,
+				9ADA00F82B2C8A1400A9FDB8 /* Localizable.strings */,
 			);
 			path = AnchorWatch2;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A0D798F2B20BC3800E83F11 /* Preview Assets.xcassets in Resources */,
+				9ADA00F62B2C8A1400A9FDB8 /* Localizable.strings in Resources */,
 				9A0D798C2B20BC3800E83F11 /* Assets.xcassets in Resources */,
 				9ADA00F32B2B2B1200A9FDB8 /* alarm.mp3 in Resources */,
 			);
@@ -410,6 +414,17 @@
 			targetProxy = 9A0D79A12B20BC3900E83F11 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9ADA00F82B2C8A1400A9FDB8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9ADA00F72B2C8A1400A9FDB8 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9A0D79A82B20BC3900E83F11 /* Debug */ = {

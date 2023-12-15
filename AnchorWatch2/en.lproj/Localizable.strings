@@ -1,0 +1,38 @@
+/* 
+  Localizable.strings
+  AnchorWatch2
+
+  Created by Peter Molettiere on 12/15/23.
+  
+*/
+
+view.map.alarm = "Alarm";
+view.map.enable = "Enable";
+view.map.snooze = "Snooze";
+view.map.anchor = "Anchor";
+view.map.new = "New";
+view.map.reset = "Reset";
+view.map.cancel = "Cancel";
+view.anchoring.relative = "Relative";
+view.anchoring.current = "Current";
+view.anchoring.rode = "Rode";  // noun, nautical, means the chain and/or rope connecting the anchor to the boat
+view.anchoring.distance = "Distance";
+view.anchoring.bearing = "Bearing";
+view.setup.title = "Permission Required";
+view.setup.explain.while = "Anchor Watch tracks your vessel's location to determine whether your vessel is within your intended anchoring radius. To work, the app requires the 'While Using' permission to access your location.";
+view.setup.whileUsing = "Allow While Using"; // iOS system location setting value
+view.setup.explain.always = "If you want the app to monitor your location from the background, then it also needs the 'Always Allow' permission.";
+view.setup.alwaysAllow = "Always Allow"; // iOS system location setting value
+view.setup.warn.wifi = "You should keep your WiFi enabled while using this app, as turning it off disables your GPS.";
+view.setup.done.button = "Done";
+view.setup.vessel.title = "Setup Your Vessel";
+view.setup.vessel.name = "Vessel Name";
+view.setup.vessel.loa = "LOA"; // abbreviation, nautical, Length Overall
+view.setup.vessel.add = "Add Vessel";
+view.editor.distance.unit = "Unit"; // as in unit of measure (length)
+view.editor.distance.feet = "Feet"; // unit of length, Imperial
+view.editor.distance.meters = "Meters"; // unit of length, SI
+
+view.multiple.latitude = "Latitude";
+view.multiple.longitude = "Longitude";
+

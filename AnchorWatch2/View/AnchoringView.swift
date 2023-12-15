@@ -28,11 +28,11 @@ struct AnchoringView: View {
         TabView(selection: $tabSelection) {
             RelativeView(gps: gps, action: dropAnchor, measuredRadiusState: $rodeLength)
                 .tabItem {
-                    Label("Relative", systemImage: "location.north.line.fill")
+                    Label("view.anchoring.relative", systemImage: "location.north.line.fill")
                 }
             CurrentView(gps: gps, action: dropAnchor, measuredRadiusState: $rodeLength)
                 .tabItem {
-                    Label("Current", systemImage: "location.fill")
+                    Label("view.anchoring.current", systemImage: "location.fill")
                 }
         }
         .onAppear() {
@@ -60,10 +60,13 @@ struct AnchoringView: View {
         
         var body: some View {
             VStack {
-                DistanceEditor("Rode", measurement: measuredRadiusState)
+                DistanceEditor("view.anchoring.rode", measurement: measuredRadiusState)
                 
-                DistanceEditor("Distance", measurement: $distance)
-                Text("Bearing: \(gps.heading.formatted(.number.rounded(increment:1)))")
+                DistanceEditor("view.anchoring.distance", measurement: $distance)
+                HStack {
+                    Text("view.anchoring.bearing")
+                    Text("\(gps.heading.formatted(.number.rounded(increment:1)))")
+                }
                 Button {
                     let origin = CLLocationCoordinate2D(latitude: gps.latitude, longitude: gps.longitude)
                     let final = locationWithBearing(bearing: gps.heading, distanceMeters: self.distance.converted(to: UnitLength.meters).value, origin: origin)
@@ -111,9 +114,15 @@ struct AnchoringView: View {
         
         var body: some View {
             VStack {
-                DistanceEditor("Rode", measurement: measuredRadiusState)
-                Text("Latitude: \(gps.latitude.formatted(.number.rounded(increment:0.001)))")
-                Text("Longitude: \(gps.longitude.formatted(.number.rounded(increment:0.001)))")
+                DistanceEditor("view.anchoring.rode", measurement: measuredRadiusState)
+                HStack {
+                    Text("view.multiple.latitude")
+                    Text("\(gps.latitude.formatted(.number.rounded(increment:0.001)))")
+                }
+                HStack {
+                    Text("view.multiple.longitude")
+                    Text("\(gps.longitude.formatted(.number.rounded(increment:0.001)))")
+                }
                 Button() {
                     let final = CLLocationCoordinate2D(latitude: gps.latitude, longitude: gps.longitude)
                     

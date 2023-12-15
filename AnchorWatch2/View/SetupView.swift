@@ -16,14 +16,14 @@ struct SetupView: View {
 
     var body: some View {
         VStack(alignment: .center) {
-            Text("Permission Required")
+            Text("view.setup.title")
                 .font(.headline)
                 .padding()
             
-            Text("Anchor Watch tracks your vessel's location to determine whether your vessel is within your intended anchoring radius. To work, the app requires the 'While Using' permission to access your location.")
+            Text("view.setup.purpose")
             
             HStack {
-                Button("Allow While Using") {
+                Button("view.setup.explain.while") {
                     viewModel.requestWhenInUseAuthorization()
                 }
                 .disabled(authStatusListener.allowsWhileUsing())
@@ -35,9 +35,9 @@ struct SetupView: View {
                     .foregroundStyle(authStatusListener.allowsWhileUsing() ? .green : .red)
             }
             
-            Text("If you want the app to monitor your location from the background, then it also needs the 'Always Allow' permission.")
+            Text("view.setup.explain.always")
             HStack {
-                Button("Always Allow") {
+                Button("view.setup.alwaysAllow") {
                     viewModel.requestAlwaysAuthorization()
                 }
                 .disabled(authStatusListener.allowAlways())
@@ -50,11 +50,11 @@ struct SetupView: View {
 
             }
 
-            Text("You should keep your WiFi enabled while using this app, as turning it off disables your GPS.")
+            Text("view.setup.warn.wifi")
             
             HStack() {
                 Spacer()
-                Button("Done") {
+                Button("view.setup.done.button") {
                     doneSetup.wrappedValue = true
                     UserDefaults.standard.set(doneSetup.wrappedValue, forKey: "doneSetup")
                     viewModel.isTrackingLocation(isTracking: true)

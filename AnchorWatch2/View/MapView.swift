@@ -65,20 +65,20 @@ struct MapView: View {
                 }
                 .toolbar {
                     ToolbarItem(placement: .bottomBar) {
-                        Menu("Alarm") {
+                        Menu("view.map.alarm") {
                             Toggle(isOn: $alarmEnable) {
-                                Text("Enable")
+                                Text("view.map.enable")
                             }
                             Button() {
                                 Alarm.instance.snooze()
                             } label: {
-                                Text("Snooze")
+                                Text("view.map.snooze")
                             }
                             .disabled(!Alarm.instance.isPlaying)
                         }
                     }
                     ToolbarItem(placement: .bottomBar) {
-                        Menu("Anchor") {
+                        Menu("view.map.anchor") {
                             Button() {
                                 if( vessel.isAnchored ) {
                                     vessel.isAnchored = false
@@ -86,7 +86,7 @@ struct MapView: View {
                                     showAnchorUI.toggle()
                                 }
                             } label: {
-                                Text("New")
+                                Text("view.map.new")
                             }
                             .disabled(vessel.isAnchored)
                             
@@ -96,7 +96,7 @@ struct MapView: View {
                                     Alarm.instance.isEnabled = true
                                 }
                             } label: {
-                                Text("Reset")
+                                Text("view.map.reset")
                             }
                             .disabled(vessel.isAnchored)
                             
@@ -107,7 +107,7 @@ struct MapView: View {
                                     showAnchorUI.toggle()
                                 }
                             } label: {
-                                Text("Cancel")
+                                Text("view.map.cancel")
                             }
                             .disabled(!vessel.isAnchored)
                         }
