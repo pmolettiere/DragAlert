@@ -23,11 +23,11 @@ struct AnchoringView: View {
     
     var body: some View {
         TabView(selection: $tabSelection) {
-            RelativeView(gps: gps, action: dropAnchor, measuredRadiusState: $rodeLength)
+            RelativeView(gps: gps, action: dropAnchor, measuredRadiusState: $rodeLength, maxRode: vessel.rode, maxDistance: vessel.maxDistanceFromAnchor)
                 .tabItem {
                     Label("view.anchoring.relative", systemImage: "location.north.line.fill")
                 }
-            CurrentView(gps: gps, action: dropAnchor, measuredRadiusState: $rodeLength)
+            CurrentView(gps: gps, action: dropAnchor, measuredRadiusState: $rodeLength, max: vessel.rode)
                 .tabItem {
                     Label("view.anchoring.current", systemImage: "location.fill")
                 }
@@ -57,12 +57,14 @@ struct AnchoringView: View {
         var gps: LocationObserver
         var action: (CLLocationCoordinate2D) -> ()
         var measuredRadiusState: Binding<Measurement<UnitLength>>
+        var maxRode: Measurement<UnitLength>
+        var maxDistance: Measurement<UnitLength>
         
         var body: some View {
             VStack {
-                DistanceEditor("view.anchoring.rode", measurement: measuredRadiusState)
-                
-                DistanceEditor("view.anchoring.distance", measurement: $distance)
+                DistanceEditor("view.anchoring.rode", measurement: measuredRadiusState, max: maxRode )
+                DistanceEditor("view.anchoring.distance", measurement: $distance, max: maxDistance )
+
                 HStack {
                     Text("view.anchoring.bearing")
                     Text("\(gps.heading.formatted(.number.rounded(increment:1)))")
@@ -111,10 +113,11 @@ struct AnchoringView: View {
         var gps: LocationObserver
         var action: (CLLocationCoordinate2D) -> ()
         var measuredRadiusState: Binding<Measurement<UnitLength>>
-        
+        var max: Measurement<UnitLength>
+
         var body: some View {
             VStack {
-                DistanceEditor("view.anchoring.rode", measurement: measuredRadiusState)
+                DistanceEditor("view.anchoring.rode", measurement: measuredRadiusState, max: max )
                 HStack {
                     Text("view.multiple.latitude")
                     Text("\(gps.latitude.formatted(.number.rounded(increment:0.001)))")

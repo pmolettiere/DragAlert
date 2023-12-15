@@ -28,6 +28,7 @@ view.setup.done.button = "Done";
 view.setup.vessel.title = "Setup Your Vessel";
 view.setup.vessel.name = "Vessel Name";
 view.setup.vessel.loa = "LOA"; // abbreviation, nautical, Length Overall
+view.setup.vessel.rode = "Max Rode"; // noun, nautical, means the chain and/or rope connecting the anchor to the boat
 view.setup.vessel.add = "Add Vessel";
 view.editor.distance.unit = "Unit"; // as in unit of measure (length)
 view.editor.distance.feet = "Feet"; // unit of length, Imperial

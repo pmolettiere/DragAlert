@@ -14,9 +14,9 @@ struct DistanceEditor : View {
     var label: LocalizedStringKey
     @State var model: DistanceEditorModel
     
-    init(_ label: LocalizedStringKey, measurement: Binding<Measurement<UnitLength>>, max: Measurement<UnitLength>? = nil) {
+    init(_ label: LocalizedStringKey, measurement: Binding<Measurement<UnitLength>>, max: Measurement<UnitLength>? = nil, step: Double? = nil) {
         self.label = label
-        self.model = DistanceEditorModel(measurement, max: max)
+        self.model = DistanceEditorModel(measurement, max: max, step: step)
     }
     
     var body: some View {
@@ -69,14 +69,20 @@ class DistanceEditorModel {
     var range: ClosedRange<Double>
     var step: Double
     var max: Measurement<UnitLength>?
+    var specifiedStep: Double?
     
-    init(_ measurement:Binding<Measurement<UnitLength>>, max: Measurement<UnitLength>?) {
+    init(_ measurement:Binding<Measurement<UnitLength>>, max: Measurement<UnitLength>?, step: Double?) {
         binding = measurement
         value = measurement.wrappedValue.value
         unit = measurement.wrappedValue.unit
         self.max = max
+        self.specifiedStep = step
         range = constants[0].range
-        step = constants[1].step
+        if let stepSpec = step {
+            self.step = stepSpec
+        } else {
+            self.step = constants[1].step
+        }
         setRangeStep(unit: unit)
     }
     
@@ -91,6 +97,9 @@ class DistanceEditorModel {
         }
         if let m = max {
             range = 0...m.converted(to: unit).value
+        }
+        if let s = specifiedStep {
+            step = s
         }
     }
     
