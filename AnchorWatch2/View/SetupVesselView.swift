@@ -42,6 +42,7 @@ struct SetupVesselView : View {
                 } label: {
                     Text("view.setup.vessel.add")
                 }
+                .disabled(vesselName == "")
             }
             .onAppear(perform: {
                 LocationDelegate.instance.isTrackingLocation = true
