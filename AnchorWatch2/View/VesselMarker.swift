@@ -23,10 +23,9 @@ struct VesselMarker: MapContent {
             Text(vessel.name)
         }
         .tag(vessel)
-//        .annotationTitles(.hidden)
         if( vessel.isAnchored ) {
             if let anchor = vessel.anchor {
-                AnchorMarker(anchor: anchor, loa: vessel.loa)
+                AnchorMarker(anchor: anchor)
             }
         }
     }

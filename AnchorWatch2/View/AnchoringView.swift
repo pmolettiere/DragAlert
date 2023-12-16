@@ -19,6 +19,9 @@ struct AnchoringView: View {
     init(vessel: Vessel, willShow: Binding<Bool>) {
         self.vessel = vessel
         self.willShow = willShow
+        if let a = vessel.anchor {
+            rodeLength = a.rodeLength
+        }
     }
     
     var body: some View {
@@ -34,7 +37,9 @@ struct AnchoringView: View {
         }
         .onAppear() {
             LocationDelegate.instance.isTrackingHeading = true
-//            LocationDelegate.instance.isTrackingLocation = true
+            if let a = vessel.anchor {
+                rodeLength = a.rodeLength
+            }
         }
         .onDisappear() {
             LocationDelegate.instance.isTrackingHeading = false
@@ -45,8 +50,7 @@ struct AnchoringView: View {
         let latitude = location.latitude
         let longitude = location.longitude
         let rodeLength: Measurement<UnitLength> = rodeLength.converted(to: UnitLength.meters)
-        let anchorRadius = Measurement(value: rodeLength.value + vessel.loaMeters, unit: UnitLength.meters)
-        let newAnchor = Anchor(timestamp: Date.now, latitude: latitude, longitude: longitude, radius: anchorRadius, log: [], vessel: self.vessel)
+        let newAnchor = Anchor(timestamp: Date.now, latitude: latitude, longitude: longitude, rodeLength: rodeLength, log: [], vessel: self.vessel)
         vessel.anchor = newAnchor
         vessel.isAnchored = true
         willShow.wrappedValue = false
@@ -58,7 +62,11 @@ struct AnchoringView: View {
         var action: (CLLocationCoordinate2D) -> ()
         var measuredRadiusState: Binding<Measurement<UnitLength>>
         var maxRode: Measurement<UnitLength>
-        var maxDistance: Measurement<UnitLength>
+        var maxDistance: Measurement<UnitLength> {
+            didSet {
+                UserDefaults.standard.set(maxDistance, forKey: "maxDistance")
+            }
+        }
         
         var body: some View {
             VStack {
@@ -100,10 +108,16 @@ struct AnchoringView: View {
             .onAppear(perform: {
                 gps.isTrackingLocation = true
                 gps.isTrackingHeading = true
+                if let u = UserDefaults.standard.string(forKey: "lastAnchorDistance.unit") {
+                    let v = UserDefaults.standard.double(forKey: "lastAnchorDistance.value")
+                    distance = Measurement(value: v, unit: UnitLength(symbol: u) )
+                }
             })
             .onDisappear(perform: {
                 gps.isTrackingLocation = false
                 gps.isTrackingHeading = false
+                UserDefaults.standard.set(distance.value, forKey: "lastAnchorDistance.value")
+                UserDefaults.standard.set(distance.unit.symbol, forKey: "lastAnchorDistance.unit")
             })
 
         }

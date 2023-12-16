@@ -10,7 +10,6 @@ import MapKit
 
 struct AnchorMarker: MapContent {
     var anchor: Anchor
-    var loa: Measurement<UnitLength>
 
     var body: some MapContent {
         Annotation(coordinate: anchor.coordinate) {
@@ -21,13 +20,13 @@ struct AnchorMarker: MapContent {
         } label: {
             Text("")
         }
-        let radius : CLLocationDistance = anchor.radius.converted(to: UnitLength.meters).value
+        let radius : CLLocationDistance = anchor.radiusM
         MapCircle(center: anchor.coordinate, radius: radius)
             .stroke(Color.red)
             .stroke(lineWidth: CGFloat(2))
             .foregroundStyle(.clear)
-        if let v = anchor.vessel {
-            let rodeLength : CLLocationDistance = anchor.radiusMeters - v.loaMeters
+        if anchor.vessel != nil {
+            let rodeLength : CLLocationDistance = anchor.rodeLengthM
             MapCircle(center: anchor.coordinate, radius: rodeLength)
                 .stroke(Color.yellow.opacity(0.3))
                 .stroke(lineWidth: CGFloat(1))
