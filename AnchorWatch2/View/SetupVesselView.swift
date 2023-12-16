@@ -46,9 +46,13 @@ struct SetupVesselView : View {
             .onAppear(perform: {
                 LocationDelegate.instance.isTrackingLocation = true
                 gps.isTrackingLocation = true
+//                if let lastRode = UserDefaults.standard.object(forKey: "SetupVesselView.rode") as? Measurement<UnitLength> {
+//                    rode = lastRode
+//                }
             })
             .onDisappear(perform: {
                 gps.isTrackingLocation = false
+//                UserDefaults.standard.set(rode, forKey: "SetupVesselView.rode")
             })
         }
     }

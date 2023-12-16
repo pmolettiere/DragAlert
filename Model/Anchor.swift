@@ -103,7 +103,7 @@ extension Anchor {
     }
     
     func contains(location: CLLocation) -> Bool {
-        CLLocation(latitude: latitude, longitude: longitude).distance(from: location) < rodeLengthM
+        CLLocation(latitude: latitude, longitude: longitude).distance(from: location) < radiusM
     }
     
     func contains(location: CLLocationCoordinate2D) -> Bool {

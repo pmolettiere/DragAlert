@@ -57,19 +57,36 @@ class DistanceEditorModel {
         willSet(toUnit) {
             value = Measurement(value: value, unit: unit).converted(to: toUnit).value
         }
-        didSet {
-            setRangeStep(unit: unit)
-        }
     }
     var value: Double {
         didSet {
             binding.wrappedValue = asMeasurement()
         }
     }
-    var range: ClosedRange<Double>
-    var step: Double
     var max: Measurement<UnitLength>?
     var specifiedStep: Double?
+
+    var range: ClosedRange<Double>{
+        get {
+            if let end = max {
+                let cvt = end.converted(to: unit).value
+                if( cvt >= 1) { return 0...cvt }
+            }
+            let i = (unit == UnitLength.feet ? 0 : 1)
+            return constants[i].range
+        }
+    }
+    var step: Double {
+        get {
+            if let stp = specifiedStep {
+                if stp < 1 { return 1 }
+                return stp
+            } else {
+                let i = (unit == UnitLength.feet ? 0 : 1)
+                return constants[i].step
+            }
+        }
+    }
     
     init(_ measurement:Binding<Measurement<UnitLength>>, max: Measurement<UnitLength>?, step: Double?) {
         binding = measurement
@@ -77,32 +94,8 @@ class DistanceEditorModel {
         unit = measurement.wrappedValue.unit
         self.max = max
         self.specifiedStep = step
-        range = constants[0].range
-        if let stepSpec = step {
-            self.step = stepSpec
-        } else {
-            self.step = constants[1].step
-        }
-        setRangeStep(unit: unit)
     }
-    
-    func setRangeStep(unit: UnitLength) {
-        switch unit {
-        case UnitLength.feet :
-            range = constants[0].range
-            step = constants[0].step
-        default :
-            range = constants[1].range
-            step = constants[1].step
-        }
-        if let m = max {
-            range = 0...m.converted(to: unit).value
-        }
-        if let s = specifiedStep {
-            step = s
-        }
-    }
-    
+        
     func asMeasurement() -> Measurement<UnitLength> {
         Measurement(value: value, unit: unit)
     }

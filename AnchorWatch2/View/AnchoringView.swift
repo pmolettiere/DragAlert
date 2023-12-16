@@ -19,9 +19,6 @@ struct AnchoringView: View {
     init(vessel: Vessel, willShow: Binding<Bool>) {
         self.vessel = vessel
         self.willShow = willShow
-        if let a = vessel.anchor {
-            rodeLength = a.rodeLength
-        }
     }
     
     var body: some View {
@@ -38,7 +35,7 @@ struct AnchoringView: View {
         .onAppear() {
             LocationDelegate.instance.isTrackingHeading = true
             if let a = vessel.anchor {
-                rodeLength = a.rodeLength
+                rodeLength.value = a.rodeLength.converted(to: rodeLength.unit).value
             }
         }
         .onDisappear() {
@@ -57,15 +54,23 @@ struct AnchoringView: View {
     }
     
     struct RelativeView: View {
-        @State var distance: Measurement<UnitLength> = Measurement<UnitLength>(value: 0, unit: UnitLength.feet)
+        @State var distance: Measurement<UnitLength>
         var gps: LocationObserver
         var action: (CLLocationCoordinate2D) -> ()
         var measuredRadiusState: Binding<Measurement<UnitLength>>
         var maxRode: Measurement<UnitLength>
-        var maxDistance: Measurement<UnitLength> {
-            didSet {
-                UserDefaults.standard.set(maxDistance, forKey: "maxDistance")
-            }
+        var maxDistance: Measurement<UnitLength>
+        
+        init(gps: LocationObserver, action: @escaping (CLLocationCoordinate2D) -> Void, measuredRadiusState: Binding<Measurement<UnitLength>>, maxRode: Measurement<UnitLength>, maxDistance: Measurement<UnitLength>) {
+            self.gps = gps
+            self.action = action
+            self.measuredRadiusState = measuredRadiusState
+            self.maxRode = maxRode
+            self.maxDistance = maxDistance
+            
+            let lastDistanceUnit = UserDefaults.standard.string(forKey: "AnchoringView.RelativeView.distance.unit") == "ft" ? UnitLength.feet : UnitLength.meters
+            let lastDistanceValue = UserDefaults.standard.double(forKey: "AnchoringView.RelativeView.distance.value")
+            self._distance = State(initialValue: Measurement<UnitLength>(value: lastDistanceValue, unit: lastDistanceUnit))
         }
         
         var body: some View {
@@ -108,16 +113,12 @@ struct AnchoringView: View {
             .onAppear(perform: {
                 gps.isTrackingLocation = true
                 gps.isTrackingHeading = true
-                if let u = UserDefaults.standard.string(forKey: "lastAnchorDistance.unit") {
-                    let v = UserDefaults.standard.double(forKey: "lastAnchorDistance.value")
-                    distance = Measurement(value: v, unit: UnitLength(symbol: u) )
-                }
             })
             .onDisappear(perform: {
                 gps.isTrackingLocation = false
                 gps.isTrackingHeading = false
-                UserDefaults.standard.set(distance.value, forKey: "lastAnchorDistance.value")
-                UserDefaults.standard.set(distance.unit.symbol, forKey: "lastAnchorDistance.unit")
+                UserDefaults.standard.set(distance.value, forKey: "AnchoringView.RelativeView.distance.value")
+                UserDefaults.standard.set(distance.unit.symbol, forKey: "AnchoringView.RelativeView.distance.unit")
             })
 
         }
