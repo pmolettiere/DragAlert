@@ -23,6 +23,7 @@ struct MapView: View {
         }
     }
     
+    @State var mapStyle: MapStyle = .standard
     @Namespace var mapScope
             
     var body: some View {
@@ -41,14 +42,14 @@ struct MapView: View {
                             }
                         }
                     }
-                    .mapStyle(.imagery)
+                    .mapStyle(mapStyle)
                     .mapCameraKeyframeAnimator(trigger: vessel.isAnchored) { initialCamera in
                         let start = initialCamera.centerCoordinate
                         let end = vessel.coordinate
                         let travelDistance = start.distance(to: end)
                         
                         let duration = max(min(travelDistance / 30, 5), 1)
-                        let finalAltitude = travelDistance > 20 ? 500_000 : min(initialCamera.distance, 500_000)
+                        let finalAltitude = travelDistance > 20 ? 750_000 : min(initialCamera.distance, 750_000)
                         let middleAltitude = finalAltitude * max(min(travelDistance / 5, 1.5), 1)
                         
                         KeyframeTrack(\MapCamera.centerCoordinate) {
@@ -58,6 +59,9 @@ struct MapView: View {
                             CubicKeyframe(middleAltitude, duration: duration / 2)
                             CubicKeyframe(finalAltitude, duration: duration / 2)
                         }
+                    }
+                    .onAppear() {
+                        mapStyle = .imagery
                     }
                     .sheet(isPresented: $showAnchorUI, content: {
                         AnchoringView(vessel: vessel, willShow: $showAnchorUI)
