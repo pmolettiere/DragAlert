@@ -11,7 +11,7 @@ import MapKit
 
 struct SetupVesselView : View {
     @Environment(ViewModel.self) private var viewModel
-    @Environment(\.dismiss) var dismiss
+    @Environment(ContentView.StateMarker.self) var marker: ContentView.StateMarker
 
     @State var model: SetupVesselModel
     
@@ -51,11 +51,11 @@ struct SetupVesselView : View {
                         v.name = model.vesselName
                         v.loa = model.loa.measurement
                         v.rodeLength = model.rodeLength.measurement
-                        dismiss()
                     } else {
                         let v = Vessel(uuid: UUID(), name: model.vesselName, loaMeters: model.loa.asUnit(UnitLength.meters).value, rodeMeters: model.rodeLength.asUnit(UnitLength.meters).value, latitude: model.gps.latitude, longitude: model.gps.longitude, isAnchored: false, anchor: nil)
                         viewModel.create(myVessel: v)
                     }
+                    marker.state = .map
                 } label: {
                     Text(model.vessel == nil ? "view.setup.vessel.add" : "view.setup.vessel.edit" )
                 }

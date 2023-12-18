@@ -8,11 +8,11 @@
 import SwiftUI
 import MapKit
 
-struct SetupView: View {
+struct PermissionView: View {
     @Environment(ViewModel.self) private var viewModel
-    
+    @Environment(ContentView.StateMarker.self) var marker: ContentView.StateMarker
+
     @State var authStatusListener: AuthStatusListener = AuthStatusListener()
-    var doneSetup: Binding<Bool>
 
     var body: some View {
         VStack(alignment: .center) {
@@ -62,8 +62,8 @@ struct SetupView: View {
             HStack() {
                 Spacer()
                 Button("view.setup.done.button") {
-                    doneSetup.wrappedValue = true
-                    UserDefaults.standard.set(doneSetup.wrappedValue, forKey: "doneSetup")
+                    UserDefaults.standard.set(true, forKey: "doneSetup")
+                    marker.state = .setup
                 }
                 .disabled(!authStatusListener.allowsWhileUsing())
                 .padding()

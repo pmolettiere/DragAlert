@@ -11,30 +11,47 @@ import SwiftData
 struct ContentView: View {
     @Environment(ViewModel.self) private var viewModel
     
-    @State var doneSetup = false
+    @Observable
+    class StateMarker {
+        var state: AppState = .setup
+        enum AppState {
+            case perm, setup, map, anchor
+        }
+    }
+    
+    @State var marker: StateMarker = StateMarker()
     
     var body: some View {
         @Bindable var m = viewModel       // m is for model
-        VStack {
-            if( !doneSetup ) {
-                SetupView(doneSetup: $doneSetup)
+        HStack {
+            if let v = m.myVessel {
+                switch( marker.state ) {
+                case .setup :  SetupVesselView(vessel: v)
+                case .anchor : AnchoringView(vessel: v)
+                default :  MapView(vessel: v)
+                }
             } else {
-                if let myVessel = m.myVessel {
-                    MapView(vessel: myVessel)
-                } else {
-                    SetupVesselView()
+                switch( marker.state ) {
+                case .perm : PermissionView()
+                default : SetupVesselView()
                 }
             }
         }
+        .environment(marker)
         .onAppear(){
-            doneSetup = UserDefaults.standard.bool(forKey: "doneSetup")
-            if( doneSetup ) {
+            if( !UserDefaults.standard.bool(forKey: "doneSetup") ) {
+                marker.state = .perm
+            } else {
                 viewModel.initMyVessel()
+                if viewModel.myVessel != nil {
+                    marker.state = .map
+                }
             }
         }
     }
 }
 
-#Preview {
-    ContentView()
-}
+
+        
+
+

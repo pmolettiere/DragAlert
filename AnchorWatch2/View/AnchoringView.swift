@@ -9,11 +9,10 @@ import SwiftUI
 import MapKit
 
 struct AnchoringView: View {
-    
     @State var model: AnchoringViewModel
     
-    init(vessel: Vessel, isShowing: Binding<Bool>) {
-        _model = State(initialValue: AnchoringViewModel(vessel: vessel, isShowing: isShowing))
+    init(vessel: Vessel) {
+        _model = State(initialValue: AnchoringViewModel(vessel: vessel))
     }
     
     var body: some View {
@@ -36,6 +35,7 @@ struct AnchoringView: View {
     }
         
     struct RelativeView: View {
+        @Environment(ContentView.StateMarker.self) var marker: ContentView.StateMarker
         var model: AnchoringViewModel
         
         init(model: AnchoringViewModel) {
@@ -53,6 +53,7 @@ struct AnchoringView: View {
                 }
                 Button {
                     model.setAnchorAtRelativeBearing()
+                    marker.state = .map
                 } label: {
                     Image("anchor")
                         .resizable()
@@ -72,6 +73,7 @@ struct AnchoringView: View {
     }
     
     struct CurrentView: View {
+        @Environment(ContentView.StateMarker.self) var marker: ContentView.StateMarker
         var model: AnchoringViewModel
 
         var body: some View {
@@ -87,6 +89,7 @@ struct AnchoringView: View {
                 }
                 Button() {
                     model.setAnchorAtCurrentPosition()
+                    marker.state = .map
                 } label: {
                     Image("anchor")
                         .resizable()
@@ -109,7 +112,6 @@ struct AnchoringView: View {
 @Observable
 class AnchoringViewModel {
     var vessel: Vessel
-    var isShowing: Binding<Bool>
 
     var gps: LocationObserver = LocationObserver()
     var selectedTab: Int = 0
@@ -120,9 +122,8 @@ class AnchoringViewModel {
     var maxRodeLength: MeasurementModel<UnitLength>
     var maxDistanceFromAnchor: MeasurementModel<UnitLength>
     
-    init(vessel: Vessel, isShowing: Binding<Bool>) {
+    init(vessel: Vessel) {
         self.vessel = vessel
-        self.isShowing = isShowing
         self.gps = LocationObserver()
         self.maxRodeLength = MeasurementModel(vessel.rodeLength)
         self.maxDistanceFromAnchor = MeasurementModel(vessel.maxDistanceFromAnchor)
@@ -160,7 +161,6 @@ class AnchoringViewModel {
         let newAnchor = Anchor(timestamp: Date.now, latitude: latitude, longitude: longitude, rodeLength: rodeLength, log: [], vessel: self.vessel)
         vessel.anchor = newAnchor
         vessel.isAnchored = true
-        isShowing.wrappedValue = false
     }
 
     func setAnchorAtRelativeBearing() {

@@ -7,6 +7,7 @@
 
 import AVFoundation
 
+@Observable
 final class Alarm : @unchecked Sendable {
     
     static let instance = Alarm()
