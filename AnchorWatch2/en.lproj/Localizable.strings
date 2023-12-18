@@ -20,6 +20,9 @@ view.anchoring.current = "Current";
 view.anchoring.rodeLength = "Rode";  // noun, nautical, means the chain and/or rope connecting the anchor to the boat
 view.anchoring.distance = "Distance";
 view.anchoring.bearing = "Bearing";
+view.anchoring.would.alarm = "Outside Alarm Radius";
+view.anchoring.no.alarm = "Inside Alarm Radius";
+
 view.setup.title = "Permission Required";
 view.setup.explain.while = "Anchor Watch tracks your vessel's location to determine whether your vessel is within your intended anchoring radius.";
 view.setup.whileUsing = "Allow While Using"; // iOS system location setting value

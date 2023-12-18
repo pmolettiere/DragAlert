@@ -35,6 +35,7 @@
 		9ADA00F02B2AAA2D00A9FDB8 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADA00EF2B2AAA2D00A9FDB8 /* Alarm.swift */; };
 		9ADA00F32B2B2B1200A9FDB8 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9ADA00F22B2B2B1200A9FDB8 /* alarm.mp3 */; };
 		9ADA00F62B2C8A1400A9FDB8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9ADA00F82B2C8A1400A9FDB8 /* Localizable.strings */; };
+		9AFAB10B2B30E16D0047E481 /* CompassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFAB10A2B30E16D0047E481 /* CompassView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		9ADA00EF2B2AAA2D00A9FDB8 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		9ADA00F22B2B2B1200A9FDB8 /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm.mp3; sourceTree = "<group>"; };
 		9ADA00F72B2C8A1400A9FDB8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9AFAB10A2B30E16D0047E481 /* CompassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +216,7 @@
 				9ACA945B2B24BC8800BA73D3 /* SetupVesselView.swift */,
 				9ACA945F2B27B08800BA73D3 /* DistanceEditor.swift */,
 				9ACA945D2B25EE6300BA73D3 /* Format.swift */,
+				9AFAB10A2B30E16D0047E481 /* CompassView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				9A0D79B92B20BD0700E83F11 /* AnchorLog.swift in Sources */,
 				9ACA945A2B24B8DE00BA73D3 /* ContentView.swift in Sources */,
 				9A0D79C62B20CAF300E83F11 /* MapView.swift in Sources */,
+				9AFAB10B2B30E16D0047E481 /* CompassView.swift in Sources */,
 				9A0D79BB2B20BD0700E83F11 /* Vessel.swift in Sources */,
 				9ACA94602B27B08800BA73D3 /* DistanceEditor.swift in Sources */,
 			);

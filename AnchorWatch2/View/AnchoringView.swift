@@ -21,10 +21,12 @@ struct AnchoringView: View {
                 .tabItem {
                     Label("view.anchoring.relative", systemImage: "location.north.line.fill")
                 }
+                .padding()
             CurrentView(model: model)
                 .tabItem {
                     Label("view.anchoring.current", systemImage: "location.fill")
                 }
+                .padding()
         }
         .onAppear() {
             LocationDelegate.instance.isTrackingHeading = true
@@ -44,13 +46,14 @@ struct AnchoringView: View {
         
         var body: some View {
             VStack {
+                CompassView()
+
                 DistanceEditor("view.anchoring.rodeLength", measurement: model.rodeLength, max: model.maxRodeLength.measurement )
                 DistanceEditor("view.anchoring.distance", measurement: model.distanceFromAnchor, max: model.maxDistanceFromAnchor.measurement )
+                Text(model.relativeLocationWouldAlarm() ? "view.anchoring.would.alarm" : "view.anchoring.no.alarm")
+                    .foregroundColor(model.relativeLocationWouldAlarm() ? Color.red : Color.white)
+                    .padding()
 
-                HStack {
-                    Text("view.anchoring.bearing")
-                    Text("\(model.gps.heading.formatted(.number.rounded(increment:1)))")
-                }
                 Button {
                     model.setAnchorAtRelativeBearing()
                     marker.state = .map
@@ -60,6 +63,8 @@ struct AnchoringView: View {
                         .frame(width: CGFloat(50), height: CGFloat(50))
                         .colorInvert()
                 }
+                .disabled(model.relativeLocationWouldAlarm())
+                .padding()
             }
             .buttonStyle(.bordered)
             .onAppear(perform: {
@@ -168,14 +173,26 @@ class AnchoringViewModel {
         vessel.anchor = newAnchor
         vessel.isAnchored = true
     }
+    
+    func relativeLocationWouldAlarm() -> Bool {
+        let location = relativeLocation()
+        let anchor = CLLocation(latitude: location.latitude, longitude: location.longitude)
+        return CLLocation(latitude: gps.latitude, longitude: gps.longitude).distance(from: anchor) >= currentSwingRadiusMeters()
+    }
+    
+    func currentSwingRadiusMeters() -> Double {
+        vessel.loaMeters + rodeLength.asUnit(UnitLength.meters).value
+    }
 
     func setAnchorAtRelativeBearing() {
+        let final = relativeLocation()
+        print("Dropping anchor at relative position \(final.latitude.formatted(.number.rounded(increment:0.001))), \(final.longitude.formatted(.number.rounded(increment:0.001)))");
+        dropAnchor(final)
+    }
+    
+    func relativeLocation() -> CLLocationCoordinate2D {
         let origin = CLLocationCoordinate2D(latitude: gps.latitude, longitude: gps.longitude)
         let final = locationWithBearing(bearing: gps.heading, distanceMeters: distanceFromAnchor.asUnit(UnitLength.meters).value, origin: origin)
-        
-        print("Dropping anchor at relative position \(final.latitude.formatted(.number.rounded(increment:0.001))), \(final.longitude.formatted(.number.rounded(increment:0.001)))");
-        
-        dropAnchor(final)
         
         func locationWithBearing(bearing:Double, distanceMeters:Double, origin:CLLocationCoordinate2D) -> CLLocationCoordinate2D {
             let bearingRadians = bearing * .pi / 180
@@ -189,6 +206,8 @@ class AnchoringViewModel {
             
             return CLLocationCoordinate2D(latitude: lat2 * 180 / .pi, longitude: lon2 * 180 / .pi)
         }
+        
+        return final
     }
         
     func setAnchorAtCurrentPosition() {
