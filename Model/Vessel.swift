@@ -28,7 +28,7 @@ final class Vessel : Codable {
     }
     
     @Transient
-    var rode: Measurement<UnitLength> {
+    var rodeLength: Measurement<UnitLength> {
         get { Measurement(value: rodeMeters, unit: UnitLength.meters) }
         set { rodeMeters = newValue.converted(to: UnitLength.meters).value }
     }

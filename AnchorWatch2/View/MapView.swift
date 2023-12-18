@@ -23,12 +23,13 @@ struct MapView: View {
         }
     }
     
+    @State private var path = NavigationPath()
     @State var mapStyle: MapStyle = .standard
     @Namespace var mapScope
             
     var body: some View {
         VStack {
-            NavigationView {
+            NavigationStack(path: $path) {
                 ZStack(alignment: .topLeading) {
                     VStack {
                         MapCompass(scope: mapScope)
@@ -64,7 +65,7 @@ struct MapView: View {
                         mapStyle = .imagery
                     }
                     .sheet(isPresented: $showAnchorUI, content: {
-                        AnchoringView(vessel: vessel, willShow: $showAnchorUI)
+                        AnchoringView(vessel: vessel, isShowing: $showAnchorUI)
                     })
                 }
                 .toolbar {
@@ -85,6 +86,13 @@ struct MapView: View {
                                 Text("view.map.alarm.test")
                             }
                             .disabled(Alarm.instance.isPlaying)
+                        }
+                    }
+                    ToolbarItem(placement: .bottomBar) {
+                        Button() {
+                            path.append("VesselSetup")
+                        } label: {
+                            Text("view.map.edit.vessel")
                         }
                     }
                     ToolbarItem(placement: .bottomBar) {
@@ -121,6 +129,11 @@ struct MapView: View {
                             }
                             .disabled(!vessel.isAnchored)
                         }
+                    }
+                }
+                .navigationDestination(for: String.self) { view in
+                    if view == "VesselSetup" {
+                        SetupVesselView(vessel: vessel)
                     }
                 }
             }

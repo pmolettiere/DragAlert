@@ -14,7 +14,7 @@ struct DistanceEditor : View {
     var label: LocalizedStringKey
     @State var model: DistanceEditorModel
     
-    init(_ label: LocalizedStringKey, measurement: Binding<Measurement<UnitLength>>, max: Measurement<UnitLength>? = nil, step: Double? = nil) {
+    init(_ label: LocalizedStringKey, measurement: MeasurementModel<UnitLength>, max: Measurement<UnitLength>? = nil, step: Double? = nil) {
         self.label = label
         self.model = DistanceEditorModel(measurement, max: max, step: step)
     }
@@ -52,27 +52,25 @@ class DistanceEditorModel {
         MeasurementConstants(unit: UnitLength.meters, range: 0...100, step: 1),
     ]
 
-    var binding: Binding<Measurement<UnitLength>>
-    var unit: UnitLength {
-        willSet(toUnit) {
-            value = Measurement(value: value, unit: unit).converted(to: toUnit).value
-        }
-    }
-    var value: Double {
-        didSet {
-            binding.wrappedValue = asMeasurement()
-        }
-    }
+    var model: MeasurementModel<UnitLength>
     var max: Measurement<UnitLength>?
     var specifiedStep: Double?
 
-    var range: ClosedRange<Double>{
+    var value: Double {
+        get { model.value }
+        set { model.value = newValue }
+    }
+    var unit: UnitLength {
+        get { model.unit }
+        set { model.unit = newValue }
+    }
+    var range: ClosedRange<Double> {
         get {
             if let end = max {
-                let cvt = end.converted(to: unit).value
+                let cvt = end.converted(to: model.unit).value
                 if( cvt >= 1) { return 0...cvt }
             }
-            let i = (unit == UnitLength.feet ? 0 : 1)
+            let i = (model.unit == UnitLength.feet ? 0 : 1)
             return constants[i].range
         }
     }
@@ -82,22 +80,45 @@ class DistanceEditorModel {
                 if stp < 1 { return 1 }
                 return stp
             } else {
-                let i = (unit == UnitLength.feet ? 0 : 1)
+                let i = (model.unit == UnitLength.feet ? 0 : 1)
                 return constants[i].step
             }
         }
     }
     
-    init(_ measurement:Binding<Measurement<UnitLength>>, max: Measurement<UnitLength>?, step: Double?) {
-        binding = measurement
-        value = measurement.wrappedValue.value
-        unit = measurement.wrappedValue.unit
+    init(_ measurement:MeasurementModel<UnitLength>, max: Measurement<UnitLength>?, step: Double?) {
+        model = measurement
         self.max = max
         self.specifiedStep = step
     }
         
     func asMeasurement() -> Measurement<UnitLength> {
-        Measurement(value: value, unit: unit)
+        model.measurement
     }
 }
 
+@Observable
+class MeasurementModel<U: Dimension> {
+    var measurement: Measurement<U> {
+        get {
+            Measurement(value: value, unit: unit)
+        }
+    }
+    var value: Double
+    var unit: U {
+        willSet(toUnit) {
+            if( unit != toUnit ) {
+                value = measurement.converted(to: toUnit).value
+            }
+        }
+    }
+    
+    init(_ measurement: Measurement<U>) {
+        self.value = measurement.value
+        self.unit = measurement.unit
+    }
+    
+    func asUnit(_ unit: U) -> Measurement<U> {
+        measurement.converted(to: unit)
+    }
+}

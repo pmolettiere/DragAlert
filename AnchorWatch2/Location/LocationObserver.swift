@@ -85,6 +85,7 @@ extension Vessel {
                     }
                 } else {
                     print("Anchored vessel missing Anchor record. Failing to update anchor log.")
+                    isAnchored = false
                 }
             } else {
                 Alarm.instance.stopPlaying()

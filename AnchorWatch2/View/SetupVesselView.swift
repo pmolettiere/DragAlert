@@ -11,11 +11,21 @@ import MapKit
 
 struct SetupVesselView : View {
     @Environment(ViewModel.self) private var viewModel
+    @Environment(\.dismiss) var dismiss
 
-    @State var vesselName: String = ""
-    @State var loa: Measurement<UnitLength> = Measurement(value: 40, unit: UnitLength.feet)
-    @State var rode: Measurement<UnitLength> = Measurement(value: 328, unit: UnitLength.feet)
-    @State var gps: LocationObserver = LocationObserver()
+    @State var model: SetupVesselModel
+    
+    init() {
+        _model = State(initialValue: SetupVesselModel())
+    }
+    
+    init(vessel: Vessel) {
+        _model = State(initialValue: SetupVesselModel())
+        model.vessel = vessel
+        model.vesselName = vessel.name
+        model.loa = MeasurementModel(vessel.loa)
+        model.rodeLength = MeasurementModel(vessel.rodeLength)
+    }
     
     var body: some View {
         Form {
@@ -23,44 +33,55 @@ struct SetupVesselView : View {
                 HStack {
                     Text("view.setup.vessel.name")
                     Spacer()
-                    TextField("view.setup.vessel.name", text: $vesselName )
+                    TextField("view.setup.vessel.name", text: $model.vesselName )
                         .padding(10)
                 }
-                DistanceEditor("view.setup.vessel.loa", measurement: $loa, max: Measurement(value: 100, unit: UnitLength.feet), step: 1)
-                DistanceEditor("view.setup.vessel.rode", measurement: $rode)
+                DistanceEditor("view.setup.vessel.loa", measurement: model.loa, max: Measurement(value: 100, unit: UnitLength.feet), step: 1)
+                DistanceEditor("view.setup.vessel.rodeLength", measurement: model.rodeLength)
                 HStack {
                     Text("view.multiple.latitude")
-                    Text("\(gps.latitude.formatted(.number.rounded(increment:0.001)))")
+                    Text("\(model.gps.latitude.formatted(.number.rounded(increment:0.001)))")
                 }
                 HStack {
                     Text("view.multiple.longitude")
-                    Text("\(gps.longitude.formatted(.number.rounded(increment:0.001)))")
+                    Text("\(model.gps.longitude.formatted(.number.rounded(increment:0.001)))")
                 }
                 Button {
-                    let v = Vessel(uuid: UUID(), name: vesselName, loaMeters: loa.converted(to: UnitLength.meters).value, rodeMeters: rode.converted(to: UnitLength.meters).value, latitude: gps.latitude, longitude: gps.longitude, isAnchored: false, anchor: nil)
-                    viewModel.create(myVessel: v)
+                    if let v = model.vessel {
+                        v.name = model.vesselName
+                        v.loa = model.loa.measurement
+                        v.rodeLength = model.rodeLength.measurement
+                        dismiss()
+                    } else {
+                        let v = Vessel(uuid: UUID(), name: model.vesselName, loaMeters: model.loa.asUnit(UnitLength.meters).value, rodeMeters: model.rodeLength.asUnit(UnitLength.meters).value, latitude: model.gps.latitude, longitude: model.gps.longitude, isAnchored: false, anchor: nil)
+                        viewModel.create(myVessel: v)
+                    }
                 } label: {
-                    Text("view.setup.vessel.add")
+                    Text(model.vessel == nil ? "view.setup.vessel.add" : "view.setup.vessel.edit" )
                 }
-                .disabled(vesselName == "")
+                .disabled(model.vesselName == "")
             }
             .onAppear(perform: {
                 LocationDelegate.instance.isTrackingLocation = true
-                gps.isTrackingLocation = true
-//                if let lastRode = UserDefaults.standard.object(forKey: "SetupVesselView.rode") as? Measurement<UnitLength> {
-//                    rode = lastRode
+                model.gps.isTrackingLocation = true
+//                if let lastRode = UserDefaults.standard.object(forKey: "SetupVesselView.rodeLength") as? Measurement<UnitLength> {
+//                    rodeLength = lastRode
 //                }
             })
             .onDisappear(perform: {
-                gps.isTrackingLocation = false
-//                UserDefaults.standard.set(rode, forKey: "SetupVesselView.rode")
+                model.gps.isTrackingLocation = false
+//                UserDefaults.standard.set(rodeLength, forKey: "SetupVesselView.rode")
             })
         }
     }
 }
 
-#Preview {
-    SetupVesselView()
-//        .environment(ViewModel.preview)
-//        .modelContainer(PreviewSampleData.container)
+@Observable
+class SetupVesselModel {
+    var vessel: Vessel?
+    var vesselName: String = ""
+    var loa: MeasurementModel<UnitLength> = MeasurementModel(Measurement(value: 40, unit: UnitLength.feet))
+    var rodeLength: MeasurementModel<UnitLength> = MeasurementModel(Measurement(value: 100, unit: UnitLength.feet))
+    var gps: LocationObserver = LocationObserver()
+
 }
