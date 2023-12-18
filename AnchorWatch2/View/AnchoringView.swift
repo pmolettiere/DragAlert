@@ -134,18 +134,24 @@ class AnchoringViewModel {
         self.distanceFromAnchor = MeasurementModel( readPrefMeasurement(label: "AnchoringView.RelativeView.distance") )
     }
     
+    deinit {
+        savePrefMeasurements()
+    }
+
     func readPrefMeasurement(label: String) -> Measurement<UnitLength> {
         let unit = UserDefaults.standard.string(forKey: "\(label).unit") == "ft" ? UnitLength.feet : UnitLength.meters
         let value = UserDefaults.standard.double(forKey: "\(label).value")
+        print("readPref \(label) \(value) \(unit)")
         return Measurement<UnitLength>(value: value, unit: unit)
     }
     
     func savePrefMeasurements() {
-        savePrefMeasurement("AnchoringView.RelativeView.rodeLength", measurement: distanceFromAnchor.measurement)
-        savePrefMeasurement("AnchoringView.RelativeView.distance", measurement: rodeLength.measurement)
+        savePrefMeasurement("AnchoringView.RelativeView.distance", measurement: distanceFromAnchor.measurement)
+        savePrefMeasurement("AnchoringView.RelativeView.rodeLength", measurement: rodeLength.measurement)
         func savePrefMeasurement(_ label: String, measurement: Measurement<UnitLength>) {
             UserDefaults.standard.set(measurement.value, forKey: "\(label).value")
             UserDefaults.standard.set(measurement.unit.symbol, forKey: "\(label).unit")
+            print("savePref \(label) \(measurement.value) \(measurement.unit)")
         }
     }
     
