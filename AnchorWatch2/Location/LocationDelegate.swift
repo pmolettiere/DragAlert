@@ -33,15 +33,18 @@ class LocationDelegate : NSObject {
             UserDefaults.standard.set(isTrackingLocation, forKey: "isTrackingLocation")
             if isTrackingLocation {
                 manager.startUpdatingLocation()
+                print("LocationDelegate about to replace CLBackgroundActivitySession")
                 self.background = CLBackgroundActivitySession()
                 manager.allowsBackgroundLocationUpdates = true
                 manager.showsBackgroundLocationIndicator = true
             } else {
                 manager.stopUpdatingLocation()
                 if( !isTrackingHeading ) {
-                    self.background?.invalidate()
                     manager.allowsBackgroundLocationUpdates = false
                     manager.showsBackgroundLocationIndicator = false
+                    print("LocationDelegate about to invalidate CLBackgroundActivitySession")
+                    self.background?.invalidate()
+                    self.background = nil
                 }
             }
         }
