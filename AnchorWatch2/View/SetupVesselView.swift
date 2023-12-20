@@ -11,7 +11,6 @@ import MapKit
 
 struct SetupVesselView : View {
     @Environment(ViewModel.self) private var viewModel
-    @Environment(ContentView.StateMarker.self) var marker: ContentView.StateMarker
 
     @State var model: SetupVesselModel
     
@@ -56,7 +55,7 @@ struct SetupVesselView : View {
                         let v = Vessel(uuid: UUID(), name: model.vesselName, loaMeters: model.loa.asUnit(UnitLength.meters).value, rodeMeters: model.rodeLength.asUnit(UnitLength.meters).value, latitude: model.gps.latitude, longitude: model.gps.longitude, isAnchored: false, anchor: nil)
                         viewModel.create(myVessel: v)
                     }
-                    marker.state = .map
+                    viewModel.setAppView( .map )
                 } label: {
                     Text(model.vessel == nil ? "view.setup.vessel.add" : "view.setup.vessel.edit" )
                 }
@@ -65,13 +64,9 @@ struct SetupVesselView : View {
             .onAppear(perform: {
                 LocationDelegate.instance.isTrackingLocation = true
                 model.gps.isTrackingLocation = true
-//                if let lastRode = UserDefaults.standard.object(forKey: "SetupVesselView.rodeLength") as? Measurement<UnitLength> {
-//                    rodeLength = lastRode
-//                }
             })
             .onDisappear(perform: {
                 model.gps.isTrackingLocation = false
-//                UserDefaults.standard.set(rodeLength, forKey: "SetupVesselView.rode")
             })
         }
     }

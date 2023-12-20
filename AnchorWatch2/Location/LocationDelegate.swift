@@ -9,20 +9,21 @@ import Foundation
 import MapKit
 import simd
 
-class LocationDelegate : NSObject, CLLocationManagerDelegate {
+class LocationDelegate : NSObject {
     
     static let instance = LocationDelegate()
     
     private let manager: CLLocationManager
     private var background: CLBackgroundActivitySession?
-
+    
     override init() {
         self.manager = CLLocationManager()
         self.background = CLBackgroundActivitySession()
         super.init()
         manager.delegate = self
-        manager.allowsBackgroundLocationUpdates = true
-        manager.showsBackgroundLocationIndicator = true
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.activityType = CLActivityType.otherNavigation
+        manager.pausesLocationUpdatesAutomatically = false
         print("LocationDelegate.init() called.")
     }
     
@@ -32,13 +33,20 @@ class LocationDelegate : NSObject, CLLocationManagerDelegate {
             UserDefaults.standard.set(isTrackingLocation, forKey: "isTrackingLocation")
             if isTrackingLocation {
                 manager.startUpdatingLocation()
+                self.background = CLBackgroundActivitySession()
+                manager.allowsBackgroundLocationUpdates = true
+                manager.showsBackgroundLocationIndicator = true
             } else {
                 manager.stopUpdatingLocation()
-                if( !isTrackingHeading ) { self.background?.invalidate() }
+                if( !isTrackingHeading ) {
+                    self.background?.invalidate()
+                    manager.allowsBackgroundLocationUpdates = false
+                    manager.showsBackgroundLocationIndicator = false
+                }
             }
         }
     }
-
+    
     @Published
     var isTrackingHeading: Bool = UserDefaults.standard.bool(forKey: "isTrackingHeading") {
         didSet {
@@ -47,14 +55,8 @@ class LocationDelegate : NSObject, CLLocationManagerDelegate {
                 manager.startUpdatingHeading()
             } else {
                 manager.stopUpdatingHeading()
-                if( !isTrackingLocation ) { self.background?.invalidate() }
             }
         }
-    }
-
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        print("AnchorWatch.locationDelegate: locationManagerDidChangeAuthorization: \(manager.authorizationStatus)")
-        NotificationCenter.default.post(name: LocationNotifications.authStatus.asNotificationName(), object: LocationAuthStatusNotification(authStatus: manager.authorizationStatus))
     }
     
     func requestWhenInUseAuthorization() {
@@ -69,6 +71,18 @@ class LocationDelegate : NSObject, CLLocationManagerDelegate {
         NotificationCenter.default.post(name: LocationNotifications.authStatus.asNotificationName(), object: LocationAuthStatusNotification(authStatus: manager.authorizationStatus))
     }
     
+    func allowsBackground() -> Bool {
+        manager.allowsBackgroundLocationUpdates && manager.showsBackgroundLocationIndicator
+    }
+}
+
+extension LocationDelegate : CLLocationManagerDelegate {
+
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        print("AnchorWatch.locationDelegate: locationManagerDidChangeAuthorization: \(manager.authorizationStatus)")
+        NotificationCenter.default.post(name: LocationNotifications.authStatus.asNotificationName(), object: LocationAuthStatusNotification(authStatus: manager.authorizationStatus))
+    }
+    
     func locationManager(_ manager: CLLocationManager, didFailWithError: Error) {
         print("AnchorWatch.locationDelegate: didFailWithError")
         NotificationCenter.default.post(name: LocationNotifications.failure.asNotificationName(), object: LocationFailure(error: didFailWithError))
@@ -76,7 +90,7 @@ class LocationDelegate : NSObject, CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations: [CLLocation]) {
-//        print("AnchorWatch.locationDelegate: didUpdateLocations")
+        //print("AnchorWatch.locationDelegate: didUpdateLocations")
         NotificationCenter.default.post(name: LocationNotifications.updateLocation.asNotificationName(), object: LocationUpdate(locations: didUpdateLocations))
     }
     
@@ -91,7 +105,7 @@ class LocationDelegate : NSObject, CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateHeading: CLHeading) {
-//        print("AnchorWatch.locationDelegate: didUpdateHeading")
+        //print("AnchorWatch.locationDelegate: didUpdateHeading")
         NotificationCenter.default.post(name: LocationNotifications.updateHeading.asNotificationName(), object: HeadingUpdate(heading: didUpdateHeading))
     }
 }

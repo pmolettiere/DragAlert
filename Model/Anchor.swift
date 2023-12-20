@@ -86,9 +86,7 @@ extension Anchor {
     func update(log: AnchorLog) {
         self.log.append(log)
     }
-}
 
-extension Anchor {
     var coordinate: CLLocationCoordinate2D {
         get { CLLocationCoordinate2D(latitude: latitude, longitude: longitude) }
         set { latitude = newValue.latitude; longitude = newValue.longitude }
@@ -108,5 +106,17 @@ extension Anchor {
     
     func contains(location: CLLocationCoordinate2D) -> Bool {
         contains(location: CLLocation(latitude: location.latitude, longitude: location.longitude))
+    }
+    
+    func triggerAlarmIfDragging() {
+        if let v = vessel {
+            if( v.isAnchored ) {
+                if( !contains(location: v.coordinate) ) {
+                    Alarm.instance.stopPlaying()
+                } else {
+                    Alarm.instance.stopPlaying()
+                }
+            }
+        }
     }
 }

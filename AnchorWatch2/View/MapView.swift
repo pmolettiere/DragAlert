@@ -9,12 +9,10 @@ import SwiftUI
 import SwiftData
 import MapKit
 import simd
-import AQUI
 
 struct MapView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(ViewModel.self) private var viewModel
-    @Environment(ContentView.StateMarker.self) var marker: ContentView.StateMarker
 
     @State var vessel: Vessel
     
@@ -80,7 +78,7 @@ struct MapView: View {
                 }
                 ToolbarItem(placement: .bottomBar) {
                     Button() {
-                        marker.state = .setup
+                        viewModel.setAppView(.setup)
                     } label: {
                         Text("view.map.edit.vessel")
                     }
@@ -92,7 +90,7 @@ struct MapView: View {
                                 if( v.isAnchored ) {
                                     v.isAnchored = false
                                 } else {
-                                    marker.state = .anchor
+                                    viewModel.setAppView(.anchor)
                                 }
                             }
                         } label: {
@@ -127,6 +125,8 @@ struct MapView: View {
             }
         }
         .onAppear() {
+            print("MapView.map onAppear")
+            //                mapStyle = .imagery
             LocationDelegate.instance.isTrackingLocation = true
         }
     }

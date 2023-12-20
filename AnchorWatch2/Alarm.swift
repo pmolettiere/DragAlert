@@ -27,7 +27,7 @@ final class Alarm : @unchecked Sendable {
     init() {
         guard let url = Bundle.main.url(forResource: "alarm", withExtension: "mp3") else { return }
         do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.mixWithOthers])
             try AVAudioSession.sharedInstance().setActive(true)
             player = try AVAudioPlayer(contentsOf: url)
             guard let player = player else { return }

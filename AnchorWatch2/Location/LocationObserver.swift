@@ -65,31 +65,20 @@ extension Vessel {
     func stopTrackingLocation() {
         NotificationCenter.default.removeObserver(self, name: LocationNotifications.updateLocation.asNotificationName(), object: nil)
     }
-        
+
     @objc func locationDidUpdate( notification: Notification ) {
         let locationUpdate: LocationUpdate = notification.object as! LocationUpdate
         let locations = locationUpdate.locations
-        if let lastLocation: CLLocation = locations.last {
-            latitude = lastLocation.coordinate.latitude
-            longitude = lastLocation.coordinate.longitude
-
+        locations.forEach { location in
+            latitude = location.coordinate.latitude
+            longitude = location.coordinate.longitude
             if( isAnchored ) {
-                if let currentAnchor = anchor {
-                    locations.forEach() {
-                        currentAnchor.update(log: AnchorLog($0))
-                    }
-                    if( !currentAnchor.contains(location: lastLocation) ) {
-                        Alarm.instance.startPlaying()
-                    } else {
-                        Alarm.instance.stopPlaying()
-                    }
-                } else {
-                    print("Anchored vessel missing Anchor record. Failing to update anchor log.")
-                    isAnchored = false
-                }
+                anchor?.update(log: AnchorLog(location))
+                anchor?.triggerAlarmIfDragging()
             } else {
                 Alarm.instance.stopPlaying()
             }
         }
     }
+    
 }

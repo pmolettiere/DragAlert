@@ -10,7 +10,6 @@ import MapKit
 
 struct PermissionView: View {
     @Environment(ViewModel.self) private var viewModel
-    @Environment(ContentView.StateMarker.self) var marker: ContentView.StateMarker
 
     @State var authStatusListener: AuthStatusListener = AuthStatusListener()
 
@@ -63,7 +62,7 @@ struct PermissionView: View {
                 Spacer()
                 Button("view.setup.done.button") {
                     UserDefaults.standard.set(true, forKey: "doneSetup")
-                    marker.state = .setup
+                    viewModel.setAppView( .setup )
                 }
                 .disabled(!authStatusListener.allowsWhileUsing())
                 .padding()

@@ -13,6 +13,7 @@ import SwiftUI
     var locationDelegate: LocationDelegate
     
     var myVessel: Vessel?
+    var currentView: AppView = .perm
     
     init(_ container: ModelContainer) {
         self.container = container
@@ -20,6 +21,7 @@ import SwiftUI
     }
     
     func initMyVessel() {
+        print("ViewModel.initMyVessel")
         let context = container.mainContext
         var fd = FetchDescriptor<Vessel>()
         fd.fetchLimit = 1
@@ -32,13 +34,7 @@ import SwiftUI
                 self.myVessel?.startTrackingLocation()
                 
                 if let anchor = myVessel.anchor {
-                    if( myVessel.isAnchored ) {
-                        if( !anchor.contains(location: myVessel.coordinate) ) {
-                            Alarm.instance.stopPlaying()
-                        } else {
-                            Alarm.instance.stopPlaying()
-                        }
-                    }
+                    anchor.triggerAlarmIfDragging()
                 }
             }
         } catch {
@@ -64,5 +60,12 @@ import SwiftUI
         locationDelegate.requestAuthStatus()
     }
     
+    func setAppView(_ newView: AppView) {
+        print( "ViewModel.setAppView changing view from \(currentView) to \(newView)")
+        currentView = newView
+    }
+}
 
+enum AppView {
+    case perm, setup, map, anchor
 }

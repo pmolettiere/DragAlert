@@ -13,6 +13,7 @@ struct AnchoringView: View {
     
     init(vessel: Vessel) {
         _model = State(initialValue: AnchoringViewModel(vessel: vessel))
+        print("AnchoringView.init()")
     }
     
     var body: some View {
@@ -30,18 +31,21 @@ struct AnchoringView: View {
         }
         .onAppear() {
             LocationDelegate.instance.isTrackingHeading = true
+            print("AnchoringView.onAppear()")
         }
         .onDisappear() {
-            LocationDelegate.instance.isTrackingHeading = false
+            //LocationDelegate.instance.isTrackingHeading = false
+            print("AnchoringView.onDisappear()")
         }
     }
         
     struct RelativeView: View {
-        @Environment(ContentView.StateMarker.self) var marker: ContentView.StateMarker
+        @Environment(ViewModel.self) private var viewModel
         var model: AnchoringViewModel
         
         init(model: AnchoringViewModel) {
             self.model = model
+            print("AnchoringView.RelativeView.init()")
         }
         
         var body: some View {
@@ -56,7 +60,8 @@ struct AnchoringView: View {
 
                 Button {
                     model.setAnchorAtRelativeBearing()
-                    marker.state = .map
+                    viewModel.setAppView( .map )
+                    print("AnchoringView.RelativeView.button complete")
                 } label: {
                     Image("anchor")
                         .resizable()
@@ -69,21 +74,22 @@ struct AnchoringView: View {
             .buttonStyle(.bordered)
             .onAppear(perform: {
                 model.track(location: true, heading: true)
+                print("AnchoringView.RelativeView.onAppear()")
             })
             .onDisappear(perform: {
                 model.track()
+                print("AnchoringView.RelativeView.onDisappear()")
             })
 
         }
     }
     
     struct CurrentView: View {
-        @Environment(ContentView.StateMarker.self) var marker: ContentView.StateMarker
+        @Environment(ViewModel.self) private var viewModel
         var model: AnchoringViewModel
 
         var body: some View {
             VStack {
-                DistanceEditor("view.anchoring.rodeLength", measurement: model.rodeLength, max: model.maxRodeLength.measurement )
                 HStack {
                     Text("view.multiple.latitude")
                     Text("\(model.gps.latitude.formatted(.number.rounded(increment:0.001)))")
@@ -92,9 +98,13 @@ struct AnchoringView: View {
                     Text("view.multiple.longitude")
                     Text("\(model.gps.longitude.formatted(.number.rounded(increment:0.001)))")
                 }
+                .padding()
+                DistanceEditor("view.anchoring.rodeLength", measurement: model.rodeLength, max: model.maxRodeLength.measurement )
+                    .padding()
                 Button() {
                     model.setAnchorAtCurrentPosition()
-                    marker.state = .map
+                    viewModel.setAppView( .map )
+                    print("AnchoringView.CurrentView.button complete")
                 } label: {
                     Image("anchor")
                         .resizable()
@@ -102,12 +112,15 @@ struct AnchoringView: View {
                         .colorInvert()
                 }
                 .buttonStyle(.bordered)
+                .padding()
             }
             .onAppear(perform: {
                 model.track(location: true)
+                print("AnchoringView.CurrentView.onAppear()")
             })
             .onDisappear(perform: {
                 model.track()
+                print("AnchoringView.CurrentView.onDisappear()")
             })
 
         }
@@ -172,6 +185,7 @@ class AnchoringViewModel {
         let newAnchor = Anchor(timestamp: Date.now, latitude: latitude, longitude: longitude, rodeLength: rodeLength, log: [], vessel: self.vessel)
         vessel.anchor = newAnchor
         vessel.isAnchored = true
+        print("AnchoringVew.dropAnchor() complete")
     }
     
     func relativeLocationWouldAlarm() -> Bool {

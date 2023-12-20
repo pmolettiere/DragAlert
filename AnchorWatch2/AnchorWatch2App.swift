@@ -22,24 +22,19 @@ struct AnchorWatch2App: App {
         
         do {
             let container = try ModelContainer(for: schema, configurations: [modelConfiguration])
+            print("DragAlert.sharedModelContainer initialized.")
             return container
         } catch {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
-    
-    private var viewModel: ViewModel
-    
-    init() {
-        viewModel = ViewModel(sharedModelContainer)
-    }
-    
+            
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
         .modelContainer(sharedModelContainer)
-        .environment(viewModel)
+        .environment(ViewModel(sharedModelContainer))
     }
 }
 

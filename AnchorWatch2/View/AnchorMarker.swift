@@ -20,8 +20,7 @@ struct AnchorMarker: MapContent {
         } label: {
             Text("")
         }
-        let radius : CLLocationDistance = anchor.radiusM
-        MapCircle(center: anchor.coordinate, radius: radius)
+        MapCircle(center: anchor.coordinate, radius: anchor.radiusM)
             .stroke(Color.red)
             .stroke(lineWidth: CGFloat(2))
             .foregroundStyle(.clear)
@@ -32,7 +31,9 @@ struct AnchorMarker: MapContent {
                 .stroke(lineWidth: CGFloat(1))
                 .foregroundStyle(.clear)
         }
-        MapPolyline(coordinates: anchor.coordinateLog, contourStyle: .straight)
-            .stroke(Color.blue)
+        if( anchor.log.count > 0 ) {
+            MapPolyline(coordinates: anchor.coordinateLog, contourStyle: .straight)
+                .stroke(Color.blue)
+        }
     }
 }
