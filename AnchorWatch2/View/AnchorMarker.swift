@@ -13,10 +13,7 @@ struct AnchorMarker: MapContent {
 
     var body: some MapContent {
         Annotation(coordinate: anchor.coordinate) {
-            Image("anchor")
-                .resizable()
-                .colorInvert()
-                .frame(width: CGFloat(20), height: CGFloat(25), alignment: .center)
+            AnchorView()
         } label: {
             Text("")
         }
