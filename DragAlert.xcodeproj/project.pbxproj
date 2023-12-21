@@ -7,37 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A0D79862B20BC3500E83F11 /* AnchorWatch2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D79852B20BC3500E83F11 /* AnchorWatch2App.swift */; };
-		9A0D798C2B20BC3800E83F11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A0D798B2B20BC3800E83F11 /* Assets.xcassets */; };
-		9A0D798F2B20BC3800E83F11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A0D798E2B20BC3800E83F11 /* Preview Assets.xcassets */; };
-		9A0D799B2B20BC3900E83F11 /* AnchorWatch2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D799A2B20BC3900E83F11 /* AnchorWatch2Tests.swift */; };
-		9A0D79A52B20BC3900E83F11 /* AnchorWatch2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D79A42B20BC3900E83F11 /* AnchorWatch2UITests.swift */; };
-		9A0D79A72B20BC3900E83F11 /* AnchorWatch2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D79A62B20BC3900E83F11 /* AnchorWatch2UITestsLaunchTests.swift */; };
-		9A0D79B82B20BD0700E83F11 /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D79B42B20BD0700E83F11 /* Anchor.swift */; };
-		9A0D79B92B20BD0700E83F11 /* AnchorLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D79B52B20BD0700E83F11 /* AnchorLog.swift */; };
-		9A0D79BA2B20BD0700E83F11 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D79B62B20BD0700E83F11 /* ViewModel.swift */; };
-		9A0D79BB2B20BD0700E83F11 /* Vessel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D79B72B20BD0700E83F11 /* Vessel.swift */; };
-		9A0D79BF2B20BD8E00E83F11 /* LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D79BE2B20BD8E00E83F11 /* LocationDelegate.swift */; };
-		9A0D79C12B20C07300E83F11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D79C02B20C07300E83F11 /* AppDelegate.swift */; };
-		9A0D79C62B20CAF300E83F11 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D79C52B20CAF300E83F11 /* MapView.swift */; };
-		9A0D79C82B20D7D200E83F11 /* VesselMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D79C72B20D7D100E83F11 /* VesselMarker.swift */; };
-		9A39E2D22B2A25140002C9AF /* LocationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A39E2D12B2A25140002C9AF /* LocationObserver.swift */; };
-		9A39E2D42B2A4FFC0002C9AF /* PermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A39E2D32B2A4FFC0002C9AF /* PermissionView.swift */; };
+		9A15F2E22B34A24000357CF9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A15F2BF2B34A24000357CF9 /* Localizable.strings */; };
+		9A15F2E32B34A24000357CF9 /* LocationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2C32B34A24000357CF9 /* LocationObserver.swift */; };
+		9A15F2E42B34A24000357CF9 /* LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2C42B34A24000357CF9 /* LocationDelegate.swift */; };
+		9A15F2E52B34A24000357CF9 /* LocationNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2C52B34A24000357CF9 /* LocationNotifications.swift */; };
+		9A15F2E62B34A24000357CF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A15F2C62B34A24000357CF9 /* Assets.xcassets */; };
+		9A15F2E72B34A24000357CF9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A15F2C82B34A24000357CF9 /* Preview Assets.xcassets */; };
+		9A15F2E82B34A24000357CF9 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9A15F2CA2B34A24000357CF9 /* alarm.mp3 */; };
+		9A15F2E92B34A24000357CF9 /* VesselMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2CD2B34A24000357CF9 /* VesselMarker.swift */; };
+		9A15F2EA2B34A24000357CF9 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2CE2B34A24000357CF9 /* Format.swift */; };
+		9A15F2EB2B34A24000357CF9 /* CompassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2CF2B34A24000357CF9 /* CompassView.swift */; };
+		9A15F2EC2B34A24000357CF9 /* AnchorMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2D02B34A24000357CF9 /* AnchorMarker.swift */; };
+		9A15F2ED2B34A24000357CF9 /* AnchoringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2D12B34A24000357CF9 /* AnchoringView.swift */; };
+		9A15F2EE2B34A24000357CF9 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2D22B34A24000357CF9 /* MapView.swift */; };
+		9A15F2EF2B34A24000357CF9 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2D32B34A24000357CF9 /* ToolbarView.swift */; };
+		9A15F2F02B34A24000357CF9 /* PermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2D42B34A24000357CF9 /* PermissionView.swift */; };
+		9A15F2F12B34A24000357CF9 /* AnchorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2D52B34A24000357CF9 /* AnchorView.swift */; };
+		9A15F2F22B34A24000357CF9 /* DistanceEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2D62B34A24000357CF9 /* DistanceEditor.swift */; };
+		9A15F2F32B34A24000357CF9 /* SetupVesselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2D72B34A24000357CF9 /* SetupVesselView.swift */; };
+		9A15F2F42B34A24000357CF9 /* VesselLocationMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2D82B34A24000357CF9 /* VesselLocationMap.swift */; };
+		9A15F2F52B34A24000357CF9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2D92B34A24000357CF9 /* ContentView.swift */; };
+		9A15F2F62B34A24000357CF9 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2DA2B34A24000357CF9 /* Alarm.swift */; };
+		9A15F2F72B34A24000357CF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2DB2B34A24000357CF9 /* AppDelegate.swift */; };
+		9A15F2F82B34A24000357CF9 /* anchor.small.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A15F2DD2B34A24000357CF9 /* anchor.small.png */; };
+		9A15F2F92B34A24000357CF9 /* anchor.pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A15F2DE2B34A24000357CF9 /* anchor.pin.png */; };
+		9A15F2FA2B34A24000357CF9 /* anchor.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A15F2DF2B34A24000357CF9 /* anchor.png */; };
+		9A15F2FC2B34A24000357CF9 /* AnchorWatch2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2E12B34A24000357CF9 /* AnchorWatch2App.swift */; };
+		9A15F3012B34A54400357CF9 /* AnchorLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2FD2B34A54400357CF9 /* AnchorLog.swift */; };
+		9A15F3022B34A54400357CF9 /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2FE2B34A54400357CF9 /* Anchor.swift */; };
+		9A15F3032B34A54400357CF9 /* Vessel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2FF2B34A54400357CF9 /* Vessel.swift */; };
+		9A15F3042B34A54400357CF9 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F3002B34A54400357CF9 /* ViewModel.swift */; };
 		9A3B13022B2CB11B00485169 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3B13012B2CB11B00485169 /* LaunchScreen.storyboard */; };
-		9A5C91652B332C2500800753 /* AnchorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5C91642B332C2500800753 /* AnchorView.swift */; };
-		9A740C992B2902C400A5C03D /* LocationNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A740C982B2902C400A5C03D /* LocationNotifications.swift */; };
-		9ACA94512B2121E600BA73D3 /* AnchoringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA94502B2121E600BA73D3 /* AnchoringView.swift */; };
-		9ACA94552B23C85E00BA73D3 /* AnchorMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA94542B23C85E00BA73D3 /* AnchorMarker.swift */; };
-		9ACA945A2B24B8DE00BA73D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA94592B24B8DE00BA73D3 /* ContentView.swift */; };
-		9ACA945C2B24BC8800BA73D3 /* SetupVesselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA945B2B24BC8800BA73D3 /* SetupVesselView.swift */; };
-		9ACA945E2B25EE6300BA73D3 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA945D2B25EE6300BA73D3 /* Format.swift */; };
-		9ACA94602B27B08800BA73D3 /* DistanceEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA945F2B27B08800BA73D3 /* DistanceEditor.swift */; };
-		9ADA00F02B2AAA2D00A9FDB8 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADA00EF2B2AAA2D00A9FDB8 /* Alarm.swift */; };
-		9ADA00F32B2B2B1200A9FDB8 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9ADA00F22B2B2B1200A9FDB8 /* alarm.mp3 */; };
-		9ADA00F62B2C8A1400A9FDB8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9ADA00F82B2C8A1400A9FDB8 /* Localizable.strings */; };
-		9AF44C2D2B33513600E4D6E2 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF44C2C2B33513600E4D6E2 /* ToolbarView.swift */; };
-		9AF44C2F2B335FF600E4D6E2 /* VesselLocationMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF44C2E2B335FF600E4D6E2 /* VesselLocationMap.swift */; };
-		9AFAB10B2B30E16D0047E481 /* CompassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFAB10A2B30E16D0047E481 /* CompassView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,41 +59,41 @@
 
 /* Begin PBXFileReference section */
 		9A0D79822B20BC3500E83F11 /* Drag Alert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Drag Alert.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A0D79852B20BC3500E83F11 /* AnchorWatch2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorWatch2App.swift; sourceTree = "<group>"; };
-		9A0D798B2B20BC3800E83F11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9A0D798E2B20BC3800E83F11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		9A0D79902B20BC3800E83F11 /* AnchorWatch2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AnchorWatch2.entitlements; sourceTree = "<group>"; };
-		9A0D79912B20BC3800E83F11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A0D79962B20BC3900E83F11 /* Drag Alert Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Drag Alert Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A0D799A2B20BC3900E83F11 /* AnchorWatch2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorWatch2Tests.swift; sourceTree = "<group>"; };
 		9A0D79A02B20BC3900E83F11 /* Drag Alert UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Drag Alert UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A0D79A42B20BC3900E83F11 /* AnchorWatch2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorWatch2UITests.swift; sourceTree = "<group>"; };
-		9A0D79A62B20BC3900E83F11 /* AnchorWatch2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorWatch2UITestsLaunchTests.swift; sourceTree = "<group>"; };
-		9A0D79B42B20BD0700E83F11 /* Anchor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anchor.swift; sourceTree = "<group>"; };
-		9A0D79B52B20BD0700E83F11 /* AnchorLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorLog.swift; sourceTree = "<group>"; };
-		9A0D79B62B20BD0700E83F11 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		9A0D79B72B20BD0700E83F11 /* Vessel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vessel.swift; sourceTree = "<group>"; };
-		9A0D79BE2B20BD8E00E83F11 /* LocationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDelegate.swift; sourceTree = "<group>"; };
-		9A0D79C02B20C07300E83F11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9A0D79C52B20CAF300E83F11 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		9A0D79C72B20D7D100E83F11 /* VesselMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VesselMarker.swift; sourceTree = "<group>"; };
-		9A39E2D12B2A25140002C9AF /* LocationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationObserver.swift; sourceTree = "<group>"; };
-		9A39E2D32B2A4FFC0002C9AF /* PermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionView.swift; sourceTree = "<group>"; };
+		9A15F2C02B34A24000357CF9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9A15F2C12B34A24000357CF9 /* DragAlert.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = DragAlert.entitlements; sourceTree = "<group>"; };
+		9A15F2C32B34A24000357CF9 /* LocationObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationObserver.swift; sourceTree = "<group>"; };
+		9A15F2C42B34A24000357CF9 /* LocationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDelegate.swift; sourceTree = "<group>"; };
+		9A15F2C52B34A24000357CF9 /* LocationNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationNotifications.swift; sourceTree = "<group>"; };
+		9A15F2C62B34A24000357CF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9A15F2C82B34A24000357CF9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9A15F2CA2B34A24000357CF9 /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm.mp3; sourceTree = "<group>"; };
+		9A15F2CD2B34A24000357CF9 /* VesselMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VesselMarker.swift; sourceTree = "<group>"; };
+		9A15F2CE2B34A24000357CF9 /* Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
+		9A15F2CF2B34A24000357CF9 /* CompassView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompassView.swift; sourceTree = "<group>"; };
+		9A15F2D02B34A24000357CF9 /* AnchorMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorMarker.swift; sourceTree = "<group>"; };
+		9A15F2D12B34A24000357CF9 /* AnchoringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchoringView.swift; sourceTree = "<group>"; };
+		9A15F2D22B34A24000357CF9 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		9A15F2D32B34A24000357CF9 /* ToolbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
+		9A15F2D42B34A24000357CF9 /* PermissionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionView.swift; sourceTree = "<group>"; };
+		9A15F2D52B34A24000357CF9 /* AnchorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorView.swift; sourceTree = "<group>"; };
+		9A15F2D62B34A24000357CF9 /* DistanceEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceEditor.swift; sourceTree = "<group>"; };
+		9A15F2D72B34A24000357CF9 /* SetupVesselView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupVesselView.swift; sourceTree = "<group>"; };
+		9A15F2D82B34A24000357CF9 /* VesselLocationMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VesselLocationMap.swift; sourceTree = "<group>"; };
+		9A15F2D92B34A24000357CF9 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9A15F2DA2B34A24000357CF9 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		9A15F2DB2B34A24000357CF9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9A15F2DD2B34A24000357CF9 /* anchor.small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anchor.small.png; sourceTree = "<group>"; };
+		9A15F2DE2B34A24000357CF9 /* anchor.pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anchor.pin.png; sourceTree = "<group>"; };
+		9A15F2DF2B34A24000357CF9 /* anchor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anchor.png; sourceTree = "<group>"; };
+		9A15F2E02B34A24000357CF9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A15F2E12B34A24000357CF9 /* AnchorWatch2App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorWatch2App.swift; sourceTree = "<group>"; };
+		9A15F2FD2B34A54400357CF9 /* AnchorLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorLog.swift; sourceTree = "<group>"; };
+		9A15F2FE2B34A54400357CF9 /* Anchor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anchor.swift; sourceTree = "<group>"; };
+		9A15F2FF2B34A54400357CF9 /* Vessel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vessel.swift; sourceTree = "<group>"; };
+		9A15F3002B34A54400357CF9 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		9A3B13012B2CB11B00485169 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9A5C91642B332C2500800753 /* AnchorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorView.swift; sourceTree = "<group>"; };
-		9A740C982B2902C400A5C03D /* LocationNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotifications.swift; sourceTree = "<group>"; };
-		9ACA94502B2121E600BA73D3 /* AnchoringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchoringView.swift; sourceTree = "<group>"; };
-		9ACA94542B23C85E00BA73D3 /* AnchorMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorMarker.swift; sourceTree = "<group>"; };
-		9ACA94592B24B8DE00BA73D3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		9ACA945B2B24BC8800BA73D3 /* SetupVesselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupVesselView.swift; sourceTree = "<group>"; };
-		9ACA945D2B25EE6300BA73D3 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
-		9ACA945F2B27B08800BA73D3 /* DistanceEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceEditor.swift; sourceTree = "<group>"; };
-		9ADA00EF2B2AAA2D00A9FDB8 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
-		9ADA00F22B2B2B1200A9FDB8 /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm.mp3; sourceTree = "<group>"; };
-		9ADA00F72B2C8A1400A9FDB8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		9AF44C2C2B33513600E4D6E2 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
-		9AF44C2E2B335FF600E4D6E2 /* VesselLocationMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VesselLocationMap.swift; sourceTree = "<group>"; };
-		9AFAB10A2B30E16D0047E481 /* CompassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,10 +124,10 @@
 		9A0D79792B20BC3500E83F11 = {
 			isa = PBXGroup;
 			children = (
+				9A15F2BE2B34A24000357CF9 /* DragAlert */,
 				9A3B13012B2CB11B00485169 /* LaunchScreen.storyboard */,
-				9A0D79842B20BC3500E83F11 /* AnchorWatch2 */,
-				9A0D79992B20BC3900E83F11 /* AnchorWatch2Tests */,
-				9A0D79A32B20BC3900E83F11 /* AnchorWatch2UITests */,
+				9A0D79992B20BC3900E83F11 /* DragAlertTests */,
+				9A0D79A32B20BC3900E83F11 /* DragAlertUITests */,
 				9A0D79832B20BC3500E83F11 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -142,98 +142,105 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9A0D79842B20BC3500E83F11 /* AnchorWatch2 */ = {
+		9A0D79992B20BC3900E83F11 /* DragAlertTests */ = {
 			isa = PBXGroup;
 			children = (
-				9ADA00F12B2B2AE300A9FDB8 /* Sounds */,
-				9A0D79852B20BC3500E83F11 /* AnchorWatch2App.swift */,
-				9A0D79C02B20C07300E83F11 /* AppDelegate.swift */,
-				9ADA00EF2B2AAA2D00A9FDB8 /* Alarm.swift */,
-				9A0D79C42B20CADB00E83F11 /* View */,
-				9A0D79BC2B20BD1E00E83F11 /* Model */,
-				9A0D79BD2B20BD7D00E83F11 /* Location */,
-				9A0D798B2B20BC3800E83F11 /* Assets.xcassets */,
-				9A0D79902B20BC3800E83F11 /* AnchorWatch2.entitlements */,
-				9A0D79912B20BC3800E83F11 /* Info.plist */,
-				9A0D798D2B20BC3800E83F11 /* Preview Content */,
-				9ADA00F82B2C8A1400A9FDB8 /* Localizable.strings */,
 			);
-			path = AnchorWatch2;
+			path = DragAlertTests;
 			sourceTree = "<group>";
 		};
-		9A0D798D2B20BC3800E83F11 /* Preview Content */ = {
+		9A0D79A32B20BC3900E83F11 /* DragAlertUITests */ = {
 			isa = PBXGroup;
 			children = (
-				9A0D798E2B20BC3800E83F11 /* Preview Assets.xcassets */,
 			);
-			path = "Preview Content";
+			path = DragAlertUITests;
 			sourceTree = "<group>";
 		};
-		9A0D79992B20BC3900E83F11 /* AnchorWatch2Tests */ = {
+		9A15F2BE2B34A24000357CF9 /* DragAlert */ = {
 			isa = PBXGroup;
 			children = (
-				9A0D799A2B20BC3900E83F11 /* AnchorWatch2Tests.swift */,
+				9A15F2C12B34A24000357CF9 /* DragAlert.entitlements */,
+				9A15F2E12B34A24000357CF9 /* AnchorWatch2App.swift */,
+				9A15F2DB2B34A24000357CF9 /* AppDelegate.swift */,
+				9A15F2DA2B34A24000357CF9 /* Alarm.swift */,
+				9A15F2BF2B34A24000357CF9 /* Localizable.strings */,
+				9A15F2CB2B34A24000357CF9 /* Model */,
+				9A15F2C22B34A24000357CF9 /* Location */,
+				9A15F2CC2B34A24000357CF9 /* View */,
+				9A15F2C92B34A24000357CF9 /* Sounds */,
+				9A15F2DC2B34A24000357CF9 /* Assets */,
+				9A15F2E02B34A24000357CF9 /* Info.plist */,
+				9A15F2C72B34A24000357CF9 /* Preview Content */,
 			);
-			path = AnchorWatch2Tests;
+			path = DragAlert;
 			sourceTree = "<group>";
 		};
-		9A0D79A32B20BC3900E83F11 /* AnchorWatch2UITests */ = {
+		9A15F2C22B34A24000357CF9 /* Location */ = {
 			isa = PBXGroup;
 			children = (
-				9A0D79A42B20BC3900E83F11 /* AnchorWatch2UITests.swift */,
-				9A0D79A62B20BC3900E83F11 /* AnchorWatch2UITestsLaunchTests.swift */,
-			);
-			path = AnchorWatch2UITests;
-			sourceTree = "<group>";
-		};
-		9A0D79BC2B20BD1E00E83F11 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				9A0D79B42B20BD0700E83F11 /* Anchor.swift */,
-				9A0D79B52B20BD0700E83F11 /* AnchorLog.swift */,
-				9A0D79B72B20BD0700E83F11 /* Vessel.swift */,
-				9A0D79B62B20BD0700E83F11 /* ViewModel.swift */,
-			);
-			name = Model;
-			path = ../Model;
-			sourceTree = "<group>";
-		};
-		9A0D79BD2B20BD7D00E83F11 /* Location */ = {
-			isa = PBXGroup;
-			children = (
-				9A0D79BE2B20BD8E00E83F11 /* LocationDelegate.swift */,
-				9A740C982B2902C400A5C03D /* LocationNotifications.swift */,
-				9A39E2D12B2A25140002C9AF /* LocationObserver.swift */,
+				9A15F2C32B34A24000357CF9 /* LocationObserver.swift */,
+				9A15F2C42B34A24000357CF9 /* LocationDelegate.swift */,
+				9A15F2C52B34A24000357CF9 /* LocationNotifications.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
 		};
-		9A0D79C42B20CADB00E83F11 /* View */ = {
+		9A15F2C72B34A24000357CF9 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				9ACA94592B24B8DE00BA73D3 /* ContentView.swift */,
-				9A0D79C52B20CAF300E83F11 /* MapView.swift */,
-				9A0D79C72B20D7D100E83F11 /* VesselMarker.swift */,
-				9ACA94542B23C85E00BA73D3 /* AnchorMarker.swift */,
-				9ACA94502B2121E600BA73D3 /* AnchoringView.swift */,
-				9A39E2D32B2A4FFC0002C9AF /* PermissionView.swift */,
-				9ACA945B2B24BC8800BA73D3 /* SetupVesselView.swift */,
-				9ACA945F2B27B08800BA73D3 /* DistanceEditor.swift */,
-				9ACA945D2B25EE6300BA73D3 /* Format.swift */,
-				9AFAB10A2B30E16D0047E481 /* CompassView.swift */,
-				9A5C91642B332C2500800753 /* AnchorView.swift */,
-				9AF44C2C2B33513600E4D6E2 /* ToolbarView.swift */,
-				9AF44C2E2B335FF600E4D6E2 /* VesselLocationMap.swift */,
+				9A15F2C82B34A24000357CF9 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9A15F2C92B34A24000357CF9 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				9A15F2CA2B34A24000357CF9 /* alarm.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		9A15F2CB2B34A24000357CF9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9A15F2FE2B34A54400357CF9 /* Anchor.swift */,
+				9A15F2FD2B34A54400357CF9 /* AnchorLog.swift */,
+				9A15F2FF2B34A54400357CF9 /* Vessel.swift */,
+				9A15F3002B34A54400357CF9 /* ViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9A15F2CC2B34A24000357CF9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9A15F2CD2B34A24000357CF9 /* VesselMarker.swift */,
+				9A15F2CE2B34A24000357CF9 /* Format.swift */,
+				9A15F2CF2B34A24000357CF9 /* CompassView.swift */,
+				9A15F2D02B34A24000357CF9 /* AnchorMarker.swift */,
+				9A15F2D12B34A24000357CF9 /* AnchoringView.swift */,
+				9A15F2D22B34A24000357CF9 /* MapView.swift */,
+				9A15F2D32B34A24000357CF9 /* ToolbarView.swift */,
+				9A15F2D42B34A24000357CF9 /* PermissionView.swift */,
+				9A15F2D52B34A24000357CF9 /* AnchorView.swift */,
+				9A15F2D62B34A24000357CF9 /* DistanceEditor.swift */,
+				9A15F2D72B34A24000357CF9 /* SetupVesselView.swift */,
+				9A15F2D82B34A24000357CF9 /* VesselLocationMap.swift */,
+				9A15F2D92B34A24000357CF9 /* ContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		9ADA00F12B2B2AE300A9FDB8 /* Sounds */ = {
+		9A15F2DC2B34A24000357CF9 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				9ADA00F22B2B2B1200A9FDB8 /* alarm.mp3 */,
+				9A15F2C62B34A24000357CF9 /* Assets.xcassets */,
+				9A15F2DD2B34A24000357CF9 /* anchor.small.png */,
+				9A15F2DE2B34A24000357CF9 /* anchor.pin.png */,
+				9A15F2DF2B34A24000357CF9 /* anchor.png */,
 			);
-			path = Sounds;
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,7 +324,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9A0D797D2B20BC3500E83F11 /* Build configuration list for PBXProject "AnchorWatch2" */;
+			buildConfigurationList = 9A0D797D2B20BC3500E83F11 /* Build configuration list for PBXProject "DragAlert" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -344,11 +351,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A0D798F2B20BC3800E83F11 /* Preview Assets.xcassets in Resources */,
-				9ADA00F62B2C8A1400A9FDB8 /* Localizable.strings in Resources */,
-				9A0D798C2B20BC3800E83F11 /* Assets.xcassets in Resources */,
+				9A15F2E72B34A24000357CF9 /* Preview Assets.xcassets in Resources */,
+				9A15F2F82B34A24000357CF9 /* anchor.small.png in Resources */,
+				9A15F2E82B34A24000357CF9 /* alarm.mp3 in Resources */,
+				9A15F2FA2B34A24000357CF9 /* anchor.png in Resources */,
+				9A15F2F92B34A24000357CF9 /* anchor.pin.png in Resources */,
+				9A15F2E22B34A24000357CF9 /* Localizable.strings in Resources */,
+				9A15F2E62B34A24000357CF9 /* Assets.xcassets in Resources */,
 				9A3B13022B2CB11B00485169 /* LaunchScreen.storyboard in Resources */,
-				9ADA00F32B2B2B1200A9FDB8 /* alarm.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,29 +383,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AF44C2D2B33513600E4D6E2 /* ToolbarView.swift in Sources */,
-				9ACA945C2B24BC8800BA73D3 /* SetupVesselView.swift in Sources */,
-				9A0D79B82B20BD0700E83F11 /* Anchor.swift in Sources */,
-				9ADA00F02B2AAA2D00A9FDB8 /* Alarm.swift in Sources */,
-				9AF44C2F2B335FF600E4D6E2 /* VesselLocationMap.swift in Sources */,
-				9ACA945E2B25EE6300BA73D3 /* Format.swift in Sources */,
-				9A0D79BF2B20BD8E00E83F11 /* LocationDelegate.swift in Sources */,
-				9A39E2D42B2A4FFC0002C9AF /* PermissionView.swift in Sources */,
-				9ACA94512B2121E600BA73D3 /* AnchoringView.swift in Sources */,
-				9A0D79862B20BC3500E83F11 /* AnchorWatch2App.swift in Sources */,
-				9A0D79C82B20D7D200E83F11 /* VesselMarker.swift in Sources */,
-				9ACA94552B23C85E00BA73D3 /* AnchorMarker.swift in Sources */,
-				9A740C992B2902C400A5C03D /* LocationNotifications.swift in Sources */,
-				9A0D79BA2B20BD0700E83F11 /* ViewModel.swift in Sources */,
-				9A0D79C12B20C07300E83F11 /* AppDelegate.swift in Sources */,
-				9A39E2D22B2A25140002C9AF /* LocationObserver.swift in Sources */,
-				9A0D79B92B20BD0700E83F11 /* AnchorLog.swift in Sources */,
-				9ACA945A2B24B8DE00BA73D3 /* ContentView.swift in Sources */,
-				9A0D79C62B20CAF300E83F11 /* MapView.swift in Sources */,
-				9A5C91652B332C2500800753 /* AnchorView.swift in Sources */,
-				9AFAB10B2B30E16D0047E481 /* CompassView.swift in Sources */,
-				9A0D79BB2B20BD0700E83F11 /* Vessel.swift in Sources */,
-				9ACA94602B27B08800BA73D3 /* DistanceEditor.swift in Sources */,
+				9A15F2EE2B34A24000357CF9 /* MapView.swift in Sources */,
+				9A15F3022B34A54400357CF9 /* Anchor.swift in Sources */,
+				9A15F2E92B34A24000357CF9 /* VesselMarker.swift in Sources */,
+				9A15F3032B34A54400357CF9 /* Vessel.swift in Sources */,
+				9A15F2F72B34A24000357CF9 /* AppDelegate.swift in Sources */,
+				9A15F3042B34A54400357CF9 /* ViewModel.swift in Sources */,
+				9A15F2F22B34A24000357CF9 /* DistanceEditor.swift in Sources */,
+				9A15F2F12B34A24000357CF9 /* AnchorView.swift in Sources */,
+				9A15F2EF2B34A24000357CF9 /* ToolbarView.swift in Sources */,
+				9A15F2E52B34A24000357CF9 /* LocationNotifications.swift in Sources */,
+				9A15F2EA2B34A24000357CF9 /* Format.swift in Sources */,
+				9A15F2E42B34A24000357CF9 /* LocationDelegate.swift in Sources */,
+				9A15F2F52B34A24000357CF9 /* ContentView.swift in Sources */,
+				9A15F2EB2B34A24000357CF9 /* CompassView.swift in Sources */,
+				9A15F3012B34A54400357CF9 /* AnchorLog.swift in Sources */,
+				9A15F2F62B34A24000357CF9 /* Alarm.swift in Sources */,
+				9A15F2ED2B34A24000357CF9 /* AnchoringView.swift in Sources */,
+				9A15F2E32B34A24000357CF9 /* LocationObserver.swift in Sources */,
+				9A15F2F02B34A24000357CF9 /* PermissionView.swift in Sources */,
+				9A15F2FC2B34A24000357CF9 /* AnchorWatch2App.swift in Sources */,
+				9A15F2EC2B34A24000357CF9 /* AnchorMarker.swift in Sources */,
+				9A15F2F32B34A24000357CF9 /* SetupVesselView.swift in Sources */,
+				9A15F2F42B34A24000357CF9 /* VesselLocationMap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,7 +413,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A0D799B2B20BC3900E83F11 /* AnchorWatch2Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,8 +420,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A0D79A72B20BC3900E83F11 /* AnchorWatch2UITestsLaunchTests.swift in Sources */,
-				9A0D79A52B20BC3900E83F11 /* AnchorWatch2UITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,10 +439,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9ADA00F82B2C8A1400A9FDB8 /* Localizable.strings */ = {
+		9A15F2BF2B34A24000357CF9 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9ADA00F72B2C8A1400A9FDB8 /* en */,
+				9A15F2C02B34A24000357CF9 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -569,14 +576,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = AnchorWatch2/AnchorWatch2.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DragAlert/DragAlert.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"AnchorWatch2/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"DragAlert/Preview Content\"";
 				DEVELOPMENT_TEAM = 87635PD639;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AnchorWatch2/Info.plist;
+				INFOPLIST_FILE = DragAlert/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Without this authorization, the app may not be notified of your location if it has been sent to the background, and the anchor alarm will not function.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location will be used to display your current location on a map while in use.";
@@ -602,14 +609,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = AnchorWatch2/AnchorWatch2.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DragAlert/DragAlert.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"AnchorWatch2/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"DragAlert/Preview Content\"";
 				DEVELOPMENT_TEAM = 87635PD639;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AnchorWatch2/Info.plist;
+				INFOPLIST_FILE = DragAlert/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Without this authorization, the app may not be notified of your location if it has been sent to the background, and the anchor alarm will not function.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location will be used to display your current location on a map while in use.";
@@ -646,7 +653,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnchorWatch2.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AnchorWatch2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DragAlert.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DragAlert";
 			};
 			name = Debug;
 		};
@@ -666,7 +673,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnchorWatch2.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AnchorWatch2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DragAlert.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DragAlert";
 			};
 			name = Release;
 		};
@@ -709,7 +716,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9A0D797D2B20BC3500E83F11 /* Build configuration list for PBXProject "AnchorWatch2" */ = {
+		9A0D797D2B20BC3500E83F11 /* Build configuration list for PBXProject "DragAlert" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9A0D79A82B20BC3900E83F11 /* Debug */,

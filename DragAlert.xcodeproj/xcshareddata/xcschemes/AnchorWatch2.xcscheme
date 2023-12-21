@@ -17,7 +17,7 @@
                BlueprintIdentifier = "9A0D79812B20BC3500E83F11"
                BuildableName = "Drag Alert.app"
                BlueprintName = "Drag Alert"
-               ReferencedContainer = "container:AnchorWatch2.xcodeproj">
+               ReferencedContainer = "container:DragAlert.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -37,7 +37,7 @@
                BlueprintIdentifier = "9A0D79952B20BC3900E83F11"
                BuildableName = "Drag Alert Tests.xctest"
                BlueprintName = "Drag Alert Tests"
-               ReferencedContainer = "container:AnchorWatch2.xcodeproj">
+               ReferencedContainer = "container:DragAlert.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -48,7 +48,7 @@
                BlueprintIdentifier = "9A0D799F2B20BC3900E83F11"
                BuildableName = "Drag Alert UITests.xctest"
                BlueprintName = "Drag Alert UITests"
-               ReferencedContainer = "container:AnchorWatch2.xcodeproj">
+               ReferencedContainer = "container:DragAlert.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -73,7 +73,7 @@
             BlueprintIdentifier = "9A0D79812B20BC3500E83F11"
             BuildableName = "Drag Alert.app"
             BlueprintName = "Drag Alert"
-            ReferencedContainer = "container:AnchorWatch2.xcodeproj">
+            ReferencedContainer = "container:DragAlert.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
@@ -118,7 +118,7 @@
             BlueprintIdentifier = "9A0D79812B20BC3500E83F11"
             BuildableName = "Drag Alert.app"
             BlueprintName = "Drag Alert"
-            ReferencedContainer = "container:AnchorWatch2.xcodeproj">
+            ReferencedContainer = "container:DragAlert.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
