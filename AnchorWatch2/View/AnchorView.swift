@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AnchorView: View {
+    
     var color: Color
     var size: CGFloat
     

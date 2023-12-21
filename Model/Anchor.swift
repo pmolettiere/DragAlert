@@ -16,34 +16,34 @@ final class Anchor : Codable {
     var timestamp = Date.now
     var latitude: Double = 0
     var longitude: Double = 0
-    var rodeLengthM: Double = 0
+    var rodeInUseMeters: Double = 0
     var log: [AnchorLog] = []
     var vessel: Vessel? = nil
     
     @Transient
-    var rodeLength: Measurement<UnitLength> {
-        get { Measurement(value: rodeLengthM, unit: .meters) }
-        set { rodeLengthM = newValue.converted(to: .meters).value }
+    var rodeInUseMeasurement: Measurement<UnitLength> {
+        get { Measurement(value: rodeInUseMeters, unit: .meters) }
+        set { rodeInUseMeters = newValue.converted(to: .meters).value }
     }
 
     @Transient
-    var loa: Measurement<UnitLength> {
+    var vesselLOA: Measurement<UnitLength> {
         get {
             if let v = vessel {
-                return v.loa
+                return v.loaMeasurement
             }
             return Measurement(value: 0, unit: .meters)
         }
     }
     
     @Transient
-    var radius: Measurement<UnitLength> {
-        get { Measurement(value: radiusM, unit: .meters) }
+    var alarmRadiusMeasurement: Measurement<UnitLength> {
+        get { Measurement(value: alarmRadiusMeters, unit: .meters) }
     }
 
     @Transient
-    var radiusM: Double {
-        get { rodeLengthM + (vessel?.loaMeters ?? 0) }
+    var alarmRadiusMeters: Double {
+        get { rodeInUseMeters + (vessel?.loaMeters ?? 0) }
     }
 
     
@@ -51,7 +51,7 @@ final class Anchor : Codable {
         self.timestamp = timestamp
         self.latitude = latitude
         self.longitude = longitude
-        self.rodeLengthM = rodeLength.converted(to: .meters).value
+        self.rodeInUseMeters = rodeLength.converted(to: .meters).value
         self.log = log
         self.vessel = vessel
     }
@@ -65,7 +65,7 @@ final class Anchor : Codable {
         self.timestamp = try container.decode(Date.self, forKey: .timestamp)
         self.latitude = try container.decode(Double.self, forKey: .latitude)
         self.longitude = try container.decode(Double.self, forKey: .longitude)
-        self.rodeLengthM = try container.decode(Double.self, forKey: .rodeLengthM)
+        self.rodeInUseMeters = try container.decode(Double.self, forKey: .rodeLengthM)
         self.log = try container.decode([AnchorLog].self, forKey: .log)
         self.vessel = try container.decodeIfPresent(Vessel.self, forKey: .vessel)
 
@@ -76,7 +76,7 @@ final class Anchor : Codable {
         try container.encode(timestamp, forKey: .timestamp)
         try container.encode(latitude, forKey: .latitude)
         try container.encode(longitude, forKey: .longitude)
-        try container.encode(rodeLengthM, forKey: .rodeLengthM)
+        try container.encode(rodeInUseMeters, forKey: .rodeLengthM)
         try container.encode(log, forKey: .log)
         try container.encode(vessel, forKey: .vessel)
     }
@@ -101,7 +101,7 @@ extension Anchor {
     }
     
     func contains(location: CLLocation) -> Bool {
-        CLLocation(latitude: latitude, longitude: longitude).distance(from: location) < radiusM
+        CLLocation(latitude: latitude, longitude: longitude).distance(from: location) < alarmRadiusMeters
     }
     
     func contains(location: CLLocationCoordinate2D) -> Bool {
@@ -112,7 +112,7 @@ extension Anchor {
         if let v = vessel {
             if( v.isAnchored ) {
                 if( !contains(location: v.coordinate) ) {
-                    Alarm.instance.stopPlaying()
+                    Alarm.instance.startPlaying()
                 } else {
                     Alarm.instance.stopPlaying()
                 }

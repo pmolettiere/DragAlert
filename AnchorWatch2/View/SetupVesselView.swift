@@ -22,8 +22,8 @@ struct SetupVesselView : View {
         _model = State(initialValue: SetupVesselModel())
         model.vessel = vessel
         model.vesselName = vessel.name
-        model.loa = MeasurementModel(vessel.loa)
-        model.rodeLength = MeasurementModel(vessel.rodeLength)
+        model.loa = MeasurementModel(vessel.loaMeasurement)
+        model.rodeLength = MeasurementModel(vessel.totalRodeMeasurement)
         model.readPrefs()
     }
     
@@ -38,19 +38,22 @@ struct SetupVesselView : View {
                 }
                 DistanceEditor("view.setup.vessel.loa", measurement: model.loa, max: Measurement(value: 100, unit: UnitLength.feet), step: 1)
                 DistanceEditor("view.setup.vessel.rodeLength", measurement: model.rodeLength)
-                HStack {
-                    Text("view.multiple.latitude")
-                    Text("\(model.gps.latitude.formatted(.number.rounded(increment:0.001)))")
-                }
-                HStack {
-                    Text("view.multiple.longitude")
-                    Text("\(model.gps.longitude.formatted(.number.rounded(increment:0.001)))")
-                }
+//                HStack {
+//                    Text("view.multiple.latitude")
+//                    Text("\(model.gps.latitude.formatted(.number.rounded(increment:0.001)))")
+//                }
+//                HStack {
+//                    Text("view.multiple.longitude")
+//                    Text("\(model.gps.longitude.formatted(.number.rounded(increment:0.001)))")
+//                }
+                VesselLocationMap()
+                    .frame(width: 350, height: 200)
+
                 Button {
                     if let v = model.vessel {
                         v.name = model.vesselName
-                        v.loa = model.loa.measurement
-                        v.rodeLength = model.rodeLength.measurement
+                        v.loaMeasurement = model.loa.measurement
+                        v.totalRodeMeasurement = model.rodeLength.measurement
                     } else {
                         let v = Vessel(uuid: UUID(), name: model.vesselName, loaMeters: model.loa.asUnit(UnitLength.meters).value, rodeMeters: model.rodeLength.asUnit(UnitLength.meters).value, latitude: model.gps.latitude, longitude: model.gps.longitude, isAnchored: false, anchor: nil)
                         viewModel.create(myVessel: v)

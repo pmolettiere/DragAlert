@@ -10,33 +10,40 @@ import MapKit
 
 /// A map annotation that represents a single vessel.
 struct VesselMarker: MapContent {
-    var vessel: Vessel
+    @State var locator: VesselLocator
 
     var body: some MapContent {
-        Annotation(coordinate: vessel.coordinate ) {
+        Annotation(coordinate: locator.getCoordinate() ) {
             ZStack {
                 Image(systemName: "sailboat")
                     .resizable()
                     .frame(width: CGFloat(20), height: CGFloat(20), alignment: .center)
             }
         } label: {
-            Text(vessel.name)
-        }
-        .tag(vessel)
-        if( vessel.isAnchored ) {
-            if let anchor = vessel.anchor {
-                AnchorMarker(anchor: anchor)
-            }
+            Text(locator.getName())
         }
     }
 }
 
-//#Preview {
-//    ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
-//        VStack {
-//            SelectionCircle(vessel: .salacia, selected: true)
-//            SelectionCircle(vessel: .via, selected: false)
-//            SelectionCircle(vessel: .jubel, selected: false)
-//        }
-//    }
-//}
+protocol VesselLocator : Observable {
+    func getCoordinate() -> CLLocationCoordinate2D
+    func getName() -> String
+}
+
+extension Vessel : VesselLocator {
+    func getCoordinate() -> CLLocationCoordinate2D {
+        coordinate
+    }
+    func getName() -> String {
+        name
+    }
+}
+
+extension LocationObserver : VesselLocator {
+    func getCoordinate() -> CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+    func getName() -> String {
+        ""
+    }
+}

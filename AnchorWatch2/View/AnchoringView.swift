@@ -13,17 +13,19 @@ struct AnchoringView: View {
     
     init(vessel: Vessel) {
         _model = State(initialValue: AnchoringViewModel(vessel: vessel))
-        print("AnchoringView.init()")
+        //print("AnchoringView.init()")
     }
     
     var body: some View {
         TabView(selection: $model.selectedTab) {
             RelativeView(model: model)
+                .tag(0)
                 .tabItem {
                     Label("view.anchoring.relative", systemImage: "location.north.line.fill")
                 }
                 .padding()
             CurrentView(model: model)
+                .tag(1)
                 .tabItem {
                     Label("view.anchoring.current", systemImage: "location.fill")
                 }
@@ -45,42 +47,40 @@ struct AnchoringView: View {
         
         init(model: AnchoringViewModel) {
             self.model = model
-            print("AnchoringView.RelativeView.init()")
+            //print("AnchoringView.RelativeView.init()")
         }
         
         var body: some View {
             VStack {
-                CompassView()
-
+                VesselLocationMap(model: model)
+                
+                Spacer()
+                //CompassView()
+                
                 DistanceEditor("view.anchoring.rodeLength", measurement: model.rodeLength, max: model.maxRodeLength.measurement )
                 DistanceEditor("view.anchoring.distance", measurement: model.distanceFromAnchor, max: model.maxDistanceFromAnchor.measurement )
-                Text(model.relativeLocationWouldAlarm() ? "view.anchoring.would.alarm" : "view.anchoring.no.alarm")
-                    .foregroundColor(model.relativeLocationWouldAlarm() ? Color.red : Color.white)
-                    .padding()
-
+                // Text(model.relativeLocationWouldAlarm() ? "view.anchoring.would.alarm" : "view.anchoring.no.alarm")
+                //    .foregroundColor(model.relativeLocationWouldAlarm() ? Color.red : Color.white)
+                //    .padding()
+                
                 Button {
                     model.setAnchorAtRelativeBearing()
                     viewModel.setAppView( .map )
                     print("AnchoringView.RelativeView.button complete")
                 } label: {
-                    Image("anchor")
-                        .resizable()
-                        .frame(width: CGFloat(50), height: CGFloat(50))
-                        .colorInvert()
+                    Text("view.anchoring.button.relative")
+                    AnchorView(color: model.relativeLocationWouldAlarm() ? Color.blue : Color.gray, size: CGFloat(50))
                 }
                 .disabled(model.relativeLocationWouldAlarm())
-                .padding()
             }
-            .buttonStyle(.bordered)
             .onAppear(perform: {
                 model.track(location: true, heading: true)
                 print("AnchoringView.RelativeView.onAppear()")
             })
             .onDisappear(perform: {
-                model.track()
+                // model.track()
                 print("AnchoringView.RelativeView.onDisappear()")
             })
-
         }
     }
     
@@ -90,15 +90,10 @@ struct AnchoringView: View {
 
         var body: some View {
             VStack {
-                HStack {
-                    Text("view.multiple.latitude")
-                    Text("\(model.gps.latitude.formatted(.number.rounded(increment:0.001)))")
-                }
-                HStack {
-                    Text("view.multiple.longitude")
-                    Text("\(model.gps.longitude.formatted(.number.rounded(increment:0.001)))")
-                }
-                .padding()
+                VesselLocationMap(model: model)
+                
+                Spacer()
+                
                 DistanceEditor("view.anchoring.rodeLength", measurement: model.rodeLength, max: model.maxRodeLength.measurement )
                     .padding()
                 Button() {
@@ -106,33 +101,31 @@ struct AnchoringView: View {
                     viewModel.setAppView( .map )
                     print("AnchoringView.CurrentView.button complete")
                 } label: {
-                    Image("anchor")
-                        .resizable()
-                        .frame(width: CGFloat(50), height: CGFloat(50))
-                        .colorInvert()
+                    Text("view.anchoring.button.current")
+                    AnchorView(color: Color.blue, size: CGFloat(50))
                 }
-                .buttonStyle(.bordered)
-                .padding()
             }
             .onAppear(perform: {
-                model.track(location: true)
+                model.track(location: true, heading: true)
                 print("AnchoringView.CurrentView.onAppear()")
             })
             .onDisappear(perform: {
-                model.track()
+                // model.track()
                 print("AnchoringView.CurrentView.onDisappear()")
             })
-
         }
     }
 }
 
-@Observable
+@Observable 
 class AnchoringViewModel {
     var vessel: Vessel
 
     var gps: LocationObserver = LocationObserver()
     var selectedTab: Int = 0
+    enum Tab : Int {
+        case relative = 0, current
+    }
     
     var rodeLength: MeasurementModel<UnitLength>
     var distanceFromAnchor: MeasurementModel<UnitLength>
@@ -143,10 +136,13 @@ class AnchoringViewModel {
     init(vessel: Vessel) {
         self.vessel = vessel
         self.gps = LocationObserver()
-        self.maxRodeLength = MeasurementModel(vessel.rodeLength)
+        self.maxRodeLength = MeasurementModel(vessel.totalRodeMeasurement)
         self.maxDistanceFromAnchor = MeasurementModel(vessel.maxDistanceFromAnchor)
-        self.rodeLength = MeasurementModel( vessel.rodeLength )
-        self.distanceFromAnchor = MeasurementModel( vessel.rodeLength )
+        
+        // placeholders until prefs read below, ignore value being set
+        self.rodeLength = MeasurementModel( vessel.totalRodeMeasurement )
+        self.distanceFromAnchor = MeasurementModel( vessel.totalRodeMeasurement )
+        // first phase of init() complete, now prefs read can complete
         
         self.rodeLength = MeasurementModel( readPrefMeasurement(label: "AnchoringView.RelativeView.rodeLength") )
         self.distanceFromAnchor = MeasurementModel( readPrefMeasurement(label: "AnchoringView.RelativeView.distance") )
@@ -176,6 +172,8 @@ class AnchoringViewModel {
     func track(location: Bool = false, heading: Bool = false) {
         gps.isTrackingLocation = location
         gps.isTrackingHeading = heading
+        LocationDelegate.instance.isTrackingLocation = location
+        LocationDelegate.instance.isTrackingHeading = heading
     }
     
     func dropAnchor(_ location: CLLocationCoordinate2D) {
@@ -207,6 +205,7 @@ class AnchoringViewModel {
     func relativeLocation() -> CLLocationCoordinate2D {
         let origin = CLLocationCoordinate2D(latitude: gps.latitude, longitude: gps.longitude)
         let final = locationWithBearing(bearing: gps.heading, distanceMeters: distanceFromAnchor.asUnit(UnitLength.meters).value, origin: origin)
+        //print("relativeLocation with \(distanceFromAnchor.asUnit(.meters).value)m distance")
         
         func locationWithBearing(bearing:Double, distanceMeters:Double, origin:CLLocationCoordinate2D) -> CLLocationCoordinate2D {
             let bearingRadians = bearing * .pi / 180
@@ -225,11 +224,15 @@ class AnchoringViewModel {
     }
         
     func setAnchorAtCurrentPosition() {
-        let final = CLLocationCoordinate2D(latitude: gps.latitude, longitude: gps.longitude)
+        let final = getCurrentAnchorPosition()
         
         print("Dropping anchor at current position \(final.latitude.formatted(.number.rounded(increment:0.001))), \(final.longitude.formatted(.number.rounded(increment:0.001))).")
         
         dropAnchor(final)
+    }
+    
+    func getCurrentAnchorPosition() -> CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: gps.latitude, longitude: gps.longitude)
     }
 }
 

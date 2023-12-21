@@ -18,7 +18,6 @@ class LocationDelegate : NSObject {
     
     override init() {
         self.manager = CLLocationManager()
-        self.background = CLBackgroundActivitySession()
         super.init()
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
@@ -33,19 +32,8 @@ class LocationDelegate : NSObject {
             UserDefaults.standard.set(isTrackingLocation, forKey: "isTrackingLocation")
             if isTrackingLocation {
                 manager.startUpdatingLocation()
-                print("LocationDelegate about to replace CLBackgroundActivitySession")
-                self.background = CLBackgroundActivitySession()
-                manager.allowsBackgroundLocationUpdates = true
-                manager.showsBackgroundLocationIndicator = true
             } else {
                 manager.stopUpdatingLocation()
-                if( !isTrackingHeading ) {
-                    manager.allowsBackgroundLocationUpdates = false
-                    manager.showsBackgroundLocationIndicator = false
-                    print("LocationDelegate about to invalidate CLBackgroundActivitySession")
-                    self.background?.invalidate()
-                    self.background = nil
-                }
             }
         }
     }
@@ -62,6 +50,13 @@ class LocationDelegate : NSObject {
         }
     }
     
+    func trackLocationInBackground(_ isEnabled: Bool) {
+        if( background == nil) { background = CLBackgroundActivitySession() }
+        manager.allowsBackgroundLocationUpdates = isEnabled
+        manager.showsBackgroundLocationIndicator = isEnabled
+        print("Background tracking set to \(isEnabled)")
+    }
+        
     func requestWhenInUseAuthorization() {
         manager.requestWhenInUseAuthorization()
     }

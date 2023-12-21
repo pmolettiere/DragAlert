@@ -18,11 +18,6 @@ struct MapView: View {
     
     @State var mapStyle: MapStyle = .standard
     @Namespace var mapScope
-    @State var isAlarmEnabled: Bool = Alarm.instance.isEnabled {
-        didSet {
-            Alarm.instance.isEnabled = isAlarmEnabled
-        }
-    }
             
     var body: some View {
         @Bindable var m = viewModel       // m is for model
@@ -33,7 +28,12 @@ struct MapView: View {
             }
             .mapControlVisibility(.visible)
             Map(scope: mapScope) {
-                VesselMarker(vessel: vessel)
+                VesselMarker(locator: vessel)
+                if( vessel.isAnchored ) {
+                    if let anchor = vessel.anchor {
+                        AnchorMarker(model: anchor)
+                    }
+                }
             }
             .mapStyle(mapStyle)
             .mapCameraKeyframeAnimator(trigger: vessel.isAnchored) { initialCamera in
@@ -53,81 +53,48 @@ struct MapView: View {
                     CubicKeyframe(finalAltitude, duration: duration / 2)
                 }
             }
-            .onAppear() {
-                mapStyle = .imagery
-            }
-            .toolbar {
-                ToolbarItem(placement: .bottomBar) {
-                    Menu("view.map.alarm") {
-                        Toggle(isOn: $isAlarmEnabled) {
-                            Text("view.map.alarm.enable")
+        }
+        .toolbar {
+            ToolbarView(
+                vessel: m.myVessel,
+                editVessel: {
+                    viewModel.setAppView(.setup)
+                },
+                newAnchor: {
+                    if let v = viewModel.myVessel {
+                        if( v.isAnchored ) {
+                            v.isAnchored = false
+                        } else {
+                            viewModel.setAppView(.anchor)
                         }
-                        Button() {
-                            Alarm.instance.snooze()
-                        } label: {
-                            Text("view.map.alarm.snooze")
-                        }
-                        .disabled(!Alarm.instance.isPlaying)
-                        Button() {
-                            Alarm.instance.test()
-                        } label: {
-                            Text("view.map.alarm.test")
-                        }
-                        .disabled(Alarm.instance.isPlaying)
                     }
-                }
-                ToolbarItem(placement: .bottomBar) {
-                    Button() {
-                        viewModel.setAppView(.setup)
-                    } label: {
-                        Text("view.map.edit.vessel")
+                },
+                resetAnchor: {
+                    if let v = viewModel.myVessel {
+                        if v.anchor != nil {
+                            v.isAnchored = true
+                            Alarm.instance.isEnabled = true
+                        }
                     }
-                }
-                ToolbarItem(placement: .bottomBar) {
-                    Menu("view.map.anchor") {
-                        Button() {
-                            if let v = m.myVessel {
-                                if( v.isAnchored ) {
-                                    v.isAnchored = false
-                                } else {
-                                    viewModel.setAppView(.anchor)
-                                }
-                            }
-                        } label: {
-                            Text("view.map.new")
+                },
+                cancelAnchor: {
+                    if let v = viewModel.myVessel {
+                        if( v.isAnchored ) {
+                            v.isAnchored = false
                         }
-                        .disabled(m.myVessel?.isAnchored ?? true)
-                        
-                        Button() {
-                            if let v = m.myVessel {
-                                if v.anchor != nil {
-                                    v.isAnchored = true
-                                    Alarm.instance.isEnabled = true
-                                }
-                            }
-                        } label: {
-                            Text("view.map.reset")
-                        }
-                        .disabled(m.myVessel?.isAnchored ?? true)
-                        
-                        Button() {
-                            if let v = m.myVessel {
-                                if( v.isAnchored ) {
-                                    v.isAnchored = false
-                                }
-                            }
-                        } label: {
-                            Text("view.map.cancel")
-                        }
-                        .disabled(!(m.myVessel?.isAnchored ?? false))
                     }
-                }
-            }
+                })
         }
         .onAppear() {
             print("MapView.map onAppear")
-            //                mapStyle = .imagery
+            mapStyle = .imagery
             LocationDelegate.instance.isTrackingLocation = true
+            LocationDelegate.instance.trackLocationInBackground(true)
+        }
+        .onDisappear() {
+            print("MapView.map onDisappear")
+            LocationDelegate.instance.isTrackingLocation = false
+            LocationDelegate.instance.trackLocationInBackground(false)
         }
     }
 }

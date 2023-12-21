@@ -16,26 +16,26 @@ final class Vessel : Codable {
     var uuid = UUID()
     var name = String()
     var loaMeters: Double = 0
-    var rodeMeters: Double = 0
+    var totalRodeMeters: Double = 0  // total rode installed on Vessel
     var latitude: Double = 0
     var longitude: Double = 0
     var isAnchored = false
     
     @Transient
-    var loa: Measurement<UnitLength> {
+    var loaMeasurement: Measurement<UnitLength> {
         get { Measurement(value: loaMeters, unit: UnitLength.meters) }
         set { loaMeters = newValue.converted(to: UnitLength.meters).value }
     }
     
     @Transient
-    var rodeLength: Measurement<UnitLength> {
-        get { Measurement(value: rodeMeters, unit: UnitLength.meters) }
-        set { rodeMeters = newValue.converted(to: UnitLength.meters).value }
+    var totalRodeMeasurement: Measurement<UnitLength> {
+        get { Measurement(value: totalRodeMeters, unit: UnitLength.meters) }
+        set { totalRodeMeters = newValue.converted(to: UnitLength.meters).value }
     }
     
     @Transient
     var maxDistanceFromAnchor: Measurement<UnitLength> {
-        get { Measurement(value: rodeMeters + loaMeters, unit: UnitLength.meters) }
+        get { Measurement(value: totalRodeMeters + loaMeters, unit: UnitLength.meters) }
     }
     
     var anchor: Anchor?
@@ -44,7 +44,7 @@ final class Vessel : Codable {
         self.uuid = uuid
         self.name = name
         self.loaMeters = loaMeters
-        self.rodeMeters = rodeMeters
+        self.totalRodeMeters = rodeMeters
         self.latitude = latitude
         self.longitude = longitude
         self.isAnchored = isAnchored
@@ -60,7 +60,7 @@ final class Vessel : Codable {
         self.uuid = try container.decode(UUID.self, forKey: .uuid)
         self.name = try container.decode(String.self, forKey: .name)
         self.loaMeters = try container.decode(Double.self, forKey: .loaMeters)
-        self.rodeMeters = try container.decode(Double.self, forKey: .rodeMeters)
+        self.totalRodeMeters = try container.decode(Double.self, forKey: .rodeMeters)
         self.latitude = try container.decode(Double.self, forKey: .latitude)
         self.longitude = try container.decode(Double.self, forKey: .longitude)
         self.isAnchored = try container.decode(Bool.self, forKey: .isAnchored)
@@ -72,7 +72,7 @@ final class Vessel : Codable {
         try container.encode(uuid, forKey: .uuid)
         try container.encode(name, forKey: .name)
         try container.encode(loaMeters, forKey: .loaMeters)
-        try container.encode(rodeMeters, forKey: .rodeMeters)
+        try container.encode(totalRodeMeters, forKey: .rodeMeters)
         try container.encode(latitude, forKey: .latitude)
         try container.encode(longitude, forKey: .longitude)
         try container.encode(isAnchored, forKey: .isAnchored)

@@ -13,6 +13,10 @@ class LocationObserver {
     var latitude: Double = 0
     var longitude: Double = 0
     var heading: Double = 0
+    
+    var locationCallback: (() -> Void)?
+    var headingCallback: (() -> Void)?
+    
     var isTrackingLocation: Bool {
         didSet {
             if( isTrackingLocation ) {
@@ -32,9 +36,11 @@ class LocationObserver {
         }
     }
     
-    init() {
+    init(locationCallback: (() ->Void)? = nil, headingCallback: (() ->Void)? = nil ) {
         isTrackingHeading = false
         isTrackingLocation = false
+        self.locationCallback = locationCallback
+        self.headingCallback = headingCallback
     }
         
     deinit {
@@ -49,11 +55,13 @@ class LocationObserver {
             latitude = lastLocation.coordinate.latitude
             longitude = lastLocation.coordinate.longitude
         }
+        locationCallback?()
     }
     
     @objc func didUpdateHeading(notification: Notification) {
         let headingUpdate: HeadingUpdate = notification.object as! HeadingUpdate
         heading = headingUpdate.heading.trueHeading
+        headingCallback?()
     }
 }
 

@@ -17,6 +17,7 @@ final class Alarm : @unchecked Sendable {
         didSet {
             if( !isEnabled ) {
                 stop()
+                isPlaying = false
             }
         }
     }
@@ -65,12 +66,13 @@ final class Alarm : @unchecked Sendable {
             stop()
             isSnoozed = true
             Timer.scheduledTimer(withTimeInterval: 120.0, repeats: false, block: {_ in
-                self.isSnoozed = true
+                self.isSnoozed = false
             })
         }
     }
     
     func test() {
+        print("test")
         isTesting = true
         play()
         Timer.scheduledTimer(withTimeInterval: 5.0, repeats: false, block: {_ in
