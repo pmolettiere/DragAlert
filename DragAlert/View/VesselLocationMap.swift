@@ -43,7 +43,6 @@ struct VesselLocationMap: View {
     }
     
     func updateLocation() {
-        print("VesselLocationMap updating location")
         region.center = CLLocationCoordinate2D(latitude: gps.latitude, longitude: gps.longitude)
     }
 
