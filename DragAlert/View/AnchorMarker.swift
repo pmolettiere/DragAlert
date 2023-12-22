@@ -65,7 +65,7 @@ extension Anchor : AnchorMarkerModelProtocol {
 extension AnchoringViewModel : AnchorMarkerModelProtocol {
     
     func getAnchorLocation() -> CLLocationCoordinate2D {
-        if( selectedTab == AnchoringViewModel.Tab.relative.rawValue ) {
+        if( selectedTab == .relative ) {
             return relativeLocation()
         } else {
             return getCurrentAnchorPosition()

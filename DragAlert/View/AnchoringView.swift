@@ -16,16 +16,20 @@ struct AnchoringView: View {
         //print("AnchoringView.init()")
     }
     
+    enum TabState : Int {
+        case relative = 0, current
+    }
+    
     var body: some View {
         TabView(selection: $model.selectedTab) {
             RelativeView(model: model)
-                .tag(0)
+                .tag(TabState.relative)
                 .tabItem {
                     Label("view.anchoring.relative", systemImage: "location.north.line.fill")
                 }
                 .padding()
             CurrentView(model: model)
-                .tag(1)
+                .tag(TabState.current)
                 .tabItem {
                     Label("view.anchoring.current", systemImage: "location.fill")
                 }
@@ -122,10 +126,7 @@ class AnchoringViewModel {
     var vessel: Vessel
 
     var gps: LocationObserver = LocationObserver()
-    var selectedTab: Int = 0
-    enum Tab : Int {
-        case relative = 0, current
-    }
+    var selectedTab: AnchoringView.TabState = .relative
     
     var rodeLength: MeasurementModel<UnitLength>
     var distanceFromAnchor: MeasurementModel<UnitLength>
