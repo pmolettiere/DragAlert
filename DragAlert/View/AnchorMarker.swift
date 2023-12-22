@@ -13,17 +13,6 @@ struct AnchorMarker: MapContent {
     
     init(model: any AnchorMarkerModelProtocol) {
         self.model = model
-        withObservationTracking({
-            _ = model.getAlarmRadius()
-            _ = model.getAnchorLocation()
-            _ = model.getCoordinateLog()
-            _ = model.getRodeLengthMeters()
-            _ = model.objectWillChange
-            // print("AnchorMarker model change subscription")
-        }, onChange: {
-            //print("AnchorMarker observed model change")
-        })
-        //print("AnchorMarker created")
     }
 
     var body: some MapContent {

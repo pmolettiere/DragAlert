@@ -27,19 +27,6 @@ struct VesselLocationMap: View {
         _position = State( initialValue: .region( r ) )
 
         self.gps.locationCallback = updateLocation
-
-        
-        withObservationTracking({
-            _ = model?.getAlarmRadius()
-            _ = model?.getAnchorLocation()
-            _ = model?.getCoordinateLog()
-            _ = model?.getRodeLengthMeters()
-            _ = model?.objectWillChange
-            //print("VesselLocationMap model change subscription")
-        }, onChange: {
-            //print("VesselLocationMap observed model change")
-        })
-        //print("VesselLocationMap created")
     }
     
     func updateLocation() {
