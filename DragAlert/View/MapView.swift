@@ -99,8 +99,3 @@ struct MapView: View {
     }
 }
 
-//#Preview {
-//    let v = Vessel.new()
-//    return MapView()
-//        .modelContainer(for: Vessel.self, inMemory: true)
-//}
