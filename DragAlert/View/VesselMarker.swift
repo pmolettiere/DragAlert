@@ -1,6 +1,6 @@
 //
 //  VesselMarker.swift
-//  AnchorWatch
+//  Drag Alert
 //
 //  Copied from Apple DataCache example app "QuakeMarker"
 //

@@ -1,5 +1,5 @@
 //
-//  LocatorMap.swift
+//  VesselLocationMap.swift
 //  Drag Alert
 //
 //  Created by Peter Molettiere on 12/20/23.

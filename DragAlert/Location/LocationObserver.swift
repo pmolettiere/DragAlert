@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  AnchorWatch2
+//  LocationObserver.swift
+//  Drag Alert
 //
 //  Created by Peter Molettiere on 12/13/23.
 //

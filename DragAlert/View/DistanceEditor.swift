@@ -1,6 +1,6 @@
 //
-//  MeasurementEditor.swift
-//  AnchorWatch2
+//  DistanceEditor.swift
+//  Drag Alert
 //
 //  Created by Peter Molettiere on 12/11/23.
 //

@@ -32,7 +32,7 @@
 		9A15F2F82B34A24000357CF9 /* anchor.small.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A15F2DD2B34A24000357CF9 /* anchor.small.png */; };
 		9A15F2F92B34A24000357CF9 /* anchor.pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A15F2DE2B34A24000357CF9 /* anchor.pin.png */; };
 		9A15F2FA2B34A24000357CF9 /* anchor.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A15F2DF2B34A24000357CF9 /* anchor.png */; };
-		9A15F2FC2B34A24000357CF9 /* AnchorWatch2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2E12B34A24000357CF9 /* AnchorWatch2App.swift */; };
+		9A15F2FC2B34A24000357CF9 /* DragAlertApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2E12B34A24000357CF9 /* DragAlertApp.swift */; };
 		9A15F3012B34A54400357CF9 /* AnchorLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2FD2B34A54400357CF9 /* AnchorLog.swift */; };
 		9A15F3022B34A54400357CF9 /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2FE2B34A54400357CF9 /* Anchor.swift */; };
 		9A15F3032B34A54400357CF9 /* Vessel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2FF2B34A54400357CF9 /* Vessel.swift */; };
@@ -88,7 +88,7 @@
 		9A15F2DE2B34A24000357CF9 /* anchor.pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anchor.pin.png; sourceTree = "<group>"; };
 		9A15F2DF2B34A24000357CF9 /* anchor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anchor.png; sourceTree = "<group>"; };
 		9A15F2E02B34A24000357CF9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9A15F2E12B34A24000357CF9 /* AnchorWatch2App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorWatch2App.swift; sourceTree = "<group>"; };
+		9A15F2E12B34A24000357CF9 /* DragAlertApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragAlertApp.swift; sourceTree = "<group>"; };
 		9A15F2FD2B34A54400357CF9 /* AnchorLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorLog.swift; sourceTree = "<group>"; };
 		9A15F2FE2B34A54400357CF9 /* Anchor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anchor.swift; sourceTree = "<group>"; };
 		9A15F2FF2B34A54400357CF9 /* Vessel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vessel.swift; sourceTree = "<group>"; };
@@ -160,7 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				9A15F2C12B34A24000357CF9 /* DragAlert.entitlements */,
-				9A15F2E12B34A24000357CF9 /* AnchorWatch2App.swift */,
+				9A15F2E12B34A24000357CF9 /* DragAlertApp.swift */,
 				9A15F2DB2B34A24000357CF9 /* AppDelegate.swift */,
 				9A15F2DA2B34A24000357CF9 /* Alarm.swift */,
 				9A15F2BF2B34A24000357CF9 /* Localizable.strings */,
@@ -402,7 +402,7 @@
 				9A15F2ED2B34A24000357CF9 /* AnchoringView.swift in Sources */,
 				9A15F2E32B34A24000357CF9 /* LocationObserver.swift in Sources */,
 				9A15F2F02B34A24000357CF9 /* PermissionView.swift in Sources */,
-				9A15F2FC2B34A24000357CF9 /* AnchorWatch2App.swift in Sources */,
+				9A15F2FC2B34A24000357CF9 /* DragAlertApp.swift in Sources */,
 				9A15F2EC2B34A24000357CF9 /* AnchorMarker.swift in Sources */,
 				9A15F2F32B34A24000357CF9 /* SetupVesselView.swift in Sources */,
 				9A15F2F42B34A24000357CF9 /* VesselLocationMap.swift in Sources */,

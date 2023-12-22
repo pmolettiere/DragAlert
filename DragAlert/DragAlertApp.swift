@@ -1,6 +1,6 @@
 //
-//  AnchorWatch2App.swift
-//  AnchorWatch2
+//  DragAlertApp.swift
+//  Drag Alert
 //
 //  Created by Peter Molettiere on 12/6/23.
 //
@@ -25,7 +25,7 @@ import SwiftData
 import MapKit
 
 @main
-struct AnchorWatch2App: App {
+struct DragAlertApp: App {
     
     @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
     

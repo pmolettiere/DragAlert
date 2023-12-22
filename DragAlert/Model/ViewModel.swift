@@ -1,6 +1,6 @@
 //
 //  ViewModel.swift
-//  AnchorWatch
+//  Drag Alert
 //
 //    Copyright (C) <2023>  <Peter Molettiere>
 //

@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  AnchorWatch
+//  Drag Alert
 //
 //  Imported from Apple documentation:
 //  https://developer.apple.com/documentation/corelocation/supporting_live_updates_in_swiftui_and_mac_catalyst_apps

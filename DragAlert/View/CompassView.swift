@@ -1,6 +1,6 @@
 //
 //  CompassView.swift
-//  AnchorWatch2
+//  Drag Alert
 //
 //  Created by Peter Molettiere on 12/18/23.
 //
