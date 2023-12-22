@@ -4,19 +4,29 @@
 //
 //  Created by Peter Molettiere on 12/20/23.
 //
+//    Copyright (C) <2023>  <Peter Molettiere>
+//
+//    This program is free software: you can redistribute it and/or modify
+//    it under the terms of the GNU General Public License as published by
+//    the Free Software Foundation, either version 3 of the License, or
+//    (at your option) any later version.
+//
+//    This program is distributed in the hope that it will be useful,
+//    but WITHOUT ANY WARRANTY; without even the implied warranty of
+//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//    GNU General Public License for more details.
+//
+//    You should have received a copy of the GNU General Public License
+//    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+//
 
 import SwiftUI
 import MapKit
 
 struct VesselLocationMap: View {
-
     @State private var position: MapCameraPosition
     @State private var region: MKCoordinateRegion
-    
-    //(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), latitudinalMeters: 100, longitudinalMeters: 100)
-
-//    private let bounds = MapCameraBounds(minimumDistance: 0.0, maximumDistance: 800.0)
-    
+        
     @State var anchorLocationModel : (any AnchorMarkerModelProtocol)?
     @State var gps = LocationObserver()
 
@@ -27,23 +37,9 @@ struct VesselLocationMap: View {
         _position = State( initialValue: .region( r ) )
 
         self.gps.locationCallback = updateLocation
-
-        
-        withObservationTracking({
-            _ = model?.getAlarmRadius()
-            _ = model?.getAnchorLocation()
-            _ = model?.getCoordinateLog()
-            _ = model?.getRodeLengthMeters()
-            _ = model?.objectWillChange
-            //print("VesselLocationMap model change subscription")
-        }, onChange: {
-            //print("VesselLocationMap observed model change")
-        })
-        //print("VesselLocationMap created")
     }
     
     func updateLocation() {
-        print("VesselLocationMap updating location")
         region.center = CLLocationCoordinate2D(latitude: gps.latitude, longitude: gps.longitude)
     }
 

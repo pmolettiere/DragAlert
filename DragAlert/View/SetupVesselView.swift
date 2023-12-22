@@ -4,6 +4,21 @@
 //
 //  Created by Peter Molettiere on 12/5/23.
 //
+//    Copyright (C) <2023>  <Peter Molettiere>
+//
+//    This program is free software: you can redistribute it and/or modify
+//    it under the terms of the GNU General Public License as published by
+//    the Free Software Foundation, either version 3 of the License, or
+//    (at your option) any later version.
+//
+//    This program is distributed in the hope that it will be useful,
+//    but WITHOUT ANY WARRANTY; without even the implied warranty of
+//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//    GNU General Public License for more details.
+//
+//    You should have received a copy of the GNU General Public License
+//    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+//
 
 import Foundation
 import SwiftUI
@@ -38,14 +53,6 @@ struct SetupVesselView : View {
                 }
                 DistanceEditor("view.setup.vessel.loa", measurement: model.loa, max: Measurement(value: 100, unit: UnitLength.feet), step: 1)
                 DistanceEditor("view.setup.vessel.rodeLength", measurement: model.rodeLength)
-//                HStack {
-//                    Text("view.multiple.latitude")
-//                    Text("\(model.gps.latitude.formatted(.number.rounded(increment:0.001)))")
-//                }
-//                HStack {
-//                    Text("view.multiple.longitude")
-//                    Text("\(model.gps.longitude.formatted(.number.rounded(increment:0.001)))")
-//                }
                 VesselLocationMap()
                     .frame(width: 350, height: 200)
 

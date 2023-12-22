@@ -4,6 +4,21 @@
 //
 //  Created by Peter Molettiere on 12/8/23.
 //
+//    Copyright (C) <2023>  <Peter Molettiere>
+//
+//    This program is free software: you can redistribute it and/or modify
+//    it under the terms of the GNU General Public License as published by
+//    the Free Software Foundation, either version 3 of the License, or
+//    (at your option) any later version.
+//
+//    This program is distributed in the hope that it will be useful,
+//    but WITHOUT ANY WARRANTY; without even the implied warranty of
+//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//    GNU General Public License for more details.
+//
+//    You should have received a copy of the GNU General Public License
+//    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+//
 
 import SwiftUI
 import MapKit
@@ -13,24 +28,12 @@ struct AnchorMarker: MapContent {
     
     init(model: any AnchorMarkerModelProtocol) {
         self.model = model
-        withObservationTracking({
-            _ = model.getAlarmRadius()
-            _ = model.getAnchorLocation()
-            _ = model.getCoordinateLog()
-            _ = model.getRodeLengthMeters()
-            _ = model.objectWillChange
-            // print("AnchorMarker model change subscription")
-        }, onChange: {
-            //print("AnchorMarker observed model change")
-        })
-        //print("AnchorMarker created")
     }
 
     var body: some MapContent {
         Annotation(coordinate: model.getAnchorLocation()) {
             AnchorView(size: CGFloat(15))
         } label: {
-//            Text("\(model.getAlarmRadius()) \(model.getRodeLengthMeters()) \(model.getAnchorLocation().latitude) \(model.getAnchorLocation().longitude) \(model.getCoordinateLog().count)")
             Text("")
         }
         MapCircle(center: model.getAnchorLocation(), radius: model.getAlarmRadius())
@@ -65,7 +68,7 @@ extension Anchor : AnchorMarkerModelProtocol {
 extension AnchoringViewModel : AnchorMarkerModelProtocol {
     
     func getAnchorLocation() -> CLLocationCoordinate2D {
-        if( selectedTab == AnchoringViewModel.Tab.relative.rawValue ) {
+        if( selectedTab == .relative ) {
             return relativeLocation()
         } else {
             return getCurrentAnchorPosition()
