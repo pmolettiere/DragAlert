@@ -55,7 +55,7 @@ struct MapView: View {
             }
         }
         .toolbar {
-            ToolbarView(
+            MapToolbar(
                 vessel: m.myVessel,
                 editVessel: {
                     viewModel.setAppView(.setup)

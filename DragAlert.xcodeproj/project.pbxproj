@@ -20,7 +20,7 @@
 		9A15F2EC2B34A24000357CF9 /* AnchorMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2D02B34A24000357CF9 /* AnchorMarker.swift */; };
 		9A15F2ED2B34A24000357CF9 /* AnchoringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2D12B34A24000357CF9 /* AnchoringView.swift */; };
 		9A15F2EE2B34A24000357CF9 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2D22B34A24000357CF9 /* MapView.swift */; };
-		9A15F2EF2B34A24000357CF9 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2D32B34A24000357CF9 /* ToolbarView.swift */; };
+		9A15F2EF2B34A24000357CF9 /* MapToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2D32B34A24000357CF9 /* MapToolbar.swift */; };
 		9A15F2F02B34A24000357CF9 /* PermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2D42B34A24000357CF9 /* PermissionView.swift */; };
 		9A15F2F12B34A24000357CF9 /* AnchorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2D52B34A24000357CF9 /* AnchorView.swift */; };
 		9A15F2F22B34A24000357CF9 /* DistanceEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2D62B34A24000357CF9 /* DistanceEditor.swift */; };
@@ -75,7 +75,7 @@
 		9A15F2D02B34A24000357CF9 /* AnchorMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorMarker.swift; sourceTree = "<group>"; };
 		9A15F2D12B34A24000357CF9 /* AnchoringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchoringView.swift; sourceTree = "<group>"; };
 		9A15F2D22B34A24000357CF9 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		9A15F2D32B34A24000357CF9 /* ToolbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
+		9A15F2D32B34A24000357CF9 /* MapToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapToolbar.swift; sourceTree = "<group>"; };
 		9A15F2D42B34A24000357CF9 /* PermissionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionView.swift; sourceTree = "<group>"; };
 		9A15F2D52B34A24000357CF9 /* AnchorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorView.swift; sourceTree = "<group>"; };
 		9A15F2D62B34A24000357CF9 /* DistanceEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceEditor.swift; sourceTree = "<group>"; };
@@ -215,19 +215,19 @@
 		9A15F2CC2B34A24000357CF9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9A15F2CD2B34A24000357CF9 /* VesselMarker.swift */,
-				9A15F2CE2B34A24000357CF9 /* Format.swift */,
-				9A15F2CF2B34A24000357CF9 /* CompassView.swift */,
-				9A15F2D02B34A24000357CF9 /* AnchorMarker.swift */,
-				9A15F2D12B34A24000357CF9 /* AnchoringView.swift */,
-				9A15F2D22B34A24000357CF9 /* MapView.swift */,
-				9A15F2D32B34A24000357CF9 /* ToolbarView.swift */,
+				9A15F2D92B34A24000357CF9 /* ContentView.swift */,
 				9A15F2D42B34A24000357CF9 /* PermissionView.swift */,
+				9A15F2D12B34A24000357CF9 /* AnchoringView.swift */,
+				9A15F2D72B34A24000357CF9 /* SetupVesselView.swift */,
+				9A15F2D22B34A24000357CF9 /* MapView.swift */,
+				9A15F2D32B34A24000357CF9 /* MapToolbar.swift */,
+				9A15F2CD2B34A24000357CF9 /* VesselMarker.swift */,
+				9A15F2D02B34A24000357CF9 /* AnchorMarker.swift */,
+				9A15F2D82B34A24000357CF9 /* VesselLocationMap.swift */,
+				9A15F2CF2B34A24000357CF9 /* CompassView.swift */,
 				9A15F2D52B34A24000357CF9 /* AnchorView.swift */,
 				9A15F2D62B34A24000357CF9 /* DistanceEditor.swift */,
-				9A15F2D72B34A24000357CF9 /* SetupVesselView.swift */,
-				9A15F2D82B34A24000357CF9 /* VesselLocationMap.swift */,
-				9A15F2D92B34A24000357CF9 /* ContentView.swift */,
+				9A15F2CE2B34A24000357CF9 /* Format.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -391,7 +391,7 @@
 				9A15F3042B34A54400357CF9 /* ViewModel.swift in Sources */,
 				9A15F2F22B34A24000357CF9 /* DistanceEditor.swift in Sources */,
 				9A15F2F12B34A24000357CF9 /* AnchorView.swift in Sources */,
-				9A15F2EF2B34A24000357CF9 /* ToolbarView.swift in Sources */,
+				9A15F2EF2B34A24000357CF9 /* MapToolbar.swift in Sources */,
 				9A15F2E52B34A24000357CF9 /* LocationNotifications.swift in Sources */,
 				9A15F2EA2B34A24000357CF9 /* Format.swift in Sources */,
 				9A15F2E42B34A24000357CF9 /* LocationDelegate.swift in Sources */,
