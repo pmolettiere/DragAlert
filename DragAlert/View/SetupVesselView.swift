@@ -38,14 +38,6 @@ struct SetupVesselView : View {
                 }
                 DistanceEditor("view.setup.vessel.loa", measurement: model.loa, max: Measurement(value: 100, unit: UnitLength.feet), step: 1)
                 DistanceEditor("view.setup.vessel.rodeLength", measurement: model.rodeLength)
-//                HStack {
-//                    Text("view.multiple.latitude")
-//                    Text("\(model.gps.latitude.formatted(.number.rounded(increment:0.001)))")
-//                }
-//                HStack {
-//                    Text("view.multiple.longitude")
-//                    Text("\(model.gps.longitude.formatted(.number.rounded(increment:0.001)))")
-//                }
                 VesselLocationMap()
                     .frame(width: 350, height: 200)
 
