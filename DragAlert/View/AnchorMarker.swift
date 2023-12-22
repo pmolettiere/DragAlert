@@ -19,7 +19,6 @@ struct AnchorMarker: MapContent {
         Annotation(coordinate: model.getAnchorLocation()) {
             AnchorView(size: CGFloat(15))
         } label: {
-//            Text("\(model.getAlarmRadius()) \(model.getRodeLengthMeters()) \(model.getAnchorLocation().latitude) \(model.getAnchorLocation().longitude) \(model.getCoordinateLog().count)")
             Text("")
         }
         MapCircle(center: model.getAnchorLocation(), radius: model.getAlarmRadius())

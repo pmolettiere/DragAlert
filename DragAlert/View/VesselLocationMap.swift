@@ -9,14 +9,9 @@ import SwiftUI
 import MapKit
 
 struct VesselLocationMap: View {
-
     @State private var position: MapCameraPosition
     @State private var region: MKCoordinateRegion
-    
-    //(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), latitudinalMeters: 100, longitudinalMeters: 100)
-
-//    private let bounds = MapCameraBounds(minimumDistance: 0.0, maximumDistance: 800.0)
-    
+        
     @State var anchorLocationModel : (any AnchorMarkerModelProtocol)?
     @State var gps = LocationObserver()
 
