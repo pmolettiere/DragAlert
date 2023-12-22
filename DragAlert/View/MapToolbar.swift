@@ -31,60 +31,73 @@ struct MapToolbar: ToolbarContent {
     var cancelAnchor: () -> Void
 
     @State var isAlarmEnabled: Bool = Alarm.instance.isEnabled
-
+    @State var disableIdle: Bool = false
+    
+    func disableIdle( disable: Bool )  {
+        Task { @MainActor in
+            UIApplication.shared.isIdleTimerDisabled = disable
+        }
+    }
+    
     var body: some ToolbarContent {
         ToolbarItemGroup(placement: .bottomBar) {
             Menu(
                 content: {
                     Toggle(isOn: $isAlarmEnabled) {
-                        Text("view.map.alarm.enable")
+                        Text("view.toolbar.alarm.enable")
                     }.onChange(of: isAlarmEnabled) {
                         Alarm.instance.isEnabled = isAlarmEnabled
+                    }
+                    
+                    Toggle(isOn: $disableIdle) {
+                        Text("view.toolbar.alarm.disable.idle")
+                    }.onChange(of: disableIdle) {
+                        disableIdle(disable: disableIdle)
                     }
                     
                     Button() {
                         Alarm.instance.snooze()
                     } label: {
-                        Text("view.map.alarm.snooze")
+                        Text("view.toolbar.alarm.snooze")
                     }
                     .disabled(!Alarm.instance.isPlaying)
                     
                     Button() {
                         Alarm.instance.test()
                     } label: {
-                        Text("view.map.alarm.test")
+                        Text("view.toolbar.alarm.test")
                     }
                     .disabled(Alarm.instance.isPlaying)
                 },
                 label: {
-                    Label("view.map.alarm", systemImage: "alarm")
+                    Label("view.toolbar.alarm", systemImage: "alarm")
                 }
             )
             Button() {
                 editVessel()
             } label: {
-                Label("view.map.edit.vessel", systemImage: "sailboat")
+                Label("view.toolbar.edit.vessel", systemImage: "sailboat")
             }
             Menu(
                 content: {
                     Button() {
                         newAnchor()
                     } label: {
-                        Text("view.map.new")
+                        Text("view.toolbar.new")
                     }
                     .disabled(vessel?.isAnchored ?? true)
                     
                     Button() {
                         resetAnchor()
                     } label: {
-                        Text("view.map.reset")
+                        Text("view.toolbar.reset")
                     }
                     .disabled(vessel?.isAnchored ?? true)
                     
                     Button() {
                         cancelAnchor()
                     } label: {
-                        Text("view.map.cancel")
+                        Text("view.toolbar.cancel")
                     }
                     .disabled(!(vessel?.isAnchored ?? false))
                 },

@@ -6,15 +6,16 @@
   
 */
 
-view.map.alarm = "Alarm";
-view.map.alarm.enable = "Enable";
-view.map.alarm.snooze = "Snooze";
-view.map.alarm.test = "Test";
-view.map.anchor = "Anchor";
-view.map.new = "New Position";
-view.map.reset = "Reset Last";
-view.map.cancel = "Cancel";
-view.map.edit.vessel = "Edit Vessel";
+view.toolbar.alarm = "Alarm";
+view.toolbar.alarm.enable = "Enable";
+view.toolbar.alarm.disable.idle = "Disable Idle";
+view.toolbar.alarm.snooze = "Snooze";
+view.toolbar.alarm.test = "Test";
+view.toolbar.anchor = "Anchor";
+view.toolbar.new = "New Position";
+view.toolbar.reset = "Reset Last";
+view.toolbar.cancel = "Cancel";
+view.toolbar.edit.vessel = "Edit Vessel";
 view.anchoring.relative = "Relative";
 view.anchoring.current = "Current";
 view.anchoring.rodeLength = "Rode";  // noun, nautical, means the chain and/or rope connecting the anchor to the boat

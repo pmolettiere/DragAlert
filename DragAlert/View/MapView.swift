@@ -105,11 +105,13 @@ struct MapView: View {
             mapStyle = .imagery
             LocationDelegate.instance.isTrackingLocation = true
             LocationDelegate.instance.trackLocationInBackground(true)
+            UIApplication.shared.isIdleTimerDisabled = true
         }
         .onDisappear() {
             print("MapView.map onDisappear")
             LocationDelegate.instance.isTrackingLocation = false
             LocationDelegate.instance.trackLocationInBackground(false)
+            UIApplication.shared.isIdleTimerDisabled = false
         }
     }
 }

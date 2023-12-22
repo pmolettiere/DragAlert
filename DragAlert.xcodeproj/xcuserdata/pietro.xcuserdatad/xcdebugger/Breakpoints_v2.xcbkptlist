@@ -36,5 +36,69 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "73AD3100-4CC7-4AFB-8AFA-E20A59FEF636"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DragAlert/Model/ViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "create(myVessel:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "73AD3100-4CC7-4AFB-8AFA-E20A59FEF636 - 6512888dfc500982"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Drag_Alert.ViewModel.create(myVessel: Drag_Alert.Vessel) -&gt; ()"
+                  moduleName = "Drag Alert"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pietro/Documents/DragAlert/DragAlert/Model/ViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "572">
+               </Location>
+               <Location
+                  uuid = "73AD3100-4CC7-4AFB-8AFA-E20A59FEF636 - 6512888dfc500982"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Drag_Alert.ViewModel.create(myVessel: Drag_Alert.Vessel) -&gt; ()"
+                  moduleName = "Drag Alert"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pietro/Documents/DragAlert/DragAlert/Model/ViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "86975D83-6BDD-4F31-B48E-1A7794DDEE5E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DragAlert/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
