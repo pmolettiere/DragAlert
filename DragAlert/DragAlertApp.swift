@@ -37,6 +37,7 @@ struct DragAlertApp: App {
         
         do {
             let container = try ModelContainer(for: schema, configurations: [modelConfiguration])
+            container.mainContext.autosaveEnabled = true
             print("DragAlert.sharedModelContainer initialized.")
             return container
         } catch {
