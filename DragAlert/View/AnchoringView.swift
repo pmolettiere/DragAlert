@@ -88,7 +88,7 @@ struct AnchoringView: View {
                     print("AnchoringView.RelativeView.button complete")
                 } label: {
                     Text("view.anchoring.button.relative")
-                    AnchorView(color: model.relativeLocationWouldAlarm() ? Color.blue : Color.gray, size: CGFloat(50))
+                    AnchorView(color: model.relativeLocationWouldAlarm() ? Color.gray : Color.blue, size: CGFloat(50))
                 }
                 .disabled(model.relativeLocationWouldAlarm())
             }
