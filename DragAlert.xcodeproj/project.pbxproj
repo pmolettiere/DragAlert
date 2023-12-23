@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A0A2CF42B364DC90099809A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A0A2CF32B364DC90099809A /* LaunchScreen.storyboard */; };
+		9A0A2CF62B365D910099809A /* VolumeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0A2CF52B365D910099809A /* VolumeSlider.swift */; };
 		9A15F2E22B34A24000357CF9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A15F2BF2B34A24000357CF9 /* Localizable.strings */; };
 		9A15F2E32B34A24000357CF9 /* LocationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2C32B34A24000357CF9 /* LocationObserver.swift */; };
 		9A15F2E42B34A24000357CF9 /* LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2C42B34A24000357CF9 /* LocationDelegate.swift */; };
@@ -37,7 +39,7 @@
 		9A15F3022B34A54400357CF9 /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2FE2B34A54400357CF9 /* Anchor.swift */; };
 		9A15F3032B34A54400357CF9 /* Vessel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2FF2B34A54400357CF9 /* Vessel.swift */; };
 		9A15F3042B34A54400357CF9 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F3002B34A54400357CF9 /* ViewModel.swift */; };
-		9A3B13022B2CB11B00485169 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3B13012B2CB11B00485169 /* LaunchScreen.storyboard */; };
+		9AD096482B3692BF009AF04B /* StrokeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD096472B3692BF009AF04B /* StrokeText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A0A2CF32B364DC90099809A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9A0A2CF52B365D910099809A /* VolumeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeSlider.swift; sourceTree = "<group>"; };
 		9A0D79822B20BC3500E83F11 /* Drag Alert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Drag Alert.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A0D79962B20BC3900E83F11 /* Drag Alert Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Drag Alert Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A0D79A02B20BC3900E83F11 /* Drag Alert UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Drag Alert UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,7 +97,7 @@
 		9A15F2FE2B34A54400357CF9 /* Anchor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anchor.swift; sourceTree = "<group>"; };
 		9A15F2FF2B34A54400357CF9 /* Vessel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vessel.swift; sourceTree = "<group>"; };
 		9A15F3002B34A54400357CF9 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		9A3B13012B2CB11B00485169 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9AD096472B3692BF009AF04B /* StrokeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,8 +128,8 @@
 		9A0D79792B20BC3500E83F11 = {
 			isa = PBXGroup;
 			children = (
+				9A0A2CF32B364DC90099809A /* LaunchScreen.storyboard */,
 				9A15F2BE2B34A24000357CF9 /* DragAlert */,
-				9A3B13012B2CB11B00485169 /* LaunchScreen.storyboard */,
 				9A0D79992B20BC3900E83F11 /* DragAlertTests */,
 				9A0D79A32B20BC3900E83F11 /* DragAlertUITests */,
 				9A0D79832B20BC3500E83F11 /* Products */,
@@ -228,6 +232,8 @@
 				9A15F2D52B34A24000357CF9 /* AnchorView.swift */,
 				9A15F2D62B34A24000357CF9 /* DistanceEditor.swift */,
 				9A15F2CE2B34A24000357CF9 /* Format.swift */,
+				9A0A2CF52B365D910099809A /* VolumeSlider.swift */,
+				9AD096472B3692BF009AF04B /* StrokeText.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -354,11 +360,11 @@
 				9A15F2E72B34A24000357CF9 /* Preview Assets.xcassets in Resources */,
 				9A15F2F82B34A24000357CF9 /* anchor.small.png in Resources */,
 				9A15F2E82B34A24000357CF9 /* alarm.mp3 in Resources */,
+				9A0A2CF42B364DC90099809A /* LaunchScreen.storyboard in Resources */,
 				9A15F2FA2B34A24000357CF9 /* anchor.png in Resources */,
 				9A15F2F92B34A24000357CF9 /* anchor.pin.png in Resources */,
 				9A15F2E22B34A24000357CF9 /* Localizable.strings in Resources */,
 				9A15F2E62B34A24000357CF9 /* Assets.xcassets in Resources */,
-				9A3B13022B2CB11B00485169 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +397,7 @@
 				9A15F3042B34A54400357CF9 /* ViewModel.swift in Sources */,
 				9A15F2F22B34A24000357CF9 /* DistanceEditor.swift in Sources */,
 				9A15F2F12B34A24000357CF9 /* AnchorView.swift in Sources */,
+				9A0A2CF62B365D910099809A /* VolumeSlider.swift in Sources */,
 				9A15F2EF2B34A24000357CF9 /* MapToolbar.swift in Sources */,
 				9A15F2E52B34A24000357CF9 /* LocationNotifications.swift in Sources */,
 				9A15F2EA2B34A24000357CF9 /* Format.swift in Sources */,
@@ -402,6 +409,7 @@
 				9A15F2ED2B34A24000357CF9 /* AnchoringView.swift in Sources */,
 				9A15F2E32B34A24000357CF9 /* LocationObserver.swift in Sources */,
 				9A15F2F02B34A24000357CF9 /* PermissionView.swift in Sources */,
+				9AD096482B3692BF009AF04B /* StrokeText.swift in Sources */,
 				9A15F2FC2B34A24000357CF9 /* DragAlertApp.swift in Sources */,
 				9A15F2EC2B34A24000357CF9 /* AnchorMarker.swift in Sources */,
 				9A15F2F32B34A24000357CF9 /* SetupVesselView.swift in Sources */,
@@ -576,6 +584,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = DragAlert/DragAlert.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -589,6 +598,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location will be used to display your current location on a map while in use.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -609,6 +619,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = DragAlert/DragAlert.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -622,6 +633,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location will be used to display your current location on a map while in use.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
