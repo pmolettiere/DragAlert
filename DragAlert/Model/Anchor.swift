@@ -69,6 +69,8 @@ final class Anchor : Codable {
         self.rodeInUseMeters = rodeLength.converted(to: .meters).value
         self.log = log
         self.vessel = vessel
+        
+        self.log.sort(by: {$0.timestamp < $1.timestamp})
     }
         
     enum CodingKeys : CodingKey {
@@ -104,6 +106,7 @@ extension Anchor {
         self.log.removeAll(where: { entry in
             entry.isWithin(meters: 3, of: log)
         })
+        self.log.sort(by: {$0.timestamp < $1.timestamp})
         self.log.append(log)
         if( self.log.count > maxLogSize ) {
             self.log.removeFirst(self.log.count - maxLogSize)
