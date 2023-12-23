@@ -116,7 +116,7 @@ final class VolumeObserver : Sendable {
     
     func subscribe() {
         do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.ambient)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
             try session.setActive(true, options: .notifyOthersOnDeactivation)
         } catch {
             print("cannot activate session")
