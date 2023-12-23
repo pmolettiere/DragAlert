@@ -20,9 +20,11 @@
 //    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+import Foundation
 import SwiftUI
 import SwiftData
 import MapKit
+import MediaPlayer
 import simd
 
 struct MapView: View {
@@ -33,10 +35,13 @@ struct MapView: View {
     
     @State var mapStyle: MapStyle = .standard
     @Namespace var mapScope
-            
+    
+    @State var alarm = Alarm.instance
+    @State var volume = VolumeObserver()
+                
     var body: some View {
         @Bindable var m = viewModel       // m is for model
-        
+
         ZStack(alignment: .topLeading) {
             VStack {
                 MapCompass(scope: mapScope)
@@ -66,6 +71,26 @@ struct MapView: View {
                 KeyframeTrack(\MapCamera.distance) {
                     CubicKeyframe(middleAltitude, duration: duration / 2)
                     CubicKeyframe(finalAltitude, duration: duration / 2)
+                }
+            }
+        }
+        .overlay(alignment: .top) {
+            if( volume.displayVolumeControl ) {
+                VStack {
+                    if( volume.volumeBelowWarningThreshold ) {
+                        StrokeText(text: "view.map.warn.volume.low", width: 0.7, color: .white)
+                            .foregroundColor(.red)
+                            .font(.headline)
+                    } else {
+                        Text("view.map.volume")
+                            .font(.headline)
+                            .foregroundStyle(Color.white)
+                    }
+                    
+                    VolumeSlider()
+                        .frame(height: 40)
+                        .padding(.horizontal)
+                    Spacer()
                 }
             }
         }

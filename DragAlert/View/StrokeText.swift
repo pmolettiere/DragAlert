@@ -2,17 +2,26 @@
 //  StrokeText.swift
 //  Drag Alert
 //
-//  Created by Peter Molettiere on 12/22/23.
+//  https://stackoverflow.com/questions/57334125/how-to-make-text-stroke-in-swiftui
 //
 
 import SwiftUI
 
 struct StrokeText: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+    let text: LocalizedStringKey
+    let width: CGFloat
+    let color: Color
 
-#Preview {
-    StrokeText()
+    var body: some View {
+        ZStack{
+            ZStack{
+                Text(text).offset(x:  width, y:  width)
+                Text(text).offset(x: -width, y: -width)
+                Text(text).offset(x: -width, y:  width)
+                Text(text).offset(x:  width, y: -width)
+            }
+            .foregroundColor(color)
+            Text(text)
+        }
+    }
 }

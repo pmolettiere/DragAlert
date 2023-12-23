@@ -16,6 +16,10 @@ view.toolbar.new = "New Position";
 view.toolbar.reset = "Reset Last";
 view.toolbar.cancel = "Cancel";
 view.toolbar.edit.vessel = "Edit Vessel";
+
+view.map.warn.volume.low = "Low Volume!";
+view.map.volume = "Volume";
+
 view.anchoring.relative = "Relative";
 view.anchoring.current = "Current";
 view.anchoring.rodeLength = "Rode";  // noun, nautical, means the chain and/or rope connecting the anchor to the boat

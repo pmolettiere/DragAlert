@@ -21,10 +21,14 @@
 //
 
 import AVFoundation
+import Foundation
+import MediaPlayer
+
 
 @Observable
 final class Alarm : @unchecked Sendable {
     
+    static let minimum: Float = 0.5
     static let instance = Alarm()
     
     var player: AVAudioPlayer?
@@ -45,7 +49,7 @@ final class Alarm : @unchecked Sendable {
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.mixWithOthers])
             try AVAudioSession.sharedInstance().setActive(true)
-            player = try AVAudioPlayer(contentsOf: url)
+            self.player = try AVAudioPlayer(contentsOf: url)
             guard let player = player else { return }
             player.numberOfLoops = -1 // play forever
         } catch let error {
@@ -94,6 +98,58 @@ final class Alarm : @unchecked Sendable {
             self.stop()
             self.isTesting = false
         })
+        
+    }
+}
 
+@Observable
+final class VolumeObserver : Sendable {
+    
+    var volume: Float = AVAudioSession.sharedInstance().outputVolume
+    var timer: Timer? = nil
+    
+    // Audio session object
+    private let session = AVAudioSession.sharedInstance()
+    
+    // Observer
+    private var progressObserver: NSKeyValueObservation!
+    
+    func subscribe() {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.ambient)
+            try session.setActive(true, options: .notifyOthersOnDeactivation)
+        } catch {
+            print("cannot activate session")
+        }
+        
+        progressObserver = session.observe(\.outputVolume) { [self] (session, value) in
+            DispatchQueue.main.async { [self] in
+                self.volume = session.outputVolume
+                timer?.invalidate()
+                timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: false, block: { [self]_ in
+                    self.timer = nil
+                })
+            }
+        }
+    }
+    
+    func unsubscribe() {
+        self.progressObserver.invalidate()
+    }
+    
+    init() {
+        subscribe()
+    }
+    
+    var displayVolumeControl : Bool {
+        get { volumeBelowWarningThreshold || volumeDelayActive }
+    }
+    
+    var volumeBelowWarningThreshold : Bool {
+        get{ volume <= Alarm.minimum }
+    }
+    
+    var volumeDelayActive : Bool {
+        get{ timer != nil }
     }
 }
