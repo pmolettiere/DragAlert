@@ -102,9 +102,10 @@ final class Anchor : Codable {
 extension Anchor {
     func update(log: AnchorLog) {
         let maxLogSize = 1000
+        let blockSize = 2.0
 
         self.log.removeAll(where: { entry in
-            entry.isWithin(meters: 3, of: log)
+            entry.isWithin(meters: blockSize, of: log)
         })
         self.log.sort(by: {$0.timestamp < $1.timestamp})
         self.log.append(log)
