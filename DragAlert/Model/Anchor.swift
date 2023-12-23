@@ -99,7 +99,15 @@ final class Anchor : Codable {
 
 extension Anchor {
     func update(log: AnchorLog) {
+        let maxLogSize = 1000
+
+        self.log.removeAll(where: { entry in
+            entry.isWithin(meters: 3, of: log)
+        })
         self.log.append(log)
+        if( self.log.count > maxLogSize ) {
+            self.log.removeFirst(self.log.count - maxLogSize)
+        }
     }
 
     var coordinate: CLLocationCoordinate2D {

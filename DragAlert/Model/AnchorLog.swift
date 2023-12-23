@@ -67,4 +67,8 @@ extension AnchorLog {
         get { CLLocationCoordinate2D(latitude: latitude, longitude: longitude) }
         set { latitude = newValue.latitude; longitude = newValue.longitude }
     }
+    
+    func isWithin(meters: Double, of: AnchorLog) -> Bool {
+        coordinate.distance(to: of.coordinate) > meters
+    }
 }
