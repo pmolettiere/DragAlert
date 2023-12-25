@@ -62,7 +62,7 @@ struct MapView: View {
                 let travelDistance = start.distance(to: end)
                 
                 let duration = max(min(travelDistance / 30, 5), 1)
-                let finalAltitude = travelDistance > 20 ? 750_000 : min(initialCamera.distance, 750_000)
+                let finalAltitude = travelDistance > 20 ? 1_000 : min(initialCamera.distance, 1_000)
                 let middleAltitude = finalAltitude * max(min(travelDistance / 5, 1.5), 1)
                 
                 KeyframeTrack(\MapCamera.centerCoordinate) {
@@ -105,7 +105,7 @@ struct MapView: View {
                         if( v.isAnchored ) {
                             v.isAnchored = false
                         } else {
-                            viewModel.setAppView(.anchor)
+                            viewModel.setAppView(.new_anchor)
                         }
                     }
                 },
@@ -114,6 +114,13 @@ struct MapView: View {
                         if v.anchor != nil {
                             v.isAnchored = true
                             Alarm.instance.isEnabled = true
+                        }
+                    }
+                },
+                adjustAnchor: {
+                    if let v = viewModel.myVessel {
+                        if( v.isAnchored ) {
+                            viewModel.setAppView(.edit_anchor)
                         }
                     }
                 },

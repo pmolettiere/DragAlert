@@ -82,5 +82,9 @@ import SwiftUI
 }
 
 enum AppView {
-    case perm, setup, map, anchor
+    case perm
+    case setup
+    case map
+    case new_anchor
+    case edit_anchor
 }

@@ -13,6 +13,7 @@ view.toolbar.alarm.snooze = "Snooze";
 view.toolbar.alarm.test = "Test";
 view.toolbar.anchor = "Anchor";
 view.toolbar.new = "New Position";
+view.toolbar.adjust = "Adjust";
 view.toolbar.reset = "Reset Last";
 view.toolbar.cancel = "Cancel";
 view.toolbar.edit.vessel = "Edit Vessel";

@@ -26,8 +26,8 @@ import MapKit
 struct AnchoringView: View {
     @State var model: AnchoringViewModel
     
-    init(vessel: Vessel) {
-        _model = State(initialValue: AnchoringViewModel(vessel: vessel))
+    init(vessel: Vessel, state: EditState) {
+        _model = State(initialValue: AnchoringViewModel(vessel: vessel, state: state))
         //print("AnchoringView.init()")
     }
     
@@ -134,6 +134,10 @@ struct AnchoringView: View {
             })
         }
     }
+    
+    enum EditState {
+        case new, edit
+    }
 }
 
 @Observable 
@@ -149,11 +153,14 @@ class AnchoringViewModel {
     var maxRodeLength: MeasurementModel<UnitLength>
     var maxDistanceFromAnchor: MeasurementModel<UnitLength>
     
-    init(vessel: Vessel) {
+    var willEdit: AnchoringView.EditState
+    
+    init(vessel: Vessel, state: AnchoringView.EditState) {
         self.vessel = vessel
         self.gps = LocationObserver()
         self.maxRodeLength = MeasurementModel(vessel.totalRodeMeasurement)
         self.maxDistanceFromAnchor = MeasurementModel(vessel.maxDistanceFromAnchor)
+        self.willEdit = state
         
         // placeholders until prefs read below, ignore value being set
         self.rodeLength = MeasurementModel( vessel.totalRodeMeasurement )
@@ -196,9 +203,19 @@ class AnchoringViewModel {
         let latitude = location.latitude
         let longitude = location.longitude
         let rodeLength = self.rodeLength.asUnit(UnitLength.meters)
-        let newAnchor = Anchor(timestamp: Date.now, latitude: latitude, longitude: longitude, rodeLength: rodeLength, log: [], vessel: self.vessel)
-        vessel.anchor = newAnchor
-        vessel.isAnchored = true
+        
+        // if( vessel.isAnchored ) {
+        if( willEdit == .edit ) {
+            if let anchor = vessel.anchor {
+                anchor.latitude = latitude
+                anchor.longitude = longitude
+                anchor.rodeInUseMeasurement = rodeLength
+            }
+        } else {
+            let newAnchor = Anchor(timestamp: Date.now, latitude: latitude, longitude: longitude, rodeLength: rodeLength, log: [], vessel: self.vessel)
+            vessel.anchor = newAnchor
+            vessel.isAnchored = true
+        }
         print("AnchoringVew.dropAnchor() complete")
     }
     

@@ -28,6 +28,7 @@ struct MapToolbar: ToolbarContent {
     var editVessel: () -> Void
     var newAnchor: () -> Void
     var resetAnchor: () -> Void
+    var adjustAnchor: () -> Void
     var cancelAnchor: () -> Void
 
     @State var isAlarmEnabled: Bool = Alarm.instance.isEnabled
@@ -88,11 +89,18 @@ struct MapToolbar: ToolbarContent {
                     .disabled(vessel?.isAnchored ?? true)
                     
                     Button() {
+                        adjustAnchor()
+                    } label: {
+                        Text("view.toolbar.adjust")
+                    }
+                    .disabled(!(vessel?.isAnchored ?? true))
+                    
+                    Button() {
                         resetAnchor()
                     } label: {
                         Text("view.toolbar.reset")
                     }
-                    .disabled(vessel?.isAnchored ?? true)
+                    .disabled(( !(vessel?.isAnchored ?? false) || (vessel?.anchor ?? nil) == nil) )
                     
                     Button() {
                         cancelAnchor()

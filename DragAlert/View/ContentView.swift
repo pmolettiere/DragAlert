@@ -37,8 +37,10 @@ struct ContentView: View {
                 } else {
                     SetupVesselView()
                 }
-            case .anchor :
-                AnchoringView(vessel: m.myVessel!)
+            case .new_anchor :
+                AnchoringView(vessel: m.myVessel!, state: .new)
+            case .edit_anchor :
+                AnchoringView(vessel: m.myVessel!, state: .edit)
             case .map :
                 MapView(vessel: m.myVessel!)
             case .perm :
