@@ -59,7 +59,7 @@ protocol AnchorMarkerModelProtocol : ObservableObject {
 }
 
 extension Anchor : AnchorMarkerModelProtocol {
-    func getAnchorLocation() -> CLLocationCoordinate2D { coordinate }
+    func getAnchorLocation() -> CLLocationCoordinate2D { location.clLocation.coordinate }
     func getAlarmRadius() -> Double { alarmRadiusMeters }
     func getRodeLengthMeters() -> Double { rodeInUseMeters }
     func getCoordinateLog() -> [CLLocationCoordinate2D] { coordinateLog }
@@ -69,9 +69,9 @@ extension AnchoringViewModel : AnchorMarkerModelProtocol {
     
     func getAnchorLocation() -> CLLocationCoordinate2D {
         if( selectedTab == .relative ) {
-            return relativeLocation()
+            return relativeLocation().clLocation.coordinate
         } else {
-            return getCurrentAnchorPosition()
+            return getCurrentAnchorPosition().clLocation.coordinate
         }
     }
     
@@ -87,5 +87,16 @@ extension AnchoringViewModel : AnchorMarkerModelProtocol {
     
     func getCoordinateLog() -> [CLLocationCoordinate2D] {
         []
+    }
+}
+
+extension Anchor {
+    /// For presentation to MKPolyline
+    var coordinateLog: [CLLocationCoordinate2D] {
+        var coords = [CLLocationCoordinate2D]()
+        for anchorLog in log {
+            coords.append(anchorLog.clLocation.coordinate)
+        }
+        return coords
     }
 }

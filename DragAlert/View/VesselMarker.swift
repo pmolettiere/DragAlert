@@ -47,7 +47,7 @@ protocol VesselLocator : Observable {
 
 extension Vessel : VesselLocator {
     func getCoordinate() -> CLLocationCoordinate2D {
-        coordinate
+        location.clLocation.coordinate
     }
     func getName() -> String {
         name
@@ -56,7 +56,7 @@ extension Vessel : VesselLocator {
 
 extension LocationObserver : VesselLocator {
     func getCoordinate() -> CLLocationCoordinate2D {
-        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        return location.clLocation.coordinate
     }
     func getName() -> String {
         ""

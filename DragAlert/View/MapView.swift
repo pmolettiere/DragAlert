@@ -58,7 +58,7 @@ struct MapView: View {
             .mapStyle(mapStyle)
             .mapCameraKeyframeAnimator(trigger: vessel.isAnchored) { initialCamera in
                 let start = initialCamera.centerCoordinate
-                let end = vessel.coordinate
+                let end = CLLocation(location: vessel.location).coordinate
                 let travelDistance = start.distance(to: end)
                 
                 let duration = max(min(travelDistance / 30, 5), 1)

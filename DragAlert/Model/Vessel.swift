@@ -32,10 +32,9 @@ final class Vessel : Codable {
     var name = String()
     var loaMeters: Double = 0
     var totalRodeMeters: Double = 0  // total rode installed on Vessel
-    var latitude: Double = 0
-    var longitude: Double = 0
     var isAnchored = false
-    
+    var location: Location = Location.nowhere
+        
     @Transient
     var loaMeasurement: Measurement<UnitLength> {
         get { Measurement(value: loaMeters, unit: UnitLength.meters) }
@@ -55,29 +54,27 @@ final class Vessel : Codable {
     
     var anchor: Anchor?
     
-    init(uuid: UUID = UUID(), name: String = "", loaMeters: Double, rodeMeters: Double, latitude: Double = 0, longitude: Double = 0, isAnchored: Bool = false, anchor: Anchor? = nil) {
+    init(uuid: UUID = UUID(), name: String = "", loaMeters: Double, rodeMeters: Double, location: Location, isAnchored: Bool = false, anchor: Anchor? = nil) {
         self.uuid = uuid
         self.name = name
         self.loaMeters = loaMeters
         self.totalRodeMeters = rodeMeters
-        self.latitude = latitude
-        self.longitude = longitude
+        self.location = location
         self.isAnchored = isAnchored
         self.anchor = anchor
     }
     
     enum CodingKeys : CodingKey {
-        case uuid, name, loaMeters, rodeMeters, latitude, longitude, isAnchored, anchor
+        case uuid, name, loaMeters, rodeMeters, location, isAnchored, anchor
     }
-
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.uuid = try container.decode(UUID.self, forKey: .uuid)
         self.name = try container.decode(String.self, forKey: .name)
         self.loaMeters = try container.decode(Double.self, forKey: .loaMeters)
         self.totalRodeMeters = try container.decode(Double.self, forKey: .rodeMeters)
-        self.latitude = try container.decode(Double.self, forKey: .latitude)
-        self.longitude = try container.decode(Double.self, forKey: .longitude)
+        self.location = try container.decode(Location.self, forKey: .location)
         self.isAnchored = try container.decode(Bool.self, forKey: .isAnchored)
         self.anchor = try container.decodeIfPresent(Anchor.self, forKey: .anchor)
     }
@@ -88,15 +85,11 @@ final class Vessel : Codable {
         try container.encode(name, forKey: .name)
         try container.encode(loaMeters, forKey: .loaMeters)
         try container.encode(totalRodeMeters, forKey: .rodeMeters)
-        try container.encode(latitude, forKey: .latitude)
-        try container.encode(longitude, forKey: .longitude)
+        try container.encode(location, forKey: .location)
         try container.encode(isAnchored, forKey: .isAnchored)
         try container.encodeIfPresent(anchor, forKey: .anchor)
     }
     
-    func distance(to: Vessel) -> Double {
-        return coordinate.distance(to: to.coordinate)
-    }
 }
 
 extension Vessel : Equatable, Identifiable, Hashable {
@@ -110,11 +103,3 @@ extension Vessel : Equatable, Identifiable, Hashable {
         hasher.combine(id)
     }
 }
-
-extension Vessel {
-    var coordinate: CLLocationCoordinate2D {
-        get { CLLocationCoordinate2D(latitude: latitude, longitude: longitude) }
-        set { latitude = newValue.latitude; longitude = newValue.longitude }
-    }
-}
-

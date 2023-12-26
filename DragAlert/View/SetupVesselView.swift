@@ -64,11 +64,12 @@ struct SetupVesselView : View {
                         v.name = model.vesselName
                         v.loaMeasurement = model.loa.measurement
                         v.totalRodeMeasurement = model.rodeLength.measurement
+                        viewModel.setAppView( .map )
                     } else {
-                        let v = Vessel(uuid: UUID(), name: model.vesselName, loaMeters: model.loa.asUnit(UnitLength.meters).value, rodeMeters: model.rodeLength.asUnit(UnitLength.meters).value, latitude: model.gps.latitude, longitude: model.gps.longitude, isAnchored: false, anchor: nil)
+                        let v = Vessel(uuid: UUID(), name: model.vesselName, loaMeters: model.loa.asUnit(UnitLength.meters).value, rodeMeters: model.rodeLength.asUnit(UnitLength.meters).value, location: model.gps.location, isAnchored: false, anchor: nil)
                         viewModel.create(myVessel: v)
+                        viewModel.setAppView( .map )
                     }
-                    viewModel.setAppView( .map )
                 } label: {
                     Text(model.vessel == nil ? "view.setup.vessel.add" : "view.setup.vessel.edit" )
                 }

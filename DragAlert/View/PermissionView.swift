@@ -40,7 +40,7 @@ struct PermissionView: View {
             
             HStack {
                 Button("view.setup.whileUsing") {
-                    viewModel.requestWhenInUseAuthorization()
+                    LocationDelegate.instance.requestWhenInUseAuthorization()
                 }
                 .disabled(authStatusListener.allowsWhileUsing())
                 .buttonStyle(.bordered)
@@ -57,7 +57,7 @@ struct PermissionView: View {
             
             HStack {
                 Button("view.setup.alwaysAllow") {
-                    viewModel.requestAlwaysAuthorization()
+                    LocationDelegate.instance.requestAlwaysAuthorization()
                 }
                 .disabled(authStatusListener.allowAlways())
                 .padding()
@@ -85,7 +85,7 @@ struct PermissionView: View {
             }
         }
         .onAppear() {
-            viewModel.requestAuthStatus()
+            LocationDelegate.instance.requestAuthStatus()
         }
     }
 }

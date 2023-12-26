@@ -33,11 +33,11 @@ struct CompassView: View {
                 .colorInvert()
                 .aspectRatio(1, contentMode: .fit)
                 .frame(width: compassSize, height: compassSize)
-                .rotationEffect(.degrees(model.gps.heading))
+                .rotationEffect(.degrees(model.gps.heading.trueHeading))
                 .padding()
             HStack {
                 Text("view.anchoring.bearing")
-                Text("\(model.gps.heading.formatted(.number.rounded(increment:1)))")
+                Text("\(model.gps.heading.trueHeading.formatted(.number.rounded(increment:1)))")
             }
         }
         .background(Color.black)

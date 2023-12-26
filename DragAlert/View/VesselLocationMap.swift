@@ -40,7 +40,7 @@ struct VesselLocationMap: View {
     }
     
     func updateLocation() {
-        region.center = CLLocationCoordinate2D(latitude: gps.latitude, longitude: gps.longitude)
+        region.center = gps.location.clLocation.coordinate
     }
 
     var body: some View {
@@ -53,9 +53,9 @@ struct VesselLocationMap: View {
             }
             .scaledToFill()
             .mapStyle(.imagery)
-            .mapCameraKeyframeAnimator(trigger: gps.latitude ) { initialCamera in
+            .mapCameraKeyframeAnimator(trigger: gps.location ) { initialCamera in
                 let start = initialCamera.centerCoordinate
-                let end = CLLocationCoordinate2D(latitude: gps.latitude, longitude: gps.longitude)
+                let end = gps.location.clLocation.coordinate
                 let travelDistance = start.distance(to: end)
                 
                 let duration = max(min(travelDistance / 30, 5), 1)

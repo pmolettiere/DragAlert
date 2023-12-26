@@ -199,20 +199,17 @@ class AnchoringViewModel {
         LocationDelegate.instance.isTrackingHeading = heading
     }
     
-    func dropAnchor(_ location: CLLocationCoordinate2D) {
-        let latitude = location.latitude
-        let longitude = location.longitude
+    func dropAnchor(_ location: Location) {
         let rodeLength = self.rodeLength.asUnit(UnitLength.meters)
         
         // if( vessel.isAnchored ) {
         if( willEdit == .edit ) {
             if let anchor = vessel.anchor {
-                anchor.latitude = latitude
-                anchor.longitude = longitude
+                anchor.location = location
                 anchor.rodeInUseMeasurement = rodeLength
             }
         } else {
-            let newAnchor = Anchor(timestamp: Date.now, latitude: latitude, longitude: longitude, rodeLength: rodeLength, log: [], vessel: self.vessel)
+            let newAnchor = Anchor(timestamp: Date.now, location: location, rodeLength: rodeLength, log: [], vessel: self.vessel)
             vessel.anchor = newAnchor
             vessel.isAnchored = true
         }
@@ -220,9 +217,9 @@ class AnchoringViewModel {
     }
     
     func relativeLocationWouldAlarm() -> Bool {
-        let location = relativeLocation()
-        let anchor = CLLocation(latitude: location.latitude, longitude: location.longitude)
-        return CLLocation(latitude: gps.latitude, longitude: gps.longitude).distance(from: anchor) >= currentSwingRadiusMeters()
+        let potentialAnchorLocation = relativeLocation()
+        let vesselLocation = vessel.location
+        return !vesselLocation.isWithin(meters: currentSwingRadiusMeters(), of: potentialAnchorLocation)
     }
     
     func currentSwingRadiusMeters() -> Double {
@@ -235,25 +232,8 @@ class AnchoringViewModel {
         dropAnchor(final)
     }
     
-    func relativeLocation() -> CLLocationCoordinate2D {
-        let origin = CLLocationCoordinate2D(latitude: gps.latitude, longitude: gps.longitude)
-        let final = locationWithBearing(bearing: gps.heading, distanceMeters: distanceFromAnchor.asUnit(UnitLength.meters).value, origin: origin)
-        //print("relativeLocation with \(distanceFromAnchor.asUnit(.meters).value)m distance")
-        
-        func locationWithBearing(bearing:Double, distanceMeters:Double, origin:CLLocationCoordinate2D) -> CLLocationCoordinate2D {
-            let bearingRadians = bearing * .pi / 180
-            let distRadians = distanceMeters / (6372797.6) // earth radius in meters
-            
-            let lat1 = origin.latitude * .pi / 180
-            let lon1 = origin.longitude * .pi / 180
-            
-            let lat2 = asin(sin(lat1) * cos(distRadians) + cos(lat1) * sin(distRadians) * cos(bearingRadians))
-            let lon2 = lon1 + atan2(sin(bearingRadians) * sin(distRadians) * cos(lat1), cos(distRadians) - sin(lat1) * sin(lat2))
-            
-            return CLLocationCoordinate2D(latitude: lat2 * 180 / .pi, longitude: lon2 * 180 / .pi)
-        }
-        
-        return final
+    func relativeLocation() -> Location {
+        gps.location.locationWithBearing(bearing: gps.heading.trueHeading, distanceMeters: distanceFromAnchor.asUnit(.meters).value)
     }
         
     func setAnchorAtCurrentPosition() {
@@ -264,8 +244,8 @@ class AnchoringViewModel {
         dropAnchor(final)
     }
     
-    func getCurrentAnchorPosition() -> CLLocationCoordinate2D {
-        CLLocationCoordinate2D(latitude: gps.latitude, longitude: gps.longitude)
+    func getCurrentAnchorPosition() -> Location {
+        gps.location
     }
 }
 

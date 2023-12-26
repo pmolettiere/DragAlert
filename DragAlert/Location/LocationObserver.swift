@@ -25,10 +25,9 @@ import MapKit
 
 @Observable
 class LocationObserver {
-    var latitude: Double = 0
-    var longitude: Double = 0
-    var heading: Double = 0
-    
+    var location: Location = Location.nowhere
+    var heading: Heading = Heading.nowhere
+
     var locationCallback: (() -> Void)?
     var headingCallback: (() -> Void)?
     
@@ -67,41 +66,21 @@ class LocationObserver {
         let locationUpdate: LocationUpdate = notification.object as! LocationUpdate
         let locations = locationUpdate.locations
         if let lastLocation: CLLocation = locations.last {
-            latitude = lastLocation.coordinate.latitude
-            longitude = lastLocation.coordinate.longitude
-        }
-        locationCallback?()
-    }
-    
-    @objc func didUpdateHeading(notification: Notification) {
-        let headingUpdate: HeadingUpdate = notification.object as! HeadingUpdate
-        heading = headingUpdate.heading.trueHeading
-        headingCallback?()
-    }
-}
-
-extension Vessel {
-    func startTrackingLocation() {
-        NotificationCenter.default.addObserver(self, selector: #selector(locationDidUpdate), name: LocationNotifications.updateLocation.asNotificationName(), object: nil)
-    }
-    
-    func stopTrackingLocation() {
-        NotificationCenter.default.removeObserver(self, name: LocationNotifications.updateLocation.asNotificationName(), object: nil)
-    }
-
-    @objc func locationDidUpdate( notification: Notification ) {
-        let locationUpdate: LocationUpdate = notification.object as! LocationUpdate
-        let locations = locationUpdate.locations
-        locations.forEach { location in
-            latitude = location.coordinate.latitude
-            longitude = location.coordinate.longitude
-            if( isAnchored ) {
-                anchor?.update(log: AnchorLog(location))
-                anchor?.triggerAlarmIfDragging()
-            } else {
-                Alarm.instance.stopPlaying()
+            let ha = lastLocation.horizontalAccuracy
+            if( ha > 0 ) {  // less than 0 is an invalid location
+                location = Location(location: lastLocation)
+                locationCallback?()
             }
         }
     }
     
+    @objc func didUpdateHeading(notification: Notification) {
+        let headingUpdate: HeadingUpdate = notification.object as! HeadingUpdate
+        let h: CLHeading = headingUpdate.heading
+        if( h.headingAccuracy > 0.0 ) {
+            self.heading = Heading(heading: h)
+            headingCallback?()
+        }
+    }
 }
+

@@ -22,6 +22,7 @@
 
 import SwiftUI
 import SwiftData
+import CoreData
 import MapKit
 
 @main
@@ -36,6 +37,33 @@ struct DragAlertApp: App {
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
         
         do {
+//#if DEBUG
+//            // Use an autorelease pool to make sure Swift deallocates the persistent
+//            // container before setting up the SwiftData stack.
+//            try autoreleasepool {
+//                let desc = NSPersistentStoreDescription(url: modelConfiguration.url)
+//                let opts = NSPersistentCloudKitContainerOptions(containerIdentifier: "iCloud.sv.salacia.AnchorWatch")
+//                desc.cloudKitContainerOptions = opts
+//                // Load the store synchronously so it completes before initializing the
+//                // CloudKit schema.
+//                desc.shouldAddStoreAsynchronously = false
+//                if let mom = NSManagedObjectModel.makeManagedObjectModel(for: [Vessel.self]) {
+//                    let container = NSPersistentCloudKitContainer(name: "DragAlert", managedObjectModel: mom)
+//                    container.persistentStoreDescriptions = [desc]
+//                    container.loadPersistentStores {_, err in
+//                        if let err {
+//                            fatalError(err.localizedDescription)
+//                        }
+//                    }
+//                    // Initialize the CloudKit schema after the store finishes loading.
+//                    try container.initializeCloudKitSchema()
+//                    // Remove and unload the store from the persistent container.
+//                    if let store = container.persistentStoreCoordinator.persistentStores.first {
+//                        try container.persistentStoreCoordinator.remove(store)
+//                    }
+//                }
+//            }
+//#endif
             let container = try ModelContainer(for: schema, configurations: [modelConfiguration])
             container.mainContext.autosaveEnabled = true
             print("DragAlert.sharedModelContainer initialized.")
@@ -44,7 +72,7 @@ struct DragAlertApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
-            
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -53,4 +81,3 @@ struct DragAlertApp: App {
         .environment(ViewModel(sharedModelContainer))
     }
 }
-

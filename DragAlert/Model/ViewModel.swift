@@ -28,11 +28,14 @@ import SwiftUI
     var locationDelegate: LocationDelegate
     
     var myVessel: Vessel?
+    var gps: LocationObserver = LocationObserver()
     var currentView: AppView = .perm
     
     init(_ container: ModelContainer) {
         self.container = container
         self.locationDelegate = LocationDelegate.instance
+        
+        gps.locationCallback = locationDidUpdate
     }
     
     func initMyVessel() {
@@ -46,7 +49,7 @@ import SwiftUI
             if let myVessel = try context.fetch(fd).first {
                 self.myVessel = myVessel
                 locationDelegate.isTrackingLocation = true
-                self.myVessel?.startTrackingLocation()
+                gps.isTrackingLocation = true
                 
                 if let anchor = myVessel.anchor {
                     anchor.triggerAlarmIfDragging()
@@ -60,24 +63,25 @@ import SwiftUI
     func create(myVessel: Vessel) {
         container.mainContext.insert(myVessel)
         initMyVessel()
-        myVessel.startTrackingLocation()
-    }
-    
-    func requestWhenInUseAuthorization() {
-        locationDelegate.requestWhenInUseAuthorization()
-    }
-    
-    func requestAlwaysAuthorization() {
-        locationDelegate.requestAlwaysAuthorization()
-    }
-    
-    func requestAuthStatus() {
-        locationDelegate.requestAuthStatus()
+        gps.isTrackingLocation = true
     }
     
     func setAppView(_ newView: AppView) {
         print( "ViewModel.setAppView changing view from \(currentView) to \(newView)")
         currentView = newView
+    }
+    
+    func locationDidUpdate() {
+        let location = gps.location
+        if let vessel = myVessel {
+            vessel.location = location
+            if( vessel.isAnchored ) {
+                vessel.anchor?.update(log: location)
+                vessel.anchor?.triggerAlarmIfDragging()
+            } else {
+                Alarm.instance.stopPlaying()
+            }
+        }
     }
 }
 

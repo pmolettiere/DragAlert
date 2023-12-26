@@ -27,12 +27,10 @@ import CoreLocation
 
 @Model
 final class Anchor : Codable {
-    
-    var timestamp = Date.now
-    var latitude: Double = 0
-    var longitude: Double = 0
+
+    var location: Location = Location.nowhere
     var rodeInUseMeters: Double = 0
-    var log: [AnchorLog] = []
+    var log: [Location] = []
     var vessel: Vessel? = nil
     
     @Transient
@@ -60,12 +58,9 @@ final class Anchor : Codable {
     var alarmRadiusMeters: Double {
         get { rodeInUseMeters + (vessel?.loaMeters ?? 0) }
     }
-
     
-    init(timestamp: Date = Date.now, latitude: Double = 0, longitude: Double = 0, rodeLength: Measurement<UnitLength> = Measurement(value: 50.0, unit: .feet), log: [AnchorLog] = [], vessel: Vessel? = nil) {
-        self.timestamp = timestamp
-        self.latitude = latitude
-        self.longitude = longitude
+    init(timestamp: Date = Date.now, location: Location, rodeLength: Measurement<UnitLength> = Measurement(value: 50.0, unit: .feet), log: [Location] = [], vessel: Vessel? = nil) {
+        self.location = location
         self.rodeInUseMeters = rodeLength.converted(to: .meters).value
         self.log = log
         self.vessel = vessel
@@ -74,25 +69,21 @@ final class Anchor : Codable {
     }
         
     enum CodingKeys : CodingKey {
-        case timestamp, latitude, longitude, rodeLengthM, log, vessel
+        case location, rodeLengthM, log, vessel
     }
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.timestamp = try container.decode(Date.self, forKey: .timestamp)
-        self.latitude = try container.decode(Double.self, forKey: .latitude)
-        self.longitude = try container.decode(Double.self, forKey: .longitude)
+        self.location = try container.decode(Location.self, forKey: .location)
         self.rodeInUseMeters = try container.decode(Double.self, forKey: .rodeLengthM)
-        self.log = try container.decode([AnchorLog].self, forKey: .log)
+        self.log = try container.decode([Location].self, forKey: .log)
         self.vessel = try container.decodeIfPresent(Vessel.self, forKey: .vessel)
 
     }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(timestamp, forKey: .timestamp)
-        try container.encode(latitude, forKey: .latitude)
-        try container.encode(longitude, forKey: .longitude)
+        try container.encode(location, forKey: .location)
         try container.encode(rodeInUseMeters, forKey: .rodeLengthM)
         try container.encode(log, forKey: .log)
         try container.encode(vessel, forKey: .vessel)
@@ -100,10 +91,9 @@ final class Anchor : Codable {
 }
 
 extension Anchor {
-    func update(log: AnchorLog) {
+    func update(log: Location) {
         let maxLogSize = 1000
         let blockSize = 2.0
-
         self.log.removeAll(where: { entry in
             entry.isWithin(meters: blockSize, of: log)
         })
@@ -113,32 +103,15 @@ extension Anchor {
             self.log.removeFirst(self.log.count - maxLogSize)
         }
     }
-
-    var coordinate: CLLocationCoordinate2D {
-        get { CLLocationCoordinate2D(latitude: latitude, longitude: longitude) }
-        set { latitude = newValue.latitude; longitude = newValue.longitude }
-    }
-    
-    var coordinateLog: [CLLocationCoordinate2D] {
-        var coords = [CLLocationCoordinate2D]()
-        for anchorLog in log {
-            coords.append(anchorLog.coordinate)
-        }
-        return coords
-    }
-    
-    func contains(location: CLLocation) -> Bool {
-        CLLocation(latitude: latitude, longitude: longitude).distance(from: location) < alarmRadiusMeters
-    }
-    
-    func contains(location: CLLocationCoordinate2D) -> Bool {
-        contains(location: CLLocation(latitude: location.latitude, longitude: location.longitude))
+            
+    func withinAlarmRadius(vessel: Vessel) -> Bool {
+        location.isWithin(meters: alarmRadiusMeters, of: vessel.location)
     }
     
     func triggerAlarmIfDragging() {
         if let v = vessel {
             if( v.isAnchored ) {
-                if( !contains(location: v.coordinate) ) {
+                if( !withinAlarmRadius(vessel: v) ) {
                     Alarm.instance.startPlaying()
                 } else {
                     Alarm.instance.stopPlaying()
