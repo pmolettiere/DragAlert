@@ -27,10 +27,10 @@ struct VesselLocationMap: View {
     @State private var position: MapCameraPosition
     @State private var region: MKCoordinateRegion
         
-    @State var anchorLocationModel : (any AnchorMarkerModelProtocol)?
+    @State var anchorLocationModel : (any AnchorMarkerModel)?
     @State var gps = LocationObserver()
 
-    init( model: (any AnchorMarkerModelProtocol)? = nil ) {
+    init( model: (any AnchorMarkerModel)? = nil ) {
         _anchorLocationModel = State(initialValue: model)
         let r = MKCoordinateRegion(center: model?.getAnchorLocation() ?? CLLocationCoordinate2D(latitude: 0, longitude: 0), latitudinalMeters: 500, longitudinalMeters: 500)
         _region = State( initialValue: r )

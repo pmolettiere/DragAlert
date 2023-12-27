@@ -27,7 +27,7 @@ import CoreLocation
 import simd
 
 @Model
-final class Vessel : Codable {
+final class Vessel {
     var uuid = UUID()
     var name = String()
     var loaMeters: Double = 0
@@ -36,20 +36,8 @@ final class Vessel : Codable {
     var location: Location = Location.nowhere
         
     @Transient
-    var loaMeasurement: Measurement<UnitLength> {
-        get { Measurement(value: loaMeters, unit: UnitLength.meters) }
-        set { loaMeters = newValue.converted(to: UnitLength.meters).value }
-    }
-    
-    @Transient
-    var totalRodeMeasurement: Measurement<UnitLength> {
-        get { Measurement(value: totalRodeMeters, unit: UnitLength.meters) }
-        set { totalRodeMeters = newValue.converted(to: UnitLength.meters).value }
-    }
-    
-    @Transient
-    var maxDistanceFromAnchor: Measurement<UnitLength> {
-        get { Measurement(value: totalRodeMeters + loaMeters, unit: UnitLength.meters) }
+    var maxDistanceFromAnchor: Double {
+        get { totalRodeMeters + loaMeters }
     }
     
     var anchor: Anchor?
@@ -64,42 +52,42 @@ final class Vessel : Codable {
         self.anchor = anchor
     }
     
-    enum CodingKeys : CodingKey {
-        case uuid, name, loaMeters, rodeMeters, location, isAnchored, anchor
-    }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.uuid = try container.decode(UUID.self, forKey: .uuid)
-        self.name = try container.decode(String.self, forKey: .name)
-        self.loaMeters = try container.decode(Double.self, forKey: .loaMeters)
-        self.totalRodeMeters = try container.decode(Double.self, forKey: .rodeMeters)
-        self.location = try container.decode(Location.self, forKey: .location)
-        self.isAnchored = try container.decode(Bool.self, forKey: .isAnchored)
-        self.anchor = try container.decodeIfPresent(Anchor.self, forKey: .anchor)
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(uuid, forKey: .uuid)
-        try container.encode(name, forKey: .name)
-        try container.encode(loaMeters, forKey: .loaMeters)
-        try container.encode(totalRodeMeters, forKey: .rodeMeters)
-        try container.encode(location, forKey: .location)
-        try container.encode(isAnchored, forKey: .isAnchored)
-        try container.encodeIfPresent(anchor, forKey: .anchor)
-    }
+//    enum CodingKeys : CodingKey {
+//        case uuid, name, loaMeters, rodeMeters, location, isAnchored, anchor
+//    }
+//    
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        self.uuid = try container.decode(UUID.self, forKey: .uuid)
+//        self.name = try container.decode(String.self, forKey: .name)
+//        self.loaMeters = try container.decode(Double.self, forKey: .loaMeters)
+//        self.totalRodeMeters = try container.decode(Double.self, forKey: .rodeMeters)
+//        self.location = try container.decode(Location.self, forKey: .location)
+//        self.isAnchored = try container.decode(Bool.self, forKey: .isAnchored)
+//        self.anchor = try container.decodeIfPresent(Anchor.self, forKey: .anchor)
+//    }
+//    
+//    func encode(to encoder: Encoder) throws {
+//        var container = encoder.container(keyedBy: CodingKeys.self)
+//        try container.encode(uuid, forKey: .uuid)
+//        try container.encode(name, forKey: .name)
+//        try container.encode(loaMeters, forKey: .loaMeters)
+//        try container.encode(totalRodeMeters, forKey: .rodeMeters)
+//        try container.encode(location, forKey: .location)
+//        try container.encode(isAnchored, forKey: .isAnchored)
+//        try container.encodeIfPresent(anchor, forKey: .anchor)
+//    }
     
 }
 
-extension Vessel : Equatable, Identifiable, Hashable {
-    var id: UUID { uuid }
-
-    static func == (lhs: Vessel, rhs: Vessel) -> Bool {
-        lhs.id == rhs.id
-    }
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-}
+//extension Vessel : Equatable, Identifiable, Hashable {
+//    var id: UUID { uuid }
+//
+//    static func == (lhs: Vessel, rhs: Vessel) -> Bool {
+//        lhs.id == rhs.id
+//    }
+//
+//    func hash(into hasher: inout Hasher) {
+//        hasher.combine(id)
+//    }
+//}

@@ -24,9 +24,9 @@ import SwiftUI
 import MapKit
 
 struct AnchorMarker: MapContent {
-    @State var model: any AnchorMarkerModelProtocol
+    @State var model: any AnchorMarkerModel
     
-    init(model: any AnchorMarkerModelProtocol) {
+    init(model: any AnchorMarkerModel) {
         self.model = model
     }
 

@@ -25,7 +25,7 @@ import MapKit
 
 /// A map annotation that represents a single vessel.
 struct VesselMarker: MapContent {
-    @State var locator: VesselLocator
+    @State var locator: LocationProvider
 
     var body: some MapContent {
         Annotation(coordinate: locator.getCoordinate() ) {

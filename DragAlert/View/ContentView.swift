@@ -32,15 +32,11 @@ struct ContentView: View {
         HStack {
             switch( m.currentView ) {
             case .setup :
-                if let v = m.myVessel {
-                    SetupVesselView(vessel: v)
-                } else {
-                    SetupVesselView()
-                }
+                SetupVesselView(model: m.setupModel)
             case .new_anchor :
-                AnchoringView(vessel: m.myVessel!, state: .new)
+                AnchoringView(model: m.anchoringModel!, state: .new)
             case .edit_anchor :
-                AnchoringView(vessel: m.myVessel!, state: .edit)
+                AnchoringView(model: m.anchoringModel!, state: .edit)
             case .map :
                 MapView(vessel: m.myVessel!)
             case .perm :

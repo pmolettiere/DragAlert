@@ -8,21 +8,21 @@
 import Foundation
 import MapKit
 
-protocol AnchorMarkerModelProtocol : ObservableObject {
+protocol AnchorMarkerModel : ObservableObject {
     func getAnchorLocation() -> CLLocationCoordinate2D
     func getAlarmRadius() -> Double
     func getRodeLengthMeters() -> Double
     func getCoordinateLog() -> [CLLocationCoordinate2D]
 }
 
-extension Anchor : AnchorMarkerModelProtocol {
+extension Anchor : AnchorMarkerModel {
     func getAnchorLocation() -> CLLocationCoordinate2D { location.clLocation.coordinate }
     func getAlarmRadius() -> Double { alarmRadiusMeters }
     func getRodeLengthMeters() -> Double { rodeInUseMeters }
     func getCoordinateLog() -> [CLLocationCoordinate2D] { coordinateLog }
 }
 
-extension AnchoringViewModel : AnchorMarkerModelProtocol {
+extension AnchoringViewModel : AnchorMarkerModel {
     
     func getAnchorLocation() -> CLLocationCoordinate2D {
         if( selectedTab == .relative ) {
@@ -39,7 +39,7 @@ extension AnchoringViewModel : AnchorMarkerModelProtocol {
     }
     
     func getRodeLengthMeters() -> Double {
-        rodeLength.asUnit(UnitLength.meters).value
+        rodeLengthMeters
     }
     
     func getCoordinateLog() -> [CLLocationCoordinate2D] {

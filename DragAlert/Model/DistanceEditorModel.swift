@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 @Observable
 class DistanceEditorModel {
@@ -20,25 +21,25 @@ class DistanceEditorModel {
         MeasurementConstants(unit: UnitLength.meters, range: 0...100, step: 1),
     ]
 
-    var model: MeasurementModel<UnitLength>
+    var model: MeasurementModel
     var max: Measurement<UnitLength>?
     var specifiedStep: Double?
 
     var value: Double {
-        get { model.value }
-        set { model.value = newValue }
+        get { model.displayValue }
+        set { model.displayValue = newValue }
     }
     var unit: UnitLength {
-        get { model.unit }
-        set { model.unit = newValue }
+        get { model.displayUnit }
+        set { model.displayUnit = newValue }
     }
     var range: ClosedRange<Double> {
         get {
             if let end = max {
-                let cvt = end.converted(to: model.unit).value
+                let cvt = end.converted(to: model.displayUnit).value
                 if( cvt >= 1) { return 0...cvt }
             }
-            let i = (model.unit == UnitLength.feet ? 0 : 1)
+            let i = (model.displayUnit == UnitLength.feet ? 0 : 1)
             return constants[i].range
         }
     }
@@ -48,45 +49,47 @@ class DistanceEditorModel {
                 if stp < 1 { return 1 }
                 return stp
             } else {
-                let i = (model.unit == UnitLength.feet ? 0 : 1)
+                let i = (model.displayUnit == UnitLength.feet ? 0 : 1)
                 return constants[i].step
             }
         }
     }
     
-    init(_ measurement:MeasurementModel<UnitLength>, max: Measurement<UnitLength>?, step: Double?) {
-        model = measurement
-        self.max = max
+    init(_ measurement:Binding<Double>, maxMeters: Double?, step: Double?) {
+        model = MeasurementModel(measurement)
+        if( maxMeters != nil ) {
+            self.max = Measurement(value: maxMeters!, unit: .meters)
+        } else {
+            self.max = nil
+        }
         self.specifiedStep = step
-    }
-        
-    func asMeasurement() -> Measurement<UnitLength> {
-        model.measurement
     }
 }
 
 @Observable
-class MeasurementModel<U: Dimension> {
-    var measurement: Measurement<U> {
-        get {
-            Measurement(value: value, unit: unit)
-        }
-    }
-    var value: Double
-    var unit: U {
-        willSet(toUnit) {
-            if( unit != toUnit ) {
-                value = measurement.converted(to: toUnit).value
-            }
+class MeasurementModel {
+    
+    var lengthMeters: Binding<Double>
+    var measurement: Measurement<UnitLength>
+    
+    var displayUnit: UnitLength
+    var displayValue: Double {
+        get{ measurement.converted(to: displayUnit).value }
+        set{
+            lengthMeters.wrappedValue = Measurement(value: newValue, unit: displayUnit).converted(to: .meters).value
+            measurement.value = lengthMeters.wrappedValue
         }
     }
     
-    init(_ measurement: Measurement<U>) {
-        self.value = measurement.value
-        self.unit = measurement.unit
+    init(_ meters: Binding<Double> ) {
+        lengthMeters = meters
+        measurement = Measurement(value: meters.wrappedValue, unit: .meters)
+        displayUnit = Preferred.value.lengthUnit
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(setDisplayUnit), name: Preferred.lengthUnitNotificationName, object: nil)
     }
     
-    func asUnit(_ unit: U) -> Measurement<U> {
-        measurement.converted(to: unit)
+    @objc func setDisplayUnit(notification: Notification) {
+        displayUnit = notification.object as! UnitLength
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 import MapKit
 
 struct Heading : Codable {
-    static var nowhere = Heading(timestamp: Date.distantPast, magneticHeading: 0, trueHeading: 0, accuracy: -1)
+    static let nowhere = Heading(timestamp: Date.distantPast, magneticHeading: 0, trueHeading: 0, accuracy: -1)
     
     var timestamp: Date
     var magneticHeading: Double

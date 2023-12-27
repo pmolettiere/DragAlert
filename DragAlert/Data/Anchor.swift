@@ -26,7 +26,7 @@ import SwiftUI
 import CoreLocation
 
 @Model
-final class Anchor : Codable {
+final class Anchor {
 
     var location: Location = Location.nowhere
     var rodeInUseMeters: Double = 0
@@ -34,60 +34,39 @@ final class Anchor : Codable {
     var vessel: Vessel? = nil
     
     @Transient
-    var rodeInUseMeasurement: Measurement<UnitLength> {
-        get { Measurement(value: rodeInUseMeters, unit: .meters) }
-        set { rodeInUseMeters = newValue.converted(to: .meters).value }
-    }
-
-    @Transient
-    var vesselLOA: Measurement<UnitLength> {
-        get {
-            if let v = vessel {
-                return v.loaMeasurement
-            }
-            return Measurement(value: 0, unit: .meters)
-        }
-    }
-    
-    @Transient
-    var alarmRadiusMeasurement: Measurement<UnitLength> {
-        get { Measurement(value: alarmRadiusMeters, unit: .meters) }
-    }
-
-    @Transient
     var alarmRadiusMeters: Double {
         get { rodeInUseMeters + (vessel?.loaMeters ?? 0) }
     }
     
-    init(timestamp: Date = Date.now, location: Location, rodeLength: Measurement<UnitLength> = Measurement(value: 50.0, unit: .feet), log: [Location] = [], vessel: Vessel? = nil) {
+    init(timestamp: Date = Date.now, location: Location, rodeInUseMeters: Double, log: [Location] = [], vessel: Vessel? = nil) {
         self.location = location
-        self.rodeInUseMeters = rodeLength.converted(to: .meters).value
+        self.rodeInUseMeters = rodeInUseMeters
         self.log = log
         self.vessel = vessel
         
         self.log.sort(by: {$0.timestamp < $1.timestamp})
     }
         
-    enum CodingKeys : CodingKey {
-        case location, rodeLengthM, log, vessel
-    }
-
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.location = try container.decode(Location.self, forKey: .location)
-        self.rodeInUseMeters = try container.decode(Double.self, forKey: .rodeLengthM)
-        self.log = try container.decode([Location].self, forKey: .log)
-        self.vessel = try container.decodeIfPresent(Vessel.self, forKey: .vessel)
-
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(location, forKey: .location)
-        try container.encode(rodeInUseMeters, forKey: .rodeLengthM)
-        try container.encode(log, forKey: .log)
-        try container.encode(vessel, forKey: .vessel)
-    }
+//    enum CodingKeys : CodingKey {
+//        case location, rodeLengthM, log, vessel
+//    }
+//
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        self.location = try container.decode(Location.self, forKey: .location)
+//        self.rodeInUseMeters = try container.decode(Double.self, forKey: .rodeLengthM)
+//        self.log = try container.decode([Location].self, forKey: .log)
+//        self.vessel = try container.decodeIfPresent(Vessel.self, forKey: .vessel)
+//
+//    }
+//    
+//    func encode(to encoder: Encoder) throws {
+//        var container = encoder.container(keyedBy: CodingKeys.self)
+//        try container.encode(location, forKey: .location)
+//        try container.encode(rodeInUseMeters, forKey: .rodeLengthM)
+//        try container.encode(log, forKey: .log)
+//        try container.encode(vessel, forKey: .vessel)
+//    }
 }
 
 extension Anchor {

@@ -24,10 +24,12 @@ import SwiftUI
 import MapKit
 
 struct AnchoringView: View {
+    @Environment(ViewModel.self) private var viewModel
     @State var model: AnchoringViewModel
     
-    init(vessel: Vessel, state: EditState) {
-        _model = State(initialValue: AnchoringViewModel(vessel: vessel, state: state))
+    @MainActor
+    init(model: AnchoringViewModel, state: EditState) {
+        _model = State( initialValue: model )
         //print("AnchoringView.init()")
     }
     
@@ -70,18 +72,15 @@ struct AnchoringView: View {
         }
         
         var body: some View {
+            @Bindable var m = model
             VStack {
                 VesselLocationMap(model: model)
                 
                 Spacer()
-                //CompassView()
                 
-                DistanceEditor("view.anchoring.rodeLength", measurement: model.rodeLength, max: model.maxRodeLength.measurement )
-                DistanceEditor("view.anchoring.distance", measurement: model.distanceFromAnchor, max: model.maxDistanceFromAnchor.measurement )
-                // Text(model.relativeLocationWouldAlarm() ? "view.anchoring.would.alarm" : "view.anchoring.no.alarm")
-                //    .foregroundColor(model.relativeLocationWouldAlarm() ? Color.red : Color.white)
-                //    .padding()
-                
+                DistanceEditor("view.anchoring.rodeLength", measurement: $m.rodeLengthMeters, maxMeters: m.vessel.totalRodeMeters )
+                DistanceEditor("view.anchoring.distance", measurement: $m.distanceFromAnchorMeters, maxMeters: m.vessel.maxDistanceFromAnchor )
+
                 Button {
                     model.setAnchorAtRelativeBearing()
                     viewModel.setAppView( .map )
@@ -108,13 +107,15 @@ struct AnchoringView: View {
         var model: AnchoringViewModel
 
         var body: some View {
+            @Bindable var m = model
             VStack {
                 VesselLocationMap(model: model)
                 
                 Spacer()
                 
-                DistanceEditor("view.anchoring.rodeLength", measurement: model.rodeLength, max: model.maxRodeLength.measurement )
+                DistanceEditor("view.anchoring.rodeLength", measurement: $m.rodeLengthMeters, maxMeters: m.vessel.totalRodeMeters )
                     .padding()
+
                 Button() {
                     model.setAnchorAtCurrentPosition()
                     viewModel.setAppView( .map )

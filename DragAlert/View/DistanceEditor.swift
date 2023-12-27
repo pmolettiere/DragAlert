@@ -29,9 +29,9 @@ struct DistanceEditor : View {
     var label: LocalizedStringKey
     @State var model: DistanceEditorModel
     
-    init(_ label: LocalizedStringKey, measurement: MeasurementModel<UnitLength>, max: Measurement<UnitLength>? = nil, step: Double? = nil) {
+    init(_ label: LocalizedStringKey, measurement: Binding<Double>, maxMeters: Double? = nil, step: Double? = nil) {
         self.label = label
-        self.model = DistanceEditorModel(measurement, max: max, step: step)
+        self.model = DistanceEditorModel(measurement, maxMeters: maxMeters, step: step)
     }
     
     var body: some View {
@@ -41,15 +41,14 @@ struct DistanceEditor : View {
                 Spacer()
                 TextField(label, value: $model.value, formatter: Format.singleton.float0Format)
                     .keyboardType(.decimalPad)
-                Picker("view.editor.distance.unit", selection: $model.unit ) {
-                    Text("view.editor.distance.feet").tag(UnitLength.feet)
-                    Text("view.editor.distance.meters").tag(UnitLength.meters)
-                }
-                .labelsHidden()
+                Stepper(label, value: $model.value)
+                Text(model.unit.symbol)
             }
-            Slider(value: $model.value, in: model.range, step: model.step)
-                .labelsHidden()
-            .pickerStyle(.menu)
+            .labelsHidden()
         }
+        Slider(value: $model.value, in: model.range, step: model.step)
+            .labelsHidden()
+            .pickerStyle(.menu)
     }
 }
+

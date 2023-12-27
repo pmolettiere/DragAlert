@@ -46,8 +46,8 @@
             filePath = "DragAlert/Model/ViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "create(myVessel:)"
             landmarkType = "7">
             <Locations>
@@ -110,26 +110,106 @@
             filePath = "DragAlert/View/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "body"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "5A8869B2-2D1A-439B-B30D-7AB1B138C6EF - e312d9db553446bb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;Drag_Alert.SetupVesselView, Drag_Alert.SetupVesselView&gt;, Drag_Alert.AnchoringView&gt;, SwiftUI._ConditionalContent&lt;Drag_Alert.AnchoringView, Drag_Alert.MapView&gt;&gt;, Drag_Alert.PermissionView&gt; in Drag_Alert.ContentView.body.getter : some"
+                  moduleName = "Drag Alert"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pietro/Documents/DragAlert/DragAlert/View/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "2944">
+               </Location>
+               <Location
+                  uuid = "5A8869B2-2D1A-439B-B30D-7AB1B138C6EF - 174529be8ec61ddd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;Drag_Alert.SetupVesselView, Drag_Alert.AnchoringView&gt;, SwiftUI._ConditionalContent&lt;Drag_Alert.AnchoringView, Drag_Alert.MapView&gt;&gt;, Drag_Alert.PermissionView&gt; in Drag_Alert.ContentView.body.getter : some"
+                  moduleName = "Drag Alert"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pietro/Documents/DragAlert/DragAlert/View/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "2208">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7A0EA220-C1EF-4737-AE76-F40777CFDA9B"
+            uuid = "8C8D2373-9166-47A7-83F6-4F4CA9D3782A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DragAlert/View/MapToolbar.swift"
+            filePath = "DragAlert/Model/SetupVesselModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "setVessel(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3F25149D-5AB5-47D8-A385-DDE0CF3A2DB3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DragAlert/View/SetupVesselView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "body"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "3F25149D-5AB5-47D8-A385-DDE0CF3A2DB3 - b20ad62dae03da7d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.Section&lt;SwiftUI.Text, SwiftUI.EmptyView, SwiftUI.EmptyView&gt; in Drag_Alert.SetupVesselView.body.getter : some"
+                  moduleName = "Drag Alert"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pietro/Documents/DragAlert/DragAlert/View/SetupVesselView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "184">
+               </Location>
+               <Location
+                  uuid = "3F25149D-5AB5-47D8-A385-DDE0CF3A2DB3 - 9e50b61c814fd344"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.EmptyView in closure #1 () -&gt; SwiftUI.Section&lt;SwiftUI.Text, SwiftUI.EmptyView, SwiftUI.EmptyView&gt; in Drag_Alert.SetupVesselView.body.getter : some"
+                  moduleName = "Drag Alert"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pietro/Documents/DragAlert/DragAlert/View/SetupVesselView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

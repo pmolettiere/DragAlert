@@ -89,18 +89,18 @@ struct MapToolbar: ToolbarContent {
                     .disabled(vessel?.isAnchored ?? true)
                     
                     Button() {
+                        resetAnchor()
+                    } label: {
+                        Text("view.toolbar.reset")
+                    }
+                    .disabled(( (vessel?.isAnchored ?? false) || (vessel?.anchor ?? nil) == nil) )
+                    
+                    Button() {
                         adjustAnchor()
                     } label: {
                         Text("view.toolbar.adjust")
                     }
                     .disabled(!(vessel?.isAnchored ?? true))
-                    
-                    Button() {
-                        resetAnchor()
-                    } label: {
-                        Text("view.toolbar.reset")
-                    }
-                    .disabled(( !(vessel?.isAnchored ?? false) || (vessel?.anchor ?? nil) == nil) )
                     
                     Button() {
                         cancelAnchor()

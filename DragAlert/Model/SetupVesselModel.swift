@@ -9,27 +9,22 @@ import Foundation
 
 @Observable
 class SetupVesselModel {
+    
     var vessel: Vessel?
     var vesselName: String = ""
-    var loa: MeasurementModel<UnitLength> = MeasurementModel(Measurement(value: 40, unit: UnitLength.feet))
-    var rodeLength: MeasurementModel<UnitLength> = MeasurementModel(Measurement(value: 100, unit: UnitLength.feet))
+    var loaMeters: Double = 15
+    var rodeLengthMeters: Double = 60
     var gps: LocationObserver = LocationObserver()
-
-    func readPrefs() {
-        loa.unit = readPrefUnit("SetupVesselView.loa")
-        rodeLength.unit = readPrefUnit("SetupVesselView.rodeLength")
+    var defaultUnit: UnitLength = Preferred.value.lengthUnit {
+        didSet {
+            Preferred.value.lengthUnit = defaultUnit
+        }
     }
     
-    func savePrefs() {
-        savePrefUnit("SetupVesselView.loa", unit: loa.unit)
-        savePrefUnit("SetupVesselView.rodeLength", unit: rodeLength.unit)
-    }
-    
-    func readPrefUnit(_ label: String) -> UnitLength {
-        UserDefaults.standard.string(forKey: "\(label).unit") == "ft" ? UnitLength.feet : UnitLength.meters
-    }
-    
-    func savePrefUnit(_ label: String, unit: UnitLength) {
-        UserDefaults.standard.set(unit.symbol, forKey: "\(label).unit")
+    func setVessel(_ vessel: Vessel) {
+        self.vessel = vessel
+        self.vesselName = vessel.name
+        self.loaMeters = vessel.loaMeters
+        self.rodeLengthMeters = vessel.totalRodeMeters
     }
 }

@@ -29,17 +29,9 @@ struct SetupVesselView : View {
 
     @State var model: SetupVesselModel
     
-    init() {
-        _model = State(initialValue: SetupVesselModel())
-    }
-    
-    init(vessel: Vessel) {
-        _model = State(initialValue: SetupVesselModel())
-        model.vessel = vessel
-        model.vesselName = vessel.name
-        model.loa = MeasurementModel(vessel.loaMeasurement)
-        model.rodeLength = MeasurementModel(vessel.totalRodeMeasurement)
-        model.readPrefs()
+    @MainActor
+    init(model: SetupVesselModel) {
+        _model = State( initialValue: model )
     }
     
     var body: some View {
@@ -51,8 +43,12 @@ struct SetupVesselView : View {
                     TextField("view.setup.vessel.name", text: $model.vesselName )
                         .padding(10)
                 }
-                DistanceEditor("view.setup.vessel.loa", measurement: model.loa, max: Measurement(value: 100, unit: UnitLength.feet), step: 1)
-                DistanceEditor("view.setup.vessel.rodeLength", measurement: model.rodeLength)
+                Picker("view.editor.distance.unit", selection: $model.defaultUnit ) {
+                    Text("view.editor.distance.feet").tag(UnitLength.feet)
+                    Text("view.editor.distance.meters").tag(UnitLength.meters)
+                }
+                DistanceEditor("view.setup.vessel.loa", measurement: $model.loaMeters, maxMeters: 30, step: 1)
+                DistanceEditor("view.setup.vessel.rodeLength", measurement: $model.rodeLengthMeters)
                 HStack {
                     Spacer()
                     VesselLocationMap()
@@ -62,11 +58,11 @@ struct SetupVesselView : View {
                 Button {
                     if let v = model.vessel {
                         v.name = model.vesselName
-                        v.loaMeasurement = model.loa.measurement
-                        v.totalRodeMeasurement = model.rodeLength.measurement
+                        v.loaMeters = model.loaMeters
+                        v.totalRodeMeters = model.rodeLengthMeters
                         viewModel.setAppView( .map )
                     } else {
-                        let v = Vessel(uuid: UUID(), name: model.vesselName, loaMeters: model.loa.asUnit(UnitLength.meters).value, rodeMeters: model.rodeLength.asUnit(UnitLength.meters).value, location: model.gps.location, isAnchored: false, anchor: nil)
+                        let v = Vessel(uuid: UUID(), name: model.vesselName, loaMeters: model.loaMeters, rodeMeters: model.rodeLengthMeters, location: model.gps.location, isAnchored: false, anchor: nil)
                         viewModel.create(myVessel: v)
                         viewModel.setAppView( .map )
                     }

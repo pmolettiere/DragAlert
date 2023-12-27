@@ -46,6 +46,7 @@
 		9AAAFED92B3BA285003A8400 /* AnchorMarkerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAAFED82B3BA285003A8400 /* AnchorMarkerModel.swift */; };
 		9AAAFEDB2B3BA2C8003A8400 /* VesselMarkerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAAFEDA2B3BA2C8003A8400 /* VesselMarkerModel.swift */; };
 		9AAAFEDD2B3BA31E003A8400 /* DistanceEditorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAAFEDC2B3BA31E003A8400 /* DistanceEditorModel.swift */; };
+		9AAAFEDF2B3BB937003A8400 /* Preferred.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAAFEDE2B3BB937003A8400 /* Preferred.swift */; };
 		9AD096482B3692BF009AF04B /* StrokeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD096472B3692BF009AF04B /* StrokeText.swift */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +112,7 @@
 		9AAAFED82B3BA285003A8400 /* AnchorMarkerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorMarkerModel.swift; sourceTree = "<group>"; };
 		9AAAFEDA2B3BA2C8003A8400 /* VesselMarkerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VesselMarkerModel.swift; sourceTree = "<group>"; };
 		9AAAFEDC2B3BA31E003A8400 /* DistanceEditorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceEditorModel.swift; sourceTree = "<group>"; };
+		9AAAFEDE2B3BB937003A8400 /* Preferred.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferred.swift; sourceTree = "<group>"; };
 		9AD096472B3692BF009AF04B /* StrokeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -274,6 +276,7 @@
 				9AAAFED82B3BA285003A8400 /* AnchorMarkerModel.swift */,
 				9AAAFEDA2B3BA2C8003A8400 /* VesselMarkerModel.swift */,
 				9AAAFEDC2B3BA31E003A8400 /* DistanceEditorModel.swift */,
+				9AAAFEDE2B3BB937003A8400 /* Preferred.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				9A15F2FC2B34A24000357CF9 /* DragAlertApp.swift in Sources */,
 				9A15F2EC2B34A24000357CF9 /* AnchorMarker.swift in Sources */,
 				9A15F2F32B34A24000357CF9 /* SetupVesselView.swift in Sources */,
+				9AAAFEDF2B3BB937003A8400 /* Preferred.swift in Sources */,
 				9A15F2F42B34A24000357CF9 /* VesselLocationMap.swift in Sources */,
 				9AAAFED32B3BA182003A8400 /* AuthStatusListener.swift in Sources */,
 				9AAAFEDB2B3BA2C8003A8400 /* VesselMarkerModel.swift in Sources */,

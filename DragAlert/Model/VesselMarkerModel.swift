@@ -8,12 +8,12 @@
 import Foundation
 import MapKit
 
-protocol VesselLocator : Observable {
+protocol LocationProvider : Observable {
     func getCoordinate() -> CLLocationCoordinate2D
     func getName() -> String
 }
 
-extension Vessel : VesselLocator {
+extension Vessel : LocationProvider {
     func getCoordinate() -> CLLocationCoordinate2D {
         location.clLocation.coordinate
     }
@@ -22,7 +22,7 @@ extension Vessel : VesselLocator {
     }
 }
 
-extension LocationObserver : VesselLocator {
+extension LocationObserver : LocationProvider {
     func getCoordinate() -> CLLocationCoordinate2D {
         return location.clLocation.coordinate
     }

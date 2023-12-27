@@ -31,6 +31,11 @@ import SwiftUI
     var gps: LocationObserver = LocationObserver()
     var currentView: AppView = .perm
     
+    var selectedUnit: UnitLength = .meters
+    
+    var setupModel = SetupVesselModel()
+    var anchoringModel: AnchoringViewModel?
+    
     init(_ container: ModelContainer) {
         self.container = container
         self.locationDelegate = LocationDelegate.instance
@@ -54,6 +59,8 @@ import SwiftUI
                 if let anchor = myVessel.anchor {
                     anchor.triggerAlarmIfDragging()
                 }
+                
+                setupViewModels()
             }
         } catch {
             fatalError("Could not retrieve or create own vessel: \(error)")
@@ -69,8 +76,21 @@ import SwiftUI
     func setAppView(_ newView: AppView) {
         print( "ViewModel.setAppView changing view from \(currentView) to \(newView)")
         currentView = newView
+        switch newView {
+        case .new_anchor :
+            anchoringModel!.willEdit = .new
+        case .edit_anchor :
+            anchoringModel!.willEdit = .edit
+        default :
+            break
+        }
     }
     
+    func setupViewModels() {
+        setupModel.setVessel(myVessel!)
+        anchoringModel = AnchoringViewModel(vessel: myVessel!, state: .new)
+    }
+
     func locationDidUpdate() {
         let location = gps.location
         if let vessel = myVessel {
