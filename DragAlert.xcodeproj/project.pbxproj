@@ -40,6 +40,12 @@
 		9A15F3042B34A54400357CF9 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F3002B34A54400357CF9 /* ViewModel.swift */; };
 		9AAAFECC2B3B087C003A8400 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAAFECB2B3B087C003A8400 /* Location.swift */; };
 		9AAAFECE2B3B1AC5003A8400 /* Heading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAAFECD2B3B1AC5003A8400 /* Heading.swift */; };
+		9AAAFED32B3BA182003A8400 /* AuthStatusListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAAFED22B3BA182003A8400 /* AuthStatusListener.swift */; };
+		9AAAFED52B3BA1CD003A8400 /* AnchoringViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAAFED42B3BA1CD003A8400 /* AnchoringViewModel.swift */; };
+		9AAAFED72B3BA207003A8400 /* SetupVesselModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAAFED62B3BA207003A8400 /* SetupVesselModel.swift */; };
+		9AAAFED92B3BA285003A8400 /* AnchorMarkerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAAFED82B3BA285003A8400 /* AnchorMarkerModel.swift */; };
+		9AAAFEDB2B3BA2C8003A8400 /* VesselMarkerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAAFEDA2B3BA2C8003A8400 /* VesselMarkerModel.swift */; };
+		9AAAFEDD2B3BA31E003A8400 /* DistanceEditorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAAFEDC2B3BA31E003A8400 /* DistanceEditorModel.swift */; };
 		9AD096482B3692BF009AF04B /* StrokeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD096472B3692BF009AF04B /* StrokeText.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +105,12 @@
 		9A15F3002B34A54400357CF9 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		9AAAFECB2B3B087C003A8400 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		9AAAFECD2B3B1AC5003A8400 /* Heading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heading.swift; sourceTree = "<group>"; };
+		9AAAFED22B3BA182003A8400 /* AuthStatusListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStatusListener.swift; sourceTree = "<group>"; };
+		9AAAFED42B3BA1CD003A8400 /* AnchoringViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchoringViewModel.swift; sourceTree = "<group>"; };
+		9AAAFED62B3BA207003A8400 /* SetupVesselModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupVesselModel.swift; sourceTree = "<group>"; };
+		9AAAFED82B3BA285003A8400 /* AnchorMarkerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorMarkerModel.swift; sourceTree = "<group>"; };
+		9AAAFEDA2B3BA2C8003A8400 /* VesselMarkerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VesselMarkerModel.swift; sourceTree = "<group>"; };
+		9AAAFEDC2B3BA31E003A8400 /* DistanceEditorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceEditorModel.swift; sourceTree = "<group>"; };
 		9AD096472B3692BF009AF04B /* StrokeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,9 +182,10 @@
 				9A15F2DB2B34A24000357CF9 /* AppDelegate.swift */,
 				9A15F2DA2B34A24000357CF9 /* Alarm.swift */,
 				9A15F2BF2B34A24000357CF9 /* Localizable.strings */,
-				9A15F2CB2B34A24000357CF9 /* Model */,
-				9A15F2C22B34A24000357CF9 /* Location */,
+				9A15F2CB2B34A24000357CF9 /* Data */,
+				9AAAFED12B3BA144003A8400 /* Model */,
 				9A15F2CC2B34A24000357CF9 /* View */,
+				9A15F2C22B34A24000357CF9 /* Location */,
 				9A15F2C92B34A24000357CF9 /* Sounds */,
 				9A15F2DC2B34A24000357CF9 /* Assets */,
 				9A15F2E02B34A24000357CF9 /* Info.plist */,
@@ -207,16 +220,15 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
-		9A15F2CB2B34A24000357CF9 /* Model */ = {
+		9A15F2CB2B34A24000357CF9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				9A15F2FE2B34A54400357CF9 /* Anchor.swift */,
 				9A15F2FF2B34A54400357CF9 /* Vessel.swift */,
-				9A15F3002B34A54400357CF9 /* ViewModel.swift */,
 				9AAAFECB2B3B087C003A8400 /* Location.swift */,
 				9AAAFECD2B3B1AC5003A8400 /* Heading.swift */,
 			);
-			path = Model;
+			path = Data;
 			sourceTree = "<group>";
 		};
 		9A15F2CC2B34A24000357CF9 /* View */ = {
@@ -250,6 +262,20 @@
 				9A15F2DF2B34A24000357CF9 /* anchor.png */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		9AAAFED12B3BA144003A8400 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9A15F3002B34A54400357CF9 /* ViewModel.swift */,
+				9AAAFED22B3BA182003A8400 /* AuthStatusListener.swift */,
+				9AAAFED42B3BA1CD003A8400 /* AnchoringViewModel.swift */,
+				9AAAFED62B3BA207003A8400 /* SetupVesselModel.swift */,
+				9AAAFED82B3BA285003A8400 /* AnchorMarkerModel.swift */,
+				9AAAFEDA2B3BA2C8003A8400 /* VesselMarkerModel.swift */,
+				9AAAFEDC2B3BA31E003A8400 /* DistanceEditorModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -394,30 +420,36 @@
 			files = (
 				9A15F2EE2B34A24000357CF9 /* MapView.swift in Sources */,
 				9A15F3022B34A54400357CF9 /* Anchor.swift in Sources */,
+				9AAAFED72B3BA207003A8400 /* SetupVesselModel.swift in Sources */,
 				9A15F2E92B34A24000357CF9 /* VesselMarker.swift in Sources */,
 				9A15F3032B34A54400357CF9 /* Vessel.swift in Sources */,
 				9A15F2F72B34A24000357CF9 /* AppDelegate.swift in Sources */,
 				9A15F3042B34A54400357CF9 /* ViewModel.swift in Sources */,
 				9AAAFECE2B3B1AC5003A8400 /* Heading.swift in Sources */,
 				9AAAFECC2B3B087C003A8400 /* Location.swift in Sources */,
+				9AAAFED52B3BA1CD003A8400 /* AnchoringViewModel.swift in Sources */,
 				9A15F2F22B34A24000357CF9 /* DistanceEditor.swift in Sources */,
 				9A15F2F12B34A24000357CF9 /* AnchorView.swift in Sources */,
 				9A0A2CF62B365D910099809A /* VolumeSlider.swift in Sources */,
 				9A15F2EF2B34A24000357CF9 /* MapToolbar.swift in Sources */,
 				9A15F2E52B34A24000357CF9 /* LocationNotifications.swift in Sources */,
 				9A15F2EA2B34A24000357CF9 /* Format.swift in Sources */,
+				9AAAFED92B3BA285003A8400 /* AnchorMarkerModel.swift in Sources */,
 				9A15F2E42B34A24000357CF9 /* LocationDelegate.swift in Sources */,
 				9A15F2F52B34A24000357CF9 /* ContentView.swift in Sources */,
 				9A15F2EB2B34A24000357CF9 /* CompassView.swift in Sources */,
 				9A15F2F62B34A24000357CF9 /* Alarm.swift in Sources */,
 				9A15F2ED2B34A24000357CF9 /* AnchoringView.swift in Sources */,
 				9A15F2E32B34A24000357CF9 /* LocationObserver.swift in Sources */,
+				9AAAFEDD2B3BA31E003A8400 /* DistanceEditorModel.swift in Sources */,
 				9A15F2F02B34A24000357CF9 /* PermissionView.swift in Sources */,
 				9AD096482B3692BF009AF04B /* StrokeText.swift in Sources */,
 				9A15F2FC2B34A24000357CF9 /* DragAlertApp.swift in Sources */,
 				9A15F2EC2B34A24000357CF9 /* AnchorMarker.swift in Sources */,
 				9A15F2F32B34A24000357CF9 /* SetupVesselView.swift in Sources */,
 				9A15F2F42B34A24000357CF9 /* VesselLocationMap.swift in Sources */,
+				9AAAFED32B3BA182003A8400 /* AuthStatusListener.swift in Sources */,
+				9AAAFEDB2B3BA2C8003A8400 /* VesselMarkerModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

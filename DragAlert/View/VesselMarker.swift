@@ -39,26 +39,3 @@ struct VesselMarker: MapContent {
         }
     }
 }
-
-protocol VesselLocator : Observable {
-    func getCoordinate() -> CLLocationCoordinate2D
-    func getName() -> String
-}
-
-extension Vessel : VesselLocator {
-    func getCoordinate() -> CLLocationCoordinate2D {
-        location.clLocation.coordinate
-    }
-    func getName() -> String {
-        name
-    }
-}
-
-extension LocationObserver : VesselLocator {
-    func getCoordinate() -> CLLocationCoordinate2D {
-        return location.clLocation.coordinate
-    }
-    func getName() -> String {
-        ""
-    }
-}
