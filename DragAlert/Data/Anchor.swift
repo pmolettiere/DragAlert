@@ -81,7 +81,7 @@ final class Anchor {
 
 extension Anchor {
     func update(log: Location) {
-        let maxLogSize = 1000
+        let maxLogSize = 600
         self.log.sort(by: {$0.timestamp < $1.timestamp})
         self.log.removeAll(where: { entry in
             getBucket(of: entry) == getBucket(of: log)
@@ -101,8 +101,8 @@ extension Anchor {
     func getBucket(of: Location) -> (Double, Double) {
         // 0.002 degrees of latitude is about 1.85m of distance along a great circle
         // 1000 promotes the bucket number to the left of the decimal point
-        let latBucket = ((location.latitude - of.latitude) / 0.002 * 1000).rounded(.towardZero)
-        let longBucket = ((location.longitude - of.longitude) / 0.002 * 1000).rounded(.towardZero)
+        let latBucket = ((location.latitude - of.latitude) / 0.005 * 1000).rounded(.towardZero)
+        let longBucket = ((location.longitude - of.longitude) / 0.005 * 1000).rounded(.towardZero)
         return (latBucket, longBucket)
     }
             

@@ -30,6 +30,7 @@ struct AnchoringView: View {
     @MainActor
     init(model: AnchoringViewModel, state: EditState) {
         _model = State( initialValue: model )
+        model.willEdit = state
         //print("AnchoringView.init()")
     }
     
@@ -80,16 +81,29 @@ struct AnchoringView: View {
                 
                 DistanceEditor("view.anchoring.rodeLength", measurement: $m.rodeLengthMeters, maxMeters: m.vessel.totalRodeMeters )
                 DistanceEditor("view.anchoring.distance", measurement: $m.distanceFromAnchorMeters, maxMeters: m.vessel.maxDistanceFromAnchor )
-
-                Button {
-                    model.setAnchorAtRelativeBearing()
-                    viewModel.setAppView( .map )
-                    print("AnchoringView.RelativeView.button complete")
-                } label: {
-                    Text("view.anchoring.button.relative")
-                    AnchorView(color: model.relativeLocationWouldAlarm() ? Color.gray : Color.blue, size: CGFloat(50))
+                
+                HStack {
+                    Spacer()
+                    
+                    Button {
+                        viewModel.setAppView( .map )
+                    } label: {
+                        Image(systemName: "escape")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 40, height: 40)
+                    }
+                    Spacer()
+                    Button {
+                        model.setAnchorAtRelativeBearing()
+                        viewModel.setAppView( .map )
+                        print("AnchoringView.RelativeView.button complete")
+                    } label: {
+                        AnchorView(color: model.relativeLocationWouldAlarm() ? Color.gray : Color.blue, size: CGFloat(45))
+                    }
+                    .disabled(model.relativeLocationWouldAlarm())
+                    Spacer()
                 }
-                .disabled(model.relativeLocationWouldAlarm())
             }
             .onAppear(perform: {
                 model.track(location: true, heading: true)
@@ -116,13 +130,27 @@ struct AnchoringView: View {
                 DistanceEditor("view.anchoring.rodeLength", measurement: $m.rodeLengthMeters, maxMeters: m.vessel.totalRodeMeters )
                     .padding()
 
-                Button() {
-                    model.setAnchorAtCurrentPosition()
-                    viewModel.setAppView( .map )
-                    print("AnchoringView.CurrentView.button complete")
-                } label: {
-                    Text("view.anchoring.button.current")
-                    AnchorView(color: Color.blue, size: CGFloat(50))
+                HStack {
+                    Spacer()
+                    
+                    Button {
+                        viewModel.setAppView( .map )
+                    } label: {
+                        Image(systemName: "escape")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 40, height: 40)
+                    }
+                    Spacer()
+                    
+                    Button() {
+                        model.setAnchorAtCurrentPosition()
+                        viewModel.setAppView( .map )
+                        print("AnchoringView.CurrentView.button complete")
+                    } label: {
+                        AnchorView(color: Color.blue, size: CGFloat(45))
+                    }
+                    Spacer()
                 }
             }
             .onAppear(perform: {

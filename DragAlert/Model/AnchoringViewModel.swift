@@ -18,7 +18,16 @@ class AnchoringViewModel {
     var rodeLengthMeters: Double
     var distanceFromAnchorMeters: Double
     
-    var willEdit: AnchoringView.EditState
+    var willEdit: AnchoringView.EditState {
+        didSet {
+            if( willEdit == .edit ) {
+                if let anchor = vessel.anchor {
+                    self.rodeLengthMeters = anchor.rodeInUseMeters
+                    (self.distanceFromAnchorMeters, _) = vessel.location.distance(from: anchor.location)
+                }
+            }
+        }
+    }
     
     init(vessel: Vessel, state: AnchoringView.EditState) {
         self.vessel = vessel

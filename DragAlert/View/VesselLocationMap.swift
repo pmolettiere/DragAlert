@@ -24,28 +24,17 @@ import SwiftUI
 import MapKit
 
 struct VesselLocationMap: View {
-    @State private var position: MapCameraPosition
-    @State private var region: MKCoordinateRegion
         
     @State var anchorLocationModel : (any AnchorMarkerModel)?
     @State var gps = LocationObserver()
 
     init( model: (any AnchorMarkerModel)? = nil ) {
         _anchorLocationModel = State(initialValue: model)
-        let r = MKCoordinateRegion(center: model?.getAnchorLocation().clLocation.coordinate ?? CLLocationCoordinate2D(latitude: 0, longitude: 0), latitudinalMeters: 500, longitudinalMeters: 500)
-        _region = State( initialValue: r )
-        _position = State( initialValue: .region( r ) )
-
-        self.gps.locationCallback = updateLocation
     }
     
-    func updateLocation() {
-        region.center = gps.location.clLocation.coordinate
-    }
-
     var body: some View {
         ZStack {
-            Map( position: $position ) {
+            Map() {
                 VesselMarker(locator: gps)
                 if( anchorLocationModel != nil ) {
                     AnchorMarker(model: anchorLocationModel!)
@@ -53,28 +42,10 @@ struct VesselLocationMap: View {
             }
             .scaledToFill()
             .mapStyle(.imagery)
-            .mapCameraKeyframeAnimator(trigger: gps.location ) { initialCamera in
-                let start = initialCamera.centerCoordinate
-                let end = gps.location.clLocation.coordinate
-                let travelDistance = start.distance(to: end)
-                
-                let duration = max(min(travelDistance / 30, 5), 1)
-                let finalAltitude = travelDistance > 20 ? 500 : min(initialCamera.distance, 500)
-                let middleAltitude = finalAltitude * max(min(travelDistance / 5, 1.5), 1)
-                
-                KeyframeTrack(\MapCamera.centerCoordinate) {
-                    CubicKeyframe(end, duration: duration)
-                }
-                KeyframeTrack(\MapCamera.distance) {
-                    CubicKeyframe(middleAltitude, duration: duration / 2)
-                    CubicKeyframe(finalAltitude, duration: duration / 2)
-                }
-            }
         }
         .onAppear() {
             print("VesselLocationMap onAppear")
             gps.isTrackingLocation = true
-            updateLocation()
         }
         .onDisappear() {
             print("VesselLocationMap onDisppear")

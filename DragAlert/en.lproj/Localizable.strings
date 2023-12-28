@@ -30,6 +30,7 @@ view.anchoring.would.alarm = "Outside Alarm Radius";
 view.anchoring.no.alarm = "Inside Alarm Radius";
 view.anchoring.button.current = "Drop Anchor";
 view.anchoring.button.relative = "Drop Anchor";
+view.anchoring.button.cancel = "Cancel";
 
 view.setup.title = "Permission Required";
 view.setup.explain.while = "Anchor Watch tracks your vessel's location to determine whether your vessel is within your intended anchoring radius.";
