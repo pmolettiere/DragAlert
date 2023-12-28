@@ -34,10 +34,20 @@ final class Anchor {
     var vessel: Vessel? = nil
     
     @Transient
+    var rodeInUseAccuracyMeters: Double {
+        get { rodeInUseMeters + location.hAccuracy }
+    }
+    
+    @Transient
     var alarmRadiusMeters: Double {
         get { rodeInUseMeters + (vessel?.loaMeters ?? 0) }
     }
     
+    @Transient
+    var alarmRadiusAccuracyMeters: Double {
+        get { alarmRadiusMeters + location.hAccuracy }
+    }
+
     init(timestamp: Date = Date.now, location: Location, rodeInUseMeters: Double, log: [Location] = [], vessel: Vessel? = nil) {
         self.location = location
         self.rodeInUseMeters = rodeInUseMeters
@@ -72,19 +82,32 @@ final class Anchor {
 extension Anchor {
     func update(log: Location) {
         let maxLogSize = 1000
-        let blockSize = 2.0
-        self.log.removeAll(where: { entry in
-            entry.isWithin(meters: blockSize, of: log)
-        })
         self.log.sort(by: {$0.timestamp < $1.timestamp})
+        self.log.removeAll(where: { entry in
+            getBucket(of: entry) == getBucket(of: log)
+        })
         self.log.append(log)
         if( self.log.count > maxLogSize ) {
             self.log.removeFirst(self.log.count - maxLogSize)
         }
     }
+    
+    /// Reduces lat/long locaitons into a set of bucketed tuples aligned along specific 0.002 degree boundaries, which
+    /// corresponds to roughly square areas 3.7m on a side. Close to the poles, these squares become slightly more
+    /// trapezoidal, and the horizontal distance becomes smaller.
+    ///
+    /// These bucket indices are calculated relative to the anchor location latitude and longitude.
+    /// 
+    func getBucket(of: Location) -> (Double, Double) {
+        // 0.002 degrees of latitude is about 1.85m of distance along a great circle
+        // 1000 promotes the bucket number to the left of the decimal point
+        let latBucket = ((location.latitude - of.latitude) / 0.002 * 1000).rounded(.towardZero)
+        let longBucket = ((location.longitude - of.longitude) / 0.002 * 1000).rounded(.towardZero)
+        return (latBucket, longBucket)
+    }
             
     func withinAlarmRadius(vessel: Vessel) -> Bool {
-        location.isWithin(meters: alarmRadiusMeters, of: vessel.location)
+        location.isAccurateWithin(meters: alarmRadiusMeters, of: vessel.location)
     }
     
     func triggerAlarmIfDragging() {

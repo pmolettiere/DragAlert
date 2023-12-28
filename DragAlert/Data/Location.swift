@@ -96,14 +96,22 @@ struct Location : Codable, Equatable {
         (clLocation.distance(from: from.clLocation), hAccuracy + from.hAccuracy)
     }
     
-    /// Returns true if this AnchorLog is inside the given distance and the summed accuracy of the two
-    ///  AnchorLogs. False indicates that this point is definitely outside the given distance, even considering
+    /// Returns true if this Location is inside the given distance and the summed accuracy of the two
+    ///  Locations. False indicates that this point is definitely outside the given distance, even considering
     ///  the accuracy of the two positions.
-    func isWithin(meters: Double, of: Location) -> Bool {
+    func isAccurateWithin(meters: Double, of: Location) -> Bool {
         let (distance, accuracy) = distance(from: of)
         return distance < meters + accuracy
     }
 
+    /// Returns true if this Location is inside the given distance of the two Locations, disreagarding any gps horizontal
+    /// accuracy. False indicates the lat/long coords specify two points further apart than the given distance, disregarding
+    /// the accuracy of the two positions.
+    func isWithin(meters: Double, of: Location) -> Bool {
+        let (distance, accuracy) = distance(from: of)
+        return distance < meters
+    }
+    
     /// Returns a new Location, calculated to be distanceMeters away along bearing, with the same accuracy as this Location.
     func locationWithBearing(bearing:Double, distanceMeters:Double) -> Location {
         let bearingRadians = bearing * .pi / 180

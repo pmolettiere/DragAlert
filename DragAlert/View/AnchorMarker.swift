@@ -31,33 +31,34 @@ struct AnchorMarker: MapContent {
     }
 
     var body: some MapContent {
-        Annotation(coordinate: model.getAnchorLocation()) {
+        // anchor icon
+        Annotation(coordinate: model.getAnchorLocation().clLocation.coordinate ) {
             AnchorView(size: CGFloat(15))
         } label: {
             Text("")
         }
-        MapCircle(center: model.getAnchorLocation(), radius: model.getAlarmRadius())
+        // anchor icon accuracy circle
+        MapCircle(center: model.getAnchorLocation().clLocation.coordinate, radius: model.getAnchorLocation().hAccuracy)
+            .foregroundStyle(.yellow.opacity(0.2))
+
+        // alarm radius
+        MapCircle(center: model.getAnchorLocation().clLocation.coordinate, radius: model.getAlarmRadius())
             .stroke(Color.red)
             .stroke(lineWidth: CGFloat(3))
             .foregroundStyle(.yellow.opacity(0.2))
-        MapCircle(center: model.getAnchorLocation(), radius: model.getRodeLengthMeters())
+        
+        // rode radius
+        MapCircle(center: model.getAnchorLocation().clLocation.coordinate, radius: model.getRodeLengthMeters())
             .stroke(Color.yellow.opacity(0.4))
             .stroke(lineWidth: CGFloat(2))
             .foregroundStyle(.blue.opacity(0.1))
-        if( model.getCoordinateLog().count > 0 ) {
-            MapPolyline(coordinates: model.getCoordinateLog(), contourStyle: .straight)
-                .stroke(Color.indigo, lineWidth: 3)
+        
+        // list of swing locations
+        if( model.getLocationLog().count > 0 ) {
+            ForEach( model.getLocationLog(), id: \.timestamp ) { log in
+                MapCircle(center: log.clLocation.coordinate, radius: log.clLocation.horizontalAccuracy)
+                    .foregroundStyle(.indigo.opacity( 0.5 / log.clLocation.horizontalAccuracy ))
+            }
         }
-    }
-}
-
-extension Anchor {
-    /// For presentation to MKPolyline
-    var coordinateLog: [CLLocationCoordinate2D] {
-        var coords = [CLLocationCoordinate2D]()
-        for anchorLog in log {
-            coords.append(anchorLog.clLocation.coordinate)
-        }
-        return coords
     }
 }

@@ -32,7 +32,7 @@ struct VesselLocationMap: View {
 
     init( model: (any AnchorMarkerModel)? = nil ) {
         _anchorLocationModel = State(initialValue: model)
-        let r = MKCoordinateRegion(center: model?.getAnchorLocation() ?? CLLocationCoordinate2D(latitude: 0, longitude: 0), latitudinalMeters: 500, longitudinalMeters: 500)
+        let r = MKCoordinateRegion(center: model?.getAnchorLocation().clLocation.coordinate ?? CLLocationCoordinate2D(latitude: 0, longitude: 0), latitudinalMeters: 500, longitudinalMeters: 500)
         _region = State( initialValue: r )
         _position = State( initialValue: .region( r ) )
 

@@ -53,7 +53,7 @@ class AnchoringViewModel {
     func relativeLocationWouldAlarm() -> Bool {
         let potentialAnchorLocation = relativeLocation()
         let vesselLocation = vessel.location
-        return !vesselLocation.isWithin(meters: currentSwingRadiusMeters(), of: potentialAnchorLocation)
+        return !vesselLocation.isAccurateWithin(meters: currentSwingRadiusMeters(), of: potentialAnchorLocation)
     }
     
     func currentSwingRadiusMeters() -> Double {

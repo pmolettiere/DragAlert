@@ -9,26 +9,26 @@ import Foundation
 import MapKit
 
 protocol AnchorMarkerModel : ObservableObject {
-    func getAnchorLocation() -> CLLocationCoordinate2D
+    func getAnchorLocation() -> Location
     func getAlarmRadius() -> Double
     func getRodeLengthMeters() -> Double
-    func getCoordinateLog() -> [CLLocationCoordinate2D]
+    func getLocationLog() -> [Location]
 }
 
 extension Anchor : AnchorMarkerModel {
-    func getAnchorLocation() -> CLLocationCoordinate2D { location.clLocation.coordinate }
-    func getAlarmRadius() -> Double { alarmRadiusMeters }
-    func getRodeLengthMeters() -> Double { rodeInUseMeters }
-    func getCoordinateLog() -> [CLLocationCoordinate2D] { coordinateLog }
+    func getAnchorLocation() -> Location { location }
+    func getAlarmRadius() -> Double { alarmRadiusAccuracyMeters }
+    func getRodeLengthMeters() -> Double { rodeInUseAccuracyMeters }
+    func getLocationLog() -> [Location] { log }
 }
 
 extension AnchoringViewModel : AnchorMarkerModel {
     
-    func getAnchorLocation() -> CLLocationCoordinate2D {
+    func getAnchorLocation() -> Location {
         if( selectedTab == .relative ) {
-            return relativeLocation().clLocation.coordinate
+            return relativeLocation()
         } else {
-            return getCurrentAnchorPosition().clLocation.coordinate
+            return getCurrentAnchorPosition()
         }
     }
     
@@ -42,7 +42,13 @@ extension AnchoringViewModel : AnchorMarkerModel {
         rodeLengthMeters
     }
     
-    func getCoordinateLog() -> [CLLocationCoordinate2D] {
-        []
+    func getLocationLog() -> [Location] {
+        if let anchor = vessel.anchor {
+            let n = anchor.log.count
+            var m = anchor.log.count - 100
+            if m < 0 { m = 0 }
+            return Array(anchor.log[m...])
+        }
+        return []
     }
 }
