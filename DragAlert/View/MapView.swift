@@ -108,6 +108,7 @@ struct MapView: View {
                             viewModel.setAppView(.new_anchor)
                         }
                     }
+                    LocationDelegate.instance.trackLocationInBackground(true)
                 },
                 resetAnchor: {
                     if let v = viewModel.myVessel {
@@ -116,6 +117,7 @@ struct MapView: View {
                             Alarm.instance.isEnabled = true
                         }
                     }
+                    LocationDelegate.instance.trackLocationInBackground(true)
                 },
                 adjustAnchor: {
                     if let v = viewModel.myVessel {
@@ -130,6 +132,7 @@ struct MapView: View {
                             v.isAnchored = false
                         }
                     }
+                    LocationDelegate.instance.trackLocationInBackground(false)
                 })
         }
         .onAppear() {

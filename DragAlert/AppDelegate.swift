@@ -35,6 +35,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
         if( isTrackingLocation ) {
             let ld = LocationDelegate.instance
             ld.isTrackingLocation = true
+            ld.trackLocationInBackground(true)
         }
 
         let isTrackingHeading: Bool = UserDefaults.standard.bool(forKey: "isTrackingHeading")

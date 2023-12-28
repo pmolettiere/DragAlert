@@ -69,6 +69,9 @@ class LocationDelegate : NSObject {
         if( background == nil) { background = CLBackgroundActivitySession() }
         manager.allowsBackgroundLocationUpdates = isEnabled
         manager.showsBackgroundLocationIndicator = isEnabled
+        if( isEnabled ) {
+            manager.startUpdatingLocation()
+        }
         print("Background tracking set to \(isEnabled)")
     }
         
