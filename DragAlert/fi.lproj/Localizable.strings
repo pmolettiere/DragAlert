@@ -1,0 +1,53 @@
+/*
+  Localizable.strings
+  Drag Alert
+
+  Created by Peter Molettiere on 15/12/23.
+  
+*/
+
+view.toolbar.alarm = "Hälytys";
+view.toolbar.alarm.enable = "Ota käyttöön";
+view.toolbar.alarm.disable.idle = "Poista käytöstä passiivisena";
+view.toolbar.alarm.snooze = "Torkku";
+view.toolbar.alarm.test = "Testaa";
+view.toolbar.anchor = "Ankkuri";
+view.toolbar.new = "Uusi sijainti";
+view.toolbar.adjust = "Säädä";
+view.toolbar.reset = "Nollaa viimeisin";
+view.toolbar.cancel = "Peruuta";
+view.toolbar.edit.vessel = "Muokkaa alusta";
+
+view.map.warn.volume.low = "Alhainen äänenvoimakkuus!";
+view.map.volume = "Äänenvoimakkuus";
+
+view.anchoring.relative = "Suhteellinen";
+view.anchoring.current = "Nykyinen";
+view.anchoring.rodeLength = "Ankkuriketjun pituus";  // substantiivi, merenkulku, viittaa ketjuun ja/tai köyteen, joka yhdistää ankkurin veneeseen
+view.anchoring.distance = "Etäisyys";
+view.anchoring.bearing = "Suunta";
+view.anchoring.would.alarm = "Ulkoalue hälytysalueella";
+view.anchoring.no.alarm = "Sisäalue hälytysalueella";
+view.anchoring.button.current = "Laske ankkuri";
+view.anchoring.button.relative = "Laske ankkuri";
+view.anchoring.button.cancel = "Peruuta";
+
+view.setup.title = "Vaadittava lupa";
+view.setup.explain.while = "Drag Alert seuraa veneesi sijaintia määrittääkseen, onko se tarkoitetun ankkurisäteensä sisällä.";
+view.setup.whileUsing = "Salli käytön aikana"; // iOS-järjestelmän sijaintiasetuksen arvo
+view.setup.explain.always = "Jos haluat sovelluksen valvovan sijaintiasi taustalla, se tarvitsee myös 'Aina salli' -luvan.";
+view.setup.alwaysAllow = "Aina salli"; // iOS-järjestelmän sijaintiasetuksen arvo
+view.setup.warn.wifi = "Sinun tulisi pitää Wi-Fi päällä käyttäessäsi tätä sovellusta, koska sen sammuttaminen poistaa GPS-toiminnon.";
+view.setup.done.button = "Valmis";
+view.setup.vessel.title = "Aseta aluksesi";
+view.setup.vessel.name = "Aluksen nimi";
+view.setup.vessel.loa = "Pituus kokonaisuudessaan"; // lyhenne, merenkulku, kokonaispituus
+view.setup.vessel.rodeLength = "Maks. ankkuriketjun pituus"; // substantiivi, merenkulku, viittaa ketjuun ja/tai köyteen, joka yhdistää ankkurin veneeseen
+view.setup.vessel.add = "Lisää alus";
+view.setup.vessel.edit = "Tallenna muutokset";
+view.editor.distance.unit = "Yksikkö"; // kuten mittayksikkö (pituus)
+view.editor.distance.feet = "Jalka"; // pituuden yksikkö, imperiaalinen
+view.editor.distance.meters = "Metri"; // pituuden yksikkö, SI
+
+view.multiple.latitude = "Leveysaste";
+view.multiple.longitude = "Pituusaste";

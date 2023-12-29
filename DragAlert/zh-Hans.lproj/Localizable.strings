@@ -1,0 +1,53 @@
+/*
+  Localizable.strings
+  Drag Alert
+
+  Created by Peter Molettiere on 15/12/23.
+  
+*/
+
+view.toolbar.alarm = "警报";
+view.toolbar.alarm.enable = "启用";
+view.toolbar.alarm.disable.idle = "空闲禁用";
+view.toolbar.alarm.snooze = "打盹";
+view.toolbar.alarm.test = "测试";
+view.toolbar.anchor = "锚";
+view.toolbar.new = "新位置";
+view.toolbar.adjust = "调整";
+view.toolbar.reset = "重置最后";
+view.toolbar.cancel = "取消";
+view.toolbar.edit.vessel = "编辑船只";
+
+view.map.warn.volume.low = "音量低！";
+view.map.volume = "音量";
+
+view.anchoring.relative = "相对";
+view.anchoring.current = "当前";
+view.anchoring.rodeLength = "锚链长度";  // 名词，航海，指连接锚与船只的链条和/或绳索
+view.anchoring.distance = "距离";
+view.anchoring.bearing = "方位";
+view.anchoring.would.alarm = "超出警报半径";
+view.anchoring.no.alarm = "在警报半径内";
+view.anchoring.button.current = "放下锚";
+view.anchoring.button.relative = "放下锚";
+view.anchoring.button.cancel = "取消";
+
+view.setup.title = "需要权限";
+view.setup.explain.while = "锚地警戒追踪您船只的位置，以确定它是否在您预定的锚地半径内。";
+view.setup.whileUsing = "使用期间允许"; // iOS系统位置设置值
+view.setup.explain.always = "如果您希望该应用在后台监视您的位置，则还需要“始终允许”权限。";
+view.setup.alwaysAllow = "始终允许"; // iOS系统位置设置值
+view.setup.warn.wifi = "在使用该应用时，请保持Wi-Fi开启，因为关闭Wi-Fi会禁用GPS。";
+view.setup.done.button = "完成";
+view.setup.vessel.title = "设置您的船只";
+view.setup.vessel.name = "船只名称";
+view.setup.vessel.loa = "总长"; // 缩写，航海，总长
+view.setup.vessel.rodeLength = "最大锚链长度"; // 名词，航海，指连接锚与船只的链条和/或绳索
+view.setup.vessel.add = "添加船只";
+view.setup.vessel.edit = "保存更改";
+view.editor.distance.unit = "单位"; // 如长度的计量单位
+view.editor.distance.feet = "英尺"; // 长度单位，英制
+view.editor.distance.meters = "米"; // 长度单位，国际单位制
+
+view.multiple.latitude = "纬度";
+view.multiple.longitude = "经度";

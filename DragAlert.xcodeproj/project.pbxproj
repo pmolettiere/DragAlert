@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		9A0A2CF42B364DC90099809A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A0A2CF32B364DC90099809A /* LaunchScreen.storyboard */; };
 		9A0A2CF62B365D910099809A /* VolumeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0A2CF52B365D910099809A /* VolumeSlider.swift */; };
-		9A15F2E22B34A24000357CF9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A15F2BF2B34A24000357CF9 /* Localizable.strings */; };
 		9A15F2E32B34A24000357CF9 /* LocationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2C32B34A24000357CF9 /* LocationObserver.swift */; };
 		9A15F2E42B34A24000357CF9 /* LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2C42B34A24000357CF9 /* LocationDelegate.swift */; };
 		9A15F2E52B34A24000357CF9 /* LocationNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2C52B34A24000357CF9 /* LocationNotifications.swift */; };
@@ -47,6 +46,7 @@
 		9AAAFEDB2B3BA2C8003A8400 /* VesselMarkerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAAFEDA2B3BA2C8003A8400 /* VesselMarkerModel.swift */; };
 		9AAAFEDD2B3BA31E003A8400 /* DistanceEditorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAAFEDC2B3BA31E003A8400 /* DistanceEditorModel.swift */; };
 		9AAAFEDF2B3BB937003A8400 /* Preferred.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAAFEDE2B3BB937003A8400 /* Preferred.swift */; };
+		9AB57D812B3F35A100FC09EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AB57D832B3F35A100FC09EE /* Localizable.strings */; };
 		9AD096482B3692BF009AF04B /* StrokeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD096472B3692BF009AF04B /* StrokeText.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,7 +73,6 @@
 		9A0D79822B20BC3500E83F11 /* Drag Alert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Drag Alert.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A0D79962B20BC3900E83F11 /* Drag Alert Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Drag Alert Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A0D79A02B20BC3900E83F11 /* Drag Alert UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Drag Alert UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A15F2C02B34A24000357CF9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9A15F2C12B34A24000357CF9 /* DragAlert.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = DragAlert.entitlements; sourceTree = "<group>"; };
 		9A15F2C32B34A24000357CF9 /* LocationObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationObserver.swift; sourceTree = "<group>"; };
 		9A15F2C42B34A24000357CF9 /* LocationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +112,22 @@
 		9AAAFEDA2B3BA2C8003A8400 /* VesselMarkerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VesselMarkerModel.swift; sourceTree = "<group>"; };
 		9AAAFEDC2B3BA31E003A8400 /* DistanceEditorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceEditorModel.swift; sourceTree = "<group>"; };
 		9AAAFEDE2B3BB937003A8400 /* Preferred.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferred.swift; sourceTree = "<group>"; };
+		9AB57D822B3F35A100FC09EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9AB57D842B3F362700FC09EE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		9AB57D852B3F362F00FC09EE /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9AB57D862B3F363700FC09EE /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9AB57D872B3F364600FC09EE /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9AB57D882B3F364C00FC09EE /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9AB57D892B3F365300FC09EE /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9AB57D8A2B3F365C00FC09EE /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9AB57D8B2B3F366D00FC09EE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9AB57D8C2B3F367E00FC09EE /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9AB57D8D2B3F368400FC09EE /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9AB57D8E2B3F368D00FC09EE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9AB57D8F2B3F369800FC09EE /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9AB57D902B3F369F00FC09EE /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9AB57D912B3F38D000FC09EE /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		9AB57D922B3F38D500FC09EE /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9AD096472B3692BF009AF04B /* StrokeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,7 +198,7 @@
 				9A15F2E12B34A24000357CF9 /* DragAlertApp.swift */,
 				9A15F2DB2B34A24000357CF9 /* AppDelegate.swift */,
 				9A15F2DA2B34A24000357CF9 /* Alarm.swift */,
-				9A15F2BF2B34A24000357CF9 /* Localizable.strings */,
+				9AB57D832B3F35A100FC09EE /* Localizable.strings */,
 				9A15F2CB2B34A24000357CF9 /* Data */,
 				9AAAFED12B3BA144003A8400 /* Model */,
 				9A15F2CC2B34A24000357CF9 /* View */,
@@ -369,6 +384,21 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				da,
+				nl,
+				fi,
+				fr,
+				de,
+				it,
+				ja,
+				nb,
+				pl,
+				ru,
+				es,
+				sv,
+				"pt-BR",
+				"pt-PT",
 			);
 			mainGroup = 9A0D79792B20BC3500E83F11;
 			packageReferences = (
@@ -395,7 +425,7 @@
 				9A0A2CF42B364DC90099809A /* LaunchScreen.storyboard in Resources */,
 				9A15F2FA2B34A24000357CF9 /* anchor.png in Resources */,
 				9A15F2F92B34A24000357CF9 /* anchor.pin.png in Resources */,
-				9A15F2E22B34A24000357CF9 /* Localizable.strings in Resources */,
+				9AB57D812B3F35A100FC09EE /* Localizable.strings in Resources */,
 				9A15F2E62B34A24000357CF9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,10 +517,25 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9A15F2BF2B34A24000357CF9 /* Localizable.strings */ = {
+		9AB57D832B3F35A100FC09EE /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9A15F2C02B34A24000357CF9 /* en */,
+				9AB57D822B3F35A100FC09EE /* en */,
+				9AB57D842B3F362700FC09EE /* zh-Hans */,
+				9AB57D852B3F362F00FC09EE /* da */,
+				9AB57D862B3F363700FC09EE /* nl */,
+				9AB57D872B3F364600FC09EE /* fi */,
+				9AB57D882B3F364C00FC09EE /* fr */,
+				9AB57D892B3F365300FC09EE /* de */,
+				9AB57D8A2B3F365C00FC09EE /* it */,
+				9AB57D8B2B3F366D00FC09EE /* ja */,
+				9AB57D8C2B3F367E00FC09EE /* nb */,
+				9AB57D8D2B3F368400FC09EE /* pl */,
+				9AB57D8E2B3F368D00FC09EE /* ru */,
+				9AB57D8F2B3F369800FC09EE /* es */,
+				9AB57D902B3F369F00FC09EE /* sv */,
+				9AB57D912B3F38D000FC09EE /* pt-BR */,
+				9AB57D922B3F38D500FC09EE /* pt-PT */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -503,6 +548,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -567,6 +613,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -700,7 +747,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = sv.salacia.AnchorWatch2Tests;
+				PRODUCT_BUNDLE_IDENTIFIER = sv.salacia.DragAlertTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -720,7 +767,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = sv.salacia.AnchorWatch2Tests;
+				PRODUCT_BUNDLE_IDENTIFIER = sv.salacia.DragAlertTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -738,12 +785,12 @@
 				DEVELOPMENT_TEAM = 87635PD639;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = sv.salacia.AnchorWatch2UITests;
+				PRODUCT_BUNDLE_IDENTIFIER = sv.salacia.DragAlertUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = AnchorWatch2;
+				TEST_TARGET_NAME = "Drag Alert";
 			};
 			name = Debug;
 		};
@@ -756,12 +803,12 @@
 				DEVELOPMENT_TEAM = 87635PD639;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = sv.salacia.AnchorWatch2UITests;
+				PRODUCT_BUNDLE_IDENTIFIER = sv.salacia.DragAlertUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = AnchorWatch2;
+				TEST_TARGET_NAME = "Drag Alert";
 			};
 			name = Release;
 		};

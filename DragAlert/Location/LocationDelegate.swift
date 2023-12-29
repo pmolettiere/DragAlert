@@ -95,33 +95,33 @@ class LocationDelegate : NSObject {
 extension LocationDelegate : CLLocationManagerDelegate {
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        print("AnchorWatch.locationDelegate: locationManagerDidChangeAuthorization: \(manager.authorizationStatus)")
+        print("DragAlert.locationDelegate: locationManagerDidChangeAuthorization: \(manager.authorizationStatus)")
         NotificationCenter.default.post(name: LocationNotifications.authStatus.asNotificationName(), object: LocationAuthStatusNotification(authStatus: manager.authorizationStatus))
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError: Error) {
-        print("AnchorWatch.locationDelegate: didFailWithError")
+        print("DragAlert.locationDelegate: didFailWithError")
         NotificationCenter.default.post(name: LocationNotifications.failure.asNotificationName(), object: LocationFailure(error: didFailWithError))
 
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations: [CLLocation]) {
-        //print("AnchorWatch.locationDelegate: didUpdateLocations")
+        //print("DragAlert.locationDelegate: didUpdateLocations")
         NotificationCenter.default.post(name: LocationNotifications.updateLocation.asNotificationName(), object: LocationUpdate(locations: didUpdateLocations))
     }
     
     func locationManagerDidPauseLocationUpdates(_ manager: CLLocationManager) {
-        print("AnchorWatch.locationDelegate: locationManagerDidPauseLocationUpdates")
+        print("DragAlert.locationDelegate: locationManagerDidPauseLocationUpdates")
         NotificationCenter.default.post(name: LocationNotifications.pauseLocations.asNotificationName(), object: nil)
     }
     
     func locationManagerDidResumeLocationUpdates(_ manager: CLLocationManager) {
-        print("AnchorWatch.locationDelegate: locationManagerDidResumeLocationUpdates")
+        print("DragAlert.locationDelegate: locationManagerDidResumeLocationUpdates")
         NotificationCenter.default.post(name: LocationNotifications.resumeLocations.asNotificationName(), object: nil)
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateHeading: CLHeading) {
-        //print("AnchorWatch.locationDelegate: didUpdateHeading")
+        //print("DragAlert.locationDelegate: didUpdateHeading")
         NotificationCenter.default.post(name: LocationNotifications.updateHeading.asNotificationName(), object: HeadingUpdate(heading: didUpdateHeading))
     }
 }

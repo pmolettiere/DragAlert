@@ -1,0 +1,54 @@
+/*
+  Localizable.strings
+  Drag Alert
+
+
+  Created by Peter Molettiere on 15/12/23.
+  
+*/
+
+view.toolbar.alarm = "Alarma";
+view.toolbar.alarm.enable = "Habilitar";
+view.toolbar.alarm.disable.idle = "Desactivar en reposo";
+view.toolbar.alarm.snooze = "Snooze";
+view.toolbar.alarm.test = "Prueba";
+view.toolbar.anchor = "Ancla";
+view.toolbar.new = "Nueva posición";
+view.toolbar.adjust = "Ajustar";
+view.toolbar.reset = "Restablecer último";
+view.toolbar.cancel = "Cancelar";
+view.toolbar.edit.vessel = "Editar Vehículo";
+
+view.map.warn.volume.low = "¡Volumen bajo!";
+view.map.volume = "Volumen";
+
+view.anchoring.relative = "Relativo";
+view.anchoring.current = "Actual";
+view.anchoring.rodeLength = "Longitud de cabo";  // sustantivo, náutico, significa la cadena y/o cuerda que conecta el ancla con el barco
+view.anchoring.distance = "Distancia";
+view.anchoring.bearing = "Rumbo";
+view.anchoring.would.alarm = "Fuera del radio de alarma";
+view.anchoring.no.alarm = "Dentro del radio de alarma";
+view.anchoring.button.current = "Soltar ancla";
+view.anchoring.button.relative = "Soltar ancla";
+view.anchoring.button.cancel = "Cancelar";
+
+view.setup.title = "Permiso requerido";
+view.setup.explain.while = "Drag Alert sigue la ubicación de su embarcación para determinar si se encuentra dentro de su radio de anclaje previsto.";
+view.setup.whileUsing = "Permitir mientras se utiliza"; // Configuración de ubicación del sistema iOS
+view.setup.explain.always = "Si desea que la aplicación monitoree su ubicación en segundo plano, también necesita el permiso 'Permitir siempre'.";
+view.setup.alwaysAllow = "Permitir siempre"; // Configuración de ubicación del sistema iOS
+view.setup.warn.wifi = "Debe mantener activo el WiFi mientras usa esta aplicación, ya que desactivarlo deshabilita su GPS.";
+view.setup.done.button = "Listo";
+view.setup.vessel.title = "Configurar su embarcación";
+view.setup.vessel.name = "Nombre de la embarcación";
+view.setup.vessel.loa = "ESL"; // abreviatura, náutico, Longitud en el sentido de eslora
+view.setup.vessel.rodeLength = "Longitud máxima de cabo"; // sustantivo, náutico, significa la cadena y/o cuerda que conecta el ancla con el barco
+view.setup.vessel.add = "Agregar embarcación";
+view.setup.vessel.edit = "Guardar cambios";
+view.editor.distance.unit = "Unidad"; // como en unidad de medida (longitud)
+view.editor.distance.feet = "Pies"; // unidad de longitud, Imperial
+view.editor.distance.meters = "Metros"; // unidad de longitud, SI
+
+view.multiple.latitude = "Latitud";
+view.multiple.longitude = "Longitud";

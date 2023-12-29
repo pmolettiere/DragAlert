@@ -1,0 +1,54 @@
+/*
+  Localizable.strings
+  Drag Alert
+
+
+  Created by Peter Molettiere on 15/12/23.
+  
+*/
+
+view.toolbar.alarm = "Allarme";
+view.toolbar.alarm.enable = "Abilita";
+view.toolbar.alarm.disable.idle = "Disabilita inattivo";
+view.toolbar.alarm.snooze = "Snooze";
+view.toolbar.alarm.test = "Test";
+view.toolbar.anchor = "Ancora";
+view.toolbar.new = "Nuova posizione";
+view.toolbar.adjust = "Regola";
+view.toolbar.reset = "Ripristina ultimo";
+view.toolbar.cancel = "Annulla";
+view.toolbar.edit.vessel = "Modifica nave";
+
+view.map.warn.volume.low = "Volume basso!";
+view.map.volume = "Volume";
+
+view.anchoring.relative = "Relativo";
+view.anchoring.current = "Corrente";
+view.anchoring.rodeLength = "Lunghezza catena";  // nome, nautico, indica la catena e/o la corda che collega l'ancora alla barca
+view.anchoring.distance = "Distanza";
+view.anchoring.bearing = "Rilevamento";
+view.anchoring.would.alarm = "Fuori dall'area di allarme";
+view.anchoring.no.alarm = "All'interno dell'area di allarme";
+view.anchoring.button.current = "Getta l'ancora";
+view.anchoring.button.relative = "Getta l'ancora";
+view.anchoring.button.cancel = "Annulla";
+
+view.setup.title = "Permesso richiesto";
+view.setup.explain.while = "Drag Alert segue la posizione della tua imbarcazione per determinare se si trova nel raggio di ancoraggio previsto.";
+view.setup.whileUsing = "Consenti durante l'uso"; // Impostazione di localizzazione di sistema iOS
+view.setup.explain.always = "Se vuoi che l'app monitori la tua posizione in background, ha bisogno anche dell'autorizzazione 'Consenti sempre'.";
+view.setup.alwaysAllow = "Consenti sempre"; // Impostazione di localizzazione di sistema iOS
+view.setup.warn.wifi = "Dovresti mantenere attivo il WiFi durante l'uso di questa app, disabilitarlo disattiva il tuo GPS.";
+view.setup.done.button = "Fatto";
+view.setup.vessel.title = "Configura la tua imbarcazione";
+view.setup.vessel.name = "Nome dell'imbarcazione";
+view.setup.vessel.loa = "Lunghezza fuori tutto"; // abbreviazione, nautica, Lunghezza fuori tutto
+view.setup.vessel.rodeLength = "Lunghezza massima della catena"; // nome, nautico, indica la catena e/o la corda che collega l'ancora alla barca
+view.setup.vessel.add = "Aggiungi imbarcazione";
+view.setup.vessel.edit = "Salva modifiche";
+view.editor.distance.unit = "Unità"; // come unità di misura (lunghezza)
+view.editor.distance.feet = "Piedi"; // unità di misura, imperiale
+view.editor.distance.meters = "Metri"; // unità di misura, SI
+
+view.multiple.latitude = "Latitudine";
+view.multiple.longitude = "Longitudine";

@@ -1,0 +1,53 @@
+/* 
+  Localizable.strings
+  AnchorWatch2
+
+  Created by Peter Molettiere on 15/12/23.
+  
+*/
+
+view.toolbar.alarm = "Alarm";
+view.toolbar.alarm.enable = "Aktiver";
+view.toolbar.alarm.disable.idle = "Deaktiver ved inaktivitet";
+view.toolbar.alarm.snooze = "Snooze";
+view.toolbar.alarm.test = "Test";
+view.toolbar.anchor = "Anker";
+view.toolbar.new = "Ny position";
+view.toolbar.adjust = "Juster";
+view.toolbar.reset = "Nulstil sidste";
+view.toolbar.cancel = "Annuller";
+view.toolbar.edit.vessel = "Rediger fartøj";
+
+view.map.warn.volume.low = "Lavt volumen!";
+view.map.volume = "Volumen";
+
+view.anchoring.relative = "Relativ";
+view.anchoring.current = "Nuværende";
+view.anchoring.rodeLength = "Tau længde";  // substantiv, nautisk, refererer til kæden og/eller linen, der forbinder ankret med båden
+view.anchoring.distance = "Afstand";
+view.anchoring.bearing = "Pejling";
+view.anchoring.would.alarm = "Uden for alarmradius";
+view.anchoring.no.alarm = "Inden for alarmradius";
+view.anchoring.button.current = "Kast anker";
+view.anchoring.button.relative = "Kast anker";
+view.anchoring.button.cancel = "Annuller";
+
+view.setup.title = "Kræver tilladelse";
+view.setup.explain.while = "Anchor Watch følger din båds position for at afgøre, om den er inden for din tilsigtede anker-radius.";
+view.setup.whileUsing = "Tillad under brug"; // iOS-systemets placeringindstilling
+view.setup.explain.always = "Hvis du vil have, at appen skal overvåge din position i baggrunden, kræver det også tilladelsen 'Altid tillad'.";
+view.setup.alwaysAllow = "Altid tillad"; // iOS-systemets placeringindstilling
+view.setup.warn.wifi = "Du bør holde din WiFi aktiveret under brug af denne app, da deaktivering af det slår din GPS fra.";
+view.setup.done.button = "Færdig";
+view.setup.vessel.title = "Opsæt dit fartøj";
+view.setup.vessel.name = "Fartøjets navn";
+view.setup.vessel.loa = "LOA"; // forkortelse, nautisk, Længde Over Alt
+view.setup.vessel.rodeLength = "Max Tau længde"; // substantiv, nautisk, refererer til kæden og/eller linen, der forbinder ankret med båden
+view.setup.vessel.add = "Tilføj fartøj";
+view.setup.vessel.edit = "Gem ændringer";
+view.editor.distance.unit = "Enhed"; // som i måleenhed (længde)
+view.editor.distance.feet = "Fod"; // måleenhed, imperial
+view.editor.distance.meters = "Meter"; // måleenhed, SI
+
+view.multiple.latitude = "Breddegrad";
+view.multiple.longitude = "Længdegrad";

@@ -1,0 +1,54 @@
+/*
+  Localizable.strings
+  Drag Alert
+
+
+  Created by Peter Molettiere on 15/12/23.
+  
+*/
+
+view.toolbar.alarm = "Alarme";
+view.toolbar.alarm.enable = "Ativar";
+view.toolbar.alarm.disable.idle = "Desativar em Inatividade";
+view.toolbar.alarm.snooze = "Soneca";
+view.toolbar.alarm.test = "Testar";
+view.toolbar.anchor = "Âncora";
+view.toolbar.new = "Nova Posição";
+view.toolbar.adjust = "Ajustar";
+view.toolbar.reset = "Redefinir Última";
+view.toolbar.cancel = "Cancelar";
+view.toolbar.edit.vessel = "Editar Embarcação";
+
+view.map.warn.volume.low = "Volume Baixo!";
+view.map.volume = "Volume";
+
+view.anchoring.relative = "Relativo";
+view.anchoring.current = "Atual";
+view.anchoring.rodeLength = "Comprimento do Cabo";  // substantivo, náutico, refere-se à corrente e/ou corda que conecta a âncora ao barco
+view.anchoring.distance = "Distância";
+view.anchoring.bearing = "Rumo";
+view.anchoring.would.alarm = "Fora do Raio de Alarme";
+view.anchoring.no.alarm = "Dentro do Raio de Alarme";
+view.anchoring.button.current = "Solte a Âncora";
+view.anchoring.button.relative = "Solte a Âncora";
+view.anchoring.button.cancel = "Cancelar";
+
+view.setup.title = "Permissão Necessária";
+view.setup.explain.while = "O Drag Alert rastreia a localização da sua embarcação para determinar se ela está dentro do raio de ancoragem pretendido.";
+view.setup.whileUsing = "Permitir Durante o Uso"; // configuração de localização do sistema iOS
+view.setup.explain.always = "Se deseja que o aplicativo monitore sua localização em segundo plano, também é necessário a permissão 'Sempre Permitir'.";
+view.setup.alwaysAllow = "Sempre Permitir"; // configuração de localização do sistema iOS
+view.setup.warn.wifi = "Você deve manter o Wi-Fi ativado ao usar este aplicativo, pois desativá-lo desabilita o GPS.";
+view.setup.done.button = "Concluído";
+view.setup.vessel.title = "Configurar Sua Embarcação";
+view.setup.vessel.name = "Nome da Embarcação";
+view.setup.vessel.loa = "CP"; // abreviação, náutico, Comprimento no Total
+view.setup.vessel.rodeLength = "Comprimento Máx. do Cabo"; // substantivo, náutico, refere-se à corrente e/ou corda que conecta a âncora ao barco
+view.setup.vessel.add = "Adicionar Embarcação";
+view.setup.vessel.edit = "Salvar Alterações";
+view.editor.distance.unit = "Unidade"; // como em unidade de medida (comprimento)
+view.editor.distance.feet = "Pés"; // unidade de comprimento, Imperial
+view.editor.distance.meters = "Metros"; // unidade de comprimento, SI
+
+view.multiple.latitude = "Latitude";
+view.multiple.longitude = "Longitude";

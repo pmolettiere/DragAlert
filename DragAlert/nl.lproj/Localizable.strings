@@ -1,0 +1,53 @@
+/*
+  Localizable.strings
+  Drag Alert
+
+  Created by Peter Molettiere on 15/12/23.
+  
+*/
+
+view.toolbar.alarm = "Alarm";
+view.toolbar.alarm.enable = "Inschakelen";
+view.toolbar.alarm.disable.idle = "Uitschakelen bij inactiviteit";
+view.toolbar.alarm.snooze = "Snooze";
+view.toolbar.alarm.test = "Test";
+view.toolbar.anchor = "Anker";
+view.toolbar.new = "Nieuwe positie";
+view.toolbar.adjust = "Aanpassen";
+view.toolbar.reset = "Laatste resetten";
+view.toolbar.cancel = "Annuleren";
+view.toolbar.edit.vessel = "Vaartuig bewerken";
+
+view.map.warn.volume.low = "Laag volume!";
+view.map.volume = "Volume";
+
+view.anchoring.relative = "Relatief";
+view.anchoring.current = "Huidig";
+view.anchoring.rodeLength = "Lengte ankerlijn";  // zelfstandig naamwoord, nautisch, verwijst naar de ketting en/of het touw dat het anker met de boot verbindt
+view.anchoring.distance = "Afstand";
+view.anchoring.bearing = "Peiling";
+view.anchoring.would.alarm = "Buiten alarmstraal";
+view.anchoring.no.alarm = "Binnen alarmstraal";
+view.anchoring.button.current = "Anker laten vallen";
+view.anchoring.button.relative = "Anker laten vallen";
+view.anchoring.button.cancel = "Annuleren";
+
+view.setup.title = "Toestemming vereist";
+view.setup.explain.while = "Drag Alert volgt de locatie van uw vaartuig om te bepalen of het binnen uw beoogde ankerstraal ligt.";
+view.setup.whileUsing = "Toestaan tijdens gebruik"; // iOS-systeemlocatie-instelling
+view.setup.explain.always = "Als u wilt dat de app uw locatie op de achtergrond bewaakt, heeft deze ook de toestemming 'Altijd toestaan' nodig.";
+view.setup.alwaysAllow = "Altijd toestaan"; // iOS-systeemlocatie-instelling
+view.setup.warn.wifi = "U moet uw wifi ingeschakeld houden tijdens het gebruik van deze app, omdat uitschakelen uw GPS uitschakelt.";
+view.setup.done.button = "Klaar";
+view.setup.vessel.title = "Stel uw vaartuig in";
+view.setup.vessel.name = "Vaartuignaam";
+view.setup.vessel.loa = "LWL"; // afkorting, nautisch, Lengte Waterlijn
+view.setup.vessel.rodeLength = "Max. ankerlijn"; // zelfstandig naamwoord, nautisch, verwijst naar de ketting en/of het touw dat het anker met de boot verbindt
+view.setup.vessel.add = "Vaartuig toevoegen";
+view.setup.vessel.edit = "Wijzigingen opslaan";
+view.editor.distance.unit = "Eenheid"; // zoals in eenheid van maat (lengte)
+view.editor.distance.feet = "Voet"; // eenheid van lengte, imperiaal
+view.editor.distance.meters = "Meter"; // eenheid van lengte, SI
+
+view.multiple.latitude = "Breedtegraad";
+view.multiple.longitude = "Lengtegraad";

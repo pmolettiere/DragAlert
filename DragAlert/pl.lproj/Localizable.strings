@@ -1,0 +1,54 @@
+/*
+  Localizable.strings
+  Drag Alert
+
+
+  Created by Peter Molettiere on 15/12/23.
+  
+*/
+
+view.toolbar.alarm = "Alarm";
+view.toolbar.alarm.enable = "Włącz";
+view.toolbar.alarm.disable.idle = "Wyłącz w spoczynku";
+view.toolbar.alarm.snooze = "Drzemka";
+view.toolbar.alarm.test = "Test";
+view.toolbar.anchor = "Kotwica";
+view.toolbar.new = "Nowa pozycja";
+view.toolbar.adjust = "Dostosuj";
+view.toolbar.reset = "Resetuj ostatni";
+view.toolbar.cancel = "Anuluj";
+view.toolbar.edit.vessel = "Edytuj jednostkę";
+
+view.map.warn.volume.low = "Niski poziom dźwięku!";
+view.map.volume = "Głośność";
+
+view.anchoring.relative = "Względny";
+view.anchoring.current = "Bieżący";
+view.anchoring.rodeLength = "Długość lin kotwicznej";  // rzeczownik, żeglarski, oznacza łańcuch i/lub linę łączącą kotwicę z łodzią
+view.anchoring.distance = "Odległość";
+view.anchoring.bearing = "Kąt";
+view.anchoring.would.alarm = "Poza obszarem alarmowym";
+view.anchoring.no.alarm = "Wewnątrz obszaru alarmowego";
+view.anchoring.button.current = "Opuszczanie kotwicy";
+view.anchoring.button.relative = "Opuszczanie kotwicy";
+view.anchoring.button.cancel = "Anuluj";
+
+view.setup.title = "Wymagane uprawnienia";
+view.setup.explain.while = "Drag Alert śledzi położenie twojego jednostki, aby określić, czy znajduje się w zamierzonym promieniu kotwiczenia.";
+view.setup.whileUsing = "Zezwalaj podczas korzystania"; // ustawienie lokalizacji systemu iOS
+view.setup.explain.always = "Jeśli chcesz, aby aplikacja monitorowała twoje położenie z tyłu, wymaga również zgody na 'Zawsze zezwalaj'.";
+view.setup.alwaysAllow = "Zawsze zezwalaj"; // ustawienie lokalizacji systemu iOS
+view.setup.warn.wifi = "Powinieneś mieć włączone Wi-Fi podczas korzystania z tej aplikacji, ponieważ wyłączenie go dezaktywuje twoje GPS.";
+view.setup.done.button = "Gotowe";
+view.setup.vessel.title = "Skonfiguruj swoją jednostkę";
+view.setup.vessel.name = "Nazwa jednostki";
+view.setup.vessel.loa = "Długość całkowita"; // skrót, żeglarski, Długość Całkowita
+view.setup.vessel.rodeLength = "Maks. długość lin kotwicznej"; // rzeczownik, żeglarski, oznacza łańcuch i/lub linę łączącą kotwicę z łodzią
+view.setup.vessel.add = "Dodaj jednostkę";
+view.setup.vessel.edit = "Zapisz zmiany";
+view.editor.distance.unit = "Jednostka"; // jak w jednostce miary (długość)
+view.editor.distance.feet = "Stopy"; // jednostka długości, Imperialna
+view.editor.distance.meters = "Metry"; // jednostka długości, SI
+
+view.multiple.latitude = "Szerokość geograficzna";
+view.multiple.longitude = "Długość geograficzna";

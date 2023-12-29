@@ -1,0 +1,54 @@
+/*
+  Localizable.strings
+  Drag Alert
+
+
+  Created by Peter Molettiere on 15/12/23.
+  
+*/
+
+view.toolbar.alarm = "Alarm";
+view.toolbar.alarm.enable = "Aktiver";
+view.toolbar.alarm.disable.idle = "Deaktiver ved inaktivitet";
+view.toolbar.alarm.snooze = "Snooze";
+view.toolbar.alarm.test = "Test";
+view.toolbar.anchor = "Anker";
+view.toolbar.new = "Ny posisjon";
+view.toolbar.adjust = "Justere";
+view.toolbar.reset = "Tilbakestill siste";
+view.toolbar.cancel = "Avbryt";
+view.toolbar.edit.vessel = "Rediger skip";
+
+view.map.warn.volume.low = "Lavt volum!";
+view.map.volume = "Volum";
+
+view.anchoring.relative = "Relativ";
+view.anchoring.current = "Gjeldende";
+view.anchoring.rodeLength = "Tau lengde";  // substantiv, nautisk, betegner kjeden og/eller tauet som forbinder ankeret med båten
+view.anchoring.distance = "Avstand";
+view.anchoring.bearing = "Peiling";
+view.anchoring.would.alarm = "Utenfor alarmradius";
+view.anchoring.no.alarm = "Innenfor alarmradius";
+view.anchoring.button.current = "Slipp anker";
+view.anchoring.button.relative = "Slipp anker";
+view.anchoring.button.cancel = "Avbryt";
+
+view.setup.title = "Nødvendig tillatelse";
+view.setup.explain.while = "Drag Alert sporer båtens posisjon for å avgjøre om den er innenfor det tiltenkte ankerradiuset.";
+view.setup.whileUsing = "Tillat under bruk"; // iOS-systemets stedsinnstilling
+view.setup.explain.always = "Hvis du vil at appen skal overvåke posisjonen din i bakgrunnen, trenger den også tillatelse 'Alltid tillat'.";
+view.setup.alwaysAllow = "Alltid tillat"; // iOS-systemets stedsinnstilling
+view.setup.warn.wifi = "Du bør holde Wi-Fi aktivert mens du bruker denne appen, da å deaktivere det deaktiverer GPS-en din.";
+view.setup.done.button = "Ferdig";
+view.setup.vessel.title = "Sett opp båten din";
+view.setup.vessel.name = "Båtens navn";
+view.setup.vessel.loa = "Total lengde"; // forkortelse, nautisk, total lengde
+view.setup.vessel.rodeLength = "Maks tau lengde"; // substantiv, nautisk, betegner kjeden og/eller tauet som forbinder ankeret med båten
+view.setup.vessel.add = "Legg til båt";
+view.setup.vessel.edit = "Lagre endringer";
+view.editor.distance.unit = "Enhet"; // som i måleenhet (lengde)
+view.editor.distance.feet = "Fot"; // måleenhet, imperial
+view.editor.distance.meters = "Meter"; // måleenhet, SI
+
+view.multiple.latitude = "Breddegrad";
+view.multiple.longitude = "Lengdegrad";

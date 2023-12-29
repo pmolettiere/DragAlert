@@ -1,0 +1,54 @@
+/*
+  Localizable.strings
+  Drag Alert
+
+
+  Created by Peter Molettiere on 15/12/23.
+  
+*/
+
+view.toolbar.alarm = "Сигнал тревоги";
+view.toolbar.alarm.enable = "Включить";
+view.toolbar.alarm.disable.idle = "Отключить при бездействии";
+view.toolbar.alarm.snooze = "Отложить";
+view.toolbar.alarm.test = "Тест";
+view.toolbar.anchor = "Якорь";
+view.toolbar.new = "Новая позиция";
+view.toolbar.adjust = "Настроить";
+view.toolbar.reset = "Сбросить последнее";
+view.toolbar.cancel = "Отмена";
+view.toolbar.edit.vessel = "Редактировать судно";
+
+view.map.warn.volume.low = "Низкий уровень громкости!";
+view.map.volume = "Громкость";
+
+view.anchoring.relative = "Относительно";
+view.anchoring.current = "Текущее";
+view.anchoring.rodeLength = "Длина якорной цепи";  // существительное, морское дело, означает цепь и/или веревку, соединяющую якорь с судном
+view.anchoring.distance = "Расстояние";
+view.anchoring.bearing = "Азимут";
+view.anchoring.would.alarm = "Вне радиуса сигнала тревоги";
+view.anchoring.no.alarm = "Внутри радиуса сигнала тревоги";
+view.anchoring.button.current = "Отбросить якорь";
+view.anchoring.button.relative = "Отбросить якорь";
+view.anchoring.button.cancel = "Отмена";
+
+view.setup.title = "Требуется разрешение";
+view.setup.explain.while = "Drag Alert отслеживает местоположение вашего судна, чтобы определить, находится ли оно в предполагаемом радиусе якорения.";
+view.setup.whileUsing = "Разрешить при использовании"; // значение настройки местоположения системы iOS
+view.setup.explain.always = "Если вы хотите, чтобы приложение отслеживало ваше местоположение в фоновом режиме, оно также нуждается в разрешении 'Всегда разрешено'.";
+view.setup.alwaysAllow = "Всегда разрешено"; // значение настройки местоположения системы iOS
+view.setup.warn.wifi = "Вы должны держать включенным Wi-Fi при использовании этого приложения, так как отключение его отключает GPS.";
+view.setup.done.button = "Готово";
+view.setup.vessel.title = "Настройка вашего судна";
+view.setup.vessel.name = "Название судна";
+view.setup.vessel.loa = "Длина общая"; // аббревиатура, морское дело, Длина Общая
+view.setup.vessel.rodeLength = "Макс. длина якорной цепи"; // существительное, морское дело, означает цепь и/или веревку, соединяющую якорь с судном
+view.setup.vessel.add = "Добавить судно";
+view.setup.vessel.edit = "Сохранить изменения";
+view.editor.distance.unit = "Единица"; // как в единице измерения (длина)
+view.editor.distance.feet = "Фут"; // единица длины, Имперская
+view.editor.distance.meters = "Метр"; // единица длины, СИ
+
+view.multiple.latitude = "Широта";
+view.multiple.longitude = "Долгота";

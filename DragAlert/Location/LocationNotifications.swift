@@ -24,12 +24,12 @@ import Foundation
 import MapKit
 
 enum LocationNotifications: String {
-    case authStatus = "sv.salacia.AnchorWatch.notifications.locationManagerDidChangeAuthorization"
-    case failure = "sv.salacia.AnchorWatch.notifications.didFailWithError"
-    case updateLocation = "sv.salacia.AnchorWatch.notifications.didUpdateLocations"
-    case pauseLocations = "sv.salacia.AnchorWatch.notifications.didPauseLocationUpdates"
-    case resumeLocations = "sv.salacia.AnchorWatch.notifications.didResumeLocationUpdates"
-    case updateHeading = "sv.salacia.AnchorWatch.notifications.updateHeading"
+    case authStatus = "sv.salacia.DragAlert.notifications.locationManagerDidChangeAuthorization"
+    case failure = "sv.salacia.DragAlert.notifications.didFailWithError"
+    case updateLocation = "sv.salacia.DragAlert.notifications.didUpdateLocations"
+    case pauseLocations = "sv.salacia.DragAlert.notifications.didPauseLocationUpdates"
+    case resumeLocations = "sv.salacia.DragAlert.notifications.didResumeLocationUpdates"
+    case updateHeading = "sv.salacia.DragAlert.notifications.updateHeading"
     
     func asNotificationName() -> Notification.Name {
         Notification.Name(self.rawValue)

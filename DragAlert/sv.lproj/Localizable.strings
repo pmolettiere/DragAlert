@@ -1,0 +1,54 @@
+/*
+  Localizable.strings
+  Drag Alert
+
+
+  Created by Peter Molettiere on 15/12/23.
+  
+*/
+
+view.toolbar.alarm = "Larm";
+view.toolbar.alarm.enable = "Aktivera";
+view.toolbar.alarm.disable.idle = "Inaktivera vid inaktivitet";
+view.toolbar.alarm.snooze = "Snooze";
+view.toolbar.alarm.test = "Test";
+view.toolbar.anchor = "Ankare";
+view.toolbar.new = "Ny position";
+view.toolbar.adjust = "Justera";
+view.toolbar.reset = "Återställ senaste";
+view.toolbar.cancel = "Avbryt";
+view.toolbar.edit.vessel = "Redigera fartyg";
+
+view.map.warn.volume.low = "Låg volym!";
+view.map.volume = "Volym";
+
+view.anchoring.relative = "Relativ";
+view.anchoring.current = "Aktuell";
+view.anchoring.rodeLength = "Trosslängd";  // substantiv, nautiskt, betecknar kedjan och/eller repet som förbinder ankaret med båten
+view.anchoring.distance = "Avstånd";
+view.anchoring.bearing = "Bäring";
+view.anchoring.would.alarm = "Utanför larmradie";
+view.anchoring.no.alarm = "Inuti larmradie";
+view.anchoring.button.current = "Släpp ankare";
+view.anchoring.button.relative = "Släpp ankare";
+view.anchoring.button.cancel = "Avbryt";
+
+view.setup.title = "Behörighet krävs";
+view.setup.explain.while = "Drag Alert följer din båts position för att avgöra om den befinner sig inom din avsedda ankarradiosfär.";
+view.setup.whileUsing = "Tillåt under användning"; // iOS-systemets platsinställningsvärde
+view.setup.explain.always = "Om du vill att appen ska övervaka din plats i bakgrunden krävs också behörigheten 'Alltid tillåt'.";
+view.setup.alwaysAllow = "Alltid tillåt"; // iOS-systemets platsinställningsvärde
+view.setup.warn.wifi = "Du bör hålla WiFi aktiverat när du använder den här appen, eftersom att stänga av det inaktiverar din GPS.";
+view.setup.done.button = "Klar";
+view.setup.vessel.title = "Konfigurera ditt fartyg";
+view.setup.vessel.name = "Fartygsnamn";
+view.setup.vessel.loa = "LÖA"; // förkortning, nautiskt, längd över allt
+view.setup.vessel.rodeLength = "Max trosslängd"; // substantiv, nautiskt, betecknar kedjan och/eller repet som förbinder ankaret med båten
+view.setup.vessel.add = "Lägg till fartyg";
+view.setup.vessel.edit = "Spara ändringar";
+view.editor.distance.unit = "Enhet"; // som i måttenhet (längd)
+view.editor.distance.feet = "Fot"; // måttenhet, imperial
+view.editor.distance.meters = "Meter"; // måttenhet, SI
+
+view.multiple.latitude = "Latitud";
+view.multiple.longitude = "Longitud";

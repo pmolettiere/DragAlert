@@ -1,0 +1,54 @@
+/*
+  Localizable.strings
+  Drag Alert
+
+
+  Created by Peter Molettiere on 15/12/23.
+  
+*/
+
+view.toolbar.alarm = "アラーム";
+view.toolbar.alarm.enable = "有効にする";
+view.toolbar.alarm.disable.idle = "アイドル状態を無効にする";
+view.toolbar.alarm.snooze = "スヌーズ";
+view.toolbar.alarm.test = "テスト";
+view.toolbar.anchor = "アンカー";
+view.toolbar.new = "新しい位置";
+view.toolbar.adjust = "調整";
+view.toolbar.reset = "最後をリセット";
+view.toolbar.cancel = "キャンセル";
+view.toolbar.edit.vessel = "船を編集";
+
+view.map.warn.volume.low = "音量が低い！";
+view.map.volume = "音量";
+
+view.anchoring.relative = "相対的";
+view.anchoring.current = "現在";
+view.anchoring.rodeLength = "ロードの長さ";  // 名詞、航海、アンカーを船に繋ぐチェーンやロープを指す
+view.anchoring.distance = "距離";
+view.anchoring.bearing = "方位";
+view.anchoring.would.alarm = "アラーム範囲外";
+view.anchoring.no.alarm = "アラーム範囲内";
+view.anchoring.button.current = "アンカーを下ろす";
+view.anchoring.button.relative = "アンカーを下ろす";
+view.anchoring.button.cancel = "キャンセル";
+
+view.setup.title = "許可が必要です";
+view.setup.explain.while = "Drag Alertは船の位置を追跡し、船が意図したアンカーラジウス内にあるかどうかを判断します。";
+view.setup.whileUsing = "使用中に許可"; // iOSシステムの位置設定値
+view.setup.explain.always = "アプリがバックグラウンドで位置を監視する場合、常に許可も必要です。";
+view.setup.alwaysAllow = "常に許可"; // iOSシステムの位置設定値
+view.setup.warn.wifi = "このアプリを使用する際はWi-Fiをオンにしておく必要があります。Wi-FiをオフにするとGPSが無効になります。";
+view.setup.done.button = "完了";
+view.setup.vessel.title = "船を設定";
+view.setup.vessel.name = "船の名前";
+view.setup.vessel.loa = "LOA"; // 略語、航海、全長
+view.setup.vessel.rodeLength = "最大ロード"; // 名詞、航海、アンカーを船に繋ぐチェーンやロープを指す
+view.setup.vessel.add = "船を追加";
+view.setup.vessel.edit = "変更を保存";
+view.editor.distance.unit = "単位"; // 測定単位（長さなど）
+view.editor.distance.feet = "フィート"; // 長さの単位、インペリアル
+view.editor.distance.meters = "メートル"; // 長さの単位、SI
+
+view.multiple.latitude = "緯度";
+view.multiple.longitude = "経度";

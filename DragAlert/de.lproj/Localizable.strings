@@ -1,0 +1,54 @@
+/*
+  Localizable.strings
+  Drag Alert
+
+
+  Created by Peter Molettiere on 15/12/23.
+  
+*/
+
+view.toolbar.alarm = "Alarm";
+view.toolbar.alarm.enable = "Aktivieren";
+view.toolbar.alarm.disable.idle = "Deaktivieren im Leerlauf";
+view.toolbar.alarm.snooze = "Snooze";
+view.toolbar.alarm.test = "Test";
+view.toolbar.anchor = "Anker";
+view.toolbar.new = "Neue Position";
+view.toolbar.adjust = "Anpassen";
+view.toolbar.reset = "Letzte zurücksetzen";
+view.toolbar.cancel = "Abbrechen";
+view.toolbar.edit.vessel = "Fahrzeug bearbeiten";
+
+view.map.warn.volume.low = "Geringe Lautstärke!";
+view.map.volume = "Lautstärke";
+
+view.anchoring.relative = "Relativ";
+view.anchoring.current = "Aktuell";
+view.anchoring.rodeLength = "Ankertrosse";  // Substantiv, nautisch, bezeichnet die Kette und/oder das Seil, das das Anker mit dem Boot verbindet
+view.anchoring.distance = "Entfernung";
+view.anchoring.bearing = "Peilung";
+view.anchoring.would.alarm = "Außerhalb des Alarmradius";
+view.anchoring.no.alarm = "Innerhalb des Alarmradius";
+view.anchoring.button.current = "Anker werfen";
+view.anchoring.button.relative = "Anker werfen";
+view.anchoring.button.cancel = "Abbrechen";
+
+view.setup.title = "Berechtigung erforderlich";
+view.setup.explain.while = "Drag Alert verfolgt den Standort Ihres Fahrzeugs, um festzustellen, ob es sich innerhalb Ihres beabsichtigten Ankerbereichs befindet.";
+view.setup.whileUsing = "Erlauben während der Nutzung"; // iOS-Systemeinstellung für den Standort
+view.setup.explain.always = "Wenn Sie möchten, dass die App Ihren Standort im Hintergrund überwacht, benötigt sie auch die Berechtigung 'Immer erlauben'.";
+view.setup.alwaysAllow = "Immer erlauben"; // iOS-Systemeinstellung für den Standort
+view.setup.warn.wifi = "Sie sollten Ihr WLAN eingeschaltet lassen, während Sie diese App verwenden, da das Ausschalten Ihr GPS deaktiviert.";
+view.setup.done.button = "Fertig";
+view.setup.vessel.title = "Ihr Fahrzeug einrichten";
+view.setup.vessel.name = "Fahrzeugname";
+view.setup.vessel.loa = "LÜA"; // Abkürzung, nautisch, Länge über alles
+view.setup.vessel.rodeLength = "Max. Ankertrosse"; // Substantiv, nautisch, bezeichnet die Kette und/oder das Seil, das das Anker mit dem Boot verbindet
+view.setup.vessel.add = "Fahrzeug hinzufügen";
+view.setup.vessel.edit = "Änderungen speichern";
+view.editor.distance.unit = "Einheit"; // als Maßeinheit (Länge)
+view.editor.distance.feet = "Fuß"; // Maßeinheit, imperial
+view.editor.distance.meters = "Meter"; // Maßeinheit, SI
+
+view.multiple.latitude = "Breitengrad";
+view.multiple.longitude = "Längengrad";
