@@ -128,6 +128,7 @@
 		9AB57D902B3F369F00FC09EE /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9AB57D912B3F38D000FC09EE /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9AB57D922B3F38D500FC09EE /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		9AB57D932B3F3DAC00FC09EE /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9AD096472B3692BF009AF04B /* StrokeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -399,6 +400,7 @@
 				sv,
 				"pt-BR",
 				"pt-PT",
+				"es-419",
 			);
 			mainGroup = 9A0D79792B20BC3500E83F11;
 			packageReferences = (
@@ -536,6 +538,7 @@
 				9AB57D902B3F369F00FC09EE /* sv */,
 				9AB57D912B3F38D000FC09EE /* pt-BR */,
 				9AB57D922B3F38D500FC09EE /* pt-PT */,
+				9AB57D932B3F3DAC00FC09EE /* es-419 */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

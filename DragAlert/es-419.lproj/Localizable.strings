@@ -1,0 +1,53 @@
+/*
+  Localizable.strings
+  Drag Alert
+
+  Created by Peter Molettiere on 15/12/23.
+  
+*/
+
+view.toolbar.alarm = "Alarma";
+view.toolbar.alarm.enable = "Habilitar";
+view.toolbar.alarm.disable.idle = "Desactivar en Inactividad";
+view.toolbar.alarm.snooze = "Siesta";
+view.toolbar.alarm.test = "Prueba";
+view.toolbar.anchor = "Ancla";
+view.toolbar.new = "Nueva Posición";
+view.toolbar.adjust = "Ajustar";
+view.toolbar.reset = "Restablecer Última";
+view.toolbar.cancel = "Cancelar";
+view.toolbar.edit.vessel = "Editar Embarcación";
+
+view.map.warn.volume.low = "¡Volumen Bajo!";
+view.map.volume = "Volumen";
+
+view.anchoring.relative = "Relativo";
+view.anchoring.current = "Actual";
+view.anchoring.rodeLength = "Longitud de la Amarrilla";  // sustantivo, náutico, se refiere a la cadena y/o cuerda que conecta el ancla al barco
+view.anchoring.distance = "Distancia";
+view.anchoring.bearing = "Rumbo";
+view.anchoring.would.alarm = "Fuera del Radio de Alarma";
+view.anchoring.no.alarm = "Dentro del Radio de Alarma";
+view.anchoring.button.current = "Soltar Ancla";
+view.anchoring.button.relative = "Soltar Ancla";
+view.anchoring.button.cancel = "Cancelar";
+
+view.setup.title = "Permiso Requerido";
+view.setup.explain.while = "Drag Alert rastrea la ubicación de su embarcación para determinar si está dentro del radio de anclaje previsto.";
+view.setup.whileUsing = "Permitir Mientras Usa"; // configuración de ubicación del sistema iOS
+view.setup.explain.always = "Si desea que la aplicación supervise su ubicación en segundo plano, también necesita el permiso 'Permitir Siempre'.";
+view.setup.alwaysAllow = "Permitir Siempre"; // configuración de ubicación del sistema iOS
+view.setup.warn.wifi = "Debe mantener activado el Wi-Fi al usar esta aplicación, ya que desactivarlo deshabilita el GPS.";
+view.setup.done.button = "Listo";
+view.setup.vessel.title = "Configurar su Embarcación";
+view.setup.vessel.name = "Nombre de la Embarcación";
+view.setup.vessel.loa = "Eslora Total"; // abreviatura, náutico, Eslora Total
+view.setup.vessel.rodeLength = "Longitud Máx. de la Amarrilla"; // sustantivo, náutico, se refiere a la cadena y/o cuerda que conecta el ancla al barco
+view.setup.vessel.add = "Agregar Embarcación";
+view.setup.vessel.edit = "Guardar Cambios";
+view.editor.distance.unit = "Unidad"; // como en unidad de medida (longitud)
+view.editor.distance.feet = "Pies"; // unidad de longitud, Imperial
+view.editor.distance.meters = "Metros"; // unidad de longitud, SI
+
+view.multiple.latitude = "Latitud";
+view.multiple.longitude = "Longitud";
