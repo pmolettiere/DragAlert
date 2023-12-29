@@ -129,6 +129,8 @@
 		9AB57D912B3F38D000FC09EE /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9AB57D922B3F38D500FC09EE /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9AB57D932B3F3DAC00FC09EE /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		9AB57D942B3F3F2300FC09EE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		9AB57D952B3F3F2900FC09EE /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9AD096472B3692BF009AF04B /* StrokeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -401,6 +403,8 @@
 				"pt-BR",
 				"pt-PT",
 				"es-419",
+				"zh-Hant",
+				"zh-HK",
 			);
 			mainGroup = 9A0D79792B20BC3500E83F11;
 			packageReferences = (
@@ -539,6 +543,8 @@
 				9AB57D912B3F38D000FC09EE /* pt-BR */,
 				9AB57D922B3F38D500FC09EE /* pt-PT */,
 				9AB57D932B3F3DAC00FC09EE /* es-419 */,
+				9AB57D942B3F3F2300FC09EE /* zh-Hant */,
+				9AB57D952B3F3F2900FC09EE /* zh-HK */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
