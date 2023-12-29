@@ -44,7 +44,6 @@ extension AnchoringViewModel : AnchorMarkerModel {
     
     func getLocationLog() -> [Location] {
         if let anchor = vessel.anchor {
-            let n = anchor.log.count
             var m = anchor.log.count - 100
             if m < 0 { m = 0 }
             return Array(anchor.log[m...])

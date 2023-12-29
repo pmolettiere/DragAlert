@@ -108,7 +108,7 @@ struct Location : Codable, Equatable {
     /// accuracy. False indicates the lat/long coords specify two points further apart than the given distance, disregarding
     /// the accuracy of the two positions.
     func isWithin(meters: Double, of: Location) -> Bool {
-        let (distance, accuracy) = distance(from: of)
+        let (distance, _) = distance(from: of)
         return distance < meters
     }
     
