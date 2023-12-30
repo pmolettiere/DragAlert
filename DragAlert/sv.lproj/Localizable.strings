@@ -1,17 +1,8 @@
-/*
-  Localizable.strings
-  Drag Alert
-
-
-  Created by Peter Molettiere on 15/12/23.
-  
-*/
-
 view.toolbar.alarm = "Larm";
 view.toolbar.alarm.enable = "Aktivera";
 view.toolbar.alarm.disable.idle = "Inaktivera vid inaktivitet";
-view.toolbar.alarm.snooze = "Snooze";
-view.toolbar.alarm.test = "Test";
+view.toolbar.alarm.snooze = "Snooza";
+view.toolbar.alarm.test = "Testa";
 view.toolbar.anchor = "Ankare";
 view.toolbar.new = "Ny position";
 view.toolbar.adjust = "Justera";
@@ -24,7 +15,7 @@ view.map.volume = "Volym";
 
 view.anchoring.relative = "Relativ";
 view.anchoring.current = "Aktuell";
-view.anchoring.rodeLength = "Trosslängd";  // substantiv, nautiskt, betecknar kedjan och/eller repet som förbinder ankaret med båten
+view.anchoring.rodeLength = "Ankartrossens längd";
 view.anchoring.distance = "Avstånd";
 view.anchoring.bearing = "Bäring";
 view.anchoring.would.alarm = "Utanför larmradie";
@@ -33,22 +24,40 @@ view.anchoring.button.current = "Släpp ankare";
 view.anchoring.button.relative = "Släpp ankare";
 view.anchoring.button.cancel = "Avbryt";
 
-view.setup.title = "Behörighet krävs";
-view.setup.explain.while = "Drag Alert följer din båts position för att avgöra om den befinner sig inom din avsedda ankarradiosfär.";
-view.setup.whileUsing = "Tillåt under användning"; // iOS-systemets platsinställningsvärde
-view.setup.explain.always = "Om du vill att appen ska övervaka din plats i bakgrunden krävs också behörigheten 'Alltid tillåt'.";
-view.setup.alwaysAllow = "Alltid tillåt"; // iOS-systemets platsinställningsvärde
-view.setup.warn.wifi = "Du bör hålla WiFi aktiverat när du använder den här appen, eftersom att stänga av det inaktiverar din GPS.";
+view.setup.title = "Tillstånd krävs";
+view.setup.explain.while = "Drag Alert spårar din fartygsplats för att avgöra om det är inom din avsedda ankarradie.";
+view.setup.whileUsing = "Tillåt vid användning";
+view.setup.explain.always = "Om du vill att appen ska övervaka din plats i bakgrunden behövs även tillståndet 'Alltid tillåten'.";
+view.setup.alwaysAllow = "Alltid tillåten";
+view.setup.warn.wifi = "Du bör hålla Wi-Fi aktiverat när du använder appen, eftersom att stänga av det inaktiverar din GPS.";
 view.setup.done.button = "Klar";
 view.setup.vessel.title = "Konfigurera ditt fartyg";
 view.setup.vessel.name = "Fartygsnamn";
-view.setup.vessel.loa = "LÖA"; // förkortning, nautiskt, längd över allt
-view.setup.vessel.rodeLength = "Max trosslängd"; // substantiv, nautiskt, betecknar kedjan och/eller repet som förbinder ankaret med båten
+view.setup.vessel.loa = "LOA";
+view.setup.vessel.rodeLength = "Max trosslängd";
 view.setup.vessel.add = "Lägg till fartyg";
 view.setup.vessel.edit = "Spara ändringar";
-view.editor.distance.unit = "Enhet"; // som i måttenhet (längd)
-view.editor.distance.feet = "Fot"; // måttenhet, imperial
-view.editor.distance.meters = "Meter"; // måttenhet, SI
+view.editor.distance.unit = "Enhet";
+view.editor.distance.feet = "Fot";
+view.editor.distance.meters = "Meter";
 
 view.multiple.latitude = "Latitud";
 view.multiple.longitude = "Longitud";
+
+tip.maptoolbar.disable.idle.title = "Förhindra skärmavmörkning";
+tip.maptoolbar.disable.idle.message = "Välj 'Inaktivera vid inaktivitet' i larmmenyn i verktygsfältet nedan för att förhindra skärmavmörkning och låsning av skärmen. Detta kan påverka batteritiden negativt, men hjälper till att förhindra att Drag Alert pausas i bakgrunden.";
+
+tip.map.low.volume.title = "Missa inte ett larm!";
+tip.map.low.volume.message = "Låg volymvarning och skjutreglaget visas endast om enhetens volym är inställd under 50%. Du kan justera volymen med volymknapparna på din telefon eller reglaget.";
+
+tip.map.adjust.title = "Justera det aktuella larmet";
+tip.map.adjust.message = "Använd 'Justera' i ankarmenyn i verktygsfältet för att ändra parametrarna för ditt nuvarande ankare. Du behåller loggen över ditt fartygs svängande positioner.";
+
+tip.map.reset.title = "Återställ ditt senaste ankare";
+tip.map.reset.message = "Använd 'Återställ senaste' i ankarmenyn i verktygsfältet för att släppa ankaret på samma plats och med samma trosslängd som du använde senast.";
+
+tip.map.legend.title = "Läs kartan";
+tip.map.legend.message = "Den inre gula cirkeln är den längsta punkt din båge kan svänga från ankaret med trossen i bruk. Den yttre röda cirkeln är den längsta punkt din akter kan svänga, baserat på din LOA och mängden tross som används. Det blå skuggade området runt din fartygsmarkör visar GPS-marginalen för dina senaste positionsfixar.";
+
+tip.map.set.title = "Sätt ankare!";
+tip.map.set.message = "Ställ in din ankarpunkt och svängradie från menyn 'Ny position' under ankarknappen i verktygsfältet.";

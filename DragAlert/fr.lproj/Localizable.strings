@@ -1,54 +1,63 @@
-/*
-  Localizable.strings
-  Drag Alert
-
-
-  Created by Peter Molettiere on 15/12/23.
-  
-*/
-
 view.toolbar.alarm = "Alarme";
 view.toolbar.alarm.enable = "Activer";
-view.toolbar.alarm.disable.idle = "Désactiver en veille";
-view.toolbar.alarm.snooze = "Snooze";
+view.toolbar.alarm.disable.idle = "Désactiver l'Inactivité";
+view.toolbar.alarm.snooze = "Répétition";
 view.toolbar.alarm.test = "Test";
 view.toolbar.anchor = "Ancre";
-view.toolbar.new = "Nouvelle position";
+view.toolbar.new = "Nouvelle Position";
 view.toolbar.adjust = "Ajuster";
-view.toolbar.reset = "Réinitialiser dernier";
+view.toolbar.reset = "Réinitialiser Dernière";
 view.toolbar.cancel = "Annuler";
-view.toolbar.edit.vessel = "Éditer le navire";
+view.toolbar.edit.vessel = "Modifier Vaisseau";
 
-view.map.warn.volume.low = "Volume faible !";
+view.map.warn.volume.low = "Volume Faible !";
 view.map.volume = "Volume";
 
 view.anchoring.relative = "Relatif";
-view.anchoring.current = "Courant";
-view.anchoring.rodeLength = "Chaine";  // nom, maritime, désigne la chaîne et/ou la corde reliant l'ancre au bateau
+view.anchoring.current = "Actuel";
+view.anchoring.rodeLength = "Câble";
 view.anchoring.distance = "Distance";
 view.anchoring.bearing = "Relèvement";
-view.anchoring.would.alarm = "Hors de la zone d'alarme";
-view.anchoring.no.alarm = "À l'intérieur de la zone d'alarme";
-view.anchoring.button.current = "Lâcher l'ancre";
-view.anchoring.button.relative = "Lâcher l'ancre";
+view.anchoring.would.alarm = "Hors Rayon d'Alarme";
+view.anchoring.no.alarm = "À l'Intérieur du Rayon d'Alarme";
+view.anchoring.button.current = "Lâcher l'Ancre";
+view.anchoring.button.relative = "Lâcher l'Ancre";
 view.anchoring.button.cancel = "Annuler";
 
-view.setup.title = "Permission requise";
-view.setup.explain.while = "Drag Alert suit la position de votre navire pour déterminer s'il se trouve dans votre zone d'ancrage prévue.";
-view.setup.whileUsing = "Autoriser pendant l'utilisation"; // Paramètre de localisation du système iOS
+view.setup.title = "Autorisations Requises";
+view.setup.explain.while = "Drag Alert suit la position de votre navire pour déterminer s'il se trouve à l'intérieur du rayon d'ancrage prévu.";
+view.setup.whileUsing = "Autoriser pendant l'utilisation"; // iOS system location setting value
 view.setup.explain.always = "Si vous souhaitez que l'application surveille votre position en arrière-plan, elle a également besoin de l'autorisation 'Toujours autoriser'.";
-view.setup.alwaysAllow = "Toujours autoriser"; // Paramètre de localisation du système iOS
-view.setup.warn.wifi = "Vous devriez laisser le WiFi activé pendant l'utilisation de cette application, car le désactiver désactive votre GPS.";
+view.setup.alwaysAllow = "Toujours Autoriser"; // iOS system location setting value
+view.setup.warn.wifi = "Vous devez activer le WiFi pendant l'utilisation de cette application, car le désactiver désactive le GPS.";
 view.setup.done.button = "Terminé";
-view.setup.vessel.title = "Configuration de votre navire";
-view.setup.vessel.name = "Nom du navire";
-view.setup.vessel.loa = "LHT"; // Abréviation, maritime, Longueur hors tout
-view.setup.vessel.rodeLength = "Longueur max de la chaîne"; // nom, maritime, désigne la chaîne et/ou la corde reliant l'ancre au bateau
-view.setup.vessel.add = "Ajouter un navire";
-view.setup.vessel.edit = "Enregistrer les modifications";
+view.setup.vessel.title = "Configurer Votre Navire";
+view.setup.vessel.name = "Nom du Navire";
+view.setup.vessel.loa = "LHT"; // abréviation, maritime, Longueur Hors Tout
+view.setup.vessel.rodeLength = "Longueur du Câble Max"; // nom, maritime, chaîne et/ou corde reliant l'ancre au bateau
+view.setup.vessel.add = "Ajouter Navire";
+view.setup.vessel.edit = "Sauvegarder les Modifications";
 view.editor.distance.unit = "Unité"; // comme unité de mesure (longueur)
-view.editor.distance.feet = "Pieds"; // unité de longueur, impériale
+view.editor.distance.feet = "Pieds"; // unité de longueur, Impériale
 view.editor.distance.meters = "Mètres"; // unité de longueur, SI
 
 view.multiple.latitude = "Latitude";
 view.multiple.longitude = "Longitude";
+
+tip.maptoolbar.disable.idle.title = "Empêcher la Diminution de la Luminosité";
+tip.maptoolbar.disable.idle.message = "Choisissez \"Désactiver l'Inactivité\" dans le menu d'alarme dans la barre d'outils ci-dessous pour éviter que la luminosité ne diminue et que l'écran ne se verrouille. Cela peut avoir un impact négatif sur la durée de vie de la batterie, mais cela peut aider à empêcher Drag Alert d'être mis en pause en arrière-plan.";
+
+tip.map.low.volume.title = "Ne Ratez Pas une Alarme !";
+tip.map.low.volume.message = "L'avertissement de volume faible et le curseur n'apparaîtront que si le volume de votre appareil est réglé en dessous de 50%. Vous pouvez ajuster le volume avec les boutons de volume de votre téléphone ou le curseur.";
+
+tip.map.adjust.title = "Ajustez l'Alarme Actuelle";
+tip.map.adjust.message = "Utilisez \"Ajuster\" dans le menu d'ancrage dans la barre d'outils pour changer les paramètres de votre ancre actuelle. Vous garderez la trace des emplacements de mouvement de votre navire.";
+
+tip.map.reset.title = "Réinitialisez Votre Dernière Ancre";
+tip.map.reset.message = "Utilisez \"Réinitialiser Dernière\" dans le menu d'ancrage dans la barre d'outils pour lâcher l'ancre au même endroit et avec la même longueur de câble que la dernière fois que vous l'avez réglée.";
+
+tip.map.legend.title = "Lisez la Carte";
+tip.map.legend.message = "Le cercle jaune intérieur est le point le plus éloigné où votre proue peut se balancer depuis l'ancre avec le câble en cours d'utilisation. Le cercle rouge extérieur est le point le plus éloigné où votre poupe peut se balancer, en fonction de votre LHT et de la longueur de câble en cours d'utilisation. La zone ombragée en bleu autour de votre repère de navire montre la marge d'erreur GPS pour vos dernières positions fixes.";
+
+tip.map.set.title = "Larguez l'Ancre !";
+tip.map.set.message = "Définissez la position de votre ancre et la portée de votre balancement depuis le menu \"Nouvelle Position\" sous le bouton d'ancre dans la barre d'outils.";

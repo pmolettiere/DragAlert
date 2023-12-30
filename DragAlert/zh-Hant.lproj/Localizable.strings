@@ -1,11 +1,3 @@
-/*
-  Localizable.strings
-  Drag Alert
-
-  Created by Peter Molettiere on 15/12/23.
-  
-*/
-
 view.toolbar.alarm = "警報";
 view.toolbar.alarm.enable = "啟用";
 view.toolbar.alarm.disable.idle = "停用閒置";
@@ -14,40 +6,58 @@ view.toolbar.alarm.test = "測試";
 view.toolbar.anchor = "錨";
 view.toolbar.new = "新位置";
 view.toolbar.adjust = "調整";
-view.toolbar.reset = "重置上次";
+view.toolbar.reset = "重設上次";
 view.toolbar.cancel = "取消";
-view.toolbar.edit.vessel = "編輯船舶";
+view.toolbar.edit.vessel = "編輯船隻";
 
 view.map.warn.volume.low = "音量過低！";
 view.map.volume = "音量";
 
 view.anchoring.relative = "相對";
 view.anchoring.current = "當前";
-view.anchoring.rodeLength = "錨鏈長度";  // 名詞，航海，指連接錨與船的鏈條和/或繩索
+view.anchoring.rodeLength = "錨繩長度";
 view.anchoring.distance = "距離";
 view.anchoring.bearing = "方位";
-view.anchoring.would.alarm = "超出警報範圍";
-view.anchoring.no.alarm = "在警報範圍內";
+view.anchoring.would.alarm = "超出警報半徑";
+view.anchoring.no.alarm = "在警報半徑內";
 view.anchoring.button.current = "放下錨";
 view.anchoring.button.relative = "放下錨";
 view.anchoring.button.cancel = "取消";
 
 view.setup.title = "需要權限";
-view.setup.explain.while = "Drag Alert追蹤您的船舶位置，以確定它是否在您預期的錨地半徑內。";
-view.setup.whileUsing = "使用期間允許"; // iOS系統位置設置值
-view.setup.explain.always = "如果您希望應用程序在後台監控您的位置，則還需要“始終允許”權限。";
-view.setup.alwaysAllow = "始終允許"; // iOS系統位置設置值
-view.setup.warn.wifi = "在使用此應用程序時應保持Wi-Fi啟用，因為關閉Wi-Fi將禁用您的GPS。";
+view.setup.explain.while = "Drag Alert 追蹤船隻位置，以確定是否在預定錨地半徑內。";
+view.setup.whileUsing = "使用中允許";
+view.setup.explain.always = "如果要使應用程式在背景監控您的位置，還需要「始終允許」權限。";
+view.setup.alwaysAllow = "始終允許";
+view.setup.warn.wifi = "使用此應用程式時，應保持 Wi-Fi 啟用，因為關閉 Wi-Fi 會禁用 GPS。";
 view.setup.done.button = "完成";
-view.setup.vessel.title = "設置您的船舶";
-view.setup.vessel.name = "船舶名稱";
-view.setup.vessel.loa = "總長"; // 縮寫，航海，總長度
-view.setup.vessel.rodeLength = "最大錨鏈長度"; // 名詞，航海，指連接錨與船的鏈條和/或繩索
-view.setup.vessel.add = "添加船舶";
+view.setup.vessel.title = "設定您的船隻";
+view.setup.vessel.name = "船隻名稱";
+view.setup.vessel.loa = "總長（LOA）";
+view.setup.vessel.rodeLength = "最大錨繩長度";
+view.setup.vessel.add = "新增船隻";
 view.setup.vessel.edit = "保存更改";
-view.editor.distance.unit = "單位"; // 如測量單位（長度）
-view.editor.distance.feet = "英尺"; // 長度單位，英制
-view.editor.distance.meters = "米"; // 長度單位，國際制
+view.editor.distance.unit = "單位";
+view.editor.distance.feet = "英尺";
+view.editor.distance.meters = "米";
 
 view.multiple.latitude = "緯度";
 view.multiple.longitude = "經度";
+
+tip.maptoolbar.disable.idle.title = "防止螢幕變暗";
+tip.maptoolbar.disable.idle.message = "從工具欄下方的警報菜單中選擇「停用閒置」，以防止螢幕變暗和設備鎖定。這可能會對電池壽命產生負面影響，但有助於防止 Drag Alert 在背景中暫停。";
+
+tip.map.low.volume.title = "不要錯過警報！";
+tip.map.low.volume.message = "只有當設備音量設置在 50% 以下時，才會顯示低音量警告和滑塊。您可以使用手機上的音量按鈕或滑塊調整音量。";
+
+tip.map.adjust.title = "調整當前警報";
+tip.map.adjust.message = "在工具欄中的錨菜單中使用「調整」來更改當前錨的參數。您將保留船隻擺動位置的記錄。";
+
+tip.map.reset.title = "重設上次錨";
+tip.map.reset.message = "在工具欄中的錨菜單中使用「重設上次」，以在相同位置和相同錨繩長度的情況下放下錨，就像您上次設置它一樣。";
+
+tip.map.legend.title = "閱讀地圖";
+tip.map.legend.message = "內部黃色圓圈是船頭可以在使用錨繩的情況下擺動的最遠點。外部紅色圓圈是根據您的 LOA 和使用的錨繩數量，船尾可以擺動的最遠點。船隻標誌周圍的藍色陰影區域顯示了最新定位修正的 GPS 誤差。";
+
+tip.map.set.title = "扔下錨！";
+tip.map.set.message = "在工具欄下的錨按鈕下的「新位置」菜單中設置您的錨點和擺動半徑。";

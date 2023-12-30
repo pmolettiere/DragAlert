@@ -1,54 +1,63 @@
-/*
-  Localizable.strings
-  Drag Alert
-
-
-  Created by Peter Molettiere on 15/12/23.
-  
-*/
-
 view.toolbar.alarm = "Allarme";
 view.toolbar.alarm.enable = "Abilita";
-view.toolbar.alarm.disable.idle = "Disabilita inattivo";
+view.toolbar.alarm.disable.idle = "Disabilita inattività";
 view.toolbar.alarm.snooze = "Snooze";
 view.toolbar.alarm.test = "Test";
 view.toolbar.anchor = "Ancora";
-view.toolbar.new = "Nuova posizione";
+view.toolbar.new = "Nuova Posizione";
 view.toolbar.adjust = "Regola";
-view.toolbar.reset = "Ripristina ultimo";
+view.toolbar.reset = "Resetta Ultimo";
 view.toolbar.cancel = "Annulla";
-view.toolbar.edit.vessel = "Modifica nave";
+view.toolbar.edit.vessel = "Modifica Imbarcazione";
 
-view.map.warn.volume.low = "Volume basso!";
+view.map.warn.volume.low = "Volume Basso!";
 view.map.volume = "Volume";
 
 view.anchoring.relative = "Relativo";
 view.anchoring.current = "Corrente";
-view.anchoring.rodeLength = "Lunghezza catena";  // nome, nautico, indica la catena e/o la corda che collega l'ancora alla barca
+view.anchoring.rodeLength = "Cima d'ancora";
 view.anchoring.distance = "Distanza";
 view.anchoring.bearing = "Rilevamento";
-view.anchoring.would.alarm = "Fuori dall'area di allarme";
-view.anchoring.no.alarm = "All'interno dell'area di allarme";
-view.anchoring.button.current = "Getta l'ancora";
-view.anchoring.button.relative = "Getta l'ancora";
+view.anchoring.would.alarm = "Fuori Raggio Allarme";
+view.anchoring.no.alarm = "Dentro Raggio Allarme";
+view.anchoring.button.current = "Lancia Ancora";
+view.anchoring.button.relative = "Lancia Ancora";
 view.anchoring.button.cancel = "Annulla";
 
-view.setup.title = "Permesso richiesto";
-view.setup.explain.while = "Drag Alert segue la posizione della tua imbarcazione per determinare se si trova nel raggio di ancoraggio previsto.";
-view.setup.whileUsing = "Consenti durante l'uso"; // Impostazione di localizzazione di sistema iOS
-view.setup.explain.always = "Se vuoi che l'app monitori la tua posizione in background, ha bisogno anche dell'autorizzazione 'Consenti sempre'.";
-view.setup.alwaysAllow = "Consenti sempre"; // Impostazione di localizzazione di sistema iOS
-view.setup.warn.wifi = "Dovresti mantenere attivo il WiFi durante l'uso di questa app, disabilitarlo disattiva il tuo GPS.";
+view.setup.title = "Autorizzazione Richiesta";
+view.setup.explain.while = "Drag Alert traccia la posizione della tua imbarcazione per determinare se si trova nel raggio di ancoraggio desiderato.";
+view.setup.whileUsing = "Consenti Durante l'Uso";
+view.setup.explain.always = "Se vuoi che l'app monitori la tua posizione in background, è necessaria anche l'autorizzazione 'Consenti Sempre'.";
+view.setup.alwaysAllow = "Consenti Sempre";
+view.setup.warn.wifi = "Dovresti mantenere attivo il Wi-Fi durante l'uso di questa app, in quanto disattivarlo disabilita il GPS.";
 view.setup.done.button = "Fatto";
-view.setup.vessel.title = "Configura la tua imbarcazione";
-view.setup.vessel.name = "Nome dell'imbarcazione";
-view.setup.vessel.loa = "Lunghezza fuori tutto"; // abbreviazione, nautica, Lunghezza fuori tutto
-view.setup.vessel.rodeLength = "Lunghezza massima della catena"; // nome, nautico, indica la catena e/o la corda che collega l'ancora alla barca
-view.setup.vessel.add = "Aggiungi imbarcazione";
-view.setup.vessel.edit = "Salva modifiche";
-view.editor.distance.unit = "Unità"; // come unità di misura (lunghezza)
-view.editor.distance.feet = "Piedi"; // unità di misura, imperiale
-view.editor.distance.meters = "Metri"; // unità di misura, SI
+view.setup.vessel.title = "Configura la Tua Imbarcazione";
+view.setup.vessel.name = "Nome Imbarcazione";
+view.setup.vessel.loa = "LOA";
+view.setup.vessel.rodeLength = "Lunghezza Cima d'ancora";
+view.setup.vessel.add = "Aggiungi Imbarcazione";
+view.setup.vessel.edit = "Salva Modifiche";
+view.editor.distance.unit = "Unità";
+view.editor.distance.feet = "Piedi";
+view.editor.distance.meters = "Metri";
 
 view.multiple.latitude = "Latitudine";
 view.multiple.longitude = "Longitudine";
+
+tip.maptoolbar.disable.idle.title = "Impedisci lo Spegnimento del Retroilluminazione";
+tip.maptoolbar.disable.idle.message = "Scegli 'Disabilita Inattività' dal menu allarme nella barra degli strumenti sottostante per impedire lo spegnimento della retroilluminazione e il blocco dello schermo. Ciò potrebbe influire negativamente sulla durata della batteria, ma aiuta a evitare che Drag Alert venga messo in pausa in background.";
+
+tip.map.low.volume.title = "Non Perdere un Allarme!";
+tip.map.low.volume.message = "L'avviso di volume basso e la barra scorrevole compariranno solo se il volume del dispositivo è impostato al di sotto del 50%. Puoi regolare il volume con i tasti del volume sul telefono o con la barra scorrevole.";
+
+tip.map.adjust.title = "Regola l'Allarme Corrente";
+tip.map.adjust.message = "Usa 'Regola' nel menu dell'ancora nella barra degli strumenti per modificare i parametri della tua ancoratura corrente. Manterrai un registro delle posizioni oscillanti della tua imbarcazione.";
+
+tip.map.reset.title = "Reimposta la Tua Ultima Ancoratura";
+tip.map.reset.message = "Usa 'Resetta Ultimo' nel menu dell'ancora nella barra degli strumenti per far cadere l'ancora nello stesso punto e con la stessa lunghezza di cima d'ancora usata l'ultima volta.";
+
+tip.map.legend.title = "Leggi la Mappa";
+tip.map.legend.message = "Il cerchio giallo interno è il punto più lontano che il tuo muso può oscillare dall'ancora con la cima d'ancora in uso. Il cerchio rosso esterno è il punto più lontano che la tua poppa può oscillare, in base alla LOA e alla quantità di cima d'ancora in uso. L'area blu ombreggiata intorno al marcatore della tua imbarcazione mostra la margine di errore GPS per le tue ultime correzioni di posizione.";
+
+tip.map.set.title = "Getta l'Ancora!";
+tip.map.set.message = "Imposta la posizione dell'ancora e il raggio di oscillazione dal menu 'Nuova Posizione' sotto il pulsante dell'ancora nella barra degli strumenti.";

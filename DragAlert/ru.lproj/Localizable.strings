@@ -1,12 +1,3 @@
-/*
-  Localizable.strings
-  Drag Alert
-
-
-  Created by Peter Molettiere on 15/12/23.
-  
-*/
-
 view.toolbar.alarm = "Сигнал тревоги";
 view.toolbar.alarm.enable = "Включить";
 view.toolbar.alarm.disable.idle = "Отключить при бездействии";
@@ -15,40 +6,58 @@ view.toolbar.alarm.test = "Тест";
 view.toolbar.anchor = "Якорь";
 view.toolbar.new = "Новая позиция";
 view.toolbar.adjust = "Настроить";
-view.toolbar.reset = "Сбросить последнее";
+view.toolbar.reset = "Сбросить последний";
 view.toolbar.cancel = "Отмена";
 view.toolbar.edit.vessel = "Редактировать судно";
 
-view.map.warn.volume.low = "Низкий уровень громкости!";
+view.map.warn.volume.low = "Низкая громкость!";
 view.map.volume = "Громкость";
 
 view.anchoring.relative = "Относительно";
-view.anchoring.current = "Текущее";
-view.anchoring.rodeLength = "Длина якорной цепи";  // существительное, морское дело, означает цепь и/или веревку, соединяющую якорь с судном
+view.anchoring.current = "Текущий";
+view.anchoring.rodeLength = "Длина веревки";
 view.anchoring.distance = "Расстояние";
-view.anchoring.bearing = "Азимут";
+view.anchoring.bearing = "Направление";
 view.anchoring.would.alarm = "Вне радиуса сигнала тревоги";
 view.anchoring.no.alarm = "Внутри радиуса сигнала тревоги";
-view.anchoring.button.current = "Отбросить якорь";
-view.anchoring.button.relative = "Отбросить якорь";
+view.anchoring.button.current = "Сбросить якорь";
+view.anchoring.button.relative = "Сбросить якорь";
 view.anchoring.button.cancel = "Отмена";
 
 view.setup.title = "Требуется разрешение";
 view.setup.explain.while = "Drag Alert отслеживает местоположение вашего судна, чтобы определить, находится ли оно в предполагаемом радиусе якорения.";
-view.setup.whileUsing = "Разрешить при использовании"; // значение настройки местоположения системы iOS
-view.setup.explain.always = "Если вы хотите, чтобы приложение отслеживало ваше местоположение в фоновом режиме, оно также нуждается в разрешении 'Всегда разрешено'.";
-view.setup.alwaysAllow = "Всегда разрешено"; // значение настройки местоположения системы iOS
-view.setup.warn.wifi = "Вы должны держать включенным Wi-Fi при использовании этого приложения, так как отключение его отключает GPS.";
+view.setup.whileUsing = "Разрешить при использовании";
+view.setup.explain.always = "Если вы хотите, чтобы приложение отслеживало ваше местоположение в фоновом режиме, также требуется разрешение 'Всегда'.";
+view.setup.alwaysAllow = "Всегда разрешать";
+view.setup.warn.wifi = "Рекомендуется включить Wi-Fi при использовании этого приложения, так как отключение его приведет к выключению GPS.";
 view.setup.done.button = "Готово";
 view.setup.vessel.title = "Настройка вашего судна";
-view.setup.vessel.name = "Название судна";
-view.setup.vessel.loa = "Длина общая"; // аббревиатура, морское дело, Длина Общая
-view.setup.vessel.rodeLength = "Макс. длина якорной цепи"; // существительное, морское дело, означает цепь и/или веревку, соединяющую якорь с судном
+view.setup.vessel.name = "Имя судна";
+view.setup.vessel.loa = "LOA";
+view.setup.vessel.rodeLength = "Макс. длина веревки";
 view.setup.vessel.add = "Добавить судно";
 view.setup.vessel.edit = "Сохранить изменения";
-view.editor.distance.unit = "Единица"; // как в единице измерения (длина)
-view.editor.distance.feet = "Фут"; // единица длины, Имперская
-view.editor.distance.meters = "Метр"; // единица длины, СИ
+view.editor.distance.unit = "Единица измерения";
+view.editor.distance.feet = "Футы";
+view.editor.distance.meters = "Метры";
 
 view.multiple.latitude = "Широта";
 view.multiple.longitude = "Долгота";
+
+tip.maptoolbar.disable.idle.title = "Предотвратить затемнение экрана";
+tip.maptoolbar.disable.idle.message = "Выберите 'Отключить при бездействии' в меню тревоги на панели инструментов ниже, чтобы предотвратить затемнение экрана и блокировку устройства. Это может отрицательно сказаться на времени работы от батареи, но поможет предотвратить приостановку Drag Alert в фоновом режиме.";
+
+tip.map.low.volume.title = "Не пропустите сигнал тревоги!";
+tip.map.low.volume.message = "Предупреждение о низком уровне громкости и ползунок появятся только при уровне громкости устройства менее 50%. Вы можете регулировать громкость кнопками громкости на телефоне или ползунком.";
+
+tip.map.adjust.title = "Настройте текущий сигнал тревоги";
+tip.map.adjust.message = "Используйте 'Настроить' в меню якоря на панели инструментов, чтобы изменить параметры текущего якоря. Вы сохраните лог положений вашего судна в качающемся состоянии.";
+
+tip.map.reset.title = "Сбросьте последний якорь";
+tip.map.reset.message = "Используйте 'Сбросить последний' в меню якоря на панели инструментов, чтобы опустить якорь в том же месте и с той же длиной веревки, что и в последний раз.";
+
+tip.map.legend.title = "Читайте карту";
+tip.map.legend.message = "Внутренний желтый круг - самая дальняя точка, на которую ваш нос может качаться от якоря с использованием веревки. Внешний красный круг - самая дальняя точка, на которую ваш корм может качаться, основываясь на LOA и количестве используемой веревки. Синяя теневая зона вокруг маркера вашего судна показывает GPS-погрешность для ваших последних корректировок местоположения.";
+
+tip.map.set.title = "Отпустите якорь!";
+tip.map.set.message = "Установите позицию якоря и радиус качания из меню 'Новая позиция' под кнопкой якоря на панели инструментов.";

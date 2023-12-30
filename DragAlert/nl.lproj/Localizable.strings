@@ -1,53 +1,63 @@
-/*
-  Localizable.strings
-  Drag Alert
-
-  Created by Peter Molettiere on 15/12/23.
-  
-*/
-
 view.toolbar.alarm = "Alarm";
 view.toolbar.alarm.enable = "Inschakelen";
-view.toolbar.alarm.disable.idle = "Uitschakelen bij inactiviteit";
+view.toolbar.alarm.disable.idle = "Uitschakelen bij Inactiviteit";
 view.toolbar.alarm.snooze = "Snooze";
 view.toolbar.alarm.test = "Test";
 view.toolbar.anchor = "Anker";
-view.toolbar.new = "Nieuwe positie";
+view.toolbar.new = "Nieuwe Positie";
 view.toolbar.adjust = "Aanpassen";
-view.toolbar.reset = "Laatste resetten";
+view.toolbar.reset = "Herstel Laatste";
 view.toolbar.cancel = "Annuleren";
-view.toolbar.edit.vessel = "Vaartuig bewerken";
+view.toolbar.edit.vessel = "Bewerk Schip";
 
-view.map.warn.volume.low = "Laag volume!";
+view.map.warn.volume.low = "Laag Volume!";
 view.map.volume = "Volume";
 
 view.anchoring.relative = "Relatief";
 view.anchoring.current = "Huidig";
-view.anchoring.rodeLength = "Lengte ankerlijn";  // zelfstandig naamwoord, nautisch, verwijst naar de ketting en/of het touw dat het anker met de boot verbindt
+view.anchoring.rodeLength = "Ankerlijn";
 view.anchoring.distance = "Afstand";
-view.anchoring.bearing = "Peiling";
-view.anchoring.would.alarm = "Buiten alarmstraal";
-view.anchoring.no.alarm = "Binnen alarmstraal";
-view.anchoring.button.current = "Anker laten vallen";
-view.anchoring.button.relative = "Anker laten vallen";
+view.anchoring.bearing = "Richting";
+view.anchoring.would.alarm = "Buiten Alarm Radius";
+view.anchoring.no.alarm = "Binnen Alarm Radius";
+view.anchoring.button.current = "Laat Anker Vallen";
+view.anchoring.button.relative = "Laat Anker Vallen";
 view.anchoring.button.cancel = "Annuleren";
 
-view.setup.title = "Toestemming vereist";
-view.setup.explain.while = "Drag Alert volgt de locatie van uw vaartuig om te bepalen of het binnen uw beoogde ankerstraal ligt.";
-view.setup.whileUsing = "Toestaan tijdens gebruik"; // iOS-systeemlocatie-instelling
-view.setup.explain.always = "Als u wilt dat de app uw locatie op de achtergrond bewaakt, heeft deze ook de toestemming 'Altijd toestaan' nodig.";
-view.setup.alwaysAllow = "Altijd toestaan"; // iOS-systeemlocatie-instelling
-view.setup.warn.wifi = "U moet uw wifi ingeschakeld houden tijdens het gebruik van deze app, omdat uitschakelen uw GPS uitschakelt.";
-view.setup.done.button = "Klaar";
-view.setup.vessel.title = "Stel uw vaartuig in";
-view.setup.vessel.name = "Vaartuignaam";
-view.setup.vessel.loa = "LWL"; // afkorting, nautisch, Lengte Waterlijn
-view.setup.vessel.rodeLength = "Max. ankerlijn"; // zelfstandig naamwoord, nautisch, verwijst naar de ketting en/of het touw dat het anker met de boot verbindt
-view.setup.vessel.add = "Vaartuig toevoegen";
-view.setup.vessel.edit = "Wijzigingen opslaan";
-view.editor.distance.unit = "Eenheid"; // zoals in eenheid van maat (lengte)
-view.editor.distance.feet = "Voet"; // eenheid van lengte, imperiaal
-view.editor.distance.meters = "Meter"; // eenheid van lengte, SI
+view.setup.title = "Toestemming Vereist";
+view.setup.explain.while = "Drag Alert volgt de positie van uw schip om te bepalen of het binnen uw beoogde ankerplaatsradius ligt.";
+view.setup.whileUsing = "Toestaan tijdens Gebruik";
+view.setup.explain.always = "Als u wilt dat de app uw locatie op de achtergrond bewaakt, is ook de toestemming 'Altijd Toestaan' vereist.";
+view.setup.alwaysAllow = "Altijd Toestaan";
+view.setup.warn.wifi = "U moet uw WiFi ingeschakeld houden bij het gebruik van deze app, omdat het uitschakelen ervan uw GPS uitschakelt.";
+view.setup.done.button = "Gereed";
+view.setup.vessel.title = "Configureer Uw Schip";
+view.setup.vessel.name = "Schip Naam";
+view.setup.vessel.loa = "LOA";
+view.setup.vessel.rodeLength = "Max. Ankerlijn";
+view.setup.vessel.add = "Voeg Schip Toe";
+view.setup.vessel.edit = "Wijzigingen Opslaan";
+view.editor.distance.unit = "Eenheid";
+view.editor.distance.feet = "Voet";
+view.editor.distance.meters = "Meter";
 
 view.multiple.latitude = "Breedtegraad";
 view.multiple.longitude = "Lengtegraad";
+
+tip.maptoolbar.disable.idle.title = "Voorkom Scherm Dimmen";
+tip.maptoolbar.disable.idle.message = "Kies 'Uitschakelen bij Inactiviteit' uit het alarmmenu in de werkbalk hieronder om te voorkomen dat het scherm dimt en vergrendelt. Dit kan de levensduur van de batterij negatief beïnvloeden, maar voorkomt dat Drag Alert in de achtergrond wordt onderbroken.";
+
+tip.map.low.volume.title = "Mis geen Alarm!";
+tip.map.low.volume.message = "De waarschuwing voor laag volume en de schuifregelaar verschijnen alleen als het volume van uw apparaat onder de 50% staat. U kunt het volume aanpassen met de volumeknoppen op uw telefoon of de schuifregelaar.";
+
+tip.map.adjust.title = "Pas het Huidige Alarm Aan";
+tip.map.adjust.message = "Gebruik 'Aanpassen' in het anker-menu in de werkbalk om de parameters van uw huidige anker te wijzigen. U behoudt het logboek van de zwaaiende posities van uw schip.";
+
+tip.map.reset.title = "Herstel Uw Laatste Anker";
+tip.map.reset.message = "Gebruik 'Herstel Laatste' in het anker-menu in de werkbalk om het anker op dezelfde plaats en met dezelfde ankerlijnlengte te laten vallen als de laatste keer dat u het instelde.";
+
+tip.map.legend.title = "Lees de Kaart";
+tip.map.legend.message = "De binnenste gele cirkel is het verste punt waar uw boeg kan zwaaien vanaf het anker met de gebruikte ankerlijn. De buitenste rode cirkel is het verste punt waar uw hek kan zwaaien, op basis van uw LOA en de gebruikte ankerlijnlengte. Het blauw gearceerde gebied rondom uw schipmarkering toont de GPS-marge voor uw laatste locatiefixaties.";
+
+tip.map.set.title = "Laat het Anker Vallen!";
+tip.map.set.message = "Stel uw ankerpositie en zwaairadius in vanuit het menu 'Nieuwe Positie' onder de ankerknop in de werkbalk.";

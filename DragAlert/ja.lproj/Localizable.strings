@@ -1,18 +1,9 @@
-/*
-  Localizable.strings
-  Drag Alert
-
-
-  Created by Peter Molettiere on 15/12/23.
-  
-*/
-
 view.toolbar.alarm = "アラーム";
 view.toolbar.alarm.enable = "有効にする";
-view.toolbar.alarm.disable.idle = "アイドル状態を無効にする";
+view.toolbar.alarm.disable.idle = "アイドル無効";
 view.toolbar.alarm.snooze = "スヌーズ";
 view.toolbar.alarm.test = "テスト";
-view.toolbar.anchor = "アンカー";
+view.toolbar.anchor = "錨";
 view.toolbar.new = "新しい位置";
 view.toolbar.adjust = "調整";
 view.toolbar.reset = "最後をリセット";
@@ -22,33 +13,51 @@ view.toolbar.edit.vessel = "船を編集";
 view.map.warn.volume.low = "音量が低い！";
 view.map.volume = "音量";
 
-view.anchoring.relative = "相対的";
+view.anchoring.relative = "相対";
 view.anchoring.current = "現在";
-view.anchoring.rodeLength = "ロードの長さ";  // 名詞、航海、アンカーを船に繋ぐチェーンやロープを指す
+view.anchoring.rodeLength = "錨綱";
 view.anchoring.distance = "距離";
 view.anchoring.bearing = "方位";
 view.anchoring.would.alarm = "アラーム範囲外";
 view.anchoring.no.alarm = "アラーム範囲内";
-view.anchoring.button.current = "アンカーを下ろす";
-view.anchoring.button.relative = "アンカーを下ろす";
+view.anchoring.button.current = "錨を投げる";
+view.anchoring.button.relative = "錨を投げる";
 view.anchoring.button.cancel = "キャンセル";
 
-view.setup.title = "許可が必要です";
-view.setup.explain.while = "Drag Alertは船の位置を追跡し、船が意図したアンカーラジウス内にあるかどうかを判断します。";
-view.setup.whileUsing = "使用中に許可"; // iOSシステムの位置設定値
-view.setup.explain.always = "アプリがバックグラウンドで位置を監視する場合、常に許可も必要です。";
-view.setup.alwaysAllow = "常に許可"; // iOSシステムの位置設定値
-view.setup.warn.wifi = "このアプリを使用する際はWi-Fiをオンにしておく必要があります。Wi-FiをオフにするとGPSが無効になります。";
+view.setup.title = "許可が必要";
+view.setup.explain.while = "Drag Alertは船の位置を追跡し、船が意図した錨地の範囲内にあるかどうかを判断します。";
+view.setup.whileUsing = "使用中に許可";
+view.setup.explain.always = "アプリがバックグラウンドで位置を監視する場合、常に許可が必要です。";
+view.setup.alwaysAllow = "常に許可";
+view.setup.warn.wifi = "このアプリを使用する際にはWi-Fiをオンにしておく必要があります。Wi-FiをオフにするとGPSが無効になります。";
 view.setup.done.button = "完了";
-view.setup.vessel.title = "船を設定";
+view.setup.vessel.title = "船の設定";
 view.setup.vessel.name = "船の名前";
-view.setup.vessel.loa = "LOA"; // 略語、航海、全長
-view.setup.vessel.rodeLength = "最大ロード"; // 名詞、航海、アンカーを船に繋ぐチェーンやロープを指す
+view.setup.vessel.loa = "LOA";
+view.setup.vessel.rodeLength = "最大錨綱";
 view.setup.vessel.add = "船を追加";
 view.setup.vessel.edit = "変更を保存";
-view.editor.distance.unit = "単位"; // 測定単位（長さなど）
-view.editor.distance.feet = "フィート"; // 長さの単位、インペリアル
-view.editor.distance.meters = "メートル"; // 長さの単位、SI
+view.editor.distance.unit = "単位";
+view.editor.distance.feet = "フィート";
+view.editor.distance.meters = "メートル";
 
 view.multiple.latitude = "緯度";
 view.multiple.longitude = "経度";
+
+tip.maptoolbar.disable.idle.title = "画面の暗転を防止";
+tip.maptoolbar.disable.idle.message = "ツールバーのアラームメニューから「アイドル無効」を選択して、画面の暗転やロックを防ぎます。これはバッテリー寿命に影響する可能性がありますが、Drag Alertがバックグラウンドで一時停止されるのを防ぎます。";
+
+tip.map.low.volume.title = "アラームを見逃さないで！";
+tip.map.low.volume.message = "デバイスの音量が50%未満の場合、低い音量の警告とスライダーが表示されます。音量は電話のボリュームボタンやスライダーで調整できます。";
+
+tip.map.adjust.title = "現在のアラームを調整";
+tip.map.adjust.message = "ツールバーのアンカーメニューで「調整」を使用して、現在のアンカーのパラメータを変更できます。船の揺れる位置のログが保持されます。";
+
+tip.map.reset.title = "最後のアンカーをリセット";
+tip.map.reset.message = "ツールバーのアンカーメニューで「最後をリセット」を使用して、最後に設定した場所と錨綱の長さでアンカーを落とすことができます。";
+
+tip.map.legend.title = "マップの読み方";
+tip.map.legend.message = "内側の黄色い円は、錨綱を使用した場合、船首が錨から最も遠くに揺れるポイントです。外側の赤い円は、LOAと使用されている錨綱の量に基づいて、船尾が最も遠くに揺れるポイントです。船のマーカー周りの青い影の部分は、最新の位置修正のGPS誤差を示しています。";
+
+tip.map.set.title = "錨を投げろ！";
+tip.map.set.message = "ツールバーのアンカーボタンの下にある「新しい位置」メニューから、アンカーの位置と揺れ半径を設定してください。";

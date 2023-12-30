@@ -1,15 +1,6 @@
-/*
-  Localizable.strings
-  Drag Alert
-
-
-  Created by Peter Molettiere on 15/12/23.
-  
-*/
-
 view.toolbar.alarm = "Alarm";
 view.toolbar.alarm.enable = "Włącz";
-view.toolbar.alarm.disable.idle = "Wyłącz w spoczynku";
+view.toolbar.alarm.disable.idle = "Wyłącz w bezczynności";
 view.toolbar.alarm.snooze = "Drzemka";
 view.toolbar.alarm.test = "Test";
 view.toolbar.anchor = "Kotwica";
@@ -17,38 +8,56 @@ view.toolbar.new = "Nowa pozycja";
 view.toolbar.adjust = "Dostosuj";
 view.toolbar.reset = "Resetuj ostatni";
 view.toolbar.cancel = "Anuluj";
-view.toolbar.edit.vessel = "Edytuj jednostkę";
+view.toolbar.edit.vessel = "Edytuj statek";
 
-view.map.warn.volume.low = "Niski poziom dźwięku!";
+view.map.warn.volume.low = "Niskie volume!";
 view.map.volume = "Głośność";
 
 view.anchoring.relative = "Względny";
 view.anchoring.current = "Bieżący";
-view.anchoring.rodeLength = "Długość lin kotwicznej";  // rzeczownik, żeglarski, oznacza łańcuch i/lub linę łączącą kotwicę z łodzią
+view.anchoring.rodeLength = "Długość cumy";
 view.anchoring.distance = "Odległość";
-view.anchoring.bearing = "Kąt";
+view.anchoring.bearing = "Ładunek";
 view.anchoring.would.alarm = "Poza obszarem alarmowym";
 view.anchoring.no.alarm = "Wewnątrz obszaru alarmowego";
-view.anchoring.button.current = "Opuszczanie kotwicy";
-view.anchoring.button.relative = "Opuszczanie kotwicy";
+view.anchoring.button.current = "Zrzuć kotwicę";
+view.anchoring.button.relative = "Zrzuć kotwicę";
 view.anchoring.button.cancel = "Anuluj";
 
 view.setup.title = "Wymagane uprawnienia";
-view.setup.explain.while = "Drag Alert śledzi położenie twojego jednostki, aby określić, czy znajduje się w zamierzonym promieniu kotwiczenia.";
-view.setup.whileUsing = "Zezwalaj podczas korzystania"; // ustawienie lokalizacji systemu iOS
-view.setup.explain.always = "Jeśli chcesz, aby aplikacja monitorowała twoje położenie z tyłu, wymaga również zgody na 'Zawsze zezwalaj'.";
-view.setup.alwaysAllow = "Zawsze zezwalaj"; // ustawienie lokalizacji systemu iOS
-view.setup.warn.wifi = "Powinieneś mieć włączone Wi-Fi podczas korzystania z tej aplikacji, ponieważ wyłączenie go dezaktywuje twoje GPS.";
+view.setup.explain.while = "Drag Alert śledzi położenie twojego statku, aby określić, czy znajduje się w zamierzonym obszarze kotwiczenia.";
+view.setup.whileUsing = "Zezwalaj podczas używania";
+view.setup.explain.always = "Jeśli chcesz, aby aplikacja monitorowała twoje położenie w tle, wymagane jest również zezwolenie na „Zawsze”.";
+view.setup.alwaysAllow = "Zawsze zezwalaj";
+view.setup.warn.wifi = "Powinieneś trzymać włączone Wi-Fi podczas korzystania z tej aplikacji, ponieważ wyłączenie go dezaktywuje GPS.";
 view.setup.done.button = "Gotowe";
-view.setup.vessel.title = "Skonfiguruj swoją jednostkę";
-view.setup.vessel.name = "Nazwa jednostki";
-view.setup.vessel.loa = "Długość całkowita"; // skrót, żeglarski, Długość Całkowita
-view.setup.vessel.rodeLength = "Maks. długość lin kotwicznej"; // rzeczownik, żeglarski, oznacza łańcuch i/lub linę łączącą kotwicę z łodzią
-view.setup.vessel.add = "Dodaj jednostkę";
+view.setup.vessel.title = "Konfiguracja statku";
+view.setup.vessel.name = "Nazwa statku";
+view.setup.vessel.loa = "LOA";
+view.setup.vessel.rodeLength = "Maks. Długość cumy";
+view.setup.vessel.add = "Dodaj statek";
 view.setup.vessel.edit = "Zapisz zmiany";
-view.editor.distance.unit = "Jednostka"; // jak w jednostce miary (długość)
-view.editor.distance.feet = "Stopy"; // jednostka długości, Imperialna
-view.editor.distance.meters = "Metry"; // jednostka długości, SI
+view.editor.distance.unit = "Jednostka";
+view.editor.distance.feet = "Stopy";
+view.editor.distance.meters = "Metry";
 
 view.multiple.latitude = "Szerokość geograficzna";
 view.multiple.longitude = "Długość geograficzna";
+
+tip.maptoolbar.disable.idle.title = "Zapobiegaj przyciemnianiu ekranu";
+tip.maptoolbar.disable.idle.message = "Wybierz „Wyłącz w bezczynności” z menu alarmowego na pasku narzędziowym poniżej, aby zapobiec przyciemnianiu ekranu i blokowaniu urządzenia. Może to negatywnie wpłynąć na żywotność baterii, ale pomoże zapobiec zatrzymaniu Drag Alert w tle.";
+
+tip.map.low.volume.title = "Nie przegap alarmu!";
+tip.map.low.volume.message = "Ostrzeżenie o niskim poziomie głośności i suwak pojawią się tylko, jeśli poziom głośności urządzenia będzie ustawiony poniżej 50%. Możesz dostosować głośność za pomocą przycisków głośności na telefonie lub suwaka.";
+
+tip.map.adjust.title = "Dostosuj bieżący alarm";
+tip.map.adjust.message = "Użyj „Dostosuj” w menu kotwicy na pasku narzędziowym, aby zmienić parametry bieżącej kotwicy. Zachowasz dziennik pozycji kołysania twojego statku.";
+
+tip.map.reset.title = "Zresetuj ostatnią kotwicę";
+tip.map.reset.message = "Użyj „Resetuj ostatni” w menu kotwicy na pasku narzędziowym, aby upuścić kotwicę w tym samym miejscu i z taką samą długością cumy, jak ostatnim razem.";
+
+tip.map.legend.title = "Czytaj mapę";
+tip.map.legend.message = "Wewnętrzny żółty krąg to najdalszy punkt, do jakiego twój dziób może się przechylić od kotwicy przy użyciu cumy. Zewnętrzny czerwony krąg to najdalszy punkt, do jakiego twój rufa może się przechylić, w zależności od LOA i ilości używanej cumy. Niebieski zacieniony obszar wokół znacznika statku pokazuje margines błędu GPS dla twoich ostatnich poprawek lokalizacji.";
+
+tip.map.set.title = "Upuść kotwicę!";
+tip.map.set.message = "Ustaw pozycję kotwicy i promień kołysania z menu „Nowa pozycja” pod przyciskiem kotwicy na pasku narzędziowym.";

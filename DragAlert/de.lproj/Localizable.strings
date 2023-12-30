@@ -1,54 +1,63 @@
-/*
-  Localizable.strings
-  Drag Alert
-
-
-  Created by Peter Molettiere on 15/12/23.
-  
-*/
-
 view.toolbar.alarm = "Alarm";
 view.toolbar.alarm.enable = "Aktivieren";
-view.toolbar.alarm.disable.idle = "Deaktivieren im Leerlauf";
-view.toolbar.alarm.snooze = "Snooze";
-view.toolbar.alarm.test = "Test";
+view.toolbar.alarm.disable.idle = "Inaktivität deaktivieren";
+view.toolbar.alarm.snooze = "Schlummern";
+view.toolbar.alarm.test = "Testen";
 view.toolbar.anchor = "Anker";
 view.toolbar.new = "Neue Position";
 view.toolbar.adjust = "Anpassen";
-view.toolbar.reset = "Letzte zurücksetzen";
+view.toolbar.reset = "Letztes zurücksetzen";
 view.toolbar.cancel = "Abbrechen";
-view.toolbar.edit.vessel = "Fahrzeug bearbeiten";
+view.toolbar.edit.vessel = "Schiff bearbeiten";
 
-view.map.warn.volume.low = "Geringe Lautstärke!";
+view.map.warn.volume.low = "Niedrige Lautstärke!";
 view.map.volume = "Lautstärke";
 
 view.anchoring.relative = "Relativ";
 view.anchoring.current = "Aktuell";
-view.anchoring.rodeLength = "Ankertrosse";  // Substantiv, nautisch, bezeichnet die Kette und/oder das Seil, das das Anker mit dem Boot verbindet
+view.anchoring.rodeLength = "Ankerleine";
 view.anchoring.distance = "Entfernung";
 view.anchoring.bearing = "Peilung";
-view.anchoring.would.alarm = "Außerhalb des Alarmradius";
-view.anchoring.no.alarm = "Innerhalb des Alarmradius";
+view.anchoring.would.alarm = "Außerhalb Alarmradius";
+view.anchoring.no.alarm = "Innerhalb Alarmradius";
 view.anchoring.button.current = "Anker werfen";
 view.anchoring.button.relative = "Anker werfen";
 view.anchoring.button.cancel = "Abbrechen";
 
 view.setup.title = "Berechtigung erforderlich";
-view.setup.explain.while = "Drag Alert verfolgt den Standort Ihres Fahrzeugs, um festzustellen, ob es sich innerhalb Ihres beabsichtigten Ankerbereichs befindet.";
-view.setup.whileUsing = "Erlauben während der Nutzung"; // iOS-Systemeinstellung für den Standort
-view.setup.explain.always = "Wenn Sie möchten, dass die App Ihren Standort im Hintergrund überwacht, benötigt sie auch die Berechtigung 'Immer erlauben'.";
-view.setup.alwaysAllow = "Immer erlauben"; // iOS-Systemeinstellung für den Standort
+view.setup.explain.while = "Drag Alert verfolgt die Position Ihres Schiffs, um zu bestimmen, ob es sich innerhalb Ihres beabsichtigten Ankerplatzradius befindet.";
+view.setup.whileUsing = "Erlauben während Nutzung";
+view.setup.explain.always = "Wenn Sie möchten, dass die App Ihren Standort im Hintergrund überwacht, ist auch die Berechtigung 'Immer erlauben' erforderlich.";
+view.setup.alwaysAllow = "Immer erlauben";
 view.setup.warn.wifi = "Sie sollten Ihr WLAN eingeschaltet lassen, während Sie diese App verwenden, da das Ausschalten Ihr GPS deaktiviert.";
 view.setup.done.button = "Fertig";
-view.setup.vessel.title = "Ihr Fahrzeug einrichten";
-view.setup.vessel.name = "Fahrzeugname";
-view.setup.vessel.loa = "LÜA"; // Abkürzung, nautisch, Länge über alles
-view.setup.vessel.rodeLength = "Max. Ankertrosse"; // Substantiv, nautisch, bezeichnet die Kette und/oder das Seil, das das Anker mit dem Boot verbindet
-view.setup.vessel.add = "Fahrzeug hinzufügen";
+view.setup.vessel.title = "Richten Sie Ihr Schiff ein";
+view.setup.vessel.name = "Schiffname";
+view.setup.vessel.loa = "LOA";
+view.setup.vessel.rodeLength = "Max. Ankerleine";
+view.setup.vessel.add = "Schiff hinzufügen";
 view.setup.vessel.edit = "Änderungen speichern";
-view.editor.distance.unit = "Einheit"; // als Maßeinheit (Länge)
-view.editor.distance.feet = "Fuß"; // Maßeinheit, imperial
-view.editor.distance.meters = "Meter"; // Maßeinheit, SI
+view.editor.distance.unit = "Einheit";
+view.editor.distance.feet = "Fuß";
+view.editor.distance.meters = "Meter";
 
 view.multiple.latitude = "Breitengrad";
 view.multiple.longitude = "Längengrad";
+
+tip.maptoolbar.disable.idle.title = "Verhindern Sie Bildschirmabdunkelung";
+tip.maptoolbar.disable.idle.message = "Wählen Sie 'Inaktivität deaktivieren' im Alarmmenü in der Symbolleiste unten aus, um zu verhindern, dass der Bildschirm abgedunkelt wird und das Gerät gesperrt wird. Dies kann sich negativ auf die Akkulaufzeit auswirken, verhindert jedoch, dass Drag Alert im Hintergrund pausiert wird.";
+
+tip.map.low.volume.title = "Verpassen Sie keine Alarme!";
+tip.map.low.volume.message = "Die Warnung bei niedriger Lautstärke und der Schieberegler erscheinen nur, wenn die Lautstärke Ihres Geräts unter 50% liegt. Sie können die Lautstärke mit den Lautstärketasten Ihres Telefons oder dem Schieberegler anpassen.";
+
+tip.map.adjust.title = "Passen Sie den aktuellen Alarm an";
+tip.map.adjust.message = "Verwenden Sie 'Anpassen' im Anker-Menü in der Symbolleiste, um die Parameter Ihres aktuellen Ankers zu ändern. Sie behalten das Protokoll der Schwungpositionen Ihres Schiffs bei.";
+
+tip.map.reset.title = "Setzen Sie Ihren letzten Anker zurück";
+tip.map.reset.message = "Verwenden Sie 'Letztes zurücksetzen' im Anker-Menü in der Symbolleiste, um den Anker am selben Ort und mit derselben Ankerleine fallen zu lassen wie beim letzten Mal.";
+
+tip.map.legend.title = "Lese die Karte";
+tip.map.legend.message = "Der innere gelbe Kreis ist der weiteste Punkt, den Ihr Bug mit der verwendeten Ankerleine vom Anker schwingen kann. Der äußere rote Kreis ist der weiteste Punkt, den Ihr Heck schwingen kann, basierend auf Ihrer LOA und der verwendeten Ankerleine. Der blaue Schattenbereich um Ihre Schiffsmarkierung zeigt die GPS-Margin für Ihre letzten Positionsfixierungen.";
+
+tip.map.set.title = "Werfen Sie den Anker!";
+tip.map.set.message = "Setzen Sie Ihre Ankerposition und Ihren Schwingungsradius im Menü 'Neue Position' unter dem Ankerknopf in der Symbolleiste.";

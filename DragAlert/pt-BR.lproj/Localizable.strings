@@ -1,15 +1,6 @@
-/*
-  Localizable.strings
-  Drag Alert
-
-
-  Created by Peter Molettiere on 15/12/23.
-  
-*/
-
 view.toolbar.alarm = "Alarme";
 view.toolbar.alarm.enable = "Ativar";
-view.toolbar.alarm.disable.idle = "Desativar em Inatividade";
+view.toolbar.alarm.disable.idle = "Desativar Inatividade";
 view.toolbar.alarm.snooze = "Soneca";
 view.toolbar.alarm.test = "Testar";
 view.toolbar.anchor = "Âncora";
@@ -24,9 +15,9 @@ view.map.volume = "Volume";
 
 view.anchoring.relative = "Relativo";
 view.anchoring.current = "Atual";
-view.anchoring.rodeLength = "Comprimento do Cabo";  // substantivo, náutico, refere-se à corrente e/ou corda que conecta a âncora ao barco
+view.anchoring.rodeLength = "Comprimento do Cabo";
 view.anchoring.distance = "Distância";
-view.anchoring.bearing = "Rumo";
+view.anchoring.bearing = "Orientação";
 view.anchoring.would.alarm = "Fora do Raio de Alarme";
 view.anchoring.no.alarm = "Dentro do Raio de Alarme";
 view.anchoring.button.current = "Solte a Âncora";
@@ -35,20 +26,38 @@ view.anchoring.button.cancel = "Cancelar";
 
 view.setup.title = "Permissão Necessária";
 view.setup.explain.while = "O Drag Alert rastreia a localização da sua embarcação para determinar se ela está dentro do raio de ancoragem pretendido.";
-view.setup.whileUsing = "Permitir Durante o Uso"; // configuração de localização do sistema iOS
-view.setup.explain.always = "Se deseja que o aplicativo monitore sua localização em segundo plano, também é necessário a permissão 'Sempre Permitir'.";
-view.setup.alwaysAllow = "Sempre Permitir"; // configuração de localização do sistema iOS
-view.setup.warn.wifi = "Você deve manter o Wi-Fi ativado ao usar este aplicativo, pois desativá-lo desabilita o GPS.";
+view.setup.whileUsing = "Permitir Durante o Uso";
+view.setup.explain.always = "Se deseja que o aplicativo monitore sua localização em segundo plano, também é necessário o consentimento 'Permitir Sempre'.";
+view.setup.alwaysAllow = "Permitir Sempre";
+view.setup.warn.wifi = "Você deve manter o Wi-Fi ativado ao usar este aplicativo, pois desativá-lo desativa o GPS.";
 view.setup.done.button = "Concluído";
-view.setup.vessel.title = "Configurar Sua Embarcação";
+view.setup.vessel.title = "Configurar sua Embarcação";
 view.setup.vessel.name = "Nome da Embarcação";
-view.setup.vessel.loa = "CP"; // abreviação, náutico, Comprimento no Total
-view.setup.vessel.rodeLength = "Comprimento Máx. do Cabo"; // substantivo, náutico, refere-se à corrente e/ou corda que conecta a âncora ao barco
+view.setup.vessel.loa = "LOA";
+view.setup.vessel.rodeLength = "Comprimento Máximo do Cabo";
 view.setup.vessel.add = "Adicionar Embarcação";
 view.setup.vessel.edit = "Salvar Alterações";
-view.editor.distance.unit = "Unidade"; // como em unidade de medida (comprimento)
-view.editor.distance.feet = "Pés"; // unidade de comprimento, Imperial
-view.editor.distance.meters = "Metros"; // unidade de comprimento, SI
+view.editor.distance.unit = "Unidade";
+view.editor.distance.feet = "Pés";
+view.editor.distance.meters = "Metros";
 
 view.multiple.latitude = "Latitude";
 view.multiple.longitude = "Longitude";
+
+tip.maptoolbar.disable.idle.title = "Evitar o Escurecimento da Tela";
+tip.maptoolbar.disable.idle.message = "Escolha 'Desativar Inatividade' no menu de alarme na barra de ferramentas abaixo para evitar que a tela escureça e o dispositivo seja bloqueado. Isso pode afetar a vida útil da bateria, mas ajuda a evitar que o Drag Alert seja pausado em segundo plano.";
+
+tip.map.low.volume.title = "Não Perca um Alarme!";
+tip.map.low.volume.message = "O aviso de volume baixo e o controle deslizante só aparecerão se o volume do dispositivo estiver configurado abaixo de 50%. Você pode ajustar o volume com os botões de volume do telefone ou o controle deslizante.";
+
+tip.map.adjust.title = "Ajustar o Alarme Atual";
+tip.map.adjust.message = "Use 'Ajustar' no menu de ancoragem na barra de ferramentas para alterar os parâmetros da sua ancoragem atual. Você manterá o registro das posições oscilantes da sua embarcação.";
+
+tip.map.reset.title = "Redefinir sua Última Âncora";
+tip.map.reset.message = "Use 'Redefinir Última' no menu de ancoragem na barra de ferramentas para soltar a âncora no mesmo local e com o mesmo comprimento de cabo usado da última vez.";
+
+tip.map.legend.title = "Leia o Mapa";
+tip.map.legend.message = "O círculo amarelo interno é o ponto mais distante que seu arco pode girar a partir da âncora com o cabo em uso. O círculo vermelho externo é o ponto mais distante que a popa pode girar, com base no LOA e na quantidade de cabo em uso. A área azul sombreada ao redor do marcador da sua embarcação mostra a margem de erro do GPS para suas últimas correções de localização.";
+
+tip.map.set.title = "Solte a Âncora!";
+tip.map.set.message = "Defina a posição da sua âncora e o raio de oscilação no menu 'Nova Posição' sob o botão da âncora na barra de ferramentas.";

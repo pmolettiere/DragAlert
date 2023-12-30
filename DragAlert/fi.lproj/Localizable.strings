@@ -1,53 +1,63 @@
-/*
-  Localizable.strings
-  Drag Alert
-
-  Created by Peter Molettiere on 15/12/23.
-  
-*/
-
 view.toolbar.alarm = "Hälytys";
 view.toolbar.alarm.enable = "Ota käyttöön";
-view.toolbar.alarm.disable.idle = "Poista käytöstä passiivisena";
+view.toolbar.alarm.disable.idle = "Poista käytöstä lepotilassa";
 view.toolbar.alarm.snooze = "Torkku";
 view.toolbar.alarm.test = "Testaa";
 view.toolbar.anchor = "Ankkuri";
 view.toolbar.new = "Uusi sijainti";
 view.toolbar.adjust = "Säädä";
-view.toolbar.reset = "Nollaa viimeisin";
+view.toolbar.reset = "Nollaa edellinen";
 view.toolbar.cancel = "Peruuta";
 view.toolbar.edit.vessel = "Muokkaa alusta";
 
-view.map.warn.volume.low = "Alhainen äänenvoimakkuus!";
+view.map.warn.volume.low = "Matala äänenvoimakkuus!";
 view.map.volume = "Äänenvoimakkuus";
 
 view.anchoring.relative = "Suhteellinen";
 view.anchoring.current = "Nykyinen";
-view.anchoring.rodeLength = "Ankkuriketjun pituus";  // substantiivi, merenkulku, viittaa ketjuun ja/tai köyteen, joka yhdistää ankkurin veneeseen
+view.anchoring.rodeLength = "Ankkuriketju";
 view.anchoring.distance = "Etäisyys";
-view.anchoring.bearing = "Suunta";
-view.anchoring.would.alarm = "Ulkoalue hälytysalueella";
-view.anchoring.no.alarm = "Sisäalue hälytysalueella";
+view.anchoring.bearing = "Suuntima";
+view.anchoring.would.alarm = "Ulkona hälytysalueelta";
+view.anchoring.no.alarm = "Sisällä hälytysalueella";
 view.anchoring.button.current = "Laske ankkuri";
 view.anchoring.button.relative = "Laske ankkuri";
 view.anchoring.button.cancel = "Peruuta";
 
-view.setup.title = "Vaadittava lupa";
-view.setup.explain.while = "Drag Alert seuraa veneesi sijaintia määrittääkseen, onko se tarkoitetun ankkurisäteensä sisällä.";
-view.setup.whileUsing = "Salli käytön aikana"; // iOS-järjestelmän sijaintiasetuksen arvo
-view.setup.explain.always = "Jos haluat sovelluksen valvovan sijaintiasi taustalla, se tarvitsee myös 'Aina salli' -luvan.";
-view.setup.alwaysAllow = "Aina salli"; // iOS-järjestelmän sijaintiasetuksen arvo
-view.setup.warn.wifi = "Sinun tulisi pitää Wi-Fi päällä käyttäessäsi tätä sovellusta, koska sen sammuttaminen poistaa GPS-toiminnon.";
+view.setup.title = "Vaaditaan lupa";
+view.setup.explain.while = "Drag Alert seuraa aluksesi sijaintia ja määrittää, onko se tarkoitetussa ankkuripaikkaradiuksessa.";
+view.setup.whileUsing = "Salli käytettäessä";
+view.setup.explain.always = "Jos haluat sovelluksen seuraavan sijaintiasi taustalla, se tarvitsee myös 'Salli aina' -luvan.";
+view.setup.alwaysAllow = "Salli aina";
+view.setup.warn.wifi = "Pidä WiFi päällä käytettäessä tätä sovellusta, koska sen sammuttaminen poistaa GPS:n käytöstä.";
 view.setup.done.button = "Valmis";
 view.setup.vessel.title = "Aseta aluksesi";
 view.setup.vessel.name = "Aluksen nimi";
-view.setup.vessel.loa = "Pituus kokonaisuudessaan"; // lyhenne, merenkulku, kokonaispituus
-view.setup.vessel.rodeLength = "Maks. ankkuriketjun pituus"; // substantiivi, merenkulku, viittaa ketjuun ja/tai köyteen, joka yhdistää ankkurin veneeseen
+view.setup.vessel.loa = "LOA";
+view.setup.vessel.rodeLength = "Maks. ankkuriketjun pituus";
 view.setup.vessel.add = "Lisää alus";
 view.setup.vessel.edit = "Tallenna muutokset";
-view.editor.distance.unit = "Yksikkö"; // kuten mittayksikkö (pituus)
-view.editor.distance.feet = "Jalka"; // pituuden yksikkö, imperiaalinen
-view.editor.distance.meters = "Metri"; // pituuden yksikkö, SI
+view.editor.distance.unit = "Yksikkö";
+view.editor.distance.feet = "Jalkaa";
+view.editor.distance.meters = "Metriä";
 
 view.multiple.latitude = "Leveysaste";
 view.multiple.longitude = "Pituusaste";
+
+tip.maptoolbar.disable.idle.title = "Estä näytön himmennys";
+tip.maptoolbar.disable.idle.message = "Valitse työkalurivin hälytysvalikosta 'Poista käytöstä lepotilassa' estääksesi näytön himmennys ja lukituksen. Tämä voi vaikuttaa akun kestoon, mutta estää Drag Alertin keskeytymisen taustalla.";
+
+tip.map.low.volume.title = "Älä missaa hälytystä!";
+tip.map.low.volume.message = "Matalan äänenvoimakkuuden varoitus ja liukusäädin näkyvät vain, jos laitteesi äänenvoimakkuus on asetettu alle 50%. Voit säätää äänenvoimakkuutta puhelimesi äänenvoimakkuuspainikkeilla tai liukusäätimellä.";
+
+tip.map.adjust.title = "Säädä nykyistä hälytystä";
+tip.map.adjust.message = "Käytä 'Säädä' ankkurivalikossa työkalurivissä muuttaaksesi nykyisen ankkurisi parametreja. Säilytät aluksesi heilahteluiden lokin.";
+
+tip.map.reset.title = "Nollaa edellinen ankkuri";
+tip.map.reset.message = "Käytä 'Nollaa edellinen' ankkurivalikossa työkalurivissä laskeaksesi ankkuri samaan paikkaan ja samalla ankkuriketjun pituudella kuin edellisellä kerralla.";
+
+tip.map.legend.title = "Lue karttaa";
+tip.map.legend.message = "Sisäinen keltainen ympyrä on kaukaisin piste, jonka keulasosi voi heilahtaa ankkurista käytössä olevan ankkuriketjun kanssa. Ulkoinen punainen ympyrä on kaukaisin piste, jonka peräsi voi heilahtaa perustuen LOA:han ja käytössä olevaan ankkuriketjun pituuteen. Sininen varjostettu alue aluksen merkinnän ympärillä näyttää GPS:n viimeisimpien sijaintikorjausten virhemarginaalin.";
+
+tip.map.set.title = "Laske ankkuri!";
+tip.map.set.message = "Aseta ankkuriposition ja heilahtelusäde 'Uusi sijainti' -valikosta ankkuripainikkeen alla työkalurivissä.";

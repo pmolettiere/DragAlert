@@ -1,12 +1,3 @@
-/*
-  Localizable.strings
-  Drag Alert
-
-
-  Created by Peter Molettiere on 15/12/23.
-  
-*/
-
 view.toolbar.alarm = "Alarm";
 view.toolbar.alarm.enable = "Aktiver";
 view.toolbar.alarm.disable.idle = "Deaktiver ved inaktivitet";
@@ -14,41 +5,59 @@ view.toolbar.alarm.snooze = "Snooze";
 view.toolbar.alarm.test = "Test";
 view.toolbar.anchor = "Anker";
 view.toolbar.new = "Ny posisjon";
-view.toolbar.adjust = "Justere";
-view.toolbar.reset = "Tilbakestill siste";
+view.toolbar.adjust = "Justér";
+view.toolbar.reset = "Nullstill siste";
 view.toolbar.cancel = "Avbryt";
-view.toolbar.edit.vessel = "Rediger skip";
+view.toolbar.edit.vessel = "Rediger fartøy";
 
 view.map.warn.volume.low = "Lavt volum!";
 view.map.volume = "Volum";
 
 view.anchoring.relative = "Relativ";
-view.anchoring.current = "Gjeldende";
-view.anchoring.rodeLength = "Tau lengde";  // substantiv, nautisk, betegner kjeden og/eller tauet som forbinder ankeret med båten
+view.anchoring.current = "Nåværende";
+view.anchoring.rodeLength = "Tauglengde";
 view.anchoring.distance = "Avstand";
-view.anchoring.bearing = "Peiling";
+view.anchoring.bearing = "Retning";
 view.anchoring.would.alarm = "Utenfor alarmradius";
 view.anchoring.no.alarm = "Innenfor alarmradius";
 view.anchoring.button.current = "Slipp anker";
 view.anchoring.button.relative = "Slipp anker";
 view.anchoring.button.cancel = "Avbryt";
 
-view.setup.title = "Nødvendig tillatelse";
-view.setup.explain.while = "Drag Alert sporer båtens posisjon for å avgjøre om den er innenfor det tiltenkte ankerradiuset.";
-view.setup.whileUsing = "Tillat under bruk"; // iOS-systemets stedsinnstilling
-view.setup.explain.always = "Hvis du vil at appen skal overvåke posisjonen din i bakgrunnen, trenger den også tillatelse 'Alltid tillat'.";
-view.setup.alwaysAllow = "Alltid tillat"; // iOS-systemets stedsinnstilling
-view.setup.warn.wifi = "Du bør holde Wi-Fi aktivert mens du bruker denne appen, da å deaktivere det deaktiverer GPS-en din.";
+view.setup.title = "Tillatelse nødvendig";
+view.setup.explain.while = "Drag Alert sporer fartøyets posisjon for å avgjøre om fartøyet er innenfor den tiltenkte ankeringsradiusen.";
+view.setup.whileUsing = "Tillat mens i bruk";
+view.setup.explain.always = "Hvis du ønsker at appen skal overvåke posisjonen din i bakgrunnen, kreves også tillatelsen 'Alltid tillat'.";
+view.setup.alwaysAllow = "Alltid tillat";
+view.setup.warn.wifi = "Du bør holde Wi-Fi aktivert mens du bruker denne appen, siden deaktivering av Wi-Fi deaktiverer GPS-en.";
 view.setup.done.button = "Ferdig";
-view.setup.vessel.title = "Sett opp båten din";
-view.setup.vessel.name = "Båtens navn";
-view.setup.vessel.loa = "Total lengde"; // forkortelse, nautisk, total lengde
-view.setup.vessel.rodeLength = "Maks tau lengde"; // substantiv, nautisk, betegner kjeden og/eller tauet som forbinder ankeret med båten
-view.setup.vessel.add = "Legg til båt";
+view.setup.vessel.title = "Konfigurer fartøyet ditt";
+view.setup.vessel.name = "Fartøynavn";
+view.setup.vessel.loa = "LOA";
+view.setup.vessel.rodeLength = "Maks Tauglengde";
+view.setup.vessel.add = "Legg til fartøy";
 view.setup.vessel.edit = "Lagre endringer";
-view.editor.distance.unit = "Enhet"; // som i måleenhet (lengde)
-view.editor.distance.feet = "Fot"; // måleenhet, imperial
-view.editor.distance.meters = "Meter"; // måleenhet, SI
+view.editor.distance.unit = "Enhet";
+view.editor.distance.feet = "Fot";
+view.editor.distance.meters = "Meter";
 
 view.multiple.latitude = "Breddegrad";
 view.multiple.longitude = "Lengdegrad";
+
+tip.maptoolbar.disable.idle.title = "Unngå skjermavslapning";
+tip.maptoolbar.disable.idle.message = "Velg 'Deaktiver ved inaktivitet' fra alarmmenyen i verktøylinjen nedenfor for å forhindre at skjermen avslappes og låses. Dette kan påvirke batterilevetiden negativt, men forhindrer at Drag Alert settes på pause i bakgrunnen.";
+
+tip.map.low.volume.title = "Ikke gå glipp av en alarm!";
+tip.map.low.volume.message = "Advarselen om lavt volum og glidebryteren vises bare hvis enhetsvolumet er satt under 50%. Du kan justere volumet med volumknappene på telefonen eller glidebryteren.";
+
+tip.map.adjust.title = "Juster gjeldende alarm";
+tip.map.adjust.message = "Bruk 'Juster' i ankermenyen i verktøylinjen for å endre parameterne for gjeldende anker. Du beholder loggen over fartøyets svingende posisjoner.";
+
+tip.map.reset.title = "Nullstill siste anker";
+tip.map.reset.message = "Bruk 'Nullstill siste' i ankermenyen i verktøylinjen for å slippe ankeret på samme sted og med samme tauglengde som sist du satte det.";
+
+tip.map.legend.title = "Les kartet";
+tip.map.legend.message = "Den indre gule sirkelen er det lengste punktet din baug kan svinge fra ankeret med tauet i bruk. Den ytre røde sirkelen er det lengste punktet din akter kan svinge, basert på LOA og mengden tau i bruk. Det blå skyggeområdet rundt fartøymerket viser GPS-feilmarginen for dine siste posisjonskorrigeringer.";
+
+tip.map.set.title = "Slipp anker!";
+tip.map.set.message = "Sett ankerposisjonen og svingradiusen fra menyen 'Ny posisjon' under ankervinkelen i verktøylinjen.";
