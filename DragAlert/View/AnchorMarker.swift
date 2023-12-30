@@ -57,7 +57,7 @@ struct AnchorMarker: MapContent {
         if( model.getLocationLog().count > 0 ) {
             ForEach( model.getLocationLog(), id: \.timestamp ) { log in
                 MapCircle(center: log.clLocation.coordinate, radius: log.clLocation.horizontalAccuracy)
-                    .foregroundStyle(.indigo.opacity( 0.5 / log.clLocation.horizontalAccuracy ))
+                    .foregroundStyle(.indigo.opacity( 0.8 / log.clLocation.horizontalAccuracy ))
             }
         }
     }
