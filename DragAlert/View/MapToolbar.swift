@@ -33,10 +33,16 @@ struct MapToolbar: ToolbarContent {
 
     @State var isAlarmEnabled: Bool = Alarm.instance.isEnabled
     @State var disableIdle: Bool = false
-    
+        
     func disableIdle( disable: Bool )  {
         Task { @MainActor in
             UIApplication.shared.isIdleTimerDisabled = disable
+        }
+    }
+    
+    func awaitTask( _ task: @escaping @Sendable () async -> Void ) {
+        Task {
+            await task()
         }
     }
     
@@ -45,28 +51,29 @@ struct MapToolbar: ToolbarContent {
             Menu(
                 content: {
                     Toggle(isOn: $isAlarmEnabled) {
-                        Text("view.toolbar.alarm.enable")
+                        Label("view.toolbar.alarm.enable", systemImage: "alarm.fill")
                     }.onChange(of: isAlarmEnabled) {
                         Alarm.instance.isEnabled = isAlarmEnabled
                     }
                     
                     Toggle(isOn: $disableIdle) {
-                        Text("view.toolbar.alarm.disable.idle")
+                        Label("view.toolbar.alarm.disable.idle", systemImage: "sun.max")
                     }.onChange(of: disableIdle) {
+                        TipInstance.disableIdleTip.invalidate(reason: .actionPerformed)
                         disableIdle(disable: disableIdle)
                     }
-                    
+
                     Button() {
                         Alarm.instance.snooze()
                     } label: {
-                        Text("view.toolbar.alarm.snooze")
+                        Label("view.toolbar.alarm.snooze", systemImage: "powersleep")
                     }
                     .disabled(!Alarm.instance.isPlaying)
                     
                     Button() {
                         Alarm.instance.test()
                     } label: {
-                        Text("view.toolbar.alarm.test")
+                        Label("view.toolbar.alarm.test", systemImage: "alarm.waves.left.and.right")
                     }
                     .disabled(Alarm.instance.isPlaying)
                 },
@@ -74,6 +81,7 @@ struct MapToolbar: ToolbarContent {
                     Label("view.toolbar.alarm", systemImage: "alarm")
                 }
             )
+
             Button() {
                 editVessel()
             } label: {
@@ -82,30 +90,36 @@ struct MapToolbar: ToolbarContent {
             Menu(
                 content: {
                     Button() {
+                        awaitTask( { await TipEvent.didSetAnchor.donate(.init(name: "didSetAnchor")) } )
                         newAnchor()
                     } label: {
-                        Text("view.toolbar.new")
+                        Label("view.toolbar.new", systemImage: "location")
                     }
                     .disabled(vessel?.isAnchored ?? true)
                     
                     Button() {
+                        awaitTask( { await TipEvent.didResetAnchor.donate(.init(name: "didResetAnchor")) } )
+                        awaitTask( { await TipEvent.didSetAnchor.donate(.init(name: "didSetAnchor")) } )
                         resetAnchor()
                     } label: {
-                        Text("view.toolbar.reset")
+                        Label("view.toolbar.reset", systemImage:"return")
                     }
                     .disabled(( (vessel?.isAnchored ?? false) || (vessel?.anchor ?? nil) == nil) )
                     
                     Button() {
+                        awaitTask( { await TipEvent.didAdjustAnchor.donate(.init(name: "didAdjustAnchor")) } )
+                        awaitTask( { await TipEvent.didSetAnchor.donate(.init(name: "didSetAnchor")) } )
                         adjustAnchor()
                     } label: {
-                        Text("view.toolbar.adjust")
+                        Label("view.toolbar.adjust", systemImage: "wrench.adjustable")
                     }
                     .disabled(!(vessel?.isAnchored ?? true))
                     
                     Button() {
+                        awaitTask( { await TipEvent.didCancelAnchor.donate(.init(name: "didCancelAnchor")) } )
                         cancelAnchor()
                     } label: {
-                        Text("view.toolbar.cancel")
+                        Label("view.toolbar.cancel", systemImage: "location.slash")
                     }
                     .disabled(!(vessel?.isAnchored ?? false))
                 },

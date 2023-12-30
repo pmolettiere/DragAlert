@@ -47,6 +47,7 @@
 		9AAAFEDD2B3BA31E003A8400 /* DistanceEditorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAAFEDC2B3BA31E003A8400 /* DistanceEditorModel.swift */; };
 		9AAAFEDF2B3BB937003A8400 /* Preferred.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAAFEDE2B3BB937003A8400 /* Preferred.swift */; };
 		9AB57D812B3F35A100FC09EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AB57D832B3F35A100FC09EE /* Localizable.strings */; };
+		9AB57D972B3F418300FC09EE /* Tips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB57D962B3F418300FC09EE /* Tips.swift */; };
 		9AD096482B3692BF009AF04B /* StrokeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD096472B3692BF009AF04B /* StrokeText.swift */; };
 /* End PBXBuildFile section */
 
@@ -131,6 +132,7 @@
 		9AB57D932B3F3DAC00FC09EE /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9AB57D942B3F3F2300FC09EE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9AB57D952B3F3F2900FC09EE /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		9AB57D962B3F418300FC09EE /* Tips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tips.swift; sourceTree = "<group>"; };
 		9AD096472B3692BF009AF04B /* StrokeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -269,6 +271,7 @@
 				9A15F2CE2B34A24000357CF9 /* Format.swift */,
 				9A0A2CF52B365D910099809A /* VolumeSlider.swift */,
 				9AD096472B3692BF009AF04B /* StrokeText.swift */,
+				9AB57D962B3F418300FC09EE /* Tips.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				9A15F2EE2B34A24000357CF9 /* MapView.swift in Sources */,
 				9A15F3022B34A54400357CF9 /* Anchor.swift in Sources */,
 				9AAAFED72B3BA207003A8400 /* SetupVesselModel.swift in Sources */,
+				9AB57D972B3F418300FC09EE /* Tips.swift in Sources */,
 				9A15F2E92B34A24000357CF9 /* VesselMarker.swift in Sources */,
 				9A15F3032B34A54400357CF9 /* Vessel.swift in Sources */,
 				9A15F2F72B34A24000357CF9 /* AppDelegate.swift in Sources */,

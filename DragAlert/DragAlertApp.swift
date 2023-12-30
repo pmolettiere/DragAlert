@@ -24,6 +24,7 @@ import SwiftUI
 import SwiftData
 import CoreData
 import MapKit
+import TipKit
 
 @main
 struct DragAlertApp: App {
@@ -49,6 +50,12 @@ struct DragAlertApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .task {
+                    try? Tips.configure([
+                        .displayFrequency(.immediate),
+                        .datastoreLocation(.applicationDefault)
+                    ])
+                }
         }
         .modelContainer(sharedModelContainer)
         .environment(ViewModel(sharedModelContainer))

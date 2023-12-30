@@ -49,7 +49,53 @@
                   endingLineNumber = "85"
                   offsetFromSymbolStart = "188">
                </Location>
+               <Location
+                  uuid = "E4066AC4-BE92-4902-9B67-E469D7F45238 - 953435c229cf7561"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Drag_Alert.Anchor.update(log: Drag_Alert.Location) -&gt; ()"
+                  moduleName = "Drag Alert"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pietro/Documents/DragAlert/DragAlert/Data/Anchor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "176">
+               </Location>
+               <Location
+                  uuid = "E4066AC4-BE92-4902-9B67-E469D7F45238 - e05583e2984b6c8c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Drag_Alert.Location, Drag_Alert.Location) -&gt; Swift.Bool in Drag_Alert.Anchor.update(log: Drag_Alert.Location) -&gt; ()"
+                  moduleName = "Drag Alert"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pietro/Documents/DragAlert/DragAlert/Data/Anchor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "140">
+               </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "00B9D6A3-EE41-498C-8FCC-21F17D199558"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DragAlert/DragAlertApp.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

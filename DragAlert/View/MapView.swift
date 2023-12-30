@@ -26,6 +26,7 @@ import SwiftData
 import MapKit
 import MediaPlayer
 import simd
+import TipKit
 
 struct MapView: View {
     @Environment(\.modelContext) private var modelContext
@@ -38,15 +39,11 @@ struct MapView: View {
     
     @State var alarm = Alarm.instance
     @State var volume = VolumeObserver()
-                
+    
     var body: some View {
         @Bindable var m = viewModel       // m is for model
 
         ZStack(alignment: .topLeading) {
-            VStack {
-                MapCompass(scope: mapScope)
-            }
-            .mapControlVisibility(.visible)
             Map(scope: mapScope) {
                 VesselMarker(locator: vessel)
                 if( vessel.isAnchored ) {
@@ -73,6 +70,17 @@ struct MapView: View {
                     CubicKeyframe(finalAltitude, duration: duration / 2)
                 }
             }
+            VStack {
+                MapCompass(scope: mapScope)
+                Spacer()
+                TipView(TipInstance.disableIdleTip)
+                TipView(TipInstance.adjustTip)
+                TipView(TipInstance.resetTip)
+                TipView(TipInstance.setTip)
+                TipView(TipInstance.legendTip)
+            }
+            .mapControlVisibility(.visible)
+
         }
         .overlay(alignment: .top) {
             if( volume.displayVolumeControl ) {
@@ -90,6 +98,8 @@ struct MapView: View {
                     VolumeSlider()
                         .frame(height: 40)
                         .padding(.horizontal)
+                    TipView(TipInstance.lowVolumeAlertTip)
+
                     Spacer()
                 }
             }

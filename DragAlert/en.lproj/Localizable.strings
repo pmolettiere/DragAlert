@@ -52,3 +52,22 @@ view.editor.distance.meters = "Meters"; // unit of length, SI
 view.multiple.latitude = "Latitude";
 view.multiple.longitude = "Longitude";
 
+tip.maptoolbar.disable.idle.title = "Prevent Backlight Dimming";
+tip.maptoolbar.disable.idle.message = "Choose \"Disable Idle\" from the alarm menu in the toolbar below to prevent the backlight from dimming and the screen from locking. This may negatively impact battery life, but help prevent Drag Alert from being paused in the background.";
+
+tip.map.low.volume.title = "Don't Miss an Alarm!";
+tip.map.low.volume.message = "The low volume warning and slider will only appear if your device volume is set below 50%. You can adjust the volume with the volume buttons on your phone, or the slider.";
+
+tip.map.adjust.title = "Adjust the Current Alarm";
+tip.map.adjust.message = "Use \"Adjust\" in the anchor menu in the toolbar to change the parameters of your current anchor. You'll keep the log of your vessel's swing locations.";
+
+tip.map.reset.title = "Reset Your Last Anchor";
+tip.map.reset.message = "Use \"Reset Last\" in the anchor menu in the toolbar to drop the anchor in the same place and with the same rode length you used the last time you set it.";
+
+tip.map.legend.title = "Read the Map";
+tip.map.legend.message = "The inner yellow circle is the furthest point your bow can swing from the anchor with the rode in use. The outer red circle is the furthest point your stern can swing, based on your LOA and the amount of rode in use. The blue shaded area around your vessel marker shows the GPS margin of error for your latest location fixes.";
+
+tip.map.set.title = "Anchor Aweigh!";
+tip.map.set.message = "Set your anchor position and your swing radius from the \"New Position\" menu under the anchor button in the toolbar.";
+
+
