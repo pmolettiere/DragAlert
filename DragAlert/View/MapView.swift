@@ -71,13 +71,12 @@ struct MapView: View {
                 }
             }
             VStack {
-                MapCompass(scope: mapScope)
+                TipView(TipInstance.legendTip)
                 Spacer()
                 TipView(TipInstance.disableIdleTip)
                 TipView(TipInstance.adjustTip)
                 TipView(TipInstance.resetTip)
                 TipView(TipInstance.setTip)
-                TipView(TipInstance.legendTip)
             }
             .mapControlVisibility(.visible)
 
