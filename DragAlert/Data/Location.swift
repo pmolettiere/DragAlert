@@ -8,8 +8,17 @@
 import MapKit
 import SwiftData
 
-struct Location : Codable, Equatable {
+struct Location : Hashable, Codable, Equatable {
     static let nowhere = Location(timestamp: Date.distantPast, latitude: 0, longitude: 0, hAccuracy: -1, altitude: 0, vAccuracy: -1, speed: 0, sAccuracy: -1, course: 0, cAccuracy: -1)
+    
+    static func < (lhs: Location, rhs: Location) -> Bool {
+        if lhs.latitude == rhs.latitude { return lhs.longitude < rhs.longitude }
+        return lhs.latitude < rhs.latitude
+    }
+    
+    private static func strip(_ x: Double) -> Double {
+        round(x * 100000) / 100000
+    }
 
     var timestamp: Date
     var latitude: Double
@@ -29,8 +38,8 @@ struct Location : Codable, Equatable {
     
     init(timestamp: Date, latitude: Double, longitude: Double, hAccuracy: Double, altitude: Double, vAccuracy: Double, speed: Double, sAccuracy: Double, course: Double, cAccuracy: Double) {
         self.timestamp = timestamp
-        self.latitude = latitude
-        self.longitude = longitude
+        self.latitude = Location.strip(latitude)
+        self.longitude = Location.strip(longitude)
         self.hAccuracy = hAccuracy
         self.altitude = altitude
         self.vAccuracy = vAccuracy
@@ -38,14 +47,12 @@ struct Location : Codable, Equatable {
         self.sAccuracy = sAccuracy
         self.course = course
         self.cAccuracy = cAccuracy
-        
-//        self.clLocation = CLLocation(coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), altitude: altitude, horizontalAccuracy: hAccuracy, verticalAccuracy: vAccuracy, course: course, courseAccuracy: cAccuracy, speed: speed, speedAccuracy: sAccuracy, timestamp: timestamp)
     }
     
     init(location: CLLocation) {
         self.timestamp = location.timestamp
-        self.latitude = location.coordinate.latitude
-        self.longitude = location.coordinate.longitude
+        self.latitude = Location.strip(location.coordinate.latitude)
+        self.longitude = Location.strip(location.coordinate.longitude)
         self.hAccuracy = location.horizontalAccuracy
         self.altitude = location.altitude
         self.vAccuracy = location.verticalAccuracy
@@ -53,8 +60,6 @@ struct Location : Codable, Equatable {
         self.sAccuracy = location.speedAccuracy
         self.course = location.course
         self.cAccuracy = location.courseAccuracy
-        
-//        self.clLocation = location
     }
     
     enum CodingKeys : CodingKey {

@@ -52,7 +52,7 @@ class AnchoringViewModel {
                 anchor.rodeInUseMeters = rodeLengthMeters
             }
         } else {
-            let newAnchor = Anchor(timestamp: Date.now, location: location, rodeInUseMeters: rodeLengthMeters, log: [], vessel: self.vessel)
+            let newAnchor = Anchor(timestamp: Date.now, location: location, rodeInUseMeters: rodeLengthMeters, log: [:], vessel: self.vessel)
             vessel.anchor = newAnchor
             vessel.isAnchored = true
         }

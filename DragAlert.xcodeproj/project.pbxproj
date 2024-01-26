@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A099A6F2B63F4AA00CFFF24 /* LocationCacheBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A099A6E2B63F4AA00CFFF24 /* LocationCacheBuilder.swift */; };
 		9A0A2CF42B364DC90099809A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A0A2CF32B364DC90099809A /* LaunchScreen.storyboard */; };
 		9A0A2CF62B365D910099809A /* VolumeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0A2CF52B365D910099809A /* VolumeSlider.swift */; };
 		9A15F2E32B34A24000357CF9 /* LocationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2C32B34A24000357CF9 /* LocationObserver.swift */; };
@@ -37,6 +38,7 @@
 		9A15F3022B34A54400357CF9 /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2FE2B34A54400357CF9 /* Anchor.swift */; };
 		9A15F3032B34A54400357CF9 /* Vessel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F2FF2B34A54400357CF9 /* Vessel.swift */; };
 		9A15F3042B34A54400357CF9 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A15F3002B34A54400357CF9 /* ViewModel.swift */; };
+		9A49E5062B44E77D0021E409 /* BucketTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A49E5052B44E77D0021E409 /* BucketTest.swift */; };
 		9AAAFECC2B3B087C003A8400 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAAFECB2B3B087C003A8400 /* Location.swift */; };
 		9AAAFECE2B3B1AC5003A8400 /* Heading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAAFECD2B3B1AC5003A8400 /* Heading.swift */; };
 		9AAAFED32B3BA182003A8400 /* AuthStatusListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAAFED22B3BA182003A8400 /* AuthStatusListener.swift */; };
@@ -48,6 +50,7 @@
 		9AAAFEDF2B3BB937003A8400 /* Preferred.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAAFEDE2B3BB937003A8400 /* Preferred.swift */; };
 		9AB57D812B3F35A100FC09EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AB57D832B3F35A100FC09EE /* Localizable.strings */; };
 		9AB57D972B3F418300FC09EE /* Tips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB57D962B3F418300FC09EE /* Tips.swift */; };
+		9AC1E10E2B56CEA5002F039D /* Bucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC1E10D2B56CEA5002F039D /* Bucket.swift */; };
 		9AD096482B3692BF009AF04B /* StrokeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD096472B3692BF009AF04B /* StrokeText.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,21 +62,15 @@
 			remoteGlobalIDString = 9A0D79812B20BC3500E83F11;
 			remoteInfo = AnchorWatch2;
 		};
-		9A0D79A12B20BC3900E83F11 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9A0D797A2B20BC3500E83F11 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9A0D79812B20BC3500E83F11;
-			remoteInfo = AnchorWatch2;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A099A6E2B63F4AA00CFFF24 /* LocationCacheBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCacheBuilder.swift; sourceTree = "<group>"; };
 		9A0A2CF32B364DC90099809A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A0A2CF52B365D910099809A /* VolumeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeSlider.swift; sourceTree = "<group>"; };
 		9A0D79822B20BC3500E83F11 /* Drag Alert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Drag Alert.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A0D79962B20BC3900E83F11 /* Drag Alert Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Drag Alert Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A0D79A02B20BC3900E83F11 /* Drag Alert UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Drag Alert UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A0E38362B45CB7C004D61D2 /* DragAlert.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = DragAlert.xctestplan; sourceTree = "<group>"; };
 		9A15F2C12B34A24000357CF9 /* DragAlert.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = DragAlert.entitlements; sourceTree = "<group>"; };
 		9A15F2C32B34A24000357CF9 /* LocationObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationObserver.swift; sourceTree = "<group>"; };
 		9A15F2C42B34A24000357CF9 /* LocationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +101,8 @@
 		9A15F2FE2B34A54400357CF9 /* Anchor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anchor.swift; sourceTree = "<group>"; };
 		9A15F2FF2B34A54400357CF9 /* Vessel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vessel.swift; sourceTree = "<group>"; };
 		9A15F3002B34A54400357CF9 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		9A49E5042B44E77C0021E409 /* Drag Alert Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Drag Alert Tests-Bridging-Header.h"; sourceTree = "<group>"; };
+		9A49E5052B44E77D0021E409 /* BucketTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketTest.swift; sourceTree = "<group>"; };
 		9AAAFECB2B3B087C003A8400 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		9AAAFECD2B3B1AC5003A8400 /* Heading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heading.swift; sourceTree = "<group>"; };
 		9AAAFED22B3BA182003A8400 /* AuthStatusListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStatusListener.swift; sourceTree = "<group>"; };
@@ -133,6 +132,7 @@
 		9AB57D942B3F3F2300FC09EE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9AB57D952B3F3F2900FC09EE /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9AB57D962B3F418300FC09EE /* Tips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tips.swift; sourceTree = "<group>"; };
+		9AC1E10D2B56CEA5002F039D /* Bucket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bucket.swift; sourceTree = "<group>"; };
 		9AD096472B3692BF009AF04B /* StrokeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,19 +151,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9A0D799D2B20BC3900E83F11 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		9A0D79792B20BC3500E83F11 = {
 			isa = PBXGroup;
 			children = (
+				9A0E38362B45CB7C004D61D2 /* DragAlert.xctestplan */,
 				9A0A2CF32B364DC90099809A /* LaunchScreen.storyboard */,
 				9A15F2BE2B34A24000357CF9 /* DragAlert */,
 				9A0D79992B20BC3900E83F11 /* DragAlertTests */,
@@ -177,7 +171,6 @@
 			children = (
 				9A0D79822B20BC3500E83F11 /* Drag Alert.app */,
 				9A0D79962B20BC3900E83F11 /* Drag Alert Tests.xctest */,
-				9A0D79A02B20BC3900E83F11 /* Drag Alert UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -185,6 +178,8 @@
 		9A0D79992B20BC3900E83F11 /* DragAlertTests */ = {
 			isa = PBXGroup;
 			children = (
+				9A49E5052B44E77D0021E409 /* BucketTest.swift */,
+				9A49E5042B44E77C0021E409 /* Drag Alert Tests-Bridging-Header.h */,
 			);
 			path = DragAlertTests;
 			sourceTree = "<group>";
@@ -212,6 +207,7 @@
 				9A15F2DC2B34A24000357CF9 /* Assets */,
 				9A15F2E02B34A24000357CF9 /* Info.plist */,
 				9A15F2C72B34A24000357CF9 /* Preview Content */,
+				9A099A6E2B63F4AA00CFFF24 /* LocationCacheBuilder.swift */,
 			);
 			path = DragAlert;
 			sourceTree = "<group>";
@@ -249,6 +245,7 @@
 				9A15F2FF2B34A54400357CF9 /* Vessel.swift */,
 				9AAAFECB2B3B087C003A8400 /* Location.swift */,
 				9AAAFECD2B3B1AC5003A8400 /* Heading.swift */,
+				9AC1E10D2B56CEA5002F039D /* Bucket.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -342,24 +339,6 @@
 			productReference = 9A0D79962B20BC3900E83F11 /* Drag Alert Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		9A0D799F2B20BC3900E83F11 /* Drag Alert UITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9A0D79B02B20BC3900E83F11 /* Build configuration list for PBXNativeTarget "Drag Alert UITests" */;
-			buildPhases = (
-				9A0D799C2B20BC3900E83F11 /* Sources */,
-				9A0D799D2B20BC3900E83F11 /* Frameworks */,
-				9A0D799E2B20BC3900E83F11 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9A0D79A22B20BC3900E83F11 /* PBXTargetDependency */,
-			);
-			name = "Drag Alert UITests";
-			productName = AnchorWatch2UITests;
-			productReference = 9A0D79A02B20BC3900E83F11 /* Drag Alert UITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -375,10 +354,7 @@
 					};
 					9A0D79952B20BC3900E83F11 = {
 						CreatedOnToolsVersion = 15.0.1;
-						TestTargetID = 9A0D79812B20BC3500E83F11;
-					};
-					9A0D799F2B20BC3900E83F11 = {
-						CreatedOnToolsVersion = 15.0.1;
+						LastSwiftMigration = 1500;
 						TestTargetID = 9A0D79812B20BC3500E83F11;
 					};
 				};
@@ -418,7 +394,6 @@
 			targets = (
 				9A0D79812B20BC3500E83F11 /* Drag Alert */,
 				9A0D79952B20BC3900E83F11 /* Drag Alert Tests */,
-				9A0D799F2B20BC3900E83F11 /* Drag Alert UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -446,13 +421,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9A0D799E2B20BC3900E83F11 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -461,6 +429,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A15F2EE2B34A24000357CF9 /* MapView.swift in Sources */,
+				9A099A6F2B63F4AA00CFFF24 /* LocationCacheBuilder.swift in Sources */,
 				9A15F3022B34A54400357CF9 /* Anchor.swift in Sources */,
 				9AAAFED72B3BA207003A8400 /* SetupVesselModel.swift in Sources */,
 				9AB57D972B3F418300FC09EE /* Tips.swift in Sources */,
@@ -493,6 +462,7 @@
 				9AAAFEDF2B3BB937003A8400 /* Preferred.swift in Sources */,
 				9A15F2F42B34A24000357CF9 /* VesselLocationMap.swift in Sources */,
 				9AAAFED32B3BA182003A8400 /* AuthStatusListener.swift in Sources */,
+				9AC1E10E2B56CEA5002F039D /* Bucket.swift in Sources */,
 				9AAAFEDB2B3BA2C8003A8400 /* VesselMarkerModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,13 +471,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9A0D799C2B20BC3900E83F11 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				9A49E5062B44E77D0021E409 /* BucketTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,11 +482,6 @@
 			isa = PBXTargetDependency;
 			target = 9A0D79812B20BC3500E83F11 /* Drag Alert */;
 			targetProxy = 9A0D79972B20BC3900E83F11 /* PBXContainerItemProxy */;
-		};
-		9A0D79A22B20BC3900E83F11 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9A0D79812B20BC3500E83F11 /* Drag Alert */;
-			targetProxy = 9A0D79A12B20BC3900E83F11 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -754,6 +713,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 87635PD639;
@@ -763,9 +723,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sv.salacia.DragAlertTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "DragAlertTests/Drag Alert Tests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DragAlert.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DragAlert";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Drag Alert.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Drag Alert";
 			};
 			name = Debug;
 		};
@@ -774,6 +736,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 87635PD639;
@@ -783,45 +746,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sv.salacia.DragAlertTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "DragAlertTests/Drag Alert Tests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DragAlert.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DragAlert";
-			};
-			name = Release;
-		};
-		9A0D79B12B20BC3900E83F11 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 87635PD639;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = sv.salacia.DragAlertUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Drag Alert";
-			};
-			name = Debug;
-		};
-		9A0D79B22B20BC3900E83F11 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 87635PD639;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = sv.salacia.DragAlertUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Drag Alert";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Drag Alert.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Drag Alert";
 			};
 			name = Release;
 		};
@@ -851,15 +779,6 @@
 			buildConfigurations = (
 				9A0D79AE2B20BC3900E83F11 /* Debug */,
 				9A0D79AF2B20BC3900E83F11 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9A0D79B02B20BC3900E83F11 /* Build configuration list for PBXNativeTarget "Drag Alert UITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9A0D79B12B20BC3900E83F11 /* Debug */,
-				9A0D79B22B20BC3900E83F11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

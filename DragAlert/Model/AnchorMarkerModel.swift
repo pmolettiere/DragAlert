@@ -12,14 +12,18 @@ protocol AnchorMarkerModel : ObservableObject {
     func getAnchorLocation() -> Location
     func getAlarmRadius() -> Double
     func getRodeLengthMeters() -> Double
+    func getMaxErrorRadiusMeters() -> Double
     func getLocationLog() -> [Location]
 }
 
 extension Anchor : AnchorMarkerModel {
+    static var centers: Dictionary<Bucket, [Location]> = Dictionary<Bucket, [Location]>()
+    
     func getAnchorLocation() -> Location { location }
     func getAlarmRadius() -> Double { alarmRadiusAccuracyMeters }
     func getRodeLengthMeters() -> Double { rodeInUseAccuracyMeters }
-    func getLocationLog() -> [Location] { log }
+    func getMaxErrorRadiusMeters() -> Double { maxErrorRadiusMeters }
+    func getLocationLog() -> [Location] { locationCache }
 }
 
 extension AnchoringViewModel : AnchorMarkerModel {
@@ -38,15 +42,20 @@ extension AnchoringViewModel : AnchorMarkerModel {
         return x
     }
     
+    func getMaxErrorRadiusMeters() -> Double {
+        getAlarmRadius() + vessel.location.hAccuracy
+    }
+    
     func getRodeLengthMeters() -> Double {
         rodeLengthMeters
     }
     
     func getLocationLog() -> [Location] {
         if let anchor = vessel.anchor {
-            var m = anchor.log.count - 100
-            if m < 0 { m = 0 }
-            return Array(anchor.log[m...])
+//            var m = anchor.getLocationLog().count - 100
+//            if m < 0 { m = 0 }
+//            return Array(anchor.getLocationLog()[m...])
+            return anchor.getLocationLog()
         }
         return []
     }

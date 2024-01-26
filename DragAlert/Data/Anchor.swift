@@ -26,12 +26,18 @@ import SwiftUI
 import CoreLocation
 
 @Model
-final class Anchor {
+final class Anchor : @unchecked Sendable {
 
     var location: Location = Location.nowhere
     var rodeInUseMeters: Double = 0
-    var log: [Location] = []
+    var bucketIdx: Dictionary<Bucket, Int> = Dictionary<Bucket, Int>()
     var vessel: Vessel? = nil
+    
+    @Transient
+    var locationCache: [Location] = []
+    
+    @Transient
+    var locationCacheIsDirty: Bool = true
     
     @Transient
     var rodeInUseAccuracyMeters: Double {
@@ -47,65 +53,39 @@ final class Anchor {
     var alarmRadiusAccuracyMeters: Double {
         get { alarmRadiusMeters + location.hAccuracy }
     }
-
-    init(timestamp: Date = Date.now, location: Location, rodeInUseMeters: Double, log: [Location] = [], vessel: Vessel? = nil) {
+    
+    @Transient
+    var maxErrorRadiusMeters: Double {
+        get { alarmRadiusMeters + location.hAccuracy + (vessel?.location.hAccuracy ?? 0) }
+    }
+    
+    init(timestamp: Date = Date.now, location: Location, rodeInUseMeters: Double, log: Dictionary<Bucket, Int> = Dictionary(), vessel: Vessel? = nil) {
         self.location = location
         self.rodeInUseMeters = rodeInUseMeters
-        self.log = log
+        self.bucketIdx = log
         self.vessel = vessel
-        
-        self.log.sort(by: {$0.timestamp < $1.timestamp})
     }
-        
-//    enum CodingKeys : CodingKey {
-//        case location, rodeLengthM, log, vessel
-//    }
-//
-//    init(from decoder: Decoder) throws {
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        self.location = try container.decode(Location.self, forKey: .location)
-//        self.rodeInUseMeters = try container.decode(Double.self, forKey: .rodeLengthM)
-//        self.log = try container.decode([Location].self, forKey: .log)
-//        self.vessel = try container.decodeIfPresent(Vessel.self, forKey: .vessel)
-//
-//    }
-//    
-//    func encode(to encoder: Encoder) throws {
-//        var container = encoder.container(keyedBy: CodingKeys.self)
-//        try container.encode(location, forKey: .location)
-//        try container.encode(rodeInUseMeters, forKey: .rodeLengthM)
-//        try container.encode(log, forKey: .log)
-//        try container.encode(vessel, forKey: .vessel)
-//    }
 }
 
 extension Anchor {
-    func update(log: Location) {
-        let maxLogSize = 600
-        self.log.sort(by: {$0.timestamp < $1.timestamp})
-        self.log.removeAll(where: { entry in
-            getBucket(of: entry) == getBucket(of: log)
-        })
-        self.log.append(log)
-        if( self.log.count > maxLogSize ) {
-            self.log.removeFirst(self.log.count - maxLogSize)
+    func update(location: Location) {
+        let bucket = BucketCache.instance.get(of: location, from: self.location)
+        var hits = 0
+        if bucketIdx[bucket] != nil {
+            hits = bucketIdx[bucket]!
+        }
+        hits += 1
+        bucketIdx[bucket] = hits
+        Task {
+            await rebuildLocationCache()
         }
     }
     
-    /// Reduces lat/long locaitons into a set of bucketed tuples aligned along specific 0.002 degree boundaries, which
-    /// corresponds to roughly square areas 3.7m on a side. Close to the poles, these squares become slightly more
-    /// trapezoidal, and the horizontal distance becomes smaller.
-    ///
-    /// These bucket indices are calculated relative to the anchor location latitude and longitude.
-    /// 
-    func getBucket(of: Location) -> (Double, Double) {
-        // 0.002 degrees of latitude is about 1.85m of distance along a great circle
-        // 1000 promotes the bucket number to the left of the decimal point
-        let latBucket = ((location.latitude - of.latitude) / 0.005 * 1000).rounded(.towardZero)
-        let longBucket = ((location.longitude - of.longitude) / 0.005 * 1000).rounded(.towardZero)
-        return (latBucket, longBucket)
+    func rebuildLocationCache() async {
+        let lcb = LocationCacheBuilder(bucketIdx: bucketIdx)
+        locationCache = await lcb.rebuildLocationCache()
     }
-            
+                
     func withinAlarmRadius(vessel: Vessel) -> Bool {
         location.isAccurateWithin(meters: alarmRadiusMeters, of: vessel.location)
     }

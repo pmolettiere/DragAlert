@@ -34,13 +34,12 @@ final class Vessel {
     var totalRodeMeters: Double = 0  // total rode installed on Vessel
     var isAnchored = false
     var location: Location = Location.nowhere
-        
+    var anchor: Anchor?
+
     @Transient
     var maxDistanceFromAnchor: Double {
         get { totalRodeMeters + loaMeters }
     }
-    
-    var anchor: Anchor?
     
     init(uuid: UUID = UUID(), name: String = "", loaMeters: Double, rodeMeters: Double, location: Location, isAnchored: Bool = false, anchor: Anchor? = nil) {
         self.uuid = uuid
@@ -51,33 +50,6 @@ final class Vessel {
         self.isAnchored = isAnchored
         self.anchor = anchor
     }
-    
-//    enum CodingKeys : CodingKey {
-//        case uuid, name, loaMeters, rodeMeters, location, isAnchored, anchor
-//    }
-//    
-//    init(from decoder: Decoder) throws {
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        self.uuid = try container.decode(UUID.self, forKey: .uuid)
-//        self.name = try container.decode(String.self, forKey: .name)
-//        self.loaMeters = try container.decode(Double.self, forKey: .loaMeters)
-//        self.totalRodeMeters = try container.decode(Double.self, forKey: .rodeMeters)
-//        self.location = try container.decode(Location.self, forKey: .location)
-//        self.isAnchored = try container.decode(Bool.self, forKey: .isAnchored)
-//        self.anchor = try container.decodeIfPresent(Anchor.self, forKey: .anchor)
-//    }
-//    
-//    func encode(to encoder: Encoder) throws {
-//        var container = encoder.container(keyedBy: CodingKeys.self)
-//        try container.encode(uuid, forKey: .uuid)
-//        try container.encode(name, forKey: .name)
-//        try container.encode(loaMeters, forKey: .loaMeters)
-//        try container.encode(totalRodeMeters, forKey: .rodeMeters)
-//        try container.encode(location, forKey: .location)
-//        try container.encode(isAnchored, forKey: .isAnchored)
-//        try container.encodeIfPresent(anchor, forKey: .anchor)
-//    }
-    
 }
 
 //extension Vessel : Equatable, Identifiable, Hashable {

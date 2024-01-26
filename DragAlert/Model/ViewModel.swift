@@ -96,7 +96,7 @@ import SwiftUI
         if let vessel = myVessel {
             vessel.location = location
             if( vessel.isAnchored ) {
-                vessel.anchor?.update(log: location)
+                vessel.anchor?.update(location: location)
                 vessel.anchor?.triggerAlarmIfDragging()
             } else {
                 Alarm.instance.stopPlaying()

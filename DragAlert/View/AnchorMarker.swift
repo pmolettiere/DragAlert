@@ -40,25 +40,39 @@ struct AnchorMarker: MapContent {
         // anchor icon accuracy circle
         MapCircle(center: model.getAnchorLocation().clLocation.coordinate, radius: model.getAnchorLocation().hAccuracy)
             .foregroundStyle(.yellow.opacity(0.2))
-
-        // alarm radius
-        MapCircle(center: model.getAnchorLocation().clLocation.coordinate, radius: model.getAlarmRadius())
-            .stroke(Color.red)
-            .stroke(lineWidth: CGFloat(3))
-            .foregroundStyle(.yellow.opacity(0.2))
         
         // rode radius
         MapCircle(center: model.getAnchorLocation().clLocation.coordinate, radius: model.getRodeLengthMeters())
-            .stroke(Color.yellow.opacity(0.4))
+            .stroke(Color.green.opacity(0.4))
             .stroke(lineWidth: CGFloat(2))
             .foregroundStyle(.blue.opacity(0.1))
         
+        // alarm radius
+        MapCircle(center: model.getAnchorLocation().clLocation.coordinate, radius: model.getAlarmRadius())
+            .stroke(Color.green)
+            .stroke(lineWidth: CGFloat(3))
+            .foregroundStyle(.green.opacity(0.2))
+
+        // error radius
+        MapCircle(center: model.getAnchorLocation().clLocation.coordinate, radius: model.getMaxErrorRadiusMeters())
+            .stroke(Color.red)
+            .stroke(lineWidth: CGFloat(3))
+            .foregroundStyle(.yellow.opacity(0.2))
+
         // list of swing locations
         if( model.getLocationLog().count > 0 ) {
-            ForEach( model.getLocationLog(), id: \.timestamp ) { log in
-                MapCircle(center: log.clLocation.coordinate, radius: log.clLocation.horizontalAccuracy)
-                    .foregroundStyle(.indigo.opacity( 0.8 / log.clLocation.horizontalAccuracy ))
+            ForEach( model.getLocationLog(), id: \.clLocation ) { log in
+                BucketView(location: log)
             }
         }
+    }
+}
+
+struct BucketView : MapContent {
+    @State var location : Location
+    
+    var body : some MapContent {
+        MapCircle(center: location.clLocation.coordinate, radius: location.clLocation.horizontalAccuracy)
+            .foregroundStyle(.blue.opacity(location.altitude / 400))
     }
 }

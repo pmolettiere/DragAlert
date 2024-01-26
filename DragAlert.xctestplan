@@ -1,0 +1,56 @@
+{
+  "configurations" : [
+    {
+      "id" : "2DB76758-A11E-4777-B6B0-7590BFA5D9E4",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "commandLineArgumentEntries" : [
+      {
+        "argument" : "-com.apple.CoreData.ConcurrencyDebug 0",
+        "enabled" : false
+      },
+      {
+        "argument" : "-com.apple.CoreData.Logging.stderr 0"
+      },
+      {
+        "argument" : " -com.apple.CoreData.CloudKitDebug 0"
+      }
+    ],
+    "environmentVariableEntries" : [
+      {
+        "key" : "IDELogRedirectionPolicy",
+        "value" : "oslogToStdio"
+      }
+    ],
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:DragAlert.xcodeproj",
+      "identifier" : "9A0D79812B20BC3500E83F11",
+      "name" : "Drag Alert"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:DragAlert.xcodeproj",
+        "identifier" : "9A0D79952B20BC3900E83F11",
+        "name" : "Drag Alert Tests"
+      }
+    },
+    {
+      "enabled" : false,
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:DragAlert.xcodeproj",
+        "identifier" : "9A0D799F2B20BC3900E83F11",
+        "name" : "Drag Alert UITests"
+      }
+    }
+  ],
+  "version" : 1
+}
